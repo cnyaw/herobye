@@ -12,21 +12,49 @@ Talk.OnCreate = function(param)
 end
 
 Talk.OnStep = function(param)
+  if (FadeBgColorTo(param)) then
+    return
+  end
+
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
 
-  StepOneTalk()
+  StepOneTalk(param)
 end
 
-function StepOneTalk()
+function FadeBgColorTo(param)
+  if (nil == param.FadeTo) then
+    return false
+  end
+  param.FadeTo[3] = param.FadeTo[3] + 1
+  local color = param.FadeTo[2]
+  local a,r,g,b = GetARgbFromColor(color)
+  local ba,br,bg,bb = GetARgbFromColor(param.FadeTo[4])
+  local t = param.FadeTo[3] / param.FadeTo[1]
+  local na = Lerp(ba, a, t)
+  local nr = Lerp(br, r, t)
+  local ng = Lerp(bg, g, t)
+  local nb = Lerp(bb, b, t)
+  Good.SetBgColor(param._id, GetColorFromARgb(na, nr, ng, nb))
+  if (param.FadeTo[3] >= param.FadeTo[1]) then
+    param.FadeTo = nil
+    return false
+  else
+    return true
+  end
+end
+
+function StepOneTalk(param)
   local talk = GetCurrTalk(curr_talk_id)
   if (nil ~= talk.Image) then
     Good.KillAllChild(image_pos_dummy_id)
-    local o = Good.GenObj(image_pos_dummy_id, talk.Image)
-    local l,t,w,h = Good.GetDim(o)
-    Good.SetPos(o, (SCR_W - w)/2, 0)
-    StepOneTalk()
+    if (-1 ~= talk.Image) then
+      local o = Good.GenObj(image_pos_dummy_id, talk.Image)
+      local l,t,w,h = Good.GetDim(o)
+      Good.SetPos(o, (SCR_W - w)/2, 0)
+    end
+    StepOneTalk(param)
   elseif (nil ~= talk.Text) then
     if (nil ~= talk_mess_obj) then
       Good.KillObj(talk_mess_obj)
@@ -43,6 +71,11 @@ function StepOneTalk()
     Good.GenObj(-1, talk.LevelId)
   elseif (nil ~= talk.Script) then
     talk.Script()
-    StepOneTalk()
+    StepOneTalk(param)
+  elseif (nil ~= talk.FadeTo) then
+    param.FadeTo = {unpack(talk.FadeTo)}
+    param.FadeTo[3] = 0                 -- Init timer.
+    param.FadeTo[4] = Good.GetBgColor(param._id) -- Save curr bgcolor.
+    StepOneTalk(param)
   end
 end

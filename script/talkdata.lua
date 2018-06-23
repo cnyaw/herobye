@@ -104,7 +104,10 @@ TalkData = {
  [1153] = {Text = '請到後面讓專人為你馬一下'},
  [1154] = {Text = '好好休息休息'},
  [1155] = {Script = ScriptTransMailToPriest},
- [1156] = {LevelId = MAIN_MAP_LVL_ID},
+ [1156] = {Image = -1},
+ [1157] = {FadeTo = {60, 0xff000000}},
+ [1158] = {Text = '好舒服啊快睡著了'},
+ [1159] = {LevelId = MAIN_MAP_LVL_ID},
  -- Temple, site prepare.
  [1200] = {Image = pinnote_tex_id1},
  [1201] = {Text = '整備中'},
