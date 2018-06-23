@@ -109,7 +109,7 @@ TalkData = {
  [1158] = {Text = '好舒服啊快睡著了'},
  [1159] = {LevelId = MAIN_MAP_LVL_ID},
  -- Temple, site prepare.
- [1200] = {Image = pinnote_tex_id1},
+ [1200] = {Image = pinnote_tex_id},
  [1201] = {Text = '整備中'},
  [1202] = {LevelId = MAIN_MAP_LVL_ID},
 }
