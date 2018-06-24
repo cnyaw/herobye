@@ -11,7 +11,7 @@ BegMoney.OnCreate = function(param)
   param.user = {}
   local w, h = Resource.GetTexSize(user_tex_id)
   for i = 1, MAX_USER do
-    local o = Good.GenObj(-1, user_tex_id, 'BegMoneyUser')
+    local o = Good.GenObj(-1, user_tex_id, 'BouncingObj')
     local x = math.random(SCR_W - w)
     local y = math.random(SCR_H - h)
     Good.SetPos(o, x, y)
@@ -23,34 +23,6 @@ end
 
 BegMoney.OnStep = function(param)
   param.step(param)
-end
-
-BegMoneyUser = {}
-
-BegMoneyUser.OnCreate = function(param)
-  param.dirx = 1
-  if (math.random(2) == 1) then
-    param.dirx = -1 * param.dirx
-  end
-  param.diry = 1
-  if (math.random(2) == 1) then
-    param.diry = -1 * param.diry
-  end
-end
-
-BegMoneyUser.OnStep = function(param)
-  local id = param._id
-  local x,y = Good.GetPos(id)
-  x = x + param.dirx
-  y = y + param.diry
-  Good.SetPos(id, x, y)
-  local l,t,w,h = Good.GetDim(id)
-  if (SCR_W <= x + w or 0 >= x) then
-    param.dirx = -1 * param.dirx
-  end
-  if (SCR_H <= y + h or 0 >= y) then
-    param.diry = -1 * param.diry
-  end
 end
 
 BegMoneyBou = {}

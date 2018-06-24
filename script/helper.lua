@@ -1,3 +1,5 @@
+local SCR_W, SCR_H = Good.GetWindowSize()
+
 local MAX_CLICK_LEVEL = 3
 local MAX_STICK_LEVEL = 3
 local TIME_TRAINING_CD = 3
@@ -33,7 +35,7 @@ curr_stage_id = {                       -- [obj_id] = quest_id
   [291] = 3000,                         -- Main map, village.
   [309] = 4000,                         -- Main map, church.
   [299] = 5000,                         -- Main map, bag.
-  [315] = 8000                          -- Temple site.
+  [315] = 8000                          -- Main map, temple site.
 }
 
 -- Training.
@@ -77,6 +79,20 @@ function GenAnimCoinObj(s)
   Good.SetPos(o, x + (w - w2)/2, y)
 end
 
+function GenNumObj(n, size)
+  local s = string.format('%d', n)
+  local o = Good.GenTextObj(-1, s, size)
+  return o
+end
+
+function GenSandGlassObj(cd)
+  local o = Good.GenObj(-1, tex_sandglass_id, 'AnimSandGlass')
+  Good.SetAnchor(o, 0.5, 0.5)
+  local p = Good.GetParam(o)
+  p.cd = cd
+  return o
+end
+
 function GetCurrBouGain()
   if (HasBou3()) then
     return 5
@@ -107,20 +123,6 @@ end
 
 function GetMail()
   return flag_mail
-end
-
-function GenNumObj(n, size)
-  local s = string.format('%d', n)
-  local o = Good.GenTextObj(-1, s, size)
-  return o
-end
-
-function GenSandGlassObj(cd)
-  local o = Good.GenObj(-1, tex_sandglass_id, 'AnimSandGlass')
-  Good.SetAnchor(o, 0.5, 0.5)
-  local p = Good.GetParam(o)
-  p.cd = cd
-  return o
 end
 
 function HasBou2()
@@ -262,5 +264,35 @@ function UpdateTrainingCd()
         training.cd = training.cd - 1
       end
     end
+  end
+end
+
+-- Obj.
+
+BouncingObj = {}
+
+BouncingObj.OnCreate = function(param)
+  param.dirx = 1
+  if (math.random(2) == 1) then
+    param.dirx = -1 * param.dirx
+  end
+  param.diry = 1
+  if (math.random(2) == 1) then
+    param.diry = -1 * param.diry
+  end
+end
+
+BouncingObj.OnStep = function(param)
+  local id = param._id
+  local x,y = Good.GetPos(id)
+  x = x + param.dirx
+  y = y + param.diry
+  Good.SetPos(id, x, y)
+  local l,t,w,h = Good.GetDim(id)
+  if (SCR_W <= x + w or 0 >= x) then
+    param.dirx = -1 * param.dirx
+  end
+  if (SCR_H <= y + h or 0 >= y) then
+    param.diry = -1 * param.diry
   end
 end
