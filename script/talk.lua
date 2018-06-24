@@ -39,6 +39,7 @@ function FadeBgColorTo(param)
   Good.SetBgColor(param._id, GetColorFromARgb(na, nr, ng, nb))
   if (param.FadeTo[3] >= param.FadeTo[1]) then
     param.FadeTo = nil
+    StepOneTalk(param)
     return false
   else
     return true
@@ -60,6 +61,10 @@ function StepOneTalk(param)
       Good.KillObj(talk_mess_obj)
       talk_mess_obj = nil
     end
+    if (0 >= string.len(talk.Text)) then
+      StepOneTalk(param)
+      return
+    end
     talk_mess_obj = Good.GenTextObj(-1, talk.Text, 40)
     local w = GetTextObjWidth(talk_mess_obj)
     Good.SetPos(talk_mess_obj, (SCR_W - w)/2, 270)
@@ -76,6 +81,5 @@ function StepOneTalk(param)
     param.FadeTo = {unpack(talk.FadeTo)}
     param.FadeTo[3] = 0                 -- Init timer.
     param.FadeTo[4] = Good.GetBgColor(param._id) -- Save curr bgcolor.
-    StepOneTalk(param)
   end
 end
