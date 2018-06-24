@@ -26,6 +26,7 @@ HelpPinky.OnStep = function(param)
   local x, y = Input.GetMousePos()
   for i = 1, MAX_JOHN do
     if (nil ~= param.john[i] and PtInObj(x, y, param.john[i])) then
+      GenFlyUpObj(param.john[i], john_tex_id)
       param.hit = param.hit + 1
       Good.KillObj(param.john[i])
       param.john[i] = nil
