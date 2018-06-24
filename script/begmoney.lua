@@ -3,6 +3,7 @@ local MAX_USER = 5
 local MAX_BOA_BEG_TIME = 30
 
 local user_tex_id = 296
+local coin_tex_id = 285
 
 BegMoney = {}
 
@@ -65,7 +66,7 @@ end
 function BeggingMoney(x, y, param)
   for i = 1, MAX_USER do
     if (nil ~= param.user[i] and PtInObj(x, y, param.user[i])) then
-      GenAnimCoinObj(param.user[i])
+      GenFlyUpObj(param.user[i], coin_tex_id)
       param.hit = param.hit + 1
       Good.KillObj(param.user[i])
       param.user[i] = nil

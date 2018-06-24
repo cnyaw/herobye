@@ -3,15 +3,16 @@ function AcKillAnimObj(param)
   Good.KillObj(param._id)
 end
 
-AnimBegMoney = {}
+AnimFlyUpObj = {}
 
-AnimBegMoney.OnStep = function(param)
+AnimFlyUpObj.OnStep = function(param)
   if (nil == param.k) then
     local loop1 = ArAddLoop(nil)
     ArAddMoveBy(loop1, 'Pos', 0.25, 0, -20)
     ArAddCall(loop1, 'AcKillAnimObj', 0)
     local loop2 = ArAddLoop(nil)
-    ArAddMoveBy(loop2, 'Alpha', 0.25, 0)
+    ArAddDelay(loop2, 0.1)
+    ArAddMoveTo(loop2, 'Alpha', 0.15, 0)
     param.k = ArAddAnimator({loop1, loop2})
   else
     ArStepAnimator(param, param.k)

@@ -9,7 +9,6 @@ local CHURCH_RECV_MAIL_COST = 100
 local tex_sandglass_id = 273
 local map_brother1_obj_id = 282
 local map_brother2_obj_id = 283
-local coin_tex_id = 285
 local red_point_tex_id = 313
 
 local teacher_init_talk_id = 1
@@ -71,10 +70,10 @@ function AllTrainingComplete()
   return true
 end
 
-function GenAnimCoinObj(s)
-  local x, y = Good.GetPos(s)
-  local l,t,w,h = Good.GetDim(s)
-  local o = Good.GenObj(-1, coin_tex_id, 'AnimBegMoney')
+function GenFlyUpObj(parent, tex_id)
+  local x, y = Good.GetPos(parent)
+  local l,t,w,h = Good.GetDim(parent)
+  local o = Good.GenObj(-1, tex_id, 'AnimFlyUpObj')
   local l2,t2,w2,h2 = Good.GetDim(o)
   Good.SetPos(o, x + (w - w2)/2, y)
 end
