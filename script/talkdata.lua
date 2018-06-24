@@ -1,4 +1,6 @@
 
+local help_pinky_lvl_id = 318
+
 local brother1_tex_id = 280
 local brother2_tex_id = 281
 local merchant_tex_id = 305
@@ -125,7 +127,7 @@ TalkData = {
     {Text = '小秋徒兒你回來的正好'},
     {Image = LETTER_TEX_ID},
     {Text = '將這封信送到山下教堂給吳神父'},
-    {Text = '吳神父是我的老朋友了'},
+    {Text = '吳神父是我的老朋友'},
     {Text = '將這封信交給他後有人會招待你'},
     {Text = '你就好好體驗一下'},
     {Script = ScriptSendTeacherMail},
@@ -158,18 +160,27 @@ TalkData = {
     {Text = '「你在後面掩護我」'},
     {Image = pinky_tex_id},
     {Text = '「豬小妹原來是妳啊！」'},
-    {Text = '「豬小妹妳怎麼了？」'},
+    {Text = '「豬小妹豬小妹妳怎麼了？」'},
     {Text = '救命啊有小強啊！'},
     {Image = dog_tex_id},
     {Text = '「來啊！進攻！」'},
-    {Text = ''},
-    {Image = -1},
-    {FadeTo = {60, 0xff000000}},
-    {FadeTo = {60, 0xff808000}},
+    {LevelId = help_pinky_lvl_id},
+  },
+  [1151] = {
     {Image = pinky_tex_id},
     {Text = '謝謝你小白^^'},
     {Text = '「呵呵呵我是勇者小白!」'},
     {Text = '「我的任務是維護世界的和平！」'},
+    {Text = ''},
+    {Image = -1},
+    {FadeTo = {60, 0xff000000}},
+    {FadeTo = {60, 0xff808000}},
+    {Image = priest_tex_id},
+    {Text = '小兄弟你醒啦'},
+    {Text = '看你睡的那麼熟應該休息夠了吧'},
+    {Text = '以後累了歡迎再來馬殺雞哦'},
+    {Image = -1},
+    {Text = '「原來是個夢」'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
   -- Temple, site prepare.

@@ -2,10 +2,10 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316
+texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317
 maps=22 16
 sprites=67 86
-levels=275 271 295 268 287 293 300 0 10 19 83
+levels=275 271 295 268 287 293 300 318 0 10 19 83
 
 [scripts]
 306=./script/const.lua
@@ -22,6 +22,7 @@ levels=275 271 295 268 287 293 300 0 10 19 83
 289=./script/mainmap.lua
 294=./script/begmoney.lua
 302=./script/bag.lua
+319=./script/helppinky.lua
 
 [tex1]
 name=tree1
@@ -195,6 +196,10 @@ fileName=./res/underctor.png
 name=pinky
 fileName=./res/pinky.png
 
+[tex317]
+name=john
+fileName=./res/john.png
+
 [map22]
 name=town
 width=120
@@ -362,6 +367,11 @@ dim=0 0 32 32
 name=bag
 bgColor=128 128 0
 script=BagScene
+
+[level318]
+name=help pinky
+bgColor=128 128 0
+script=HelpPinky
 
 [level0]
 name=title_old
