@@ -3,11 +3,13 @@ local image_pos_dummy_id = 284
 local arrow_tex_id = 261
 
 local talk_mess_obj = nil
+local talk_index = nil
 
 Talk = {}
 
 Talk.OnCreate = function(param)
   talk_mess_obj = nil
+  talk_index = 1
   StepOneTalk()
 end
 
@@ -47,7 +49,9 @@ function FadeBgColorTo(param)
 end
 
 function StepOneTalk(param)
-  local talk = GetCurrTalk(curr_talk_id)
+  local talk_tbl = GetCurrTalk()
+  local talk = talk_tbl[talk_index]
+  talk_index = talk_index + 1
   if (nil ~= talk.Image) then
     Good.KillAllChild(image_pos_dummy_id)
     if (-1 ~= talk.Image) then

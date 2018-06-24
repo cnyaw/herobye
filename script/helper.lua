@@ -97,14 +97,8 @@ function GetCurrBouTexId()
   return BOU_TEX_ID
 end
 
-function GetCurrTalk(talk_id)
-  local talk = TalkData[talk_id[1]]
-  if (nil ~= talk.Next) then
-    talk_id[1] = talk.Next
-  elseif (nil == talk.LevelId) then
-    talk_id[1] = talk_id[1] + 1
-  end
-  return talk
+function GetCurrTalk()
+  return TalkData[curr_talk_id[1]]
 end
 
 function GetBouLv()
