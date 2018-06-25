@@ -80,6 +80,7 @@ TrainingStick.OnStep = function(param)
   local x, y = Input.GetMousePos()
   for i = 1, MAX_STICK do
     if (nil ~= param.stick[i] and PtInObj(x, y, param.stick[i])) then
+      GenFlyUpObj(param.stick[i], tex_stick_id)
       param.hit = param.hit + 1
       Good.KillObj(param.stick[i])
       param.stick[i] = nil
