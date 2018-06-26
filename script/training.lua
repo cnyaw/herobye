@@ -69,29 +69,12 @@ TrainingStick.OnCreate = function(param)
     Good.SetPos(o, x, y)
     param.stick[i] = o
   end
+  param.step = TrainingStickOnStepPlay
 end
 
 TrainingStick.OnStep = function(param)
   UpdateTrainingCd()
-  if (not Input.IsKeyPushed(Input.LBUTTON)) then
-    return
-  end
-
-  local x, y = Input.GetMousePos()
-  for i = 1, MAX_STICK do
-    if (nil ~= param.stick[i] and PtInObj(x, y, param.stick[i])) then
-      GenFlyUpObj(param.stick[i], tex_stick_id)
-      param.hit = param.hit + 1
-      Good.KillObj(param.stick[i])
-      param.stick[i] = nil
-      if (MAX_STICK == param.hit) then
-        AdvanceTrainingLevel(stick_training)
-        SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
-        return
-      end
-      break
-    end
-  end
+  param.step(param)
 end
 
 function GenTrainingNumInfoObj(n)
@@ -118,5 +101,34 @@ function GenTrainingObj(training)
     local l,t,w2,h2 = Good.GetDim(sand_obj)
     local ox = x + (w * sx - w2)/2
     Good.SetPos(sand_obj, ox, SCR_H - 100)
+  end
+end
+
+function TrainingStickOnStepEnd(param)
+  if (not WaitTimer(param, 40)) then
+    return
+  end
+  AdvanceTrainingLevel(stick_training)
+  SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
+end
+
+function TrainingStickOnStepPlay(param)
+  if (not Input.IsKeyPushed(Input.LBUTTON)) then
+    return
+  end
+
+  local x, y = Input.GetMousePos()
+  for i = 1, MAX_STICK do
+    if (nil ~= param.stick[i] and PtInObj(x, y, param.stick[i])) then
+      GenFlyUpObj(param.stick[i], tex_stick_id)
+      param.hit = param.hit + 1
+      Good.KillObj(param.stick[i])
+      param.stick[i] = nil
+      if (MAX_STICK == param.hit) then
+        param.step = TrainingStickOnStepEnd
+        return
+      end
+      break
+    end
   end
 end

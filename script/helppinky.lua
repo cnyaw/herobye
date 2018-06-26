@@ -16,9 +16,23 @@ HelpPinky.OnCreate = function(param)
     Good.SetPos(o, x, y)
     param.john[i] = o
   end
+  param.step = HelpPinkyOnStepPlay
 end
 
 HelpPinky.OnStep = function(param)
+  param.step(param)
+end
+
+
+HelpPinkyOnStepEnd = function(param)
+  if (not WaitTimer(param, 40)) then
+    return
+  end
+  curr_talk_id = {1151}
+  Good.GenObj(-1, TALK_LVL_ID)
+end
+
+HelpPinkyOnStepPlay = function(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -31,8 +45,7 @@ HelpPinky.OnStep = function(param)
       Good.KillObj(param.john[i])
       param.john[i] = nil
       if (MAX_JOHN == param.hit) then
-        curr_talk_id = {1151}
-        Good.GenObj(-1, TALK_LVL_ID)
+        param.step = HelpPinkyOnStepEnd
         return
       end
       break
