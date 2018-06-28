@@ -15,6 +15,7 @@ local teacher_init_talk_id = 1
 
 BOU2_COST = 10
 BOU3_COST = 30
+REST_COST = 5
 
 -- Data.
 
@@ -98,6 +99,10 @@ function AllTrainingComplete()
     end
   end
   return true
+end
+
+function ConsumeRestCost()
+  curr_coin = curr_coin - REST_COST
 end
 
 function GenFlyUpObj(parent, tex_id)
@@ -186,6 +191,10 @@ function IsClickTrainingValid()
   return 0 >= click_training.cd
 end
 
+function IsRestValid()
+  return REST_COST <= curr_coin
+end
+
 function IsSendTeacherMailValid()
   return 0 == flag_mail and HasBou3() and OPEN_CHURCH_COST <= curr_coin
 end
@@ -204,6 +213,10 @@ end
 
 function MailSent()
   return 2 == flag_mail
+end
+
+function NotRestValid()
+  return not IsRestValid()
 end
 
 function QuestOnCreate(lvl_id)

@@ -186,6 +186,21 @@ TalkData = {
     {Text = '「原來是個夢」'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
+  [1152] = {
+    {Image = priest_tex_id},
+    {Text = '你累了嗎'},
+    {Text = string.format('低消%d錢哦', REST_COST)},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
+  [1153] = {
+    {Image = priest_tex_id},
+    {Text = '來抓個龍吧'},
+    {Script = ConsumeRestCost},
+    {Image = -1},
+    {Text = ''},
+    {FadeTo = {60, 0xff000000}},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
   -- Temple, site prepare.
   [1200] = {
     {Image = pinnote_tex_id},
