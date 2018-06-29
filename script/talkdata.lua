@@ -199,7 +199,7 @@ TalkData = {
     {Image = -1},
     {Text = ''},
     {FadeTo = {60, 0xff000000}},
-    {LevelId = MAIN_MAP_LVL_ID},
+    {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Temple, site prepare.
   [1200] = {

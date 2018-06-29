@@ -5,7 +5,7 @@ window=640 384
 texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317
 maps=22 16
 sprites=67 86
-levels=275 271 295 268 287 293 300 318 0 10 19 83
+levels=275 271 295 268 287 293 300 318 320 0 10 19 83
 
 [scripts]
 306=./script/const.lua
@@ -306,14 +306,14 @@ objects=288 291 286 299 312 309 315
 [object288]
 name=hero mount
 texture=31
-x=64
+x=80
 y=48
 dim=0 0 90 90
 
 [object291]
 name=village
 texture=290
-x=240
+x=256
 y=160
 dim=0 0 95 63
 
@@ -334,21 +334,21 @@ dim=0 0 90 65
 [object312]
 name=shop
 texture=311
-x=64
+x=80
 y=240
 dim=0 0 81 90
 
 [object309]
 name=church
 texture=23
-x=432
+x=448
 y=48
 dim=0 0 71 99
 
 [object315]
 name=site
 texture=310
-x=432
+x=448
 y=240
 dim=0 0 90 90
 
@@ -372,6 +372,46 @@ script=BagScene
 name=help pinky
 bgColor=128 128 0
 script=HelpPinky
+
+[level320]
+name=hero village
+bgColor=128 128 0
+objects=321 322 323 324 325
+
+[object321]
+name=church
+texture=23
+x=272
+y=144
+dim=0 0 71 99
+
+[object322]
+name=shop
+texture=311
+x=64
+y=240
+dim=0 0 81 90
+
+[object323]
+name=Hero Home
+texture=8
+x=464
+y=64
+dim=0 0 82 96
+
+[object324]
+name=Xiang Home
+texture=100
+x=464
+y=240
+dim=0 0 95 100
+
+[object325]
+name=Zhang home
+texture=98
+x=64
+y=64
+dim=0 0 100 100
 
 [level0]
 name=title_old
