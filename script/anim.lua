@@ -3,6 +3,24 @@ function AcKillAnimObj(param)
   Good.KillObj(param._id)
 end
 
+AnimClickFish = {}
+
+AnimClickFish.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveTo(loop1, 'Scale', 0.5, 2.5, 2.5)
+    ArAddCall(loop1, 'AcKillAnimObj', 0)
+    local loop2 = ArAddLoop(nil)
+    ArAddDelay(loop2, 0.1)
+    ArAddMoveTo(loop2, 'Alpha', 0.4, 0)
+    local loop3 = ArAddLoop(nil)
+    ArAddMoveBy(loop3, 'Rot', 0.2, 90)
+    param.k = ArAddAnimator({loop1, loop2, loop3})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
 AnimFlyUpObj = {}
 
 AnimFlyUpObj.OnStep = function(param)

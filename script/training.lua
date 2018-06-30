@@ -3,7 +3,8 @@ local MAX_CLICK = 5
 local MAX_STICK = 5
 
 local click_fish_obj_id = 269
-local tex_stick_id = 292
+local stick_tex_id = 292
+local circle_tex_id = 326
 
 local hit_obj = nil
 
@@ -32,16 +33,30 @@ TrainingClick = {}
 TrainingClick.OnCreate = function(param)
   param.hit = 0
   hit_obj = GenTrainingNumInfoObj(MAX_CLICK - param.hit)
+  param.step = TrainingClickOnStepPlay
 end
 
 TrainingClick.OnStep = function(param)
   UpdateTrainingCd()
+  param.step(param)
+end
+
+function TrainingClickOnStepEnd(param)
+  if (not WaitTimer(param, 40)) then
+    return
+  end
+  AdvanceTrainingLevel(click_training)
+  SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
+end
+
+function TrainingClickOnStepPlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
 
   local x, y = Input.GetMousePos()
   if (PtInObj(x, y, click_fish_obj_id)) then
+    GenClickFishEffect()
     param.hit = param.hit + 1
     if (nil ~= hit_obj) then
       Good.KillObj(hit_obj)
@@ -49,8 +64,7 @@ TrainingClick.OnStep = function(param)
     end
     hit_obj = GenTrainingNumInfoObj(MAX_CLICK - param.hit)
     if (MAX_CLICK == param.hit) then
-      AdvanceTrainingLevel(click_training)
-      SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
+      param.step = TrainingClickOnStepEnd
       return
     end
   end
@@ -61,9 +75,9 @@ TrainingStick = {}
 TrainingStick.OnCreate = function(param)
   param.hit = 0
   param.stick = {}
-  local w, h = Resource.GetTexSize(tex_stick_id)
+  local w, h = Resource.GetTexSize(stick_tex_id)
   for i = 1, MAX_STICK do
-    local o = Good.GenObj(-1, tex_stick_id)
+    local o = Good.GenObj(-1, stick_tex_id)
     local x = math.random(SCR_W - w)
     local y = math.random(SCR_H - h)
     Good.SetPos(o, x, y)
@@ -75,6 +89,16 @@ end
 TrainingStick.OnStep = function(param)
   UpdateTrainingCd()
   param.step(param)
+end
+
+function GenClickFishEffect()
+  local o = Good.GenObj(-1, circle_tex_id, 'AnimClickFish')
+  Good.SetAnchor(o, 0.5, 0.5)
+  Good.SetScale(o, 0, 0)
+  local x, y = Good.GetPos(click_fish_obj_id)
+  local l,t,w,h = Good.GetDim(click_fish_obj_id)
+  local l2,t2,w2,h2 = Good.GetDim(o)
+  Good.SetPos(o, x + (w - w2)/2, y + (h - h2)/2)
 end
 
 function GenTrainingNumInfoObj(n)
@@ -120,7 +144,7 @@ function TrainingStickOnStepPlay(param)
   local x, y = Input.GetMousePos()
   for i = 1, MAX_STICK do
     if (nil ~= param.stick[i] and PtInObj(x, y, param.stick[i])) then
-      GenFlyUpObj(param.stick[i], tex_stick_id)
+      GenFlyUpObj(param.stick[i], stick_tex_id)
       param.hit = param.hit + 1
       Good.KillObj(param.stick[i])
       param.stick[i] = nil
