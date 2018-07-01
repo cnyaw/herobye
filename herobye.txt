@@ -2,7 +2,7 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327
+texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329
 maps=22 16
 sprites=67 86
 levels=275 271 295 268 287 293 300 318 320 0 10 19 83
@@ -23,6 +23,7 @@ levels=275 271 295 268 287 293 300 318 320 0 10 19 83
 294=./script/begmoney.lua
 302=./script/bag.lua
 319=./script/helppinky.lua
+328=./script/herovillage.lua
 
 [tex1]
 name=tree1
@@ -208,6 +209,10 @@ fileName=./res/circle.png
 name=grandpa
 fileName=./res/grandpa.png
 
+[tex329]
+name=zhang mama
+fileName=./res/zhangmama.png
+
 [map22]
 name=town
 width=120
@@ -384,6 +389,7 @@ script=HelpPinky
 [level320]
 name=hero village
 bgColor=128 128 0
+script=HeroVillage
 objects=321 322 323 324 325
 
 [object321]

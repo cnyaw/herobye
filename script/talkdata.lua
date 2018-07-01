@@ -10,6 +10,7 @@ local teacher_tex_id = 276
 local dog_tex_id = 2
 local pinky_tex_id = 316
 local grandpa_tex_id = 327
+local zhang_mama_tex_id = 329
 
 teacher_done_talk_id = 50
 
@@ -150,6 +151,7 @@ TalkData = {
     {Text = 'ZZZ ZZZ ZZZ'},
     {Text = '救命啊'},
     {Text = '來人啊'},
+    {Text = ''},
     {FadeTo = {60, 0xff808000}},
     {Text = '救命啊'},
     {Text = '來人啊'},
@@ -198,6 +200,7 @@ TalkData = {
     {FadeTo = {60, 0xff000000}},
     {Text = '「好舒服啊快要睡著了」'},
     {Text = 'ZZZ ZZZ ZZZ'},
+    {Text = ''},
     {FadeTo = {60, 0xff808000}},
     {Image = grandpa_tex_id},
     {Text = '「爺爺爺爺」'},
@@ -246,6 +249,39 @@ TalkData = {
   [1200] = {
     {Image = pinnote_tex_id},
     {Text = '整備中'},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
+  -- Hero village, church.
+  [9000] = {
+    {Image = grandpa_tex_id},
+    {Text = '不要太調皮哦'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  -- Hero village, Zhang home.
+  [10000] = {
+    {Image = zhang_mama_tex_id},
+    {Text = '每天都要洗好多衣服啊'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  -- Hero village, Shop.
+  [11000] = {
+    {Image = merchant_tex_id},
+    {Text = '隨便看看有趣興再買'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  -- Hero village, Xiang home.
+  [12000] = {
+    {Image = pinky_tex_id},
+    {Text = '小白要跟我一起玩哦'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  -- Hero village, hero home.
+  [13000] = {
+    {Text = '「維護世界的和平也是挺累的」'},
+    {Text = '「讓我睡一下下吧」'},
+    {Image = -1},
+    {Text = ''},
+    {FadeTo = {60, 0xff000000}},
     {LevelId = MAIN_MAP_LVL_ID},
   },
 }

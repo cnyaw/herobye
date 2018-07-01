@@ -29,14 +29,22 @@ local flag_mail = 0
 curr_talk_id = {teacher_init_talk_id}
 
 curr_stage_id = {                       -- [obj_id] = quest_id
-  [282] = 6000,                         -- Training map, brother 1.
-  [283] = 7000,                         -- Training map, brother 2.
-  [288] = 1000,                         -- Main map, hero mt.
-  [312] = 2000,                         -- Main map, shop.
-  [291] = 3000,                         -- Main map, village.
-  [309] = 4000,                         -- Main map, church.
-  [299] = 5000,                         -- Main map, bag.
-  [315] = 8000                          -- Main map, temple site.
+  -- Training map.
+  [282] = 6000,                         -- Brother 1.
+  [283] = 7000,                         -- Brother 2.
+  -- Main map.
+  [288] = 1000,                         -- Hero mt.
+  [312] = 2000,                         -- Shop.
+  [291] = 3000,                         -- Village.
+  [309] = 4000,                         -- Church.
+  [299] = 5000,                         -- Bag.
+  [315] = 8000,                         -- Temple site.
+  -- Hero village.
+  [321] = 9000,                         -- Church.
+  [325] = 10000,                        -- Zhang home.
+  [322] = 11000,                        -- Shop.
+  [323] = 12000,                        -- Xiang home.
+  [324] = 13000,                        -- Hero home.
 }
 
 -- Training.
