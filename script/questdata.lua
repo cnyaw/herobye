@@ -18,8 +18,10 @@ QuestData = {
   -- Main map, church.
   [4000] = {TalkId = {1000}, NextCond = IsChurchRecvMailValid, NextId = 4001},
   [4001] = {TalkId = {1150}, RedPt = 1, NextId = 4002},
-  [4002] = {TalkId = {1152}, NextCond = IsRestValid, NextId = 4003},
-  [4003] = {TalkId = {1153}, NextCond = NotRestValid, NextId = 4002},
+  [4002] = {TalkId = {1000}, NextCond = IsChurch2ndDreamValid, NextId = 4003},
+  [4003] = {TalkId = {1152}, RedPt = 1, NextId = 4004},
+  [4004] = {TalkId = {1153}, NextCond = IsRestValid, NextId = 4005},
+  [4005] = {TalkId = {1154}, NextCond = NotRestValid, NextId = 4004},
   -- Main map, bag.
   [5000] = {LevelId = bag_lvl_id, IconId = {277}, NextCond = HasBou2, NextId = 5001},
   [5001] = {LevelId = bag_lvl_id, IconId = {303}, NextCond = HasBou2, RedPt = 1, NextId = 5002},

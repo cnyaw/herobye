@@ -2,7 +2,7 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326
+texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327
 maps=22 16
 sprites=67 86
 levels=275 271 295 268 287 293 300 318 320 0 10 19 83
@@ -204,6 +204,10 @@ fileName=./res/john.png
 name=circle
 fileName=./res/circle.png
 
+[tex327]
+name=grandpa
+fileName=./res/grandpa.png
+
 [map22]
 name=town
 width=120
@@ -397,14 +401,14 @@ y=240
 dim=0 0 81 90
 
 [object323]
-name=Hero Home
+name=Xiang Home
 texture=8
 x=464
 y=64
 dim=0 0 82 96
 
 [object324]
-name=Xiang Home
+name=Hero Home
 texture=100
 x=464
 y=240

@@ -4,7 +4,6 @@ local MAX_CLICK_LEVEL = 3
 local MAX_STICK_LEVEL = 3
 local TIME_TRAINING_CD = 3
 local OPEN_CHURCH_COST = 50
-local CHURCH_RECV_MAIL_COST = 100
 
 local tex_sandglass_id = 273
 local map_brother1_obj_id = 282
@@ -15,6 +14,8 @@ local teacher_init_talk_id = 1
 
 BOU2_COST = 10
 BOU3_COST = 30
+CHURCH_RECV_MAIL_COST = 100
+CHURCH_2ND_DREAM_COST = 100
 REST_COST = 5
 
 -- Data.
@@ -101,6 +102,10 @@ function AllTrainingComplete()
   return true
 end
 
+function Consume2ndDreamCost()
+  curr_coin = curr_coin - CHURCH_2ND_DREAM_COST
+end
+
 function ConsumeRestCost()
   curr_coin = curr_coin - REST_COST
 end
@@ -177,6 +182,10 @@ end
 
 function IsBuyBou3Valid()
   return BOU3_COST <= curr_coin
+end
+
+function IsChurch2ndDreamValid()
+  return CHURCH_2ND_DREAM_COST <= curr_coin
 end
 
 function IsChurchRecvMailValid()
@@ -275,6 +284,7 @@ end
 
 function ScriptTransMailToPriest()
   flag_mail = 2
+  curr_coin = curr_coin - CHURCH_RECV_MAIL_COST
 end
 
 function SetNextTrainingLevel(id)
