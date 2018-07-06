@@ -37,6 +37,20 @@ AnimFlyUpObj.OnStep = function(param)
   end
 end
 
+AnimRedPoint = {}
+
+AnimRedPoint.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveBy(loop1, 'Pos', 0.25, 0, -10)
+    ArAddMoveBy(loop1, 'Pos', 0.25, 0, 10).ease = ArEaseOutBounce
+    ArAddDelay(loop1, 1)
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
 AnimSandGlass = {}
 
 AnimSandGlass.OnStep = function(param)
