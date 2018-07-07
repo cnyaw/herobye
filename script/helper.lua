@@ -87,7 +87,7 @@ end
 -- Helper.
 
 function AddRedPoint(parent)
-  local o = Good.GenObj(parent, red_point_tex_id, 'AnimRedPoint')
+  local o = Good.GenObj(parent, red_point_tex_id, 'AnimTalkArrow')
   local l,t,w,h = Good.GetDim(o)
   local lp,tp,wp,hp = Good.GetDim(parent)
   Good.SetPos(o, wp - w/2, hp - h/2)
