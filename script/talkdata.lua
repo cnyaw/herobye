@@ -19,8 +19,8 @@ TalkData = {
   [1] = {
     {Image = teacher_tex_id},
     {Text = '小秋徒兒你來啦！'},
-    {Text = '勇者山上的修行己經告一段落'},
-    {Text = '可以下山磨練磨練了'},
+    {Text = '勇者山上的修行告一段落'},
+    {Text = '你可以下山磨練磨練了'},
     {Text = '作完功課後再來見我吧'},
     {LevelId = TRAINING_MAP_LVL_ID},
   },
@@ -142,7 +142,7 @@ TalkData = {
     {Text = '小兄弟你辛苦了啦'},
     {Text = '從勇者山帶來這封信應該累了吧'},
     {Text = '請到後面讓我們為你馬殺雞'},
-    {Text = string.format('友情價算你%d塊錢就好', CHURCH_RECV_MAIL_COST)},
+    {Text = string.format('友情價算你%d塊錢', CHURCH_RECV_MAIL_COST)},
     {Script = ScriptTransMailToPriest},
     {Image = -1},
     {Text = ''},
@@ -193,7 +193,7 @@ TalkData = {
     {Image = priest_tex_id},
     {Text = '你累了嗎'},
     {Text = '請到後面讓我們為你馬殺雞'},
-    {Text = string.format('友情價算你%d塊錢就好', CHURCH_2ND_DREAM_COST)},
+    {Text = string.format('特價算你%d塊錢', CHURCH_2ND_DREAM_COST)},
     {Script = Consume2ndDreamCost},
     {Image = -1},
     {Text = ''},
@@ -222,8 +222,6 @@ TalkData = {
     {FadeTo = {60, 0xff808000}},
     {Image = priest_tex_id},
     {Text = '小兄弟你醒啦'},
-    {Text = '看你睡的那麼熟'},
-    {Text = '應該休息夠了吧'},
     {Text = '恭喜你成為我們的VIP'},
     {Text = '以後累了歡迎再來抓龍哦'},
     {Image = -1},
@@ -232,7 +230,7 @@ TalkData = {
   },
   [1153] = {
     {Image = priest_tex_id},
-    {Text = '你累了嗎'},
+    {Text = '你累了嗎抓個龍吧'},
     {Text = string.format('VIP特價%d塊錢哦', REST_COST)},
     {LevelId = MAIN_MAP_LVL_ID},
   },
@@ -266,7 +264,7 @@ TalkData = {
   -- Hero village, Shop.
   [11000] = {
     {Image = merchant_tex_id},
-    {Text = '隨便看看有趣興再買'},
+    {Text = '隨便看看有興趣再買哦'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Xiang home.
@@ -282,6 +280,8 @@ TalkData = {
     {Image = -1},
     {Text = ''},
     {FadeTo = {60, 0xff000000}},
+    {FadeTo = {60, 0xff808000}},
+    {Text = '「原來是個夢」'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
 }
