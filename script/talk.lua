@@ -1,3 +1,4 @@
+local SZ_TALK_TEXT = 40
 
 local image_pos_dummy_id = 284
 local arrow_tex_id = 261
@@ -30,15 +31,8 @@ function FadeBgColorTo(param)
     return false
   end
   param.FadeTo[3] = param.FadeTo[3] + 1
-  local color = param.FadeTo[2]
-  local a,r,g,b = GetARgbFromColor(color)
-  local ba,br,bg,bb = GetARgbFromColor(param.FadeTo[4])
   local t = param.FadeTo[3] / param.FadeTo[1]
-  local na = Lerp(ba, a, t)
-  local nr = Lerp(br, r, t)
-  local ng = Lerp(bg, g, t)
-  local nb = Lerp(bb, b, t)
-  Good.SetBgColor(param._id, GetColorFromARgb(na, nr, ng, nb))
+  Good.SetBgColor(param._id, LerpARgb(param.FadeTo[2], param.FadeTo[4], t))
   if (param.FadeTo[3] >= param.FadeTo[1]) then
     param.FadeTo = nil
     StepOneTalk(param)
@@ -69,7 +63,7 @@ function StepOneTalk(param)
       StepOneTalk(param)
       return
     end
-    talk_mess_obj = Good.GenTextObj(-1, talk.Text, 40)
+    talk_mess_obj = Good.GenTextObj(-1, talk.Text, SZ_TALK_TEXT)
     local w = GetTextObjWidth(talk_mess_obj)
     Good.SetPos(talk_mess_obj, (SCR_W - w)/2, 270)
     local o = Good.GenObj(talk_mess_obj, arrow_tex_id, 'AnimTalkArrow')
