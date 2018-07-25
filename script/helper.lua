@@ -196,6 +196,10 @@ function IsChurch2ndDreamValid()
   return CHURCH_2ND_DREAM_COST <= curr_coin
 end
 
+function IsChurch2ndDreamed()
+  return 4004 <= curr_stage_id[309]
+end
+
 function IsChurchRecvMailValid()
   return HasMail() and CHURCH_RECV_MAIL_COST <= curr_coin
 end

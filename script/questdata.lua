@@ -12,7 +12,9 @@ QuestData = {
   [2001] = {TalkId = {300}, RedPt = 1, NextId = 2002},
   [2002] = {TalkId = {450, 500}, NextCond = IsBuyBou3Valid, NextId = 2003},
   [2003] = {TalkId = {400}, RedPt = 1, NextId = 2004},
-  [2004] = {TalkId = {450, 500}},
+  [2004] = {TalkId = {450, 500}, NextCond = IsChurch2ndDreamed, NextId = 2005},
+  [2005] = {TalkId = {510}, RedPt = 1, NextId = 2006},
+  [2006] = {TalkId = {511}},
   -- Main map, village.
   [3000] = {LevelId = beg_money_lvl_id},
   -- Main map, church.

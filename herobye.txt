@@ -5,7 +5,7 @@ window=640 384
 texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329
 maps=22 16
 sprites=67 86
-levels=275 271 295 268 287 293 300 318 320 0 10 19 83
+levels=275 271 295 268 287 293 300 318 320 0 10 19 83 330
 
 [scripts]
 306=./script/const.lua
@@ -24,6 +24,7 @@ levels=275 271 295 268 287 293 300 318 320 0 10 19 83
 302=./script/bag.lua
 319=./script/helppinky.lua
 328=./script/herovillage.lua
+332=./script/racing.lua
 
 [tex1]
 name=tree1
@@ -1642,4 +1643,15 @@ y=240
 texture=30
 x=408
 y=88
+
+[level330]
+name=racing
+bgColor=128 128 0
+script=RacingGame
+objects=333
+
+[object333]
+name=coin
+texture=285
+dim=0 0 32 32
 
