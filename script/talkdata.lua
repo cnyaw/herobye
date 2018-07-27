@@ -123,7 +123,7 @@ TalkData = {
     {Image = merchant_tex_id},
     {Text = '小師父恭喜發財啊'},
     {Text = '今天有個好消息讓你知道'},
-    {Text = '賽馬世界隆重開幕啦'},
+    {Text = '賽魂世界隆重開幕啦'},
     {Text = '只要下注猜中了包你贏大錢'},
     {Text = '有錢沒錢都來看看吧'},
     {LevelId = RACING_LVL_ID},
@@ -131,7 +131,7 @@ TalkData = {
   -- Merchant, welcom to the racing game.
   [511] = {
     {Image = merchant_tex_id},
-    {Text = '歡迎來到賽馬世界'},
+    {Text = '歡迎來到賽魂世界'},
     {LevelId = RACING_LVL_ID},
   },
   -- Church, out.

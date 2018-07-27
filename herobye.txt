@@ -2,9 +2,9 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329
+texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334
 maps=22 16
-sprites=67 86
+sprites=67 86 335
 levels=275 271 295 268 287 293 300 318 320 0 10 19 83 330
 
 [scripts]
@@ -214,6 +214,10 @@ fileName=./res/grandpa.png
 name=zhang mama
 fileName=./res/zhangmama.png
 
+[tex334]
+name=saihoon
+fileName=./res/saihoon.png
+
 [map22]
 name=town
 width=120
@@ -258,6 +262,16 @@ tileHeight=32
 cxTile=16
 cyTile=16
 data=215 60
+loop=1
+
+[sprite335]
+name=saihoon
+texture=334
+tileWidth=32
+tileHeight=32
+cxTile=8
+cyTile=1
+data=0 6 1 6 2 6 3 6 4 6 5 6 6 6 7 6
 loop=1
 
 [level275]
