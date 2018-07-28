@@ -1,9 +1,12 @@
 
 local PREPARE_TIME = 3
+local SAI_HOON_SCALE = 1.75
 local COLOR = {0xffff00ff, 0xffff0000, 0xff00ff00, 0xff0000ff, 0xffffff00}
 
 local tex_sandglass_id = 273
 local sai_hoon_obj_id = 335
+
+local sai_hoon_sz
 
 RacingGame = {}
 
@@ -42,11 +45,14 @@ OnRacingGameInitStep = function(param)
     end
     param.h = nil
   end
+  local w,h = Resource.GetSpriteSize(sai_hoon_obj_id)
+  sai_hoon_sz = h * SAI_HOON_SCALE
   param.h = {}
   for i = 1,5 do
     local h = Good.GenObj(-1, sai_hoon_obj_id)
     Good.SetBgColor(h, COLOR[i])
-    Good.SetPos(h, 0, 36 * i)
+    Good.SetScale(h, SAI_HOON_SCALE, SAI_HOON_SCALE)
+    Good.SetPos(h, 0, (sai_hoon_sz + 5) * i)
     param.h[i] = h
   end
   param.stage = OnRacingGamePrepareStep
@@ -84,7 +90,7 @@ OnRacingGameRunStep = function(param)
     local x, y = Good.GetPos(o)
     x = x + math.random() * math.random(1,2)
     Good.SetPos(o, x, y)
-    touch_end = SCR_W - 32 <= x
+    touch_end = SCR_W - sai_hoon_sz <= x
     if (touch_end) then
       Good.SetScript(o, 'AnimTalkArrow')
       param.cd = 3 * 60
