@@ -34,11 +34,11 @@ QuestData = {
   [5006] = {LevelId = bag_lvl_id, IconId = {307, 301}, NextCond = MailSent, NextId = 5007},
   [5007] = {LevelId = bag_lvl_id, IconId = {307}},
   -- Training map, brother 1.
-  [6000] = {TalkId = {100}, ForceNextId = 6001},
+  [6000] = {TalkId = {100}, NextId = 6001},
   [6001] = {LevelId = TRANINING_CLICK_LVL_ID, Cond = IsClickTrainingValid, NextCond = IsClickTrainingMaxLv, NextId = 6002},
   [6002] = {TalkId = {150}},
   -- Training map, brother 2.
-  [7000] = {TalkId = {200}, ForceNextId = 7001},
+  [7000] = {TalkId = {200}, NextId = 7001},
   [7001] = {LevelId = TRANINING_STICK_LVL_ID, Cond = IsStickTrainingValid, NextCond = IsStickTrainingMaxLv, NextId = 7002},
   [7002] = {TalkId = {250}},
   --- Main map, temple.
@@ -52,5 +52,6 @@ QuestData = {
   -- Hero village, Xiang home.
   [12000] = {TalkId = {12000}},
   -- Hero village, hero home.
-  [13000] = {TalkId = {13000}},
+  [13000] = {TalkId = {13000}, NextId = 13001},
+  [13001] = {TalkId = {13001}},
 }

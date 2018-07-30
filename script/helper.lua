@@ -268,10 +268,8 @@ function QuestOnStep(x, y, lvl_id)
         elseif (nil ~= q.LevelId) then
           Good.GenObj(-1, q.LevelId)
         end
-        if (nil ~= q.RedPt and nil ~= q.NextId) then
+        if (nil == q.NextCond and nil ~= q.NextId) then
           curr_stage_id[id] = q.NextId
-        elseif (nil ~= q.ForceNextId) then
-          curr_stage_id[id] = q.ForceNextId
         end
       end
       return true
