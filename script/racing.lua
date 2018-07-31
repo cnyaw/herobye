@@ -81,6 +81,32 @@ OnRacingGamePrepareStep = function(param)
     return
   end
 
+  CountDownPrepareTime(param)
+  HandleBetting(param)
+end
+
+OnRacingGameRunStep = function(param)
+  local touch_end = false
+  for i = 1, MAX_SAI_HOON do
+    local o = param.h[i]
+    local x, y = Good.GetPos(o)
+    x = x + math.random() * math.random(1,2)
+    Good.SetPos(o, x, y)
+    touch_end = SCR_W - sai_hoon_sz <= x
+    if (touch_end) then
+      if (nil ~= bet_coin[i]) then
+        curr_coin = curr_coin + 2 * bet_coin[i]
+        UpdateCoinInfo(param)
+      end
+      Good.SetScript(o, 'AnimTalkArrow')
+      param.cd = 3 * 60
+      param.stage = OnRacingGameEndStep
+      return
+    end
+  end
+end
+
+function CountDownPrepareTime(param)
   -- Hour glass count down.
   local n = math.floor(param.cd / 60) + 1
   if (nil == param.count_down or param.count_down_n ~= n) then
@@ -94,8 +120,9 @@ OnRacingGamePrepareStep = function(param)
     param.count_down = o
     param.count_down_n = n
   end
+end
 
-  -- Handle bet.
+function HandleBetting(param)
   if (0 >= curr_coin) then              -- No coin.
     return
   end
@@ -123,27 +150,6 @@ OnRacingGamePrepareStep = function(param)
       curr_coin = curr_coin - 1
       UpdateCoinInfo(param)
       break
-    end
-  end
-end
-
-OnRacingGameRunStep = function(param)
-  local touch_end = false
-  for i = 1, MAX_SAI_HOON do
-    local o = param.h[i]
-    local x, y = Good.GetPos(o)
-    x = x + math.random() * math.random(1,2)
-    Good.SetPos(o, x, y)
-    touch_end = SCR_W - sai_hoon_sz <= x
-    if (touch_end) then
-      if (nil ~= bet_coin[i]) then
-        curr_coin = curr_coin + 2 * bet_coin[i]
-        UpdateCoinInfo(param)
-      end
-      Good.SetScript(o, 'AnimTalkArrow')
-      param.cd = 3 * 60
-      param.stage = OnRacingGameEndStep
-      return
     end
   end
 end
