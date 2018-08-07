@@ -11,7 +11,7 @@ Talk = {}
 Talk.OnCreate = function(param)
   talk_mess_obj = nil
   talk_index = 1
-  StepOneTalk()
+  StepOneTalk(param)
 end
 
 Talk.OnStep = function(param)
