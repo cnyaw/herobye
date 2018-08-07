@@ -11,6 +11,7 @@ local dog_tex_id = 2
 local pinky_tex_id = 316
 local grandpa_tex_id = 327
 local zhang_mama_tex_id = 329
+local ufo_tex_id = 66
 
 teacher_done_talk_id = 50
 
@@ -232,11 +233,16 @@ TalkData = {
     {Text = '「為什麼叫無敵不求人？」'},
     {Text = '這是我們家的傳家之寶'},
     {Text = '總有一天你會了解的'},
-    {Text = '「...」'},
+    {Text = '「......」'},
     {Image = grandpa_tex_id},
     {Text = '不多說了我要到教堂去'},
     {Text = '自己在外面玩要小心'},
-    {LevelId = HERO_VILLAGE_LVL_ID},
+    {Image = -1},
+    {Text = ''},
+    {Text = '「小白！小白！」'},
+    {Text = '「奇怪？小白跑到那裡去了？」'},
+    {Text = '「不管了我自己要出去玩了」'},
+    {LevelId = INTERVIEW_HERO_VILLAGE_LVL_ID},
   },
   [1153] = {
     {Image = priest_tex_id},
@@ -263,6 +269,19 @@ TalkData = {
   [9000] = {
     {Image = grandpa_tex_id},
     {Text = '不要太調皮哦'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  -- UFO coming.
+  [9999] = {
+    {FadeTo = {60, 0xff000000}},
+    {Image = ufo_tex_id},
+    {Text = '哇哈哈哇哈哈！我又來啦！'},
+    {Text = '我是拳頭星的外星人老闆'},
+    {Text = '我要征服勇者村'},
+    {Text = '然後再征服這個世界'},
+    {Text = '給你們3天時間'},
+    {Text = '快把勇者們都交出來吧'},
+    {Text = '否則就嘿嘿嘿嘿嘿嘿！'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Zhang home.

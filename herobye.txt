@@ -5,7 +5,7 @@ window=640 384
 texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334
 maps=22 16
 sprites=67 86 335
-levels=275 271 295 268 287 293 300 318 320 0 10 19 83 330
+levels=275 271 295 268 287 293 300 318 331 320 0 10 19 83 330
 
 [scripts]
 306=./script/const.lua
@@ -25,6 +25,7 @@ levels=275 271 295 268 287 293 300 318 320 0 10 19 83 330
 319=./script/helppinky.lua
 328=./script/herovillage.lua
 332=./script/racing.lua
+342=./script/interviewherovillage.lua
 
 [tex1]
 name=tree1
@@ -400,6 +401,42 @@ script=BagScene
 name=help pinky
 bgColor=128 128 0
 script=HelpPinky
+
+[level331]
+name=interview hero village
+bgColor=128 128 0
+script=InterviewHeroVillage
+objects=336 338 339 340 341
+
+[object336]
+texture=98
+x=64
+y=64
+dim=0 0 100 100
+
+[object338]
+texture=311
+x=64
+y=240
+dim=0 0 81 90
+
+[object339]
+texture=23
+x=272
+y=144
+dim=0 0 71 99
+
+[object340]
+texture=8
+x=464
+y=64
+dim=0 0 82 96
+
+[object341]
+texture=100
+x=464
+y=240
+dim=0 0 95 100
 
 [level320]
 name=hero village
