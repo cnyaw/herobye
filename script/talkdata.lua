@@ -11,7 +11,7 @@ local dog_tex_id = 2
 local pinky_tex_id = 316
 local grandpa_tex_id = 327
 local zhang_mama_tex_id = 329
-local ufo_tex_id = 66
+local ufo_tex_id = 343
 
 teacher_done_talk_id = 50
 

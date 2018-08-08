@@ -63,3 +63,33 @@ AnimTalkArrow.OnStep = function(param)
     ArStepAnimator(param, param.k)
   end
 end
+
+AnimUfo = {}
+
+AnimUfo.OnStep = function(param)
+  if (nil == param.k) then
+    Good.SetAnchor(param._id, 0.5, 0.5)
+    local loopn = ArAddLoop(nil)
+    local loop2 = ArAddLoop(loopn, 2)
+    ArAddMoveTo(loop2, 'Pos', 1, 450, 250)
+    ArAddMoveTo(loop2, 'Pos', 2, 10, 200)
+    ArAddMoveTo(loop2, 'Pos', 0.5, 450, 40)
+    ArAddMoveTo(loopn, 'Pos', 1, 10, 250)
+    ArAddMoveBy(loopn, 'Pos', 1, 40, 20)
+
+    local loopn2 = ArAddLoop(nil)
+    ArAddMoveBy(loopn2, 'Rot', 1, 150)
+
+    local loopn3 = ArAddLoop(nil)
+    ArAddMoveBy(loopn3, 'Scale', 2, 1.5, 0)
+    ArAddMoveBy(loopn3, 'Scale', 2, 0, 1.5)
+    ArAddDelay(loopn3, 5)
+    ArAddMoveBy(loopn3, 'Scale', 2, 0, -1.5)
+    ArAddMoveBy(loopn3, 'Scale', 2, -1.5, 0)
+    ArAddDelay(loopn3, 5)
+
+    param.k = ArAddAnimator({loopn, loopn2, loopn3})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
