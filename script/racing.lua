@@ -54,12 +54,14 @@ OnRacingGameInitStep = function(param)
   local w,h = Resource.GetSpriteSize(sai_hoon_obj_id)
   sai_hoon_sz = h * SAI_HOON_SCALE
   param.h = {}
+  param.n = {}
   for i = 1, MAX_SAI_HOON do
     local h = Good.GenObj(-1, sai_hoon_obj_id)
     Good.SetBgColor(h, COLOR[i])
     Good.SetScale(h, SAI_HOON_SCALE, SAI_HOON_SCALE)
     Good.SetPos(h, 0, (sai_hoon_sz + 5) * i)
     param.h[i] = h
+    param.n[i] = 1
   end
   if (nil ~= bet_dummy) then
     Good.KillObj(bet_dummy)
@@ -90,7 +92,12 @@ OnRacingGameRunStep = function(param)
   for i = 1, MAX_SAI_HOON do
     local o = param.h[i]
     local x, y = Good.GetPos(o)
-    x = x + math.random() * math.random(1,2)
+    if (1 == param.n[i] and SCR_W/4 <= x and x <= SCR_W/2) then
+      if (1 == math.random(200)) then
+        param.n[i] = math.random(1, 2)
+      end
+    end
+    x = x + math.random() * param.n[i]
     Good.SetPos(o, x, y)
     touch_end = SCR_W - sai_hoon_sz <= x
     if (touch_end) then
