@@ -5,6 +5,7 @@ local SAI_HOON_SCALE = 1.75
 local COLOR = {0xffff00ff, 0xffff0000, 0xff00ff00, 0xff0000ff, 0xffffff00}
 
 local tex_sandglass_id = 273
+local tex_plus_id = 344
 local sai_hoon_obj_id = 335
 
 local sai_hoon_sz = 0
@@ -42,7 +43,7 @@ function GenPrepareSanGlass(param)
   Good.SetPos(dummy, SCR_W/2, 0)
   local o = GenSandGlassObj(PREPARE_TIME)
   Good.AddChild(dummy, o)
-  param.dummy = dummy
+  param.glassdummy = dummy
   param.count_down = nil
 end
 
@@ -67,25 +68,50 @@ function GenSaiHoon(param)
   end
 end
 
-OnRacingGameInitStep = function(param)
-  param.cd = PREPARE_TIME * 60
-  GenPrepareSanGlass(param)
-  GenSaiHoon(param)
+function GenBetingBtns(param)
+  local offsety = (sai_hoon_sz - 32)/2
+  param.b1 = {}
+  param.b2 = {}
+  param.b3 = {}
+  local dummy = Good.GenDummy(-1)
+  for i = 1, MAX_SAI_HOON do
+    local o = Good.GenObj(dummy, tex_plus_id)
+    Good.SetPos(o, 80, (sai_hoon_sz + 5) * i + offsety)
+    param.b1[i] = o
+    local o2 = Good.GenObj(dummy, tex_plus_id)
+    Good.SetPos(o2, 140, (sai_hoon_sz + 5) * i + offsety)
+    param.b2[i] = o2
+    local o3 = Good.GenObj(dummy, tex_plus_id)
+    Good.SetPos(o3, 200, (sai_hoon_sz + 5) * i + offsety)
+    param.b3[i] = o3
+  end
+  param.plusdummy = dummy
   if (nil ~= bet_dummy) then
     Good.KillObj(bet_dummy)
   end
   bet_dummy = Good.GenDummy(-1)
   bet_coin = {}
   bet_coin_obj = {}
+end
+
+OnRacingGameInitStep = function(param)
+  param.cd = PREPARE_TIME * 60
+  GenPrepareSanGlass(param)
+  GenSaiHoon(param)
+  GenBetingBtns(param)
   param.stage = OnRacingGamePrepareStep
 end
 
 OnRacingGamePrepareStep = function(param)
   param.cd = param.cd - 1
   if (0 >= param.cd) then
-    if (nil ~= param.dummy) then
-      Good.KillObj(param.dummy)
-      param.dummy = nil
+    if (nil ~= param.glassdummy) then
+      Good.KillObj(param.glassdummy)
+      param.glassdummy = nil
+    end
+    if (nil ~= param.plusdummy) then
+      Good.KillObj(param.plusdummy)
+      param.plusdummy = nil
     end
     param.stage = OnRacingGameRunStep
     return
@@ -131,10 +157,28 @@ function CountDownPrepareTime(param)
     end
     local o = GenNumObj(n, 32)
     Good.SetPos(o, 36, 12)
-    Good.AddChild(param.dummy, o)
+    Good.AddChild(param.glassdummy, o)
     param.count_down = o
     param.count_down_n = n
   end
+end
+
+function BetCoin(param, i, coin)
+  if (nil == bet_coin[i]) then
+    bet_coin[i] = coin
+  else
+    bet_coin[i] = bet_coin[i] + coin
+  end
+  if (nil ~= bet_coin_obj[i]) then
+    Good.KillObj(bet_coin_obj[i])
+    bet_coin_obj[i] = nil
+  end
+  local o = GenNumObj(bet_coin[i], 32)
+  Good.AddChild(bet_dummy, o)
+  Good.SetPos(o, Good.GetPos(param.h[i]))
+  bet_coin_obj[i] = o
+  curr_coin = curr_coin - coin
+  UpdateCoinInfo(param)
 end
 
 function HandleBetting(param)
@@ -148,22 +192,16 @@ function HandleBetting(param)
 
   local x, y = Input.GetMousePos()
   for i = 1, MAX_SAI_HOON do
-    if (PtInObj(x, y, param.h[i])) then
-      if (nil == bet_coin[i]) then
-        bet_coin[i] = 1
-      else
-        bet_coin[i] = bet_coin[i] + 1
-      end
-      if (nil ~= bet_coin_obj[i]) then
-        Good.KillObj(bet_coin_obj[i])
-        bet_coin_obj[i] = nil
-      end
-      local o = GenNumObj(bet_coin[i], 32)
-      Good.AddChild(bet_dummy, o)
-      Good.SetPos(o, Good.GetPos(param.h[i]))
-      bet_coin_obj[i] = o
-      curr_coin = curr_coin - 1
-      UpdateCoinInfo(param)
+    if (1 <= curr_coin and PtInObj(x, y, param.b1[i])) then
+      BetCoin(param, i, 1)
+      break
+    end
+    if (5 <= curr_coin and PtInObj(x, y, param.b2[i])) then
+      BetCoin(param, i, 5)
+      break
+    end
+    if (10 <= curr_coin and PtInObj(x, y, param.b3[i])) then
+      BetCoin(param, i, 10)
       break
     end
   end
