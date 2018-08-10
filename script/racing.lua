@@ -37,14 +37,16 @@ OnRacingGameEndStep = function(param)
   end
 end
 
-OnRacingGameInitStep = function(param)
-  param.cd = PREPARE_TIME * 60
+function GenPrepareSanGlass(param)
   local dummy = Good.GenDummy(-1)
   Good.SetPos(dummy, SCR_W/2, 0)
   local o = GenSandGlassObj(PREPARE_TIME)
   Good.AddChild(dummy, o)
   param.dummy = dummy
   param.count_down = nil
+end
+
+function GenSaiHoon(param)
   if (nil ~= param.h) then
     for i = 1, MAX_SAI_HOON do
       Good.KillObj(param.h[i])
@@ -63,6 +65,12 @@ OnRacingGameInitStep = function(param)
     param.h[i] = h
     param.n[i] = 1
   end
+end
+
+OnRacingGameInitStep = function(param)
+  param.cd = PREPARE_TIME * 60
+  GenPrepareSanGlass(param)
+  GenSaiHoon(param)
   if (nil ~= bet_dummy) then
     Good.KillObj(bet_dummy)
   end
