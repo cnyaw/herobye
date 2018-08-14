@@ -21,6 +21,18 @@ AnimClickFish.OnStep = function(param)
   end
 end
 
+AnimCursor = {}
+
+AnimCursor.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveBy(loop1, 'Rot', 1, 90).ease = ArEaseOut
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
 AnimFlyUpObj = {}
 
 AnimFlyUpObj.OnStep = function(param)

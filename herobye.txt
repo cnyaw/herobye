@@ -5,7 +5,7 @@ window=640 384
 texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344
 maps=22 16
 sprites=67 86 335
-levels=275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337
+levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337
 
 [scripts]
 306=./script/const.lua
@@ -26,6 +26,7 @@ levels=275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337
 328=./script/herovillage.lua
 332=./script/racing.lua
 342=./script/interviewherovillage.lua
+354=./script/title.lua
 
 [tex1]
 name=tree1
@@ -278,6 +279,33 @@ cxTile=8
 cyTile=1
 data=0 6 1 6 2 6 3 6 4 6 5 6 6 6 7 6
 loop=1
+
+[level345]
+name=title
+bgColor=80 175 80
+script=Title
+objects=346 347 353
+
+[object346]
+texture=2
+x=336
+y=112
+dim=0 0 75 89
+
+[object347]
+texture=48
+x=208
+y=48
+dim=0 0 104 159
+
+[object353]
+name=cursor
+bgColor=192 192 192
+xpivot=0.5
+ypivot=0.5
+x=192
+y=256
+script=AnimCursor
 
 [level275]
 name=talk
