@@ -3,6 +3,34 @@ function AcKillAnimObj(param)
   Good.KillObj(param._id)
 end
 
+BouncingObj = {}
+
+BouncingObj.OnCreate = function(param)
+  param.dirx = 1
+  if (math.random(2) == 1) then
+    param.dirx = -1 * param.dirx
+  end
+  param.diry = 1
+  if (math.random(2) == 1) then
+    param.diry = -1 * param.diry
+  end
+end
+
+BouncingObj.OnStep = function(param)
+  local id = param._id
+  local x,y = Good.GetPos(id)
+  x = x + param.dirx
+  y = y + param.diry
+  Good.SetPos(id, x, y)
+  local l,t,w,h = Good.GetDim(id)
+  if (SCR_W <= x + w or 0 >= x) then
+    param.dirx = -1 * param.dirx
+  end
+  if (SCR_H <= y + h or 0 >= y) then
+    param.diry = -1 * param.diry
+  end
+end
+
 AnimClickFish = {}
 
 AnimClickFish.OnStep = function(param)
