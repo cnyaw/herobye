@@ -26,14 +26,14 @@ Title.OnStep = function(param)
   local x, y = Input.GetMousePos()
   if (PtInRect(x, y, cx + OFFSET, cy, cx + OFFSET + param.cw, cy + OFFSET)) then
     if (0 == param.cursor) then
-      Good.GenObj(-1, TALK_LVL_ID)
+      StartTalk()
     else
       param.cursor = 0
       Good.SetPos(cursor_obj_id, cx, cy)
     end
   elseif (PtInRect(x, y, cx + OFFSET, cy + OFFSET, cx + OFFSET + param.cw, cy + 2 * OFFSET)) then
     if (1 == param.cursor) then
-      Good.GenObj(-1, TALK_LVL_ID)
+      StartTalk()
     else
       param.cursor = 1
       Good.SetPos(cursor_obj_id, cx, cy + OFFSET)

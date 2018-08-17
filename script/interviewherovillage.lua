@@ -24,8 +24,7 @@ InterviewHeroVillageOnStepBlink = function(param)
     end
   end
   if (120 <= param.counter) then
-    curr_talk_id = {9999}
-    Good.GenObj(-1, TALK_LVL_ID)
+    StartTalk(9999)
   end
 end
 

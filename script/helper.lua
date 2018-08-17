@@ -9,6 +9,7 @@ local tex_sandglass_id = 273
 local map_brother1_obj_id = 282
 local map_brother2_obj_id = 283
 local red_point_tex_id = 313
+local talk_lvl_id = 275
 
 local teacher_init_talk_id = 1
 
@@ -26,7 +27,7 @@ curr_coin = 0
 local lv_bou = 1
 local flag_mail = 0
 
-curr_talk_id = {teacher_init_talk_id}
+local curr_talk_id = {teacher_init_talk_id}
 
 curr_stage_id = {                       -- [obj_id] = quest_id
   -- Training map.
@@ -233,8 +234,7 @@ function QuestOnStep(x, y, lvl_id)
       if (nil == q.Cond or q.Cond()) then
         if (nil ~= q.TalkId) then
           local rand_talk_id = math.random(#q.TalkId)
-          curr_talk_id = {q.TalkId[rand_talk_id]}
-          Good.GenObj(-1, TALK_LVL_ID)
+          StartTalk(q.TalkId[rand_talk_id])
         elseif (nil ~= q.LevelId) then
           Good.GenObj(-1, q.LevelId)
         end
@@ -269,11 +269,18 @@ end
 
 function SetNextTrainingLevel(id)
   if (AllTrainingComplete()) then
-    curr_talk_id = {teacher_done_talk_id}
-    Good.GenObj(-1, TALK_LVL_ID)
+    StartTalk(teacher_done_talk_id)
   else
     Good.GenObj(-1, id)
   end
+end
+
+function StartTalk(id)
+  if (nil ~= id) then
+    curr_talk_id = {id}
+  end
+  last_lvl_id = Good.GetLevelId()
+  Good.GenObj(-1, talk_lvl_id)
 end
 
 function UpdateCoinInfo(param)

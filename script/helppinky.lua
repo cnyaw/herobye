@@ -28,8 +28,7 @@ HelpPinkyOnStepEnd = function(param)
   if (not WaitTimer(param, 40)) then
     return
   end
-  curr_talk_id = {1151}
-  Good.GenObj(-1, TALK_LVL_ID)
+  StartTalk(1151)
 end
 
 HelpPinkyOnStepPlay = function(param)
