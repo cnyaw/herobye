@@ -1,4 +1,7 @@
 
+local WAIT_TIME = 60
+local BLINK_TIME = 120
+
 InterviewHeroVillage = {}
 
 InterviewHeroVillage.OnCreate = function(param)
@@ -23,13 +26,13 @@ InterviewHeroVillageOnStepBlink = function(param)
       Good.SetBgColor(param._id, 0xffff0000)
     end
   end
-  if (120 <= param.counter) then
+  if (BLINK_TIME <= param.counter) then
     StartTalk(9999)
   end
 end
 
 InterviewHeroVillageOnStepInit = function(param)
-  if (not WaitTimer(param, 60)) then
+  if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   param.step = InterviewHeroVillageOnStepBlink
