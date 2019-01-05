@@ -32,7 +32,7 @@ function FadeBgColorTo(param)
   end
   param.FadeTo[3] = param.FadeTo[3] + 1
   local t = param.FadeTo[3] / param.FadeTo[1]
-  Good.SetBgColor(param._id, LerpARgb(param.FadeTo[2], param.FadeTo[4], t))
+  Good.SetBgColor(param._id, LerpARgb(param.FadeTo[4], param.FadeTo[2], t))
   if (param.FadeTo[3] >= param.FadeTo[1]) then
     param.FadeTo = nil
     StepOneTalk(param)
