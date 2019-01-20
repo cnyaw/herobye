@@ -3,7 +3,7 @@ MainMap = {}
 
 MainMap.OnCreate = function(param)
   UpdateCoinInfo(param)
-  QuestOnCreate(param._id)
+  QuestOnCreate()
 end
 
 MainMap.OnStep = function(param)
@@ -12,5 +12,5 @@ MainMap.OnStep = function(param)
   end
 
   local x, y = Input.GetMousePos()
-  QuestOnStep(x, y, param._id)
+  QuestOnStep(x, y)
 end

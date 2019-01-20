@@ -2,7 +2,7 @@
 HeroVillage = {}
 
 HeroVillage.OnCreate = function(param)
-  QuestOnCreate(param._id)
+  QuestOnCreate()
 end
 
 HeroVillage.OnStep = function(param)
@@ -11,5 +11,5 @@ HeroVillage.OnStep = function(param)
   end
 
   local x, y = Input.GetMousePos()
-  QuestOnStep(x, y, param._id)
+  QuestOnStep(x, y)
 end

@@ -13,7 +13,7 @@ TrainingMap = {}
 TrainingMap.OnCreate = function(param)
   GenTrainingObj(click_training)
   GenTrainingObj(stick_training)
-  QuestOnCreate(param._id)
+  QuestOnCreate()
 end
 
 TrainingMap.OnStep = function(param)
@@ -23,7 +23,7 @@ TrainingMap.OnStep = function(param)
   end
 
   local x, y = Input.GetMousePos()
-  if (QuestOnStep(x, y, param._id)) then
+  if (QuestOnStep(x, y)) then
     return
   end
 end

@@ -211,7 +211,8 @@ function NotRestValid()
   return not IsRestValid()
 end
 
-function QuestOnCreate(lvl_id)
+function QuestOnCreate()
+  local lvl_id = Good.GetLevelId()
   for id, quest_id in pairs(curr_stage_id) do
     if (lvl_id == Good.GetParent(id)) then
       local q = QuestData[quest_id]
@@ -227,7 +228,8 @@ function QuestOnCreate(lvl_id)
   end
 end
 
-function QuestOnStep(x, y, lvl_id)
+function QuestOnStep(x, y)
+  local lvl_id = Good.GetLevelId()
   for id, quest_id in pairs(curr_stage_id) do
     if (lvl_id == Good.GetParent(id) and PtInObj(x, y, id)) then
       local q = QuestData[quest_id]
