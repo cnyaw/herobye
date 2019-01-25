@@ -29,23 +29,23 @@ local flag_mail = 0
 
 local curr_talk_id = {teacher_init_talk_id}
 
-curr_stage_id = {                       -- [obj_id] = quest_id
+curr_stage_id = {                       -- [obj_name] = quest_id
   -- Training map.
-  [282] = 6000,                         -- Brother 1.
-  [283] = 7000,                         -- Brother 2.
+  o_brother1 = 6000,
+  o_brother2 = 7000,
   -- Main map.
-  [288] = 1000,                         -- Hero mt.
-  [312] = 2000,                         -- Shop.
-  [291] = 3000,                         -- Village.
-  [309] = 4000,                         -- Church.
-  [299] = 5000,                         -- Bag.
-  [315] = 8000,                         -- Temple site.
+  o_heroMount = 1000,
+  o_mainMapShop = 2000,
+  o_mainMapVillage = 3000,
+  o_mainMapChurch = 4000,
+  o_bag = 5000,
+  o_mainMapTempleSite = 8000,
   -- Hero village.
-  [321] = 9000,                         -- Church.
-  [325] = 10000,                        -- Zhang home.
-  [322] = 11000,                        -- Shop.
-  [323] = 12000,                        -- Xiang home.
-  [324] = 13000,                        -- Hero home.
+  o_heroVillageChurch = 9000,
+  o_ZhangHome = 10000,
+  o_heroVillageShop = 11000,
+  o_XiangHome = 12000,
+  o_heroHome = 13000,
 }
 
 -- Training.
@@ -168,7 +168,7 @@ function IsChurch2ndDreamValid()
 end
 
 function IsChurch2ndDreamed()
-  return 4004 <= curr_stage_id[309]
+  return 4004 <= curr_stage_id.o_mainMapChurch
 end
 
 function IsChurchRecvMailValid()
@@ -213,12 +213,13 @@ end
 
 function QuestOnCreate()
   local lvl_id = Good.GetLevelId()
-  for id, quest_id in pairs(curr_stage_id) do
+  for obj_name, quest_id in pairs(curr_stage_id) do
+    local id = Good.FindChild(lvl_id, obj_name)
     if (lvl_id == Good.GetParent(id)) then
       local q = QuestData[quest_id]
       if (nil ~= q.NextId and nil ~= q.NextCond and q.NextCond()) then
         local next_id = q.NextId
-        curr_stage_id[id] = next_id
+        curr_stage_id[obj_name] = next_id
         q = QuestData[next_id]
       end
       if (nil ~= q.RedPt) then
@@ -230,7 +231,8 @@ end
 
 function QuestOnStep(x, y)
   local lvl_id = Good.GetLevelId()
-  for id, quest_id in pairs(curr_stage_id) do
+  for obj_name, quest_id in pairs(curr_stage_id) do
+    local id = Good.FindChild(lvl_id, obj_name)
     if (lvl_id == Good.GetParent(id) and PtInObj(x, y, id)) then
       local q = QuestData[quest_id]
       if (nil == q.Cond or q.Cond()) then
@@ -241,7 +243,7 @@ function QuestOnStep(x, y)
           Good.GenObj(-1, q.LevelId)
         end
         if (nil == q.NextCond and nil ~= q.NextId) then
-          curr_stage_id[id] = q.NextId
+          curr_stage_id[obj_name] = q.NextId
         end
       end
       return true

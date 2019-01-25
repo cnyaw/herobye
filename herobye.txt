@@ -327,14 +327,14 @@ script=TrainingMap
 objects=282 283
 
 [object282]
-name=brother1
+name=o_brother1
 texture=280
 x=80
 y=112
 dim=0 0 179 180
 
 [object283]
-name=brother2
+name=o_brother2
 texture=281
 x=352
 y=96
@@ -365,14 +365,14 @@ script=MainMap
 objects=288 291 286 299 312 309 315
 
 [object288]
-name=hero mount
+name=o_heroMount
 texture=31
 x=80
 y=48
 dim=0 0 90 90
 
 [object291]
-name=village
+name=o_mainMapVillage
 texture=290
 x=256
 y=160
@@ -384,7 +384,7 @@ texture=285
 dim=0 0 32 32
 
 [object299]
-name=bag
+name=o_bag
 texture=298
 xscale=0.5
 yscale=0.5
@@ -393,21 +393,21 @@ x=544
 dim=0 0 90 65
 
 [object312]
-name=shop
+name=o_mainMapShop
 texture=311
 x=80
 y=240
 dim=0 0 81 90
 
 [object309]
-name=church
+name=o_mainMapChurch
 texture=23
 x=448
 y=48
 dim=0 0 71 99
 
 [object315]
-name=site
+name=o_mainMapTempleSite
 texture=310
 x=448
 y=240
@@ -477,35 +477,35 @@ script=HeroVillage
 objects=321 322 323 324 325
 
 [object321]
-name=church
+name=o_heroVillageChurch
 texture=23
 x=272
 y=144
 dim=0 0 71 99
 
 [object322]
-name=shop
+name=o_heroVillageShop
 texture=311
 x=64
 y=240
 dim=0 0 81 90
 
 [object323]
-name=Xiang Home
+name=o_XiangHome
 texture=8
 x=464
 y=64
 dim=0 0 82 96
 
 [object324]
-name=Hero Home
+name=o_heroHome
 texture=100
 x=464
 y=240
 dim=0 0 95 100
 
 [object325]
-name=Zhang home
+name=o_ZhangHome
 texture=98
 x=64
 y=64

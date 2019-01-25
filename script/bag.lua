@@ -2,7 +2,7 @@
 BagScene = {}
 
 BagScene.OnCreate = function(param)
-  local quest_id = curr_stage_id[299]
+  local quest_id = curr_stage_id.o_bag
   local v = QuestData[quest_id].IconId
   local x = 10
   for i = 1, #v do
