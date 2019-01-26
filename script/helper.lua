@@ -163,20 +163,24 @@ function HasBou3()
   return 3 == GetBouLv()
 end
 
+function HasCoin(amount)
+  return GetCoin() >= amount
+end
+
 function HasMail()
   return 1 == flag_mail
 end
 
 function IsBuyBou2Valid()
-  return not HasBou2() and BOU2_COST <= GetCoin()
+  return not HasBou2() and HasCoin(BOU2_COST)
 end
 
 function IsBuyBou3Valid()
-  return not HasBou3() and BOU3_COST <= GetCoin()
+  return not HasBou3() and HasCoin(BOU3_COST)
 end
 
 function IsChurch2ndDreamValid()
-  return CHURCH_2ND_DREAM_COST <= GetCoin()
+  return HasCoin(CHURCH_2ND_DREAM_COST)
 end
 
 function IsChurch2ndDreamed()
@@ -184,7 +188,7 @@ function IsChurch2ndDreamed()
 end
 
 function IsChurchRecvMailValid()
-  return HasMail() and CHURCH_RECV_MAIL_COST <= GetCoin()
+  return HasMail() and HasCoin(CHURCH_RECV_MAIL_COST)
 end
 
 function IsClickTrainingMaxLv()
@@ -196,11 +200,11 @@ function IsClickTrainingValid()
 end
 
 function IsRestValid()
-  return REST_COST <= GetCoin()
+  return HasCoin(REST_COST)
 end
 
 function IsSendTeacherMailValid()
-  return 0 == flag_mail and HasBou3() and OPEN_CHURCH_COST <= GetCoin()
+  return 0 == flag_mail and HasBou3() and HasCoin(OPEN_CHURCH_COST)
 end
 
 function IsStickTrainingMaxLv()
