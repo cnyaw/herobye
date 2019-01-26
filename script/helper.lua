@@ -22,7 +22,7 @@ REST_COST = 5
 -- Data.
 
 last_lvl_id = nil
-curr_coin = 0
+local curr_coin = 0
 
 local lv_bou = 1
 local flag_mail = 0
@@ -81,12 +81,20 @@ function AllTrainingComplete()
   return true
 end
 
+function AddCoin(amount)
+  curr_coin = curr_coin + amount
+end
+
 function Consume2ndDreamCost()
-  curr_coin = curr_coin - CHURCH_2ND_DREAM_COST
+  ConsumeCoin(CHURCH_2ND_DREAM_COST)
+end
+
+function ConsumeCoin(cost)
+  curr_coin = curr_coin - cost
 end
 
 function ConsumeRestCost()
-  curr_coin = curr_coin - REST_COST
+  ConsumeCoin(REST_COST)
 end
 
 function GenFlyUpObj(parent, tex_id)
@@ -95,6 +103,10 @@ function GenFlyUpObj(parent, tex_id)
   local o = Good.GenObj(-1, tex_id, 'AnimFlyUpObj')
   local l2,t2,w2,h2 = Good.GetDim(o)
   Good.SetPos(o, x + (w - w2)/2, y)
+end
+
+function GetCoin()
+  return curr_coin
 end
 
 function GenNumObj(n, size)
@@ -156,15 +168,15 @@ function HasMail()
 end
 
 function IsBuyBou2Valid()
-  return BOU2_COST <= curr_coin
+  return not HasBou2() and BOU2_COST <= GetCoin()
 end
 
 function IsBuyBou3Valid()
-  return BOU3_COST <= curr_coin
+  return not HasBou3() and BOU3_COST <= GetCoin()
 end
 
 function IsChurch2ndDreamValid()
-  return CHURCH_2ND_DREAM_COST <= curr_coin
+  return CHURCH_2ND_DREAM_COST <= GetCoin()
 end
 
 function IsChurch2ndDreamed()
@@ -172,7 +184,7 @@ function IsChurch2ndDreamed()
 end
 
 function IsChurchRecvMailValid()
-  return HasMail() and CHURCH_RECV_MAIL_COST <= curr_coin
+  return HasMail() and CHURCH_RECV_MAIL_COST <= GetCoin()
 end
 
 function IsClickTrainingMaxLv()
@@ -184,11 +196,11 @@ function IsClickTrainingValid()
 end
 
 function IsRestValid()
-  return REST_COST <= curr_coin
+  return REST_COST <= GetCoin()
 end
 
 function IsSendTeacherMailValid()
-  return 0 == flag_mail and HasBou3() and OPEN_CHURCH_COST <= curr_coin
+  return 0 == flag_mail and HasBou3() and OPEN_CHURCH_COST <= GetCoin()
 end
 
 function IsStickTrainingMaxLv()
@@ -253,12 +265,12 @@ function QuestOnStep(x, y)
 end
 
 function ScriptMerchantBuyBou2()
-  curr_coin = curr_coin - BOU2_COST
+  ConsumeCoin(BOU2_COST)
   LevelUpBou()
 end
 
 function ScriptMerchantBuyBou3()
-  curr_coin = curr_coin - BOU3_COST
+  ConsumeCoin(BOU3_COST)
   LevelUpBou()
 end
 
@@ -268,7 +280,7 @@ end
 
 function ScriptTransMailToPriest()
   flag_mail = 2
-  curr_coin = curr_coin - CHURCH_RECV_MAIL_COST
+  ConsumeCoin(CHURCH_RECV_MAIL_COST)
 end
 
 function SetNextTrainingLevel(id)
@@ -292,7 +304,7 @@ function UpdateCoinInfo(param)
     Good.KillObj(param.coin_obj)
     param.coin_obj = nil
   end
-  local o = GenNumObj(curr_coin, 32)
+  local o = GenNumObj(GetCoin(), 32)
   Good.SetPos(o, 32, 0)
   param.coin_obj = o
 end

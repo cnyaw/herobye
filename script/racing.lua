@@ -136,7 +136,7 @@ OnRacingGameRunStep = function(param)
     touch_end = SCR_W - sai_hoon_sz <= x
     if (touch_end) then
       if (nil ~= bet_coin[i]) then
-        curr_coin = curr_coin + 2 * bet_coin[i]
+        AddCoin(2 * bet_coin[i])
         UpdateCoinInfo(param)
       end
       Good.SetScript(o, 'AnimTalkArrow')
@@ -177,12 +177,12 @@ function BetCoin(param, i, coin)
   Good.AddChild(bet_dummy, o)
   Good.SetPos(o, Good.GetPos(param.h[i]))
   bet_coin_obj[i] = o
-  curr_coin = curr_coin - coin
+  ConsumeCoin(coin)
   UpdateCoinInfo(param)
 end
 
 function HandleBetting(param)
-  if (0 >= curr_coin) then              -- No coin.
+  if (0 >= GetCoin()) then              -- No coin.
     return
   end
 
@@ -190,6 +190,7 @@ function HandleBetting(param)
     return
   end
 
+  local curr_coin = GetCoin()
   local x, y = Input.GetMousePos()
   for i = 1, MAX_SAI_HOON do
     if (1 <= curr_coin and PtInObj(x, y, param.b1[i])) then

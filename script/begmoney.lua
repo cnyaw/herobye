@@ -70,7 +70,7 @@ function BeggingMoney(x, y, param)
       param.hit = param.hit + 1
       Good.KillObj(param.user[i])
       param.user[i] = nil
-      curr_coin = curr_coin + GetCurrBouGain()
+      AddCoin(GetCurrBouGain())
       UpdateCoinInfo(param)
       if (MAX_USER == param.hit) then
         param.step = BegMoneyOnStepDone
