@@ -215,7 +215,7 @@ function QuestOnCreate()
   local lvl_id = Good.GetLevelId()
   for obj_name, quest_id in pairs(curr_stage_id) do
     local id = Good.FindChild(lvl_id, obj_name)
-    if (lvl_id == Good.GetParent(id)) then
+    if (-1 ~= id) then
       local q = QuestData[quest_id]
       if (nil ~= q.NextId and nil ~= q.NextCond and q.NextCond()) then
         local next_id = q.NextId
@@ -233,7 +233,7 @@ function QuestOnStep(x, y)
   local lvl_id = Good.GetLevelId()
   for obj_name, quest_id in pairs(curr_stage_id) do
     local id = Good.FindChild(lvl_id, obj_name)
-    if (lvl_id == Good.GetParent(id) and PtInObj(x, y, id)) then
+    if (-1 ~= id and PtInObj(x, y, id)) then
       local q = QuestData[quest_id]
       if (nil == q.Cond or q.Cond()) then
         if (nil ~= q.TalkId) then
