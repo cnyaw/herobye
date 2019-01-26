@@ -183,10 +183,6 @@ function IsChurch2ndDreamValid()
   return HasCoin(CHURCH_2ND_DREAM_COST)
 end
 
-function IsChurch2ndDreamed()
-  return 4004 <= curr_stage_id.o_mainMapChurch
-end
-
 function IsChurchRecvMailValid()
   return HasMail() and HasCoin(CHURCH_RECV_MAIL_COST)
 end
@@ -197,6 +193,10 @@ end
 
 function IsClickTrainingValid()
   return 0 >= click_training.cd
+end
+
+function IsOpenRacingValid()
+  return 4004 <= curr_stage_id.o_mainMapChurch and HasCoin(10)
 end
 
 function IsRestValid()
