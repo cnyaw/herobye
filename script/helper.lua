@@ -22,9 +22,7 @@ REST_COST = 5
 -- Data.
 
 last_lvl_id = nil
-local curr_coin = 0
 
-local lv_bou = 1
 local flag_mail = 0
 
 local curr_talk_id = {teacher_init_talk_id}
@@ -48,6 +46,11 @@ curr_stage_id = {                       -- [obj_name] = quest_id
   o_heroHome = 13000,
 }
 
+bag = {
+  [i_coin] = 0,
+  [i_bou] = 0,
+}
+
 -- Training.
 
 click_training = {cd = 0, lv = 0, max_lv = MAX_CLICK_LEVEL, obj_id = map_brother1_obj_id}
@@ -56,6 +59,18 @@ local all_training = {click_training, stick_training}
 local training_cd_tick = 0
 
 -- Helper.
+
+function AddCoin(amount)
+  bag[i_coin] = bag[i_coin] + amount
+end
+
+function AddItem(id, count)
+  if (HasItem(id)) then
+    bag[id] = bag[id] + count
+  else
+    bag[id] = count
+  end
+end
 
 function AddRedPoint(parent)
   local o = Good.GenObj(parent, red_point_tex_id, 'AnimTalkArrow')
@@ -81,16 +96,12 @@ function AllTrainingComplete()
   return true
 end
 
-function AddCoin(amount)
-  curr_coin = curr_coin + amount
-end
-
 function Consume2ndDreamCost()
   ConsumeCoin(CHURCH_2ND_DREAM_COST)
 end
 
 function ConsumeCoin(cost)
-  curr_coin = curr_coin - cost
+  bag[i_coin] = bag[i_coin] - cost
 end
 
 function ConsumeRestCost()
@@ -106,7 +117,7 @@ function GenFlyUpObj(parent, tex_id)
 end
 
 function GetCoin()
-  return curr_coin
+  return bag[i_coin]
 end
 
 function GenNumObj(n, size)
@@ -126,45 +137,41 @@ end
 function GetCurrBouGain()
   if (HasBou3()) then
     return 5
-  end
-  if (HasBou2()) then
+  elseif (HasBou2()) then
     return 3
+  else
+    return 1
   end
-  return 1
 end
 
 function GetCurrBouTexId()
   if (HasBou3()) then
     return BOU3_TEX_ID
-  end
-  if (HasBou2()) then
+  elseif (HasBou2()) then
     return BOU2_TEX_ID
+  else
+    return BOU_TEX_ID
   end
-  return BOU_TEX_ID
 end
 
 function GetCurrTalk()
   return TalkData[curr_talk_id[1]]
 end
 
-function GetBouLv()
-  return lv_bou
-end
-
-function GetMail()
-  return flag_mail
-end
-
 function HasBou2()
-  return 2 == GetBouLv()
+  return HasItem(3)
 end
 
 function HasBou3()
-  return 3 == GetBouLv()
+  return HasItem(4)
 end
 
 function HasCoin(amount)
   return GetCoin() >= amount
+end
+
+function HasItem(id)
+  return nil ~= bag[id]
 end
 
 function HasMail()
@@ -213,10 +220,6 @@ end
 
 function IsStickTrainingValid()
   return 0 >= stick_training.cd
-end
-
-function LevelUpBou()
-  lv_bou = lv_bou + 1
 end
 
 function MailSent()
@@ -268,14 +271,29 @@ function QuestOnStep(x, y)
   return false
 end
 
+function RemoveItem(id, count)
+  if (not HasItem(id)) then
+    return
+  end
+  if (count < bag[id]) then
+    bag[id] = bag[id] - count
+  else
+    bag[id] = nil
+  end
+end
+
+function ScriptAddBou1()
+  AddItem(i_bou, 1)
+end
+
 function ScriptMerchantBuyBou2()
   ConsumeCoin(BOU2_COST)
-  LevelUpBou()
+  AddItem(i_bou2, 1)
 end
 
 function ScriptMerchantBuyBou3()
   ConsumeCoin(BOU3_COST)
-  LevelUpBou()
+  AddItem(i_bou3, 1)
 end
 
 function ScriptSendTeacherMail()
