@@ -59,7 +59,7 @@ local training_cd_tick = 0
 -- Helper.
 
 function AddCoin(amount)
-  bag[i_coin] = bag[i_coin] + amount
+  AddItem(i_coin, amount)
 end
 
 function AddItem(id, count)
@@ -99,7 +99,7 @@ function Consume2ndDreamCost()
 end
 
 function ConsumeCoin(cost)
-  bag[i_coin] = bag[i_coin] - cost
+  RemoveItem(i_coin, cost)
 end
 
 function ConsumeRestCost()
@@ -115,7 +115,7 @@ function GenFlyUpObj(parent, tex_id)
 end
 
 function GetCoin()
-  return bag[i_coin]
+  return ItemCount(i_coin)
 end
 
 function GenNumObj(n, size)
