@@ -23,8 +23,6 @@ REST_COST = 5
 
 last_lvl_id = nil
 
-local flag_mail = 0
-
 local curr_talk_id = {teacher_init_talk_id}
 
 curr_stage_id = {                       -- [obj_name] = quest_id
@@ -46,7 +44,7 @@ curr_stage_id = {                       -- [obj_name] = quest_id
   o_heroHome = 13000,
 }
 
-bag = {
+bag = {                                 -- [item_id] = count
   [i_coin] = 0,
   [i_bou] = 0,
 }
@@ -175,7 +173,7 @@ function HasItem(id)
 end
 
 function HasMail()
-  return 1 == flag_mail
+  return HasItem(i_letter)
 end
 
 function IsBuyBou2Valid()
@@ -211,7 +209,7 @@ function IsRestValid()
 end
 
 function IsSendTeacherMailValid()
-  return 0 == flag_mail and HasBou3() and HasCoin(OPEN_CHURCH_COST)
+  return not MailSent() and not HasMail() and HasBou3() and HasCoin(OPEN_CHURCH_COST)
 end
 
 function IsStickTrainingMaxLv()
@@ -222,8 +220,16 @@ function IsStickTrainingValid()
   return 0 >= stick_training.cd
 end
 
+function ItemCount(id)
+  if (HasItem(id)) then
+    return bag[id]
+  else
+    return 0
+  end
+end
+
 function MailSent()
-  return 2 == flag_mail
+  return HasItem(f_letter_sent)
 end
 
 function NotRestValid()
@@ -297,12 +303,13 @@ function ScriptMerchantBuyBou3()
 end
 
 function ScriptSendTeacherMail()
-  flag_mail = 1
+  AddItem(i_letter, 1)
 end
 
 function ScriptTransMailToPriest()
-  flag_mail = 2
   ConsumeCoin(CHURCH_RECV_MAIL_COST)
+  RemoveItem(i_letter, 1)
+  AddItem(f_letter_sent, 1)
 end
 
 function SetNextTrainingLevel(id)
