@@ -283,6 +283,8 @@ function RemoveItem(id, count)
   end
   if (count < bag[id]) then
     bag[id] = bag[id] - count
+  elseif (i_coin == id) then
+    bag[id] = 0
   else
     bag[id] = nil
   end
