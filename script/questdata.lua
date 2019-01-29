@@ -4,7 +4,7 @@ local beg_money_lvl_id = 293
 
 QuestData = {
   -- Main map, hero mt.
-  [1000] = {TalkId = {80, 180, 280}, NextCond = IsSendTeacherMailValid, NextId = 1001},
+  [1000] = {TalkId = {80, 180, 280}, NextCond = IsSendTeacherLetterValid, NextId = 1001},
   [1001] = {TalkId = {1100}, RedPt = 1, NextId = 1002},
   [1002] = {TalkId = {80, 180, 280}},
   -- Main map, shop.
@@ -18,7 +18,7 @@ QuestData = {
   -- Main map, village.
   [3000] = {LevelId = beg_money_lvl_id},
   -- Main map, church.
-  [4000] = {TalkId = {1000}, NextCond = IsChurchRecvMailValid, NextId = 4001},
+  [4000] = {TalkId = {1000}, NextCond = IsTransLetterToPriestValid, NextId = 4001},
   [4001] = {TalkId = {1150}, RedPt = 1, NextId = 4002},
   [4002] = {TalkId = {1000}, NextCond = IsChurch2ndDreamValid, NextId = 4003},
   [4003] = {TalkId = {1152}, RedPt = 1, NextId = 4004},
@@ -29,9 +29,9 @@ QuestData = {
   [5001] = {LevelId = bag_lvl_id, IconId = {303}, NextCond = HasBou2, RedPt = 1, NextId = 5002},
   [5002] = {LevelId = bag_lvl_id, IconId = {303}, NextCond = HasBou3, NextId = 5003},
   [5003] = {LevelId = bag_lvl_id, IconId = {307}, NextCond = HasBou3, RedPt = 1, NextId = 5004},
-  [5004] = {LevelId = bag_lvl_id, IconId = {307}, NextCond = HasMail, NextId = 5005},
-  [5005] = {LevelId = bag_lvl_id, IconId = {307, 301}, NextCond = HasMail, RedPt = 1, NextId = 5006},
-  [5006] = {LevelId = bag_lvl_id, IconId = {307, 301}, NextCond = MailSent, NextId = 5007},
+  [5004] = {LevelId = bag_lvl_id, IconId = {307}, NextCond = HasLetter, NextId = 5005},
+  [5005] = {LevelId = bag_lvl_id, IconId = {307, 301}, NextCond = HasLetter, RedPt = 1, NextId = 5006},
+  [5006] = {LevelId = bag_lvl_id, IconId = {307, 301}, NextCond = LetterSent, NextId = 5007},
   [5007] = {LevelId = bag_lvl_id, IconId = {307}},
   -- Training map, brother 1.
   [6000] = {TalkId = {100}, NextId = 6001},

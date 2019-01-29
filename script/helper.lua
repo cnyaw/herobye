@@ -15,7 +15,7 @@ local teacher_init_talk_id = 1
 
 BOU2_COST = 10
 BOU3_COST = 30
-CHURCH_RECV_MAIL_COST = 100
+CHURCH_RECV_LETTER_COST = 100
 CHURCH_2ND_DREAM_COST = 100
 REST_COST = 5
 
@@ -172,7 +172,7 @@ function HasItem(id)
   return nil ~= bag[id]
 end
 
-function HasMail()
+function HasLetter()
   return HasItem(i_letter)
 end
 
@@ -186,10 +186,6 @@ end
 
 function IsChurch2ndDreamValid()
   return HasCoin(CHURCH_2ND_DREAM_COST)
-end
-
-function IsChurchRecvMailValid()
-  return HasMail() and HasCoin(CHURCH_RECV_MAIL_COST)
 end
 
 function IsClickTrainingMaxLv()
@@ -208,8 +204,8 @@ function IsRestValid()
   return HasCoin(REST_COST)
 end
 
-function IsSendTeacherMailValid()
-  return not MailSent() and not HasMail() and HasBou3() and HasCoin(OPEN_CHURCH_COST)
+function IsSendTeacherLetterValid()
+  return not LetterSent() and not HasLetter() and HasBou3() and HasCoin(OPEN_CHURCH_COST)
 end
 
 function IsStickTrainingMaxLv()
@@ -220,6 +216,10 @@ function IsStickTrainingValid()
   return 0 >= stick_training.cd
 end
 
+function IsTransLetterToPriestValid()
+  return HasLetter() and HasCoin(CHURCH_RECV_LETTER_COST)
+end
+
 function ItemCount(id)
   if (HasItem(id)) then
     return bag[id]
@@ -228,7 +228,7 @@ function ItemCount(id)
   end
 end
 
-function MailSent()
+function LetterSent()
   return HasItem(f_letter_sent)
 end
 
@@ -302,12 +302,12 @@ function ScriptMerchantBuyBou3()
   AddItem(i_bou3, 1)
 end
 
-function ScriptSendTeacherMail()
+function ScriptSendTeacherLetter()
   AddItem(i_letter, 1)
 end
 
-function ScriptTransMailToPriest()
-  ConsumeCoin(CHURCH_RECV_MAIL_COST)
+function ScriptTransLetterToPriest()
+  ConsumeCoin(CHURCH_RECV_LETTER_COST)
   RemoveItem(i_letter, 1)
   AddItem(f_letter_sent, 1)
 end

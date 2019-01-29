@@ -142,7 +142,7 @@ TalkData = {
     {Text = '有事外出'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Teacher, send mail to priest.
+  -- Teacher, send letter to priest.
   [1100] = {
     {Image = teacher_tex_id},
     {Text = '小秋徒兒你回來的正好'},
@@ -151,17 +151,17 @@ TalkData = {
     {Text = '吳神父是我的老朋友'},
     {Text = '將信交給他後他會招待你'},
     {Text = '你就好好體驗一下吧'},
-    {Script = ScriptSendTeacherMail},
+    {Script = ScriptSendTeacherLetter},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Church, get mail from priest.
+  -- Church, get letter from teacher.
   [1150] = {
     {Image = priest_tex_id},
     {Text = '小兄弟你辛苦了啦'},
     {Text = '從勇者山帶來這封信應該累了吧'},
     {Text = '請到後面讓我們為你馬殺雞'},
-    {Text = string.format('友情價算你%d塊錢', CHURCH_RECV_MAIL_COST)},
-    {Script = ScriptTransMailToPriest},
+    {Text = string.format('友情價算你%d塊錢', CHURCH_RECV_LETTER_COST)},
+    {Script = ScriptTransLetterToPriest},
     {Image = -1},
     {Text = ''},
     {FadeTo = {60, 0xff000000}},
