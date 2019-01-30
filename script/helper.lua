@@ -314,14 +314,6 @@ function ScriptTransLetterToPriest()
   AddItem(f_letter_sent, 1)
 end
 
-function SetNextTrainingLevel(id)
-  if (AllTrainingComplete()) then
-    StartTalk(teacher_done_talk_id)
-  else
-    Good.GenObj(-1, id)
-  end
-end
-
 function StartTalk(id)
   if (nil ~= id) then
     curr_talk_id = {id}

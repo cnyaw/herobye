@@ -41,6 +41,14 @@ TrainingClick.OnStep = function(param)
   param.step(param)
 end
 
+function SetNextTrainingLevel(id)
+  if (AllTrainingComplete()) then
+    StartTalk(teacher_done_talk_id)
+  else
+    Good.GenObj(-1, id)
+  end
+end
+
 function TrainingClickOnStepEnd(param)
   if (not WaitTimer(param, 40)) then
     return
