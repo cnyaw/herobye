@@ -25,7 +25,7 @@ last_lvl_id = nil
 
 local curr_talk_id = {teacher_init_talk_id}
 
-curr_stage_id = {                       -- [obj_name] = quest_id
+local obj_state = {                     -- [obj_name] = quest_id
   -- Training map.
   o_brother1 = 6000,
   o_brother2 = 7000,
@@ -197,7 +197,7 @@ function IsClickTrainingValid()
 end
 
 function IsOpenRacingValid()
-  return 4004 <= curr_stage_id.o_mainMapChurch and HasCoin(10)
+  return 4004 <= obj_state.o_mainMapChurch and HasCoin(10)
 end
 
 function IsRestValid()
@@ -238,13 +238,13 @@ end
 
 function QuestOnCreate()
   local lvl_id = Good.GetLevelId()
-  for obj_name, quest_id in pairs(curr_stage_id) do
+  for obj_name, quest_id in pairs(obj_state) do
     local id = Good.FindChild(lvl_id, obj_name)
     if (-1 ~= id) then
       local q = QuestData[quest_id]
       if (nil ~= q.NextId and nil ~= q.NextCond and q.NextCond()) then
         local next_id = q.NextId
-        curr_stage_id[obj_name] = next_id
+        obj_state[obj_name] = next_id
         q = QuestData[next_id]
       end
       if (nil ~= q.RedPt) then
@@ -256,7 +256,7 @@ end
 
 function QuestOnStep(x, y)
   local lvl_id = Good.GetLevelId()
-  for obj_name, quest_id in pairs(curr_stage_id) do
+  for obj_name, quest_id in pairs(obj_state) do
     local id = Good.FindChild(lvl_id, obj_name)
     if (-1 ~= id and PtInObj(x, y, id)) then
       local q = QuestData[quest_id]
@@ -268,7 +268,7 @@ function QuestOnStep(x, y)
           Good.GenObj(-1, q.LevelId)
         end
         if (nil == q.NextCond and nil ~= q.NextId) then
-          curr_stage_id[obj_name] = q.NextId
+          obj_state[obj_name] = q.NextId
         end
       end
       return true
