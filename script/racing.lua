@@ -122,6 +122,8 @@ OnRacingGamePrepareStep = function(param)
 end
 
 OnRacingGameRunStep = function(param)
+  local mx, my = Input.GetMousePos()
+  local down = Input.IsKeyPushed(Input.LBUTTON)
   local touch_end = false
   for i = 1, MAX_SAI_HOON do
     local o = param.h[i]
@@ -132,6 +134,9 @@ OnRacingGameRunStep = function(param)
       end
     end
     x = x + math.random() * param.n[i]
+    if (down and PtInObj(mx, my, o)) then
+      x = x + 5
+    end
     Good.SetPos(o, x, y)
     touch_end = SCR_W - sai_hoon_sz <= x
     if (touch_end) then
