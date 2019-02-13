@@ -43,6 +43,7 @@ end
 
 function SetNextTrainingLevel(id)
   if (AllTrainingComplete()) then
+    AddItem(f_finish_training, 1)
     StartTalk(teacher_done_talk_id)
   else
     Good.GenObj(-1, id)

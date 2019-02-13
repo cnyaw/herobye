@@ -13,6 +13,8 @@ local talk_lvl_id = 275
 
 local teacher_init_talk_id = 1
 
+local SAV_FILE_NAME = "herobye.sav"
+
 BOU2_COST = 10
 BOU3_COST = 30
 CHURCH_RECV_LETTER_COST = 100
@@ -25,28 +27,10 @@ last_lvl_id = nil
 
 local curr_talk_id = {teacher_init_talk_id}
 
-local obj_state = {                     -- [obj_name] = quest_id
-  -- Training map.
-  o_brother1 = 6000,
-  o_brother2 = 7000,
-  -- Main map.
-  o_heroMount = 1000,
-  o_mainMapShop = 2000,
-  o_mainMapVillage = 3000,
-  o_mainMapChurch = 4000,
-  o_bag = 5000,
-  o_mainMapTempleSite = 8000,
-  -- Hero village.
-  o_heroVillageChurch = 9000,
-  o_ZhangHome = 10000,
-  o_heroVillageShop = 11000,
-  o_XiangHome = 12000,
-  o_heroHome = 13000,
+obj_state = {                           -- [obj_name] = quest_id
 }
 
 bag = {                                 -- [item_id] = count
-  [i_coin] = 0,
-  [i_bou] = 0,
 }
 
 -- Training.
@@ -157,11 +141,11 @@ function GetCurrTalk()
 end
 
 function HasBou2()
-  return HasItem(3)
+  return HasItem(i_bou2)
 end
 
 function HasBou3()
-  return HasItem(4)
+  return HasItem(i_bou3)
 end
 
 function HasCoin(amount)
@@ -232,6 +216,16 @@ function LetterSent()
   return HasItem(f_letter_sent)
 end
 
+function LoadGame()
+  ResetGame()
+  local inf = io.open(SAV_FILE_NAME, "r")
+  if (nil == inf) then
+    return
+  end
+  assert(loadstring(inf:read("*all")))()
+  inf:close()
+end
+
 function NotRestValid()
   return not IsRestValid()
 end
@@ -288,6 +282,33 @@ function RemoveItem(id, count)
   else
     bag[id] = nil
   end
+end
+
+function ResetGame()
+  obj_state = {}
+  obj_state.o_brother1 = 6000
+  obj_state.o_brother2 = 7000
+  obj_state.o_heroMount = 1000
+  obj_state.o_mainMapShop = 2000
+  obj_state.o_mainMapVillage = 3000
+  obj_state.o_mainMapChurch = 4000
+  obj_state.o_bag = 5000
+  obj_state.o_mainMapTempleSite = 8000
+  obj_state.o_heroVillageChurch = 9000
+  obj_state.o_ZhangHome = 10000
+  obj_state.o_heroVillageShop = 11000
+  obj_state.o_XiangHome = 12000
+  obj_state.o_heroHome = 13000
+  bag = {}
+  bag[i_coin] = 0
+  bag[i_bou] = 0
+end
+
+function SaveGame()
+  local outf = io.open(SAV_FILE_NAME, "w")
+  WriteStrTable(outf, 'obj_state', obj_state)
+  WriteIntTable(outf, 'bag', bag)
+  outf:close()
 end
 
 function ScriptAddBou1()
@@ -357,3 +378,29 @@ function WaitTimer(param, t)
     return false
   end
 end
+
+function WriteIntTable(outf, name, t)
+  WriteTable_i(outf, name, t, '[%s]=%s')
+end
+
+function WriteStrTable(outf, name, t)
+  WriteTable_i(outf, name, t, '%s=%s')
+end
+
+function WriteTable_i(outf, name, t, fmt)
+  outf:write(string.format('%s={', name))
+  local tmp = {}
+  for k,v in pairs(t) do
+    table.insert(tmp, string.format(fmt, tostring(k), tostring(v)))
+  end
+  for i = 1, #tmp do
+    if (#tmp == i) then
+      outf:write(string.format('%s', tmp[i]))
+    else
+      outf:write(string.format('%s,', tmp[i]))
+    end
+  end
+  outf:write(string.format('}\n'))
+end
+
+ResetGame()                             -- Init game.

@@ -3,9 +3,9 @@ BagScene = {}
 
 BagScene.OnCreate = function(param)
   local x = 10
-  for i = 2, #bag do
-    if (0 < ItemCount(i)) then
-      local img = ItemData[i].Image
+  for k,v in pairs(bag) do
+    if (0 < ItemCount(k)) then
+      local img = ItemData[k].Image
       if (nil ~= img) then
         local o = Good.GenObj(-1, img)
         Good.SetPos(o, x, 10)
