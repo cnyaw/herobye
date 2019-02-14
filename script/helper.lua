@@ -90,6 +90,16 @@ function ConsumeRestCost()
   ConsumeCoin(REST_COST)
 end
 
+function EnterHeroVillage()
+  SetItem(f_in_place, e_in_place_hero_village)
+  SaveGame()
+end
+
+function EnterMainMap()
+  SetItem(f_in_place, e_in_place_main_map)
+  SaveGame()
+end
+
 function GenFlyUpObj(parent, tex_id)
   local x, y = Good.GetPos(parent)
   local l,t,w,h = Good.GetDim(parent)
@@ -158,6 +168,10 @@ end
 
 function HasLetter()
   return HasItem(i_letter)
+end
+
+function InMainMap()
+  return ItemCount(f_in_place) == e_in_place_main_map
 end
 
 function IsBuyBou2Valid()
@@ -333,6 +347,10 @@ function ScriptTransLetterToPriest()
   ConsumeCoin(CHURCH_RECV_LETTER_COST)
   RemoveItem(i_letter, 1)
   AddItem(f_letter_sent, 1)
+end
+
+function SetItem(id, count)
+  bag[id] = count
 end
 
 function StartTalk(id)

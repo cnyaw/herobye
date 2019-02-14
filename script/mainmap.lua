@@ -4,7 +4,7 @@ MainMap = {}
 MainMap.OnCreate = function(param)
   UpdateCoinInfo(param)
   QuestOnCreate()
-  SaveGame()
+  EnterMainMap()
 end
 
 MainMap.OnStep = function(param)
