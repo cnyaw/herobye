@@ -1,5 +1,7 @@
 
 local help_pinky_lvl_id = 318
+local racing_lvl_id = 330
+local interview_hero_village_lvl_id = 331
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -128,13 +130,13 @@ TalkData = {
     {Text = '賽魂世界隆重開幕啦'},
     {Text = '只要下注猜中了包你贏大錢'},
     {Text = '有錢沒錢都來看看吧'},
-    {LevelId = RACING_LVL_ID},
+    {LevelId = racing_lvl_id},
   },
   -- Merchant, welcom to the racing game.
   [511] = {
     {Image = merchant_tex_id},
     {Text = '歡迎來到賽魂世界'},
-    {LevelId = RACING_LVL_ID},
+    {LevelId = racing_lvl_id},
   },
   -- Church, out.
   [1000] = {
@@ -242,7 +244,7 @@ TalkData = {
     {Text = '「小白！小白！」'},
     {Text = '「奇怪？小白跑到那裡去了？」'},
     {Text = '「不管了我自己要出去玩了」'},
-    {LevelId = INTERVIEW_HERO_VILLAGE_LVL_ID},
+    {LevelId = interview_hero_village_lvl_id},
   },
   [1153] = {
     {Image = priest_tex_id},
