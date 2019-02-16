@@ -15,8 +15,6 @@ local grandpa_tex_id = 327
 local zhang_mama_tex_id = 329
 local ufo_tex_id = 343
 
-teacher_done_talk_id = 50
-
 TalkData = {
   -- Teacher, ini.
   [1] = {

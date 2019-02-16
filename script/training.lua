@@ -6,6 +6,8 @@ local click_fish_obj_id = 269
 local stick_tex_id = 292
 local circle_tex_id = 326
 
+local teacher_done_talk_id = 50
+
 local hit_obj = nil
 
 TrainingMap = {}
