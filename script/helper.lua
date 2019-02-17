@@ -329,6 +329,10 @@ function ScriptAddBou1()
   AddItem(i_bou, 1)
 end
 
+function ScriptInterviewUfo()
+  AddItem(f_interview_ufo, 1)
+end
+
 function ScriptMerchantBuyBou2()
   ConsumeCoin(BOU2_COST)
   AddItem(i_bou2, 1)

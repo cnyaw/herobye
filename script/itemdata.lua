@@ -11,6 +11,7 @@ f_finish_training = 7
 f_in_place = 8
 e_in_place_main_map = 1
 e_in_place_hero_village = 2
+f_interview_ufo = 9
 
 ItemData = {
   [i_bou] = {Image = BOU_TEX_ID},

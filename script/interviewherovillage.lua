@@ -2,6 +2,8 @@
 local WAIT_TIME = 60
 local BLINK_TIME = 120
 
+local ufo_coming_talk_id = 1400
+
 InterviewHeroVillage = {}
 
 InterviewHeroVillage.OnCreate = function(param)
@@ -27,7 +29,7 @@ InterviewHeroVillageOnStepBlink = function(param)
     end
   end
   if (BLINK_TIME <= param.counter) then
-    StartTalk(9999)
+    StartTalk(ufo_coming_talk_id)
   end
 end
 

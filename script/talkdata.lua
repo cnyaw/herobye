@@ -270,13 +270,13 @@ TalkData = {
     {LevelId = MAIN_MAP_LVL_ID},
   },
   -- Hero village, church.
-  [9000] = {
+  [1300] = {
     {Image = grandpa_tex_id},
     {Text = '不要太調皮哦'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- UFO coming.
-  [9999] = {
+  [1400] = {
     {FadeTo = {fade_time_one_sec, color_black}},
     {Image = ufo_tex_id},
     {Text = '哇哈哈哇哈哈！我又來啦！'},
@@ -286,28 +286,29 @@ TalkData = {
     {Text = '給你們3天時間'},
     {Text = '快把勇者們都交出來吧'},
     {Text = '否則就嘿嘿嘿嘿嘿嘿！'},
+    {Script = ScriptInterviewUfo},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Zhang home.
-  [10000] = {
+  [1500] = {
     {Image = zhang_mama_tex_id},
     {Text = '每天都要洗好多衣服啊'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Shop.
-  [11000] = {
+  [1600] = {
     {Image = merchant_tex_id},
     {Text = '隨便看看有興趣再買哦'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Xiang home.
-  [12000] = {
+  [1700] = {
     {Image = pinky_tex_id},
     {Text = '小白要跟我一起玩哦'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, hero home.
-  [13000] = {
+  [1800] = {
     {Text = '「維護世界的和平也是挺累的」'},
     {Text = '「讓我睡一下下吧」'},
     {Image = -1},
@@ -322,7 +323,7 @@ TalkData = {
     {Text = '「原來是個夢」'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  [13001] = {
+  [1801] = {
     {Text = '「維護世界的和平也是挺累的」'},
     {Text = '「讓我睡一下下吧」'},
     {Image = -1},

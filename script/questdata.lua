@@ -44,14 +44,14 @@ QuestData = {
   --- Main map, temple.
   [8000] = {TalkId = {1200}},
   -- Hero village, church.
-  [9000] = {TalkId = {9000}},
+  [9000] = {TalkId = {1300}},
   -- Hero village, Zhang home.
-  [10000] = {TalkId = {10000}},
+  [10000] = {TalkId = {1500}},
   -- Hero village, Shop.
-  [11000] = {TalkId = {11000}},
+  [11000] = {TalkId = {1600}},
   -- Hero village, Xiang home.
-  [12000] = {TalkId = {12000}},
+  [12000] = {TalkId = {1700}},
   -- Hero village, hero home.
-  [13000] = {TalkId = {13000}, NextId = 13001},
-  [13001] = {TalkId = {13001}},
+  [13000] = {TalkId = {1800}, NextId = 13001},
+  [13001] = {TalkId = {1801}},
 }
