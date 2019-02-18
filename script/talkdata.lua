@@ -140,6 +140,18 @@ TalkData = {
     {Text = '歡迎來到賽魂世界'},
     {LevelId = racing_lvl_id},
   },
+  -- Merchant, give a godzilla to hero.
+  [512] = {
+    {Image = merchant_tex_id},
+    {Text = '小師父恭喜發財啊'},
+    {Text = '昨晚我家的龍神太子拖夢給我'},
+    {Text = '說祂發了大願讓我找到您'},
+    {Text = '要蓋間廟讓善男信女們都發大財'},
+    {Image = GODZILLA_TEX_ID},
+    {Script = ScriptGiveGodzilla},
+    {Text = '恭請金尊到鎮上募款蓋廟吧'},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
   -- Church, out.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -267,6 +279,12 @@ TalkData = {
   [1200] = {
     {Image = pinnote_tex_id},
     {Text = '整備中'},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
+  -- Temple, crowd funding.
+  [1201] = {
+    {Image = pinnote_tex_id},
+    {Text = '募款蓋廟中'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
   -- Hero village, church.

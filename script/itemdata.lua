@@ -12,10 +12,13 @@ f_in_place = 8
 e_in_place_main_map = 1
 e_in_place_hero_village = 2
 f_interview_ufo = 9
+i_godzilla = 10
+f_crowd_funding = 11
 
 ItemData = {
   [i_bou] = {Image = BOU_TEX_ID},
   [i_bou2] = {Image = BOU2_TEX_ID},
   [i_bou3] = {Image = BOU3_TEX_ID},
   [i_letter] = {Image = LETTER_TEX_ID},
+  [i_godzilla] = {Image = GODZILLA_TEX_ID}
 }

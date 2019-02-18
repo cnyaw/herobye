@@ -13,13 +13,10 @@ local talk_lvl_id = 275
 
 local teacher_init_talk_id = 1
 
-local SAV_FILE_NAME = "herobye.sav"
+local GIVE_GODZILLA_COST = 100
+local CROWD_FUNDING_COST = 1000
 
-BOU2_COST = 10
-BOU3_COST = 30
-CHURCH_RECV_LETTER_COST = 100
-CHURCH_2ND_DREAM_COST = 100
-REST_COST = 5
+local SAV_FILE_NAME = "herobye.sav"
 
 -- Data.
 
@@ -127,7 +124,9 @@ function GenSandGlassObj(cd)
 end
 
 function GetCurrBouGain()
-  if (HasBou3()) then
+  if (IsTempleCrowdFunding() and HasGodzilla()) then
+    return 20
+  elseif (HasBou3()) then
     return 5
   elseif (HasBou2()) then
     return 3
@@ -137,7 +136,9 @@ function GetCurrBouGain()
 end
 
 function GetCurrBouTexId()
-  if (HasBou3()) then
+  if (IsTempleCrowdFunding() and HasGodzilla()) then
+    return GODZILLA_TEX_ID
+  elseif (HasBou3()) then
     return BOU3_TEX_ID
   elseif (HasBou2()) then
     return BOU2_TEX_ID
@@ -160,6 +161,10 @@ end
 
 function HasCoin(amount)
   return GetCoin() >= amount
+end
+
+function HasGodzilla()
+  return HasItem(i_godzilla)
 end
 
 function HasItem(id)
@@ -194,6 +199,10 @@ function IsClickTrainingValid()
   return 0 >= click_training.cd
 end
 
+function IsGiveGodzillaValid()
+  return HasItem(f_interview_ufo) and HasCoin(GIVE_GODZILLA_COST)
+end
+
 function IsOpenRacingValid()
   return 4004 <= obj_state.o_mainMapChurch and HasCoin(10)
 end
@@ -212,6 +221,10 @@ end
 
 function IsStickTrainingValid()
   return 0 >= stick_training.cd
+end
+
+function IsTempleCrowdFunding()
+  return HasItem(f_crowd_funding)
 end
 
 function IsTransLetterToPriestValid()
@@ -327,6 +340,11 @@ end
 
 function ScriptAddBou1()
   AddItem(i_bou, 1)
+end
+
+function ScriptGiveGodzilla()
+  AddItem(i_godzilla, 1);
+  AddItem(f_crowd_funding, 1)
 end
 
 function ScriptInterviewUfo()

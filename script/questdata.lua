@@ -14,7 +14,9 @@ QuestData = {
   [2003] = {TalkId = {400}, RedPt = 1, NextId = 2004},
   [2004] = {TalkId = {450, 500}, NextCond = IsOpenRacingValid, NextId = 2005},
   [2005] = {TalkId = {510}, RedPt = 1, NextId = 2006},
-  [2006] = {TalkId = {511}},
+  [2006] = {TalkId = {511}, NextCond = IsGiveGodzillaValid, NextId = 2007},
+  [2007] = {TalkId = {512}, RedPt = 1, NextId = 2008},
+  [2008] = {TalkId = {511}},
   -- Main map, village.
   [3000] = {LevelId = beg_money_lvl_id},
   -- Main map, church.
@@ -42,7 +44,9 @@ QuestData = {
   [7001] = {LevelId = TRANINING_STICK_LVL_ID, Cond = IsStickTrainingValid, NextCond = IsStickTrainingMaxLv, NextId = 7002},
   [7002] = {TalkId = {250}},
   --- Main map, temple.
-  [8000] = {TalkId = {1200}},
+  [8000] = {TalkId = {1200}, NextCond = IsTempleCrowdFunding, NextId = 8001},
+  [8001] = {TalkId = {1201}, RedPt = 1, NextId = 8002},
+  [8002] = {TalkId = {1201}},
   -- Hero village, church.
   [9000] = {TalkId = {1300}},
   -- Hero village, Zhang home.
