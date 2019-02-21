@@ -204,7 +204,7 @@ function IsGiveGodzillaValid()
 end
 
 function IsOpenRacingValid()
-  return 4004 <= obj_state.o_mainMapChurch and HasCoin(10)
+  return HasItem(f_interview_ufo) and HasCoin(10)
 end
 
 function IsRestValid()
