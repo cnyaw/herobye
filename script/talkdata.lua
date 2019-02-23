@@ -2,7 +2,6 @@
 local help_pinky_lvl_id = 318
 local racing_lvl_id = 330
 local interview_hero_village_lvl_id = 331
-local hero_village_church_lvl_id = 350
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -275,6 +274,8 @@ TalkData = {
     {Image = -1},
     {Text = ''},
     {FadeTo = {fade_time_one_sec, color_black}},
+    {Text = '「好舒服啊快要睡著了」'},
+    {Text = 'ZZZ ZZZ ZZZ'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Temple, site prepare.
@@ -289,21 +290,11 @@ TalkData = {
     {ScriptText = ScriptTextCrowdFunding, Format = '募款蓋廟中還需要$%d'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Hero village, church.
+  -- Hero village church, grandpa.
   [1300] = {
     {Image = grandpa_tex_id},
-    {Text = '不要太調皮哦'},
-    {LevelId = HERO_VILLAGE_LVL_ID},
-  },
-  -- Hero village, church inner.
-  [1301] = {
-    {LevelId = hero_village_church_lvl_id},
-  },
-  -- Hero village church, grandpa.
-  [1302] = {
-    {Image = grandpa_tex_id},
-    {Text = '找到三把上古神兵打敗外星人吧'},
-    {LevelId = hero_village_church_lvl_id},
+    {Text = '找到3把上古神兵打敗外星人吧'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
   -- Hero village church, shelf.
   [1350] = {
@@ -316,15 +307,15 @@ TalkData = {
     {Text = '勇敢的去挑戰魔王'},
     {Text = '最後三位勇者打敗了魔王'},
     {Text = '拯救了這個世界'},
-    {Text = '後來大家又過著快快樂樂的日子'},
-    {LevelId = hero_village_church_lvl_id},
+    {Text = '從此大家過著快快樂樂的日子'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
   -- UFO coming.
   [1400] = {
     {FadeTo = {fade_time_one_sec, color_black}},
     {Image = ufo_tex_id},
     {Text = '哇哈哈哇哈哈！我又來啦！'},
-    {Text = '我是拳頭星的外星人老闆'},
+    {Text = '我是拳頭星的外星人魔王'},
     {Text = '我要征服勇者村'},
     {Text = '然後再征服這個世界'},
     {Text = '給你們3天時間'},
