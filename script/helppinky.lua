@@ -23,7 +23,6 @@ HelpPinky.OnStep = function(param)
   param.step(param)
 end
 
-
 HelpPinkyOnStepEnd = function(param)
   if (not WaitTimer(param, 40)) then
     return
@@ -35,7 +34,6 @@ HelpPinkyOnStepPlay = function(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
-
   local x, y = Input.GetMousePos()
   for i = 1, MAX_JOHN do
     if (nil ~= param.john[i] and PtInObj(x, y, param.john[i])) then

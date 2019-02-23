@@ -23,7 +23,6 @@ TrainingMap.OnStep = function(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
-
   local x, y = Input.GetMousePos()
   if (QuestOnStep(x, y)) then
     return

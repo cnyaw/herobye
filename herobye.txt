@@ -2,10 +2,10 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349
+texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352
 maps=22 16
 sprites=67 86 335
-levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337
+levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337 350
 
 [scripts]
 306=./script/const.lua
@@ -28,6 +28,7 @@ levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337
 332=./script/racing.lua
 342=./script/interviewherovillage.lua
 354=./script/title.lua
+357=./script/herovillagechurch.lua
 
 [tex1]
 name=tree1
@@ -228,6 +229,10 @@ fileName=./res/plus.png
 [tex349]
 name=godzilla
 fileName=./res/godzilla.png
+
+[tex352]
+name=shelf
+fileName=./res/shelf.png
 
 [map22]
 name=town
@@ -1754,4 +1759,24 @@ x=32
 y=16
 script=AnimUfo
 dim=0 0 100 64
+
+[level350]
+name=hero village church
+bgColor=128 128 0
+script=HeroVillageChurch
+objects=351 355
+
+[object351]
+name=o_grandpa
+texture=327
+x=80
+y=80
+dim=0 0 168 225
+
+[object355]
+name=o_churchShelf
+texture=352
+x=368
+y=128
+dim=0 0 128 141
 

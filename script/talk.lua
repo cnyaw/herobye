@@ -5,12 +5,16 @@ local arrow_tex_id = 261
 
 local talk_mess_obj = nil
 local talk_index = nil
+local on_create = false
+local force_next_lvl = false
 
 Talk = {}
 
 Talk.OnCreate = function(param)
   talk_mess_obj = nil
   talk_index = 1
+  on_create = true
+  force_next_lvl = false
   StepOneTalk(param)
 end
 
@@ -18,10 +22,10 @@ Talk.OnStep = function(param)
   if (FadeBgColorTo(param)) then
     return
   end
-  if (not Input.IsKeyPushed(Input.LBUTTON)) then
-    return
+  if (force_next_lvl or Input.IsKeyPushed(Input.LBUTTON)) then
+    on_create = false
+    StepOneTalk(param)
   end
-  StepOneTalk(param)
 end
 
 function FadeBgColorTo(param)
@@ -86,6 +90,11 @@ function StepOneTalk(param)
   elseif (nil ~= talk.Text or nil ~= talk.ScriptText) then
     HandlTalkText(param, talk)
   elseif (nil ~= talk.LevelId) then
+    if (on_create) then                 -- Skip gen next lvl to avoid app error.
+      force_next_lvl = true
+      talk_index = talk_index - 1
+      return
+    end
     Good.GenObj(-1, talk.LevelId)
   elseif (nil ~= talk.Script) then
     talk.Script()

@@ -48,7 +48,12 @@ QuestData = {
   [8001] = {TalkId = {1201}, RedPt = 1, NextId = 8002},
   [8002] = {TalkId = {1201}},
   -- Hero village, church.
-  [9000] = {TalkId = {1300}},
+  [9000] = {TalkId = {1300}, NextCond = IsInterviewUfo, NextId = 9001},
+  [9001] = {TalkId = {1301}},
+  -- Hero village church, grandpa.
+  [9100] = {TalkId = {1302}},
+  -- Hero village church, shelf.
+  [9200] = {TalkId = {1350}},
   -- Hero village, Zhang home.
   [10000] = {TalkId = {1500}},
   -- Hero village, Shop.

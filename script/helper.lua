@@ -200,11 +200,15 @@ function IsClickTrainingValid()
 end
 
 function IsGiveGodzillaValid()
-  return HasItem(f_interview_ufo) and HasCoin(GIVE_GODZILLA_COST)
+  return IsInterviewUfo() and HasCoin(GIVE_GODZILLA_COST)
+end
+
+function IsInterviewUfo()
+  return HasItem(f_interview_ufo)
 end
 
 function IsOpenRacingValid()
-  return HasItem(f_interview_ufo) and HasCoin(10)
+  return IsInterviewUfo() and HasCoin(10)
 end
 
 function IsRestValid()
@@ -322,6 +326,8 @@ function ResetGame()
   obj_state.o_bag = 5000
   obj_state.o_mainMapTempleSite = 8000
   obj_state.o_heroVillageChurch = 9000
+  obj_state.o_grandpa = 9100
+  obj_state.o_churchShelf = 9200
   obj_state.o_ZhangHome = 10000
   obj_state.o_heroVillageShop = 11000
   obj_state.o_XiangHome = 12000

@@ -48,7 +48,6 @@ function BegMoneyOnStep(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
-
   local x, y = Input.GetMousePos()
   if (nil == param.boa) then
     param.boa = GenBegMoneyBoa(x, y)

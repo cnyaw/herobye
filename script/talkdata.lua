@@ -2,6 +2,7 @@
 local help_pinky_lvl_id = 318
 local racing_lvl_id = 330
 local interview_hero_village_lvl_id = 331
+local hero_village_church_lvl_id = 350
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -14,6 +15,7 @@ local pinky_tex_id = 316
 local grandpa_tex_id = 327
 local zhang_mama_tex_id = 329
 local ufo_tex_id = 343
+local shelf_tex_id = 352
 
 local color_black = 0xff000000
 local color_olive = 0xff808000
@@ -292,6 +294,30 @@ TalkData = {
     {Image = grandpa_tex_id},
     {Text = '不要太調皮哦'},
     {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  -- Hero village, church inner.
+  [1301] = {
+    {LevelId = hero_village_church_lvl_id},
+  },
+  -- Hero village church, grandpa.
+  [1302] = {
+    {Image = grandpa_tex_id},
+    {Text = '找到三把上古神兵打敗外星人吧'},
+    {LevelId = hero_village_church_lvl_id},
+  },
+  -- Hero village church, shelf.
+  [1350] = {
+    {FadeTo = {fade_time_one_sec, color_black}},
+    {Image = shelf_tex_id},
+    {Text = '很久很久以前'},
+    {Text = '邪惡的外星人來到勇者村'},
+    {Text = '想要征服這個世界'},
+    {Text = '三個勇者拿著傳說的神兵'},
+    {Text = '勇敢的去挑戰魔王'},
+    {Text = '最後三位勇者打敗了魔王'},
+    {Text = '拯救了這個世界'},
+    {Text = '後來大家又過著快快樂樂的日子'},
+    {LevelId = hero_village_church_lvl_id},
   },
   -- UFO coming.
   [1400] = {
