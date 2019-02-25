@@ -81,6 +81,15 @@ function HandlTalkText(param, talk)
   Good.SetRot(o, 90)
 end
 
+function HandleTalkLevelId(param, talk)
+  if (on_create) then                   -- Skip gen next lvl to avoid app error.
+    force_next_lvl = true
+    talk_index = talk_index - 1
+    return
+  end
+  Good.GenObj(-1, talk.LevelId)
+end
+
 function StepOneTalk(param)
   local talk_tbl = GetCurrTalk()
   local talk = talk_tbl[talk_index]
@@ -90,12 +99,7 @@ function StepOneTalk(param)
   elseif (nil ~= talk.Text or nil ~= talk.ScriptText) then
     HandlTalkText(param, talk)
   elseif (nil ~= talk.LevelId) then
-    if (on_create) then                 -- Skip gen next lvl to avoid app error.
-      force_next_lvl = true
-      talk_index = talk_index - 1
-      return
-    end
-    Good.GenObj(-1, talk.LevelId)
+    HandleTalkLevelId(param, talk)
   elseif (nil ~= talk.Script) then
     talk.Script()
     StepOneTalk(param)
