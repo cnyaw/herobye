@@ -24,10 +24,33 @@ last_lvl_id = nil
 
 local curr_talk_id = {teacher_init_talk_id}
 
-obj_state = {                           -- [obj_name] = quest_id
+local init_obj_state = {                -- [obj_name] = quest_id
+  o_brother1 = 6000,
+  o_brother2 = 7000,
+  o_heroMount = 1000,
+  o_mainMapShop = 2000,
+  o_mainMapVillage = 3000,
+  o_mainMapChurch = 4000,
+  o_bag = 5000,
+  o_mainMapTempleSite = 8000,
+  o_heroVillageChurch = 9000,
+  o_grandpa = 9100,
+  o_churchShelf = 9200,
+  o_ZhangHome = 10000,
+  o_heroVillageShop = 11000,
+  o_XiangHome = 12000,
+  o_heroHome = 13000
 }
 
-bag = {                                 -- [item_id] = count
+obj_state = {
+}
+
+local init_bag = {                      -- [item_id] = count
+  [i_coin] = 0,
+  [i_bou] = 0
+}
+
+bag = {
 }
 
 -- Training.
@@ -48,6 +71,14 @@ function AddItem(id, count)
     bag[id] = bag[id] + count
   else
     bag[id] = count
+  end
+end
+
+function AddMissingTableItem(tbl, init_tbl)
+  for k,v in pairs(init_tbl) do
+    if (nil == tbl[k]) then
+      tbl[k] = v
+    end
   end
 end
 
@@ -175,6 +206,14 @@ function HasLetter()
   return HasItem(i_letter)
 end
 
+function InitTable(init_tbl)
+  local tbl = {}
+  for k,v in pairs(init_tbl) do
+    tbl[k] = v
+  end
+  return tbl
+end
+
 function InMainMap()
   return ItemCount(f_in_place) == e_in_place_main_map
 end
@@ -255,6 +294,8 @@ function LoadGame()
   end
   assert(loadstring(inf:read("*all")))()
   inf:close()
+  AddMissingTableItem(obj_state, init_obj_state)
+  AddMissingTableItem(bag, init_bag)
 end
 
 function NotRestValid()
@@ -316,25 +357,8 @@ function RemoveItem(id, count)
 end
 
 function ResetGame()
-  obj_state = {}
-  obj_state.o_brother1 = 6000
-  obj_state.o_brother2 = 7000
-  obj_state.o_heroMount = 1000
-  obj_state.o_mainMapShop = 2000
-  obj_state.o_mainMapVillage = 3000
-  obj_state.o_mainMapChurch = 4000
-  obj_state.o_bag = 5000
-  obj_state.o_mainMapTempleSite = 8000
-  obj_state.o_heroVillageChurch = 9000
-  obj_state.o_grandpa = 9100
-  obj_state.o_churchShelf = 9200
-  obj_state.o_ZhangHome = 10000
-  obj_state.o_heroVillageShop = 11000
-  obj_state.o_XiangHome = 12000
-  obj_state.o_heroHome = 13000
-  bag = {}
-  bag[i_coin] = 0
-  bag[i_bou] = 0
+  obj_state = InitTable(init_obj_state)
+  bag = InitTable(init_bag)
 end
 
 function SaveGame()

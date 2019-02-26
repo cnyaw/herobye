@@ -7,9 +7,8 @@ HeroVillage.OnCreate = function(param)
 end
 
 HeroVillage.OnStep = function(param)
-  if (not Input.IsKeyPushed(Input.LBUTTON)) then
-    return
+  if (Input.IsKeyPushed(Input.LBUTTON)) then
+    local x, y = Input.GetMousePos()
+    QuestOnStep(x, y)
   end
-  local x, y = Input.GetMousePos()
-  QuestOnStep(x, y)
 end
