@@ -1,4 +1,3 @@
-local SCR_W, SCR_H = Good.GetWindowSize()
 
 local MAX_CLICK_LEVEL = 3
 local MAX_STICK_LEVEL = 3

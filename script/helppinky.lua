@@ -1,4 +1,3 @@
-local SCR_W, SCR_H = Good.GetWindowSize()
 local MAX_JOHN = 5
 
 local john_tex_id = 317

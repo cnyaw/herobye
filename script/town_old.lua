@@ -1,5 +1,4 @@
 local MOV_SPD_X, MOV_SPD_Y = 8, 8
-local SINGLE_SCR_W, SINGLE_SCR_H = Good.GetWindowSize()
 
 Town_Old = {}
 
@@ -23,7 +22,7 @@ Town_Old.OnStep = function(param)
       x = x - MOV_SPD_X
     end
   elseif (Input.IsKeyDown(Input.RIGHT)) then
-    if (w - SINGLE_SCR_W > x) then
+    if (w - SCR_W > x) then
       x = x + MOV_SPD_X
     end
   end
@@ -32,7 +31,7 @@ Town_Old.OnStep = function(param)
       y = y - MOV_SPD_Y
     end
   elseif (Input.IsKeyDown(Input.DOWN)) then
-    if (h - SINGLE_SCR_H > y) then
+    if (h - SCR_H > y) then
       y = y + MOV_SPD_Y
     end
   end
@@ -56,14 +55,14 @@ Town_Old.OnStep = function(param)
   if (0 > x) then
     x = 0
   end
-  if (w - SINGLE_SCR_W <= x) then
-    x = w - SINGLE_SCR_W - 1
+  if (w - SCR_W <= x) then
+    x = w - SCR_W - 1
   end
   if (0 > y) then
     y = 0
   end
-  if (h - SINGLE_SCR_H <= y) then
-    y = h - SINGLE_SCR_H - 1
+  if (h - SCR_H <= y) then
+    y = h - SCR_H - 1
   end
 
   Good.SetPos(id, x, y)

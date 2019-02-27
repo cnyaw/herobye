@@ -1,8 +1,10 @@
+local IMAGE_WIDTH = 100
+local IMAGE_MARGIN = 20
 
 BagScene = {}
 
 BagScene.OnCreate = function(param)
-  local x = 10
+  local x, y = IMAGE_MARGIN, IMAGE_MARGIN
   for k,v in pairs(bag) do
     if (0 < ItemCount(k)) then
       local item = ItemData[k]
@@ -10,9 +12,13 @@ BagScene.OnCreate = function(param)
         local img = item.Image
         if (nil ~= img) then
           local o = Good.GenObj(-1, img)
-          Good.SetPos(o, x, 10)
-          local l,t,w,h = Good.GetDim(o)
-          x = x + w + 10
+          Good.SetPos(o, x, y)
+          ScaleToSize(o, IMAGE_WIDTH, IMAGE_WIDTH)
+          x = x + IMAGE_WIDTH + IMAGE_MARGIN
+          if (SCR_W <= x) then
+            x = IMAGE_MARGIN
+            y = y + IMAGE_WIDTH + IMAGE_MARGIN
+          end
         end
       end
     end
