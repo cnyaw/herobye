@@ -28,13 +28,13 @@ QuestData = {
   [4005] = {TalkId = {1154}, NextCond = NotRestValid, NextId = 4004},
   -- Main map, bag.
   [5000] = {LevelId = bag_lvl_id, NextCond = HasBou2, NextId = 5001},
-  [5001] = {LevelId = bag_lvl_id, NextCond = HasBou2, RedPt = 1, NextId = 5002},
+  [5001] = {LevelId = bag_lvl_id, NextCond = TrueCond, RedPt = 1, NextId = 5002},
   [5002] = {LevelId = bag_lvl_id, NextCond = HasBou3, NextId = 5003},
-  [5003] = {LevelId = bag_lvl_id, NextCond = HasBou3, RedPt = 1, NextId = 5004},
+  [5003] = {LevelId = bag_lvl_id, NextCond = TrueCond, RedPt = 1, NextId = 5004},
   [5004] = {LevelId = bag_lvl_id, NextCond = HasLetter, NextId = 5005},
-  [5005] = {LevelId = bag_lvl_id, NextCond = HasLetter, RedPt = 1, NextId = 5006},
+  [5005] = {LevelId = bag_lvl_id, NextCond = TrueCond, RedPt = 1, NextId = 5006},
   [5006] = {LevelId = bag_lvl_id, NextCond = HasGodzilla, NextId = 5007},
-  [5007] = {LevelId = bag_lvl_id, NextCond = HasGodzilla, RedPt = 1, NextId = 5008},
+  [5007] = {LevelId = bag_lvl_id, NextCond = TrueCond, RedPt = 1, NextId = 5008},
   [5008] = {LevelId = bag_lvl_id},
   -- Training map, brother 1.
   [6000] = {TalkId = {100}, NextId = 6001},

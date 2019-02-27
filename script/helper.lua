@@ -426,6 +426,10 @@ function UpdateCoinInfo(param)
   param.coin_obj = o
 end
 
+function TrueCond()
+  return true
+end
+
 function UpdateTrainingCd()
   training_cd_tick = training_cd_tick + 1
   if (60 <= training_cd_tick) then

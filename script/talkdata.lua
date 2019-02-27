@@ -33,7 +33,7 @@ TalkData = {
   -- Teacher, training complete.
   [50] = {
     {Image = teacher_tex_id},
-    {Text = '小秋徒兒你跟師兄們作完功課了啊'},
+    {Text = '小秋徒兒你作完功課了啊'},
     {Image = BOU_TEX_ID},
     {Text = '這個缽你帶下山吧'},
     {Script = ScriptAddBou1},
