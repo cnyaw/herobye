@@ -49,7 +49,9 @@ QuestData = {
   [8001] = {TalkId = {1201}, RedPt = 1, NextId = 8002},
   [8002] = {TalkId = {1201}},
   -- Hero village, church.
-  [9000] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  [9000] = {NextCond = IsInterviewUfo, NextId = 9001},
+  [9001] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID, RedPt = 1, NextId = 9002},
+  [9002] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   -- Hero village church, grandpa.
   [9100] = {TalkId = {1300}},
   -- Hero village church, shelf.
