@@ -470,11 +470,12 @@ function WriteTable_i(outf, name, t, fmt)
   for k,v in pairs(t) do
     table.insert(tmp, string.format(fmt, tostring(k), tostring(v)))
   end
+  table.sort(tmp)
   for i = 1, #tmp do
     if (#tmp == i) then
-      outf:write(string.format('%s', tmp[i]))
+      outf:write(string.format('%s\n', tmp[i]))
     else
-      outf:write(string.format('%s,', tmp[i]))
+      outf:write(string.format('%s,\n', tmp[i]))
     end
   end
   outf:write(string.format('}\n'))
