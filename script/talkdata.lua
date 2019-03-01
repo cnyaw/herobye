@@ -287,7 +287,7 @@ TalkData = {
   -- Temple, crowd funding.
   [1201] = {
     {Image = pinnote_tex_id},
-    {ScriptText = ScriptTextCrowdFunding, Format = '募款蓋廟中還需要$%d'},
+    {ScriptText = ScriptTextCrowdFunding, Text = '募款蓋廟中還需要$%d'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
   -- Hero village church, grandpa.

@@ -65,14 +65,15 @@ function HandlTalkText(param, talk)
     Good.KillObj(talk_mess_obj)
     talk_mess_obj = nil
   end
+  local text = talk.Text
   if (nil ~= talk.ScriptText) then
-    talk.Text = talk.ScriptText(talk.Format)
+    text = talk.ScriptText(talk.Text)
   end
-  if (0 >= string.len(talk.Text)) then
+  if (0 >= string.len(text)) then
     StepOneTalk(param)
     return
   end
-  talk_mess_obj = Good.GenTextObj(-1, talk.Text, SZ_TALK_TEXT)
+  talk_mess_obj = Good.GenTextObj(-1, text, SZ_TALK_TEXT)
   local w = GetTextObjWidth(talk_mess_obj)
   Good.SetPos(talk_mess_obj, (SCR_W - w)/2, 270)
   local o = Good.GenObj(talk_mess_obj, arrow_tex_id, 'AnimTalkArrow')
@@ -96,7 +97,7 @@ function StepOneTalk(param)
   talk_index = talk_index + 1
   if (nil ~= talk.Image) then
     HandleTalkImage(param, talk)
-  elseif (nil ~= talk.Text or nil ~= talk.ScriptText) then
+  elseif (nil ~= talk.Text) then
     HandlTalkText(param, talk)
   elseif (nil ~= talk.LevelId) then
     HandleTalkLevelId(param, talk)
