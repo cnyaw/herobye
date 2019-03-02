@@ -153,6 +153,32 @@ TalkData = {
     {Text = '恭請金尊到鎮上募款蓋廟吧'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
+  -- Bag.
+  [600] = {
+    {Image = BOU_TEX_ID},
+    {Text = '有點老舊的木缽'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [601] = {
+    {Image = BOU2_TEX_ID},
+    {Text = '銅製作的缽'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [602] = {
+    {Image = BOU3_TEX_ID},
+    {Text = '金光閃閃的缽'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [603] = {
+    {Image = LETTER_TEX_ID},
+    {Text = '師父給吳神父的書信'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [604] = {
+    {Image = GODZILLA_TEX_ID},
+    {Text = '龍神太子神像'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church, out.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -287,7 +313,7 @@ TalkData = {
   -- Temple, crowd funding.
   [1201] = {
     {Image = pinnote_tex_id},
-    {ScriptText = ScriptTextCrowdFunding, Text = '募款蓋廟中還需要$%d'},
+    {Text = '募款蓋廟中還需要$%d', ScriptText = ScriptTextCrowdFunding},
     {LevelId = MAIN_MAP_LVL_ID},
   },
   -- Hero village church, grandpa.

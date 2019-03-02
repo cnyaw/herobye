@@ -11,7 +11,7 @@ BagScene.OnCreate = function(param)
       if (nil ~= item) then
         local img = item.Image
         if (nil ~= img) then
-          x, y = GenBagImageObj(x, y, img)
+          x, y = GenBagItemObj(x, y, img, k)
         end
       end
     end
@@ -19,20 +19,54 @@ BagScene.OnCreate = function(param)
 end
 
 BagScene.OnStep = function(param)
-  if (Input.IsKeyPushed(Input.LBUTTON)) then
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
     Good.GenObj(-1, MAIN_MAP_LVL_ID)
     return
   end
+  if (Input.IsKeyPushed(Input.LBUTTON)) then
+    local x, y = Input.GetMousePos()
+    if (PtInBagItem(param._id, x, y)) then
+      return
+    end
+  end
 end
 
-function GenBagImageObj(x, y, img)
+function GenBagItemObj(x, y, img, item_id)
   local o = Good.GenObj(-1, img)
   Good.SetPos(o, x, y)
   ScaleToSize(o, IMAGE_WIDTH, IMAGE_WIDTH)
+  Good.GetParam(o).item_id = item_id
   x = x + IMAGE_WIDTH + IMAGE_MARGIN
   if (SCR_W <= x) then
     x = IMAGE_MARGIN
     y = y + IMAGE_WIDTH + IMAGE_MARGIN
   end
   return x, y
+end
+
+function GetBagItemTalkId(o)
+  local item_id = Good.GetParam(o).item_id
+  local item = ItemData[item_id]
+  if (nil ~= item) then
+    local talk_id = item.TalkId
+    if (nil ~= talk_id) then
+      return talk_id
+    end
+  end
+  return -1
+end
+
+function PtInBagItem(id, x, y)
+  local c = Good.GetChildCount(id)
+  for i = 0, c - 1 do
+    local o = Good.GetChild(id, i)
+    if (PtInObj(x, y, o)) then
+      local talk_id = GetBagItemTalkId(o)
+      if (-1 ~= talk_id) then
+        StartTalk(talk_id)
+      end
+      return true
+    end
+  end
+  return false
 end

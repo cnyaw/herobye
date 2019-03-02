@@ -1,5 +1,4 @@
 
-local bag_lvl_id = 300
 local beg_money_lvl_id = 293
 
 QuestData = {
@@ -27,15 +26,15 @@ QuestData = {
   [4004] = {TalkId = {1153}, NextCond = IsRestValid, NextId = 4005},
   [4005] = {TalkId = {1154}, NextCond = NotRestValid, NextId = 4004},
   -- Main map, bag.
-  [5000] = {LevelId = bag_lvl_id, NextCond = HasBou2, NextId = 5001},
-  [5001] = {LevelId = bag_lvl_id, NextCond = TrueCond, RedPt = 1, NextId = 5002},
-  [5002] = {LevelId = bag_lvl_id, NextCond = HasBou3, NextId = 5003},
-  [5003] = {LevelId = bag_lvl_id, NextCond = TrueCond, RedPt = 1, NextId = 5004},
-  [5004] = {LevelId = bag_lvl_id, NextCond = HasLetter, NextId = 5005},
-  [5005] = {LevelId = bag_lvl_id, NextCond = TrueCond, RedPt = 1, NextId = 5006},
-  [5006] = {LevelId = bag_lvl_id, NextCond = HasGodzilla, NextId = 5007},
-  [5007] = {LevelId = bag_lvl_id, NextCond = TrueCond, RedPt = 1, NextId = 5008},
-  [5008] = {LevelId = bag_lvl_id},
+  [5000] = {LevelId = BAG_LVL_ID, NextCond = HasBou2, NextId = 5001},
+  [5001] = {LevelId = BAG_LVL_ID, NextCond = TrueCond, RedPt = 1, NextId = 5002},
+  [5002] = {LevelId = BAG_LVL_ID, NextCond = HasBou3, NextId = 5003},
+  [5003] = {LevelId = BAG_LVL_ID, NextCond = TrueCond, RedPt = 1, NextId = 5004},
+  [5004] = {LevelId = BAG_LVL_ID, NextCond = HasLetter, NextId = 5005},
+  [5005] = {LevelId = BAG_LVL_ID, NextCond = TrueCond, RedPt = 1, NextId = 5006},
+  [5006] = {LevelId = BAG_LVL_ID, NextCond = HasGodzilla, NextId = 5007},
+  [5007] = {LevelId = BAG_LVL_ID, NextCond = TrueCond, RedPt = 1, NextId = 5008},
+  [5008] = {LevelId = BAG_LVL_ID},
   -- Training map, brother 1.
   [6000] = {TalkId = {100}, NextId = 6001},
   [6001] = {LevelId = TRANINING_CLICK_LVL_ID, Cond = IsClickTrainingValid, NextCond = IsClickTrainingMaxLv, NextId = 6002},

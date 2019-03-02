@@ -16,9 +16,9 @@ i_godzilla = 10
 f_crowd_funding = 11
 
 ItemData = {
-  [i_bou] = {Image = BOU_TEX_ID},
-  [i_bou2] = {Image = BOU2_TEX_ID},
-  [i_bou3] = {Image = BOU3_TEX_ID},
-  [i_letter] = {Image = LETTER_TEX_ID},
-  [i_godzilla] = {Image = GODZILLA_TEX_ID}
+  [i_bou] = {Image = BOU_TEX_ID, TalkId = 600},
+  [i_bou2] = {Image = BOU2_TEX_ID, TalkId = 601},
+  [i_bou3] = {Image = BOU3_TEX_ID, TalkId = 602},
+  [i_letter] = {Image = LETTER_TEX_ID, TalkId = 603},
+  [i_godzilla] = {Image = GODZILLA_TEX_ID, TalkId = 604}
 }
