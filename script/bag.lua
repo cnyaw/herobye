@@ -11,14 +11,7 @@ BagScene.OnCreate = function(param)
       if (nil ~= item) then
         local img = item.Image
         if (nil ~= img) then
-          local o = Good.GenObj(-1, img)
-          Good.SetPos(o, x, y)
-          ScaleToSize(o, IMAGE_WIDTH, IMAGE_WIDTH)
-          x = x + IMAGE_WIDTH + IMAGE_MARGIN
-          if (SCR_W <= x) then
-            x = IMAGE_MARGIN
-            y = y + IMAGE_WIDTH + IMAGE_MARGIN
-          end
+          x, y = GenBagImageObj(x, y, img)
         end
       end
     end
@@ -30,4 +23,16 @@ BagScene.OnStep = function(param)
     Good.GenObj(-1, MAIN_MAP_LVL_ID)
     return
   end
+end
+
+function GenBagImageObj(x, y, img)
+  local o = Good.GenObj(-1, img)
+  Good.SetPos(o, x, y)
+  ScaleToSize(o, IMAGE_WIDTH, IMAGE_WIDTH)
+  x = x + IMAGE_WIDTH + IMAGE_MARGIN
+  if (SCR_W <= x) then
+    x = IMAGE_MARGIN
+    y = y + IMAGE_WIDTH + IMAGE_MARGIN
+  end
+  return x, y
 end
