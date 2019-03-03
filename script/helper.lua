@@ -38,7 +38,8 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_ZhangHome = 10000,
   o_heroVillageShop = 11000,
   o_XiangHome = 12000,
-  o_heroHome = 13000
+  o_heroHome = 13000,
+  o_toAlienPath = 14000
 }
 
 obj_state = {

@@ -295,7 +295,7 @@ TalkData = {
   },
   [1154] = {
     {Image = priest_tex_id},
-    {Text = '來抓個龍吧'},
+    {Text = string.format('來抓個龍吧VIP只要%d塊錢哦', REST_COST)},
     {Script = ConsumeRestCost},
     {Image = -1},
     {Text = ''},

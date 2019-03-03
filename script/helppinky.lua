@@ -2,6 +2,8 @@ local MAX_JOHN = 5
 
 local john_tex_id = 317
 
+local help_pinky_done_talk_id = 1151
+
 HelpPinky = {}
 
 HelpPinky.OnCreate = function(param)
@@ -26,7 +28,7 @@ HelpPinkyOnStepEnd = function(param)
   if (not WaitTimer(param, 40)) then
     return
   end
-  StartTalk(1151)
+  StartTalk(help_pinky_done_talk_id)
 end
 
 HelpPinkyOnStepPlay = function(param)
