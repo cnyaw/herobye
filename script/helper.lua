@@ -119,12 +119,12 @@ function ConsumeRestCost()
 end
 
 function EnterHeroVillage()
-  SetItem(f_in_place, e_in_place_hero_village)
+  SetItem(f_in_place, HERO_VILLAGE_LVL_ID)
   SaveGame()
 end
 
 function EnterMainMap()
-  SetItem(f_in_place, e_in_place_main_map)
+  SetItem(f_in_place, MAIN_MAP_LVL_ID)
   SaveGame()
 end
 
@@ -182,6 +182,10 @@ function GetCurrTalk()
   return TalkData[curr_talk_id[1]]
 end
 
+function GetInPlaceLvlId()
+  return ItemCount(f_in_place)
+end
+
 function HasBou2()
   return HasItem(i_bou2)
 end
@@ -212,10 +216,6 @@ function InitTable(init_tbl)
     tbl[k] = v
   end
   return tbl
-end
-
-function InMainMap()
-  return ItemCount(f_in_place) == e_in_place_main_map
 end
 
 function IsBuyBou2Valid()

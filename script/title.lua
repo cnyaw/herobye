@@ -28,11 +28,7 @@ Title.OnStep = function(param)
     if (0 == param.cursor) then
       LoadGame()
       if (HasItem(f_finish_training)) then
-        if (InMainMap()) then
-          Good.GenObj(-1, MAIN_MAP_LVL_ID)
-        else
-          Good.GenObj(-1, HERO_VILLAGE_LVL_ID)
-        end
+        Good.GenObj(-1, GetInPlaceLvlId())
       else
         StartTalk()
       end
