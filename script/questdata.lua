@@ -53,7 +53,8 @@ QuestData = {
   [9001] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID, RedPt = 1, NextId = 9002},
   [9002] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   -- Hero village church, grandpa.
-  [9100] = {TalkId = {1300}},
+  [9100] = {TalkId = {1300}, NextId = 9101},
+  [9101] = {TalkId = {1301}},
   -- Hero village church, shelf.
   [9200] = {TalkId = {1350}},
   -- Hero village, Zhang home.

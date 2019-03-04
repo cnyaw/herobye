@@ -3,17 +3,15 @@ local MAX_CLICK_LEVEL = 3
 local MAX_STICK_LEVEL = 3
 local TIME_TRAINING_CD = 3
 local OPEN_CHURCH_COST = 50
+local GIVE_GODZILLA_COST = 100
+local CROWD_FUNDING_COST = 1000
 
 local tex_sandglass_id = 273
 local map_brother1_obj_id = 282
 local map_brother2_obj_id = 283
 local red_point_tex_id = 313
 local talk_lvl_id = 275
-
 local teacher_init_talk_id = 1
-
-local GIVE_GODZILLA_COST = 100
-local CROWD_FUNDING_COST = 1000
 
 local SAV_FILE_NAME = "herobye.sav"
 
@@ -366,6 +364,10 @@ function SaveGame()
   WriteStrTable(outf, 'obj_state', obj_state)
   WriteIntTable(outf, 'bag', bag)
   outf:close()
+end
+
+function ScriptAddBackScratcher()
+  AddItem(i_back_scratcher, 1)
 end
 
 function ScriptAddBou1()

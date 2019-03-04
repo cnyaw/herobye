@@ -19,8 +19,8 @@ AlienPath.OnCreate = function(param)
     local y = math.random(SCR_H - h)
     Good.SetPos(o, x, y)
     local rps = Good.GenObj(o, rps_tex_id[i])
-    Good.SetAnchor(rps, 0.5, 0.5)
-    ScaleToSize(rps, RPS_SIZE, RPS_SIZE)
+    local sw, sh = ScaleToSize(rps, RPS_SIZE, RPS_SIZE)
+    Good.SetPos(rps, (w - sw)/2, h - sh)
     param.obj[i] = o
   end
 end

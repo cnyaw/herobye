@@ -179,6 +179,11 @@ TalkData = {
     {Text = '龍神太子神像'},
     {LevelId = BAG_LVL_ID},
   },
+  [605] = {
+    {Image = BACK_SCRATCHER_TEX_ID},
+    {Text = '擁有布的力量的無敵不求人'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church, out.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -318,6 +323,30 @@ TalkData = {
   },
   -- Hero village church, grandpa.
   [1300] = {
+    {Image = grandpa_tex_id},
+    {Text = '讀過祖先的記錄了吧'},
+    {Text = '找到3把上古神兵打敗外星人吧'},
+    {Text = ''},
+    {Text = '「爺爺爺爺」'},
+    {Text = '嗯嗯怎麼啦'},
+    {Text = '「不求人不求人」'},
+    {Text = '嗯嗯喔喔喔'},
+    {Text = '沒錯!'},
+    {Image = BACK_SCRATCHER_TEX_ID},
+    {Text = '這就是擁有布的力量的無敵不求人'},
+    {Text = '可以用來對抗石頭的力量'},
+    {Text = '給你吧'},
+    {Script = ScriptAddBackScratcher},
+    {Image = grandpa_tex_id},
+    {Text = '小白你現在是新一代的勇者了'},
+    {Text = '「呵呵呵我是勇者小白!」'},
+    {Text = '「我的任務是維護世界的和平！」'},
+    {Text = '張媽媽家擁有石頭的力量'},
+    {Text = '去把另外2把神兵找出來'},
+    {Text = '打敗外星人拯救這個世界吧'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
+  [1301] = {
     {Image = grandpa_tex_id},
     {Text = '找到3把上古神兵打敗外星人吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},

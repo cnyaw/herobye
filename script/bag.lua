@@ -20,7 +20,7 @@ end
 
 BagScene.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, MAIN_MAP_LVL_ID)
+    Good.GenObj(-1, GetInPlaceLvlId())
     return
   end
   if (Input.IsKeyPushed(Input.LBUTTON)) then

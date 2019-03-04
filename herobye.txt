@@ -2,7 +2,7 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360
+texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363
 maps=22 16
 sprites=67 86 335
 levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337 350 356
@@ -246,6 +246,10 @@ fileName=./res/scissor.png
 [tex360]
 name=stone
 fileName=./res/stone.png
+
+[tex363]
+name=back scratcher
+fileName=./res/scratcher.png
 
 [map22]
 name=town
@@ -497,7 +501,7 @@ dim=0 0 95 100
 name=hero village
 bgColor=128 128 0
 script=HeroVillage
-objects=321 322 323 324 325 362
+objects=321 322 323 324 325 362 364
 
 [object321]
 name=o_heroVillageChurch
@@ -541,6 +545,15 @@ xscale=-1
 yscale=2
 y=160
 dim=0 0 32 32
+
+[object364]
+name=o_bag
+texture=298
+xscale=0.5
+yscale=0.5
+xpivot=1
+x=544
+dim=0 0 90 65
 
 [level0]
 name=title_old
