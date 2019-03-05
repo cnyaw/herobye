@@ -357,6 +357,7 @@ end
 function ResetGame()
   obj_state = InitTable(init_obj_state)
   bag = InitTable(init_bag)
+  curr_talk_id = {teacher_init_talk_id}
 end
 
 function SaveGame()
