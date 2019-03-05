@@ -4,15 +4,13 @@ local IMAGE_MARGIN = 20
 BagScene = {}
 
 BagScene.OnCreate = function(param)
+  local bag_place = GetInPlaceLvlId()
   local x, y = IMAGE_MARGIN, IMAGE_MARGIN
   for k,v in pairs(bag) do
     if (0 < ItemCount(k)) then
       local item = ItemData[k]
-      if (nil ~= item) then
-        local img = item.Image
-        if (nil ~= img) then
-          x, y = GenBagItemObj(x, y, img, k)
-        end
+      if (nil ~= item and item.BagType == bag_place) then
+        x, y = GenBagItemObj(x, y, item.Image, k)
       end
     end
   end

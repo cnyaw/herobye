@@ -9,7 +9,7 @@ local stone_tex_id = 360
 AlienPath = {}
 
 AlienPath.OnCreate = function(param)
-  local rps_tex_id = {paper_tex_id, paper_tex_id, scissor_tex_id, scissor_tex_id, stone_tex_id, stone_tex_id}
+  local tex_id = {paper_tex_id, scissor_tex_id, stone_tex_id}
   param.hit = 0
   param.obj = {}
   local w, h = Resource.GetTexSize(ufo_tex_id)
@@ -18,7 +18,7 @@ AlienPath.OnCreate = function(param)
     local x = math.random(SCR_W - w)
     local y = math.random(SCR_H - h)
     Good.SetPos(o, x, y)
-    local rps = Good.GenObj(o, rps_tex_id[i])
+    local rps = Good.GenObj(o, tex_id[1 + (i % #tex_id)])
     local sw, sh = ScaleToSize(rps, RPS_SIZE, RPS_SIZE)
     Good.SetPos(rps, (w - sw)/2, h - sh)
     param.obj[i] = o
