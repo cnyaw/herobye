@@ -184,6 +184,10 @@ function GetInPlaceLvlId()
   return ItemCount(f_in_place)
 end
 
+function HasBackScratcher()
+  return HasItem(i_back_scratcher)
+end
+
 function HasBou2()
   return HasItem(i_bou2)
 end
