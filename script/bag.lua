@@ -4,12 +4,12 @@ local IMAGE_MARGIN = 20
 BagScene = {}
 
 BagScene.OnCreate = function(param)
-  local bag_place = GetInPlaceLvlId()
+  local bag_type = GetCurrBagType()
   local x, y = IMAGE_MARGIN, IMAGE_MARGIN
   for k,v in pairs(bag) do
     if (0 < ItemCount(k)) then
       local item = ItemData[k]
-      if (nil ~= item and item.BagType == bag_place) then
+      if (nil ~= item and item.BagType == bag_type) then
         x, y = GenBagItemObj(x, y, item.Image, k)
       end
     end
@@ -52,6 +52,14 @@ function GetBagItemTalkId(o)
     end
   end
   return -1
+end
+
+function GetCurrBagType()
+  if (GetInPlaceLvlId() == MAIN_MAP_LVL_ID) then
+    return e_main_bag
+  else
+    return e_hero_bag
+  end
 end
 
 function PtInBagItem(id, x, y)
