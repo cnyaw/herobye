@@ -423,4 +423,14 @@ TalkData = {
     {Text = '「原來是個夢」'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
+  -- Country, Kai home.
+  [1900] = {
+    {Text = '又又又一起來搖滾'},
+    {LevelId = COUNTRY_LVL_ID},
+  },
+  -- Country, pond,
+  [2000] = {
+    {Text = '呱呱呱'},
+    {LevelId = COUNTRY_LVL_ID},
+  },
 }

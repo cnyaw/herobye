@@ -5,7 +5,7 @@ window=640 384
 texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363
 maps=22 16
 sprites=67 86 335
-levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337 350 356
+levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337 350 356 366
 
 [scripts]
 306=./script/const.lua
@@ -30,6 +30,7 @@ levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337 350 356
 354=./script/title.lua
 357=./script/herovillagechurch.lua
 361=./script/alienpath.lua
+368=./script/country.lua
 
 [tex1]
 name=tree1
@@ -501,7 +502,7 @@ dim=0 0 95 100
 name=hero village
 bgColor=128 128 0
 script=HeroVillage
-objects=321 322 323 324 325 362 364
+objects=321 322 323 324 325 362 364 365
 
 [object321]
 name=o_heroVillageChurch
@@ -554,6 +555,14 @@ yscale=0.5
 xpivot=1
 x=544
 dim=0 0 90 65
+
+[object365]
+name=o_toCountry
+texture=261
+yscale=2
+x=608
+y=160
+dim=0 0 32 32
 
 [level0]
 name=title_old
@@ -1818,4 +1827,50 @@ dim=0 0 128 141
 name=alien path
 bgColor=128 128 0
 script=AlienPath
+objects=370
+
+[object370]
+name=o_toHeroVillage
+texture=261
+yscale=2
+x=608
+y=160
+dim=0 0 32 32
+
+[level366]
+name=country
+bgColor=128 128 0
+script=Country
+objects=367 369 371 372
+
+[object367]
+name=o_toHeroVillage
+texture=261
+xscale=-1
+yscale=2
+y=160
+dim=0 0 32 32
+
+[object369]
+name=o_bag
+texture=298
+xscale=0.5
+yscale=0.5
+xpivot=1
+x=544
+dim=0 0 90 65
+
+[object371]
+name=o_KaiHome
+texture=102
+x=160
+y=144
+dim=0 0 100 96
+
+[object372]
+name=o_pond
+texture=96
+x=416
+y=160
+dim=0 0 99 79
 

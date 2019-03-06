@@ -37,7 +37,11 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_heroVillageShop = 11000,
   o_XiangHome = 12000,
   o_heroHome = 13000,
-  o_toAlienPath = 14000
+  o_toAlienPath = 14000,
+  o_toCountry = 14100,
+  o_toHeroVillage = 14200,
+  o_KaiHome = 15000,
+  o_pond = 16000
 }
 
 obj_state = {
@@ -114,6 +118,11 @@ end
 
 function ConsumeRestCost()
   ConsumeCoin(REST_COST)
+end
+
+function EnterCountry()
+  SetItem(f_in_place, COUNTRY_LVL_ID)
+  SaveGame()
 end
 
 function EnterHeroVillage()

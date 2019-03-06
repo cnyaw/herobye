@@ -68,4 +68,12 @@ QuestData = {
   [13001] = {TalkId = {1801}},
   -- Hero village, to alien path.
   [14000] = {LevelId = alien_path_lvl_id},
+  -- Hero village, to country.
+  [14100] = {LevelId = COUNTRY_LVL_ID},
+  -- Country, to hero village.
+  [14200] = {LevelId = HERO_VILLAGE_LVL_ID},
+  -- Cuntry, Kai home.
+  [15000] = {TalkId = {1900}},
+  -- Country, pond.
+  [16000] = {TalkId = {2000}},
 }

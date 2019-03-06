@@ -26,21 +26,24 @@ AlienPath.OnCreate = function(param)
     Good.GetParam(o).can_hit = can_hit[index]
     param.obj[i] = o
   end
+  QuestOnCreate()
 end
 
 AlienPath.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, HERO_VILLAGE_LVL_ID)
     return
   end
   if (Input.IsKeyPushed(Input.LBUTTON)) then
-    AlienPathHittest(param)
+    local x, y = Input.GetMousePos()
+    if (QuestOnStep(x, y)) then
+      return
+    end
+    AlienPathHittest(param, x, y)
     return
   end
 end
 
-function AlienPathHittest(param)
-  local x, y = Input.GetMousePos()
+function AlienPathHittest(param, x, y)
   for i = 1, MAX_ALIEN do
     if (nil ~= param.obj[i] and PtInObj(x, y, param.obj[i])) then
       if (not CanHitAlien(param.obj[i])) then
