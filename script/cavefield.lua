@@ -1,12 +1,12 @@
 
-Country = {}
+CaveField = {}
 
-Country.OnCreate = function(param)
+CaveField.OnCreate = function(param)
   QuestOnCreate()
   EnterPlace(param._id)
 end
 
-Country.OnStep = function(param)
+CaveField.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE)) then
     Good.GenObj(-1, TITLE_LVL_ID)
     return

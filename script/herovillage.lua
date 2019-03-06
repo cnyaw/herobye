@@ -3,7 +3,7 @@ HeroVillage = {}
 
 HeroVillage.OnCreate = function(param)
   QuestOnCreate()
-  EnterHeroVillage()
+  EnterPlace(param._id)
 end
 
 HeroVillage.OnStep = function(param)

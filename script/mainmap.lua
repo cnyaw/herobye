@@ -4,7 +4,7 @@ MainMap = {}
 MainMap.OnCreate = function(param)
   UpdateCoinInfo(param)
   QuestOnCreate()
-  EnterMainMap()
+  EnterPlace(param._id)
 end
 
 MainMap.OnStep = function(param)

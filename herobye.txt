@@ -5,7 +5,7 @@ window=640 384
 texs=1 5 11 30 31 7 48 2 15 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363
 maps=22 16
 sprites=67 86 335
-levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337 350 356 366
+levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337 350 356 366 374
 
 [scripts]
 306=./script/const.lua
@@ -31,6 +31,7 @@ levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337 350 356 36
 357=./script/herovillagechurch.lua
 361=./script/alienpath.lua
 368=./script/country.lua
+381=./script/cavefield.lua
 
 [tex1]
 name=tree1
@@ -1841,7 +1842,7 @@ dim=0 0 32 32
 name=country
 bgColor=128 128 0
 script=Country
-objects=367 369 371 372
+objects=367 369 371 372 373
 
 [object367]
 name=o_toHeroVillage
@@ -1873,4 +1874,42 @@ texture=96
 x=416
 y=160
 dim=0 0 99 79
+
+[object373]
+name=o_toCaveField
+texture=261
+yscale=2
+x=608
+y=160
+dim=0 0 32 32
+
+[level374]
+name=cave field
+bgColor=128 128 0
+script=CaveField
+objects=376 378 379
+
+[object376]
+name=o_toCountry
+texture=261
+xscale=-1
+yscale=2
+y=160
+dim=0 0 32 32
+
+[object378]
+name=o_cave
+texture=94
+x=272
+y=160
+dim=0 0 100 67
+
+[object379]
+name=o_bag
+texture=298
+xscale=0.5
+yscale=0.5
+xpivot=1
+x=544
+dim=0 0 90 65
 

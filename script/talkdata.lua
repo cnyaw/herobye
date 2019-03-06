@@ -433,4 +433,10 @@ TalkData = {
     {Text = '呱呱呱'},
     {LevelId = COUNTRY_LVL_ID},
   },
+  -- Cave field, cave.
+  [2100] = {
+    {FadeTo = {fade_time_one_sec, color_black}},
+    {Text = '黑漆漆的山洞什麼都看不見'},
+    {LevelId = CAVE_FIELD_LVL_ID},
+  },
 }
