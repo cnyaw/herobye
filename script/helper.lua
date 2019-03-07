@@ -1,14 +1,9 @@
 
-local MAX_CLICK_LEVEL = 3
-local MAX_STICK_LEVEL = 3
-local TIME_TRAINING_CD = 3
 local OPEN_CHURCH_COST = 50
 local GIVE_GODZILLA_COST = 100
 local CROWD_FUNDING_COST = 1000
 
 local tex_sandglass_id = 273
-local map_brother1_obj_id = 282
-local map_brother2_obj_id = 283
 local red_point_tex_id = 313
 local talk_lvl_id = 275
 local teacher_init_talk_id = 1
@@ -57,13 +52,6 @@ local init_bag = {                      -- [item_id] = count
 bag = {
 }
 
--- Training.
-
-click_training = {cd = 0, lv = 0, max_lv = MAX_CLICK_LEVEL, obj_id = map_brother1_obj_id}
-stick_training = {cd = 0, lv = 0, max_lv = MAX_STICK_LEVEL, obj_id = map_brother2_obj_id}
-local all_training = {click_training, stick_training}
-local training_cd_tick = 0
-
 -- Helper.
 
 function AddCoin(amount)
@@ -91,23 +79,6 @@ function AddRedPoint(parent)
   local l,t,w,h = Good.GetDim(o)
   local lp,tp,wp,hp = Good.GetDim(parent)
   Good.SetPos(o, wp - w/2, hp - h/2)
-end
-
-function AdvanceTrainingLevel(training)
-  training.lv = training.lv + 1
-  if (training.max_lv > training.lv) then
-    training.cd = TIME_TRAINING_CD
-  end
-end
-
-function AllTrainingComplete()
-  for i = 1, #all_training do
-    local training = all_training[i]
-    if (training.lv ~= training.max_lv) then
-      return false
-    end
-  end
-  return true
 end
 
 function Consume2ndDreamCost()
@@ -234,11 +205,11 @@ function IsChurch2ndDreamValid()
 end
 
 function IsClickTrainingMaxLv()
-  return click_training.max_lv <= click_training.lv
+  return TrainingIsClickTrainingMaxLv()
 end
 
 function IsClickTrainingValid()
-  return 0 >= click_training.cd
+  return TrainingIsClickTrainingValid()
 end
 
 function IsGiveGodzillaValid()
@@ -262,11 +233,11 @@ function IsSendTeacherLetterValid()
 end
 
 function IsStickTrainingMaxLv()
-  return stick_training.max_lv <= stick_training.lv
+  return TrainingIsStickTrainingMaxLv()
 end
 
 function IsStickTrainingValid()
-  return 0 >= stick_training.cd
+  return TrainingIsStickTrainingValid()
 end
 
 function IsTempleCrowdFunding()
@@ -437,19 +408,6 @@ end
 
 function TrueCond()
   return true
-end
-
-function UpdateTrainingCd()
-  training_cd_tick = training_cd_tick + 1
-  if (60 <= training_cd_tick) then
-    training_cd_tick = 0
-    for i = 1, #all_training do
-      local training = all_training[i]
-      if (0 < training.cd) then
-        training.cd = training.cd - 1
-      end
-    end
-  end
 end
 
 function WaitTimer(param, t)
