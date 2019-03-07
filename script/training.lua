@@ -127,6 +127,14 @@ function GenTrainingObj(training)
   end
 end
 
+function ResetTraining()
+  click_training.cd = 0
+  click_training.lv = 0
+  stick_training.cd = 0
+  stick_training.lv = 0
+  training_cd_tick = 0
+end
+
 function SetNextTrainingLevel(id)
   if (AllTrainingComplete()) then
     AddItem(f_finish_training, 1)

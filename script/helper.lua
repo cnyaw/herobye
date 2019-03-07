@@ -334,6 +334,7 @@ function ResetGame()
   obj_state = InitTable(init_obj_state)
   bag = InitTable(init_bag)
   curr_talk_id = {teacher_init_talk_id}
+  ResetTraining()
 end
 
 function SaveGame()
@@ -447,5 +448,3 @@ function WriteTable_i(outf, name, t, fmt)
   end
   outf:write(string.format('}\n'))
 end
-
-ResetGame()                             -- Init game.

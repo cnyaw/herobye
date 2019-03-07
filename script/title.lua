@@ -15,13 +15,13 @@ Title.OnCreate = function(param)
   param.cy = y
   param.cw = GetTextObjWidth(o2)
   param.cursor = 0
+  ResetGame()
 end
 
 Title.OnStep = function(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
-
   local cx, cy = param.cx, param.cy
   local x, y = Input.GetMousePos()
   if (PtInRect(x, y, cx + OFFSET, cy, cx + OFFSET + param.cw, cy + OFFSET)) then
@@ -38,7 +38,6 @@ Title.OnStep = function(param)
     end
   elseif (PtInRect(x, y, cx + OFFSET, cy + OFFSET, cx + OFFSET + param.cw, cy + 2 * OFFSET)) then
     if (1 == param.cursor) then
-      ResetGame()
       StartTalk()
     else
       param.cursor = 1
