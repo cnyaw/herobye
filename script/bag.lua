@@ -18,7 +18,7 @@ end
 
 BagScene.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, GetInPlaceLvlId())
+    Good.GenObj(-1, GetLastLvlId())
     return
   end
   if (Input.IsKeyPushed(Input.LBUTTON)) then
@@ -55,7 +55,7 @@ function GetBagItemTalkId(o)
 end
 
 function GetCurrBagType()
-  if (GetInPlaceLvlId() == MAIN_MAP_LVL_ID) then
+  if (GetLastLvlId() == MAIN_MAP_LVL_ID) then
     return e_main_bag
   else
     return e_hero_bag

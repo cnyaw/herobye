@@ -151,7 +151,7 @@ function GetCurrTalk()
   return TalkData[curr_talk_id[1]]
 end
 
-function GetInPlaceLvlId()
+function GetLastLvlId()
   return ItemCount(f_in_place)
 end
 

@@ -28,7 +28,7 @@ Title.OnStep = function(param)
     if (0 == param.cursor) then
       LoadGame()
       if (HasItem(f_finish_training)) then
-        Good.GenObj(-1, GetInPlaceLvlId())
+        Good.GenObj(-1, GetLastLvlId())
       else
         StartTalk()
       end
