@@ -12,8 +12,7 @@ local SAV_FILE_NAME = "herobye.sav"
 
 -- Data.
 
-last_lvl_id = nil
-
+local last_lvl_id = nil
 local curr_talk_id = {teacher_init_talk_id}
 
 local init_obj_state = {                -- [obj_name] = quest_id

@@ -28,10 +28,7 @@ levels=345 275 271 295 268 287 293 300 318 331 320 0 10 19 83 330 337 350 356 36
 332=./script/racing.lua
 342=./script/interviewherovillage.lua
 354=./script/title.lua
-357=./script/herovillagechurch.lua
 361=./script/alienpath.lua
-368=./script/country.lua
-381=./script/cavefield.lua
 
 [tex1]
 name=tree1
@@ -1807,7 +1804,7 @@ dim=0 0 100 64
 [level350]
 name=hero village church
 bgColor=128 128 0
-script=HeroVillageChurch
+script=HeroVillage
 objects=351 355
 
 [object351]
@@ -1841,7 +1838,7 @@ dim=0 0 32 32
 [level366]
 name=country
 bgColor=128 128 0
-script=Country
+script=HeroVillage
 objects=367 369 371 372 373
 
 [object367]
@@ -1886,7 +1883,7 @@ dim=0 0 32 32
 [level374]
 name=cave field
 bgColor=128 128 0
-script=CaveField
+script=HeroVillage
 objects=376 378 379
 
 [object376]

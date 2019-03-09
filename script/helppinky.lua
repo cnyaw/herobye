@@ -44,7 +44,6 @@ HelpPinkyOnStepPlay = function(param)
       param.john[i] = nil
       if (MAX_JOHN == param.hit) then
         param.step = HelpPinkyOnStepEnd
-        return
       end
       break
     end

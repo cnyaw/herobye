@@ -1,4 +1,3 @@
-local SCR_W, SCR_H = Good.GetWindowSize()
 local MAX_USER = 5
 local MAX_BOA_BEG_TIME = 30
 
@@ -73,7 +72,6 @@ function BeggingMoney(x, y, param)
       UpdateCoinInfo(param)
       if (MAX_USER == param.hit) then
         param.step = BegMoneyOnStepDone
-        return
       end
       break
     end
@@ -84,7 +82,7 @@ function GenBegMoneyBoa(x, y)
   local o = Good.GenObj(-1, GetCurrBouTexId(), 'BegMoneyBou')
   local l,t,w,h = Good.GetDim(o)
   Good.SetAnchor(o, 0.5, 0.5)
-  Good.SetScale(o, 0.4, 0.4)
+  ScaleToSize(o, 60, 60)
   Good.SetPos(o, x - w/2, y - h/2)
   return o
 end

@@ -156,7 +156,6 @@ function TrainingClickOnStepPlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
-
   local x, y = Input.GetMousePos()
   if (PtInObj(x, y, click_fish_obj_id)) then
     GenClickFishEffect()
@@ -210,7 +209,6 @@ function TrainingStickOnStepPlay(param)
       param.stick[i] = nil
       if (MAX_STICK == param.hit) then
         param.step = TrainingStickOnStepEnd
-        return
       end
       break
     end
