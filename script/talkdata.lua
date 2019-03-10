@@ -15,6 +15,7 @@ local grandpa_tex_id = 327
 local zhang_mama_tex_id = 329
 local ufo_tex_id = 343
 local shelf_tex_id = 352
+local frog_tex_id = 357
 
 local color_black = 0xff000000
 local color_olive = 0xff808000
@@ -430,6 +431,7 @@ TalkData = {
   },
   -- Country, pond,
   [2000] = {
+    {Image = frog_tex_id},
     {Text = '呱呱呱'},
     {LevelId = COUNTRY_LVL_ID},
   },

@@ -18,7 +18,7 @@ HeroVillage.OnStep = function(param)
 end
 
 function GetHeroVillageBackLvlId()
-  if (HERO_VILLAGE_CHURCH_LVL_ID == GetLastLvlId()) then
+  if (GetLastLvlId() == HERO_VILLAGE_CHURCH_LVL_ID) then
     return HERO_VILLAGE_LVL_ID
   else
     return TITLE_LVL_ID
