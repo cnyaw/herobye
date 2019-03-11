@@ -211,6 +211,10 @@ function IsClickTrainingValid()
   return TrainingIsClickTrainingValid()
 end
 
+function IsEnterCaveTimes()
+  return 2 <= ItemCount(f_enter_cave)
+end
+
 function IsGiveGodzillaValid()
   return IsInterviewUfo() and HasCoin(GIVE_GODZILLA_COST)
 end
@@ -349,6 +353,10 @@ end
 
 function ScriptAddBou1()
   AddItem(i_bou, 1)
+end
+
+function ScriptEnterCave()
+  AddItem(f_enter_cave, 1)
 end
 
 function ScriptGiveGodzilla()

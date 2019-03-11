@@ -342,7 +342,6 @@ TalkData = {
     {Text = '小白你現在是新一代的勇者了'},
     {Text = '「呵呵呵我是勇者小白!」'},
     {Text = '「我的任務是維護世界的和平！」'},
-    {Text = '張媽媽家擁有石頭的力量'},
     {Text = '去把另外2把神兵找出來'},
     {Text = '打敗外星人拯救這個世界吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
@@ -350,6 +349,12 @@ TalkData = {
   [1301] = {
     {Image = grandpa_tex_id},
     {Text = '找到3把上古神兵打敗外星人吧'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
+  [1302] = {
+    {Image = grandpa_tex_id},
+    {Text = '張媽媽家擁有石頭的力量'},
+    {Text = '去張媽媽家看看吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
   -- Hero village church, shelf.
@@ -384,6 +389,13 @@ TalkData = {
   [1500] = {
     {Image = zhang_mama_tex_id},
     {Text = '每天都要洗好多衣服啊'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1501] = {
+    {Image = zhang_mama_tex_id},
+    {Text = '我們家的傳家之寶神奇石頭棍'},
+    {Text = '封印在洞穴內被祖先保護著'},
+    {Text = '要通過考驗才能拿到'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Shop.
@@ -439,6 +451,7 @@ TalkData = {
   [2100] = {
     {FadeTo = {fade_time_one_sec, color_black}},
     {Text = '黑漆漆的山洞什麼都看不見'},
+    {Script = ScriptEnterCave},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
 }

@@ -20,6 +20,7 @@ f_interview_ufo = 9
 i_godzilla = 10
 f_crowd_funding = 11
 i_back_scratcher = 12
+f_enter_cave = 13
 
 e_main_bag = 1
 e_hero_bag = 2
