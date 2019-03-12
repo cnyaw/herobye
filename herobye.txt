@@ -468,78 +468,12 @@ script=HelpPinky
 name=interview hero village
 bgColor=128 128 0
 script=InterviewHeroVillage
-objects=336 338 339 340 341
-
-[object336]
-texture=98
-x=80
-y=64
-dim=0 0 100 100
-
-[object338]
-texture=311
-x=80
-y=240
-dim=0 0 81 90
-
-[object339]
-texture=23
-x=272
-y=144
-dim=0 0 71 99
-
-[object340]
-texture=8
-x=464
-y=64
-dim=0 0 82 96
-
-[object341]
-texture=100
-x=464
-y=240
-dim=0 0 95 100
 
 [level320]
 name=hero village
 bgColor=128 128 0
 script=HeroVillage
-objects=321 322 323 324 325 362 364 365
-
-[object321]
-name=o_heroVillageChurch
-texture=23
-x=272
-y=144
-dim=0 0 71 99
-
-[object322]
-name=o_heroVillageShop
-texture=311
-x=80
-y=240
-dim=0 0 81 90
-
-[object323]
-name=o_XiangHome
-texture=8
-x=464
-y=64
-dim=0 0 82 96
-
-[object324]
-name=o_heroHome
-texture=100
-x=464
-y=240
-dim=0 0 95 100
-
-[object325]
-name=o_ZhangHome
-texture=98
-x=80
-y=64
-dim=0 0 100 100
+objects=362 364 365 368
 
 [object362]
 name=o_toAlienPath
@@ -565,6 +499,48 @@ yscale=2
 x=608
 y=160
 dim=0 0 32 32
+
+[object368]
+name=building group
+sprite=255
+texture=255
+map=255
+objects=325 324 323 322 321
+
+[object325]
+name=o_ZhangHome
+texture=98
+x=80
+y=64
+dim=0 0 100 100
+
+[object324]
+name=o_heroHome
+texture=100
+x=464
+y=240
+dim=0 0 95 100
+
+[object323]
+name=o_XiangHome
+texture=8
+x=464
+y=64
+dim=0 0 82 96
+
+[object322]
+name=o_heroVillageShop
+texture=311
+x=80
+y=240
+dim=0 0 81 90
+
+[object321]
+name=o_heroVillageChurch
+texture=23
+x=272
+y=144
+dim=0 0 71 99
 
 [level0]
 name=title_old

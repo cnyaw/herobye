@@ -282,7 +282,7 @@ end
 function QuestOnCreate()
   local lvl_id = Good.GetLevelId()
   for obj_name, quest_id in pairs(obj_state) do
-    local id = Good.FindChild(lvl_id, obj_name)
+    local id = Good.FindChild(lvl_id, obj_name, 1)
     if (-1 ~= id) then
       local q = QuestData[quest_id]
       if (nil ~= q.NextId and nil ~= q.NextCond and q.NextCond()) then
@@ -300,7 +300,7 @@ end
 function QuestOnStep(x, y)
   local lvl_id = Good.GetLevelId()
   for obj_name, quest_id in pairs(obj_state) do
-    local id = Good.FindChild(lvl_id, obj_name)
+    local id = Good.FindChild(lvl_id, obj_name, 1)
     if (-1 ~= id and PtInObj(x, y, id)) then
       local q = QuestData[quest_id]
       if (nil == q.Cond or q.Cond()) then
