@@ -212,7 +212,7 @@ function IsClickTrainingValid()
 end
 
 function IsEnterCaveTimes()
-  return 2 <= ItemCount(f_enter_cave)
+  return 2 <= ItemCount(i_enter_cave)
 end
 
 function IsGiveGodzillaValid()
@@ -356,7 +356,7 @@ function ScriptAddBou1()
 end
 
 function ScriptEnterCave()
-  AddItem(f_enter_cave, 1)
+  AddItem(i_enter_cave, 1)
 end
 
 function ScriptGiveGodzilla()
