@@ -54,14 +54,6 @@ function GetBagItemTalkId(o)
   return -1
 end
 
-function GetCurrBagType()
-  if (GetLastLvlId() == MAIN_MAP_LVL_ID) then
-    return e_main_bag
-  else
-    return e_hero_bag
-  end
-end
-
 function PtInBagItem(id, x, y)
   local c = Good.GetChildCount(id)
   for i = 0, c - 1 do

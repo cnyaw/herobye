@@ -45,6 +45,7 @@ obj_state = {
 
 local init_bag = {                      -- [item_id] = count
   [i_coin] = 0,
+  [i_coin_hero] = 0,
   [i_bou] = 0
 }
 
@@ -54,7 +55,7 @@ bag = {
 -- Helper.
 
 function AddCoin(amount)
-  AddItem(i_coin, amount)
+  AddItem(GetCoinId(), amount)
 end
 
 function AddItem(id, count)
@@ -85,7 +86,7 @@ function Consume2ndDreamCost()
 end
 
 function ConsumeCoin(cost)
-  RemoveItem(i_coin, cost)
+  RemoveItem(GetCoinId(), cost)
 end
 
 function ConsumeRestCost()
@@ -106,7 +107,23 @@ function GenFlyUpObj(parent, tex_id)
 end
 
 function GetCoin()
-  return ItemCount(i_coin)
+  return ItemCount(GetCoinId())
+end
+
+function GetCoinId()
+  if (GetCurrBagType() == e_main_bag) then
+    return i_coin
+  else
+    return i_coin_hero
+  end
+end
+
+function GetCurrBagType()
+  if (GetLastLvlId() == MAIN_MAP_LVL_ID) then
+    return e_main_bag
+  else
+    return e_hero_bag
+  end
 end
 
 function GenNumObj(n, size)
@@ -330,7 +347,7 @@ function RemoveItem(id, count)
   end
   if (count < bag[id]) then
     bag[id] = bag[id] - count
-  elseif (i_coin == id) then
+  elseif (i_coin == id or i_coin_hero == id) then
     bag[id] = 0
   else
     bag[id] = nil
@@ -412,6 +429,9 @@ function UpdateCoinInfo(param)
   if (nil ~= param.coin_obj) then
     Good.KillObj(param.coin_obj)
     param.coin_obj = nil
+  end
+  if (-1 == Good.FindChild(param._id, 'coin')) then
+    return
   end
   local o = GenNumObj(GetCoin(), 32)
   Good.SetPos(o, 32, 0)

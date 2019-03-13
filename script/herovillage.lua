@@ -4,6 +4,7 @@ HeroVillage = {}
 HeroVillage.OnCreate = function(param)
   QuestOnCreate()
   EnterPlace(param._id)
+  UpdateCoinInfo(param)
 end
 
 HeroVillage.OnStep = function(param)

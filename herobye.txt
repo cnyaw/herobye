@@ -473,7 +473,7 @@ script=InterviewHeroVillage
 name=hero village
 bgColor=128 128 0
 script=HeroVillage
-objects=362 364 365 368
+objects=362 364 365 368 336
 
 [object362]
 name=o_toAlienPath
@@ -541,6 +541,11 @@ texture=23
 x=272
 y=144
 dim=0 0 71 99
+
+[object336]
+name=coin
+texture=285
+dim=0 0 32 32
 
 [level0]
 name=title_old
@@ -1819,7 +1824,7 @@ dim=0 0 32 32
 name=country
 bgColor=128 128 0
 script=HeroVillage
-objects=367 369 371 372 373
+objects=367 369 371 372 373 338
 
 [object367]
 name=o_toHeroVillage
@@ -1860,11 +1865,16 @@ x=608
 y=160
 dim=0 0 32 32
 
+[object338]
+name=coin
+texture=285
+dim=0 0 32 32
+
 [level374]
 name=cave field
 bgColor=128 128 0
 script=HeroVillage
-objects=376 378 379
+objects=376 378 379 339
 
 [object376]
 name=o_toCountry
@@ -1889,4 +1899,9 @@ yscale=0.5
 xpivot=1
 x=544
 dim=0 0 90 65
+
+[object339]
+name=coin
+texture=285
+dim=0 0 32 32
 

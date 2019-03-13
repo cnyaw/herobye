@@ -2,9 +2,9 @@
 MainMap = {}
 
 MainMap.OnCreate = function(param)
-  UpdateCoinInfo(param)
   QuestOnCreate()
   EnterPlace(param._id)
+  UpdateCoinInfo(param)
 end
 
 MainMap.OnStep = function(param)
