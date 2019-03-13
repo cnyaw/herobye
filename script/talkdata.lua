@@ -400,8 +400,14 @@ TalkData = {
   },
   -- Hero village, Shop.
   [1600] = {
+    {Image = pinnote_tex_id},
+    {Text = '今日公休'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1601] = {
     {Image = merchant_tex_id},
-    {Text = '隨便看看有興趣再買哦'},
+    {Text = '高級手電筒只賣20塊錢'},
+    {Text = '要買要快哦'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Xiang home.
@@ -452,6 +458,15 @@ TalkData = {
     {FadeTo = {fade_time_one_sec, color_black}},
     {Text = '黑漆漆的山洞什麼都看不見'},
     {Script = ScriptEnterCave},
+    {LevelId = CAVE_FIELD_LVL_ID},
+  },
+  [2101] = {
+    {FadeTo = {fade_time_one_sec, color_black}},
+    {Text = '黑漆漆的山洞什麼都看不見'},
+    {Script = ScriptEnterCave},
+    {Text = '慢慢的往前模索前進'},
+    {Text = '好像摸到一扇門'},
+    {Text = '如果有手電筒就好了'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
 }

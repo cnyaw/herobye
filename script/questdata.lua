@@ -54,15 +54,16 @@ QuestData = {
   [9002] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   -- Hero village church, grandpa.
   [9100] = {TalkId = {1300}, NextId = 9101},
-  [9101] = {TalkId = {1301}, NextCond = IsEnterCaveTimes, NextId = 9102},
+  [9101] = {TalkId = {1301}, NextCond = IsEnterCave2Times, NextId = 9102},
   [9102] = {TalkId = {1302}},
   -- Hero village church, shelf.
   [9200] = {TalkId = {1350}},
   -- Hero village, Zhang home.
-  [10000] = {TalkId = {1500}, NextCond = IsEnterCaveTimes, NextId = 10001},
+  [10000] = {TalkId = {1500}, NextCond = IsEnterCave2Times, NextId = 10001},
   [10001] = {TalkId = {1501}},
   -- Hero village, Shop.
-  [11000] = {TalkId = {1600}},
+  [11000] = {TalkId = {1600}, NextCond = IsEnterCave4Times, NextId = 11001},
+  [11001] = {TalkId = {1601}},
   -- Hero village, Xiang home.
   [12000] = {TalkId = {1700}},
   -- Hero village, hero home.
@@ -81,5 +82,6 @@ QuestData = {
   -- Country, pond.
   [16000] = {TalkId = {2000}},
   -- Cave field, cave.
-  [17000] = {TalkId = {2100}},
+  [17000] = {TalkId = {2100}, NextCond = IsEnterCave4Times, NextId = 17001},
+  [17001] = {TalkId = {2101}},
 }

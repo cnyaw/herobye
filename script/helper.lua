@@ -211,8 +211,12 @@ function IsClickTrainingValid()
   return TrainingIsClickTrainingValid()
 end
 
-function IsEnterCaveTimes()
+function IsEnterCave2Times()
   return 2 <= ItemCount(i_enter_cave)
+end
+
+function IsEnterCave4Times()
+  return 4 <= ItemCount(i_enter_cave)
 end
 
 function IsGiveGodzillaValid()
