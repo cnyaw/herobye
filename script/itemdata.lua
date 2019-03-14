@@ -21,7 +21,7 @@ i_godzilla = 10
 f_crowd_funding = 11
 i_back_scratcher = 12
 i_enter_cave = 13
-i_coin_hero = 14
+i_hero_coin = 14
 
 e_main_bag = 1
 e_hero_bag = 2

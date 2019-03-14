@@ -45,7 +45,7 @@ obj_state = {
 
 local init_bag = {                      -- [item_id] = count
   [i_coin] = 0,
-  [i_coin_hero] = 0,
+  [i_hero_coin] = 0,
   [i_bou] = 0
 }
 
@@ -114,7 +114,7 @@ function GetCoinId()
   if (GetCurrBagType() == e_main_bag) then
     return i_coin
   else
-    return i_coin_hero
+    return i_hero_coin
   end
 end
 
@@ -347,7 +347,7 @@ function RemoveItem(id, count)
   end
   if (count < bag[id]) then
     bag[id] = bag[id] - count
-  elseif (i_coin == id or i_coin_hero == id) then
+  elseif (i_coin == id or i_hero_coin == id) then
     bag[id] = 0
   else
     bag[id] = nil
