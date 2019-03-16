@@ -44,9 +44,9 @@ obj_state = {
 }
 
 local init_bag = {                      -- [item_id] = count
-  [i_coin] = 0,
-  [i_hero_coin] = 0,
-  [i_bou] = 0
+  i_coin = 0,
+  i_hero_coin = 0,
+  i_bou = 0
 }
 
 bag = {
@@ -93,8 +93,12 @@ function ConsumeRestCost()
   ConsumeCoin(REST_COST)
 end
 
+function EnterCaveCount()
+  return ItemCount('i_enter_cave')
+end
+
 function EnterPlace(id)
-  SetItem(f_in_place, id)
+  SetItem('f_in_place', id)
   SaveGame()
 end
 
@@ -112,9 +116,9 @@ end
 
 function GetCoinId()
   if (GetCurrBagType() == e_main_bag) then
-    return i_coin
+    return 'i_coin'
   else
-    return i_hero_coin
+    return 'i_hero_coin'
   end
 end
 
@@ -169,19 +173,19 @@ function GetCurrTalk()
 end
 
 function GetLastLvlId()
-  return ItemCount(f_in_place)
+  return ItemCount('f_in_place')
 end
 
 function HasBackScratcher()
-  return HasItem(i_back_scratcher)
+  return HasItem('i_back_scratcher')
 end
 
 function HasBou2()
-  return HasItem(i_bou2)
+  return HasItem('i_bou2')
 end
 
 function HasBou3()
-  return HasItem(i_bou3)
+  return HasItem('i_bou3')
 end
 
 function HasCoin(amount)
@@ -189,7 +193,7 @@ function HasCoin(amount)
 end
 
 function HasGodzilla()
-  return HasItem(i_godzilla)
+  return HasItem('i_godzilla')
 end
 
 function HasItem(id)
@@ -197,7 +201,7 @@ function HasItem(id)
 end
 
 function HasLetter()
-  return HasItem(i_letter)
+  return HasItem('i_letter')
 end
 
 function InitTable(init_tbl)
@@ -229,11 +233,11 @@ function IsClickTrainingValid()
 end
 
 function IsEnterCave2Times()
-  return 2 <= ItemCount(i_enter_cave)
+  return 2 <= EnterCaveCount()
 end
 
 function IsEnterCave4Times()
-  return 4 <= ItemCount(i_enter_cave)
+  return 4 <= EnterCaveCount()
 end
 
 function IsGiveGodzillaValid()
@@ -241,7 +245,7 @@ function IsGiveGodzillaValid()
 end
 
 function IsInterviewUfo()
-  return HasItem(f_interview_ufo)
+  return HasItem('f_interview_ufo')
 end
 
 function IsOpenRacingValid()
@@ -265,7 +269,7 @@ function IsStickTrainingValid()
 end
 
 function IsTempleCrowdFunding()
-  return HasItem(f_crowd_funding)
+  return HasItem('f_crowd_funding')
 end
 
 function IsTransLetterToPriestValid()
@@ -281,7 +285,7 @@ function ItemCount(id)
 end
 
 function LetterSent()
-  return HasItem(f_letter_sent)
+  return HasItem('f_letter_sent')
 end
 
 function LoadGame()
@@ -347,7 +351,7 @@ function RemoveItem(id, count)
   end
   if (count < bag[id]) then
     bag[id] = bag[id] - count
-  elseif (i_coin == id or i_hero_coin == id) then
+  elseif ('i_coin' == id or 'i_hero_coin' == id) then
     bag[id] = 0
   else
     bag[id] = nil
@@ -364,43 +368,43 @@ end
 function SaveGame()
   local outf = io.open(SAV_FILE_NAME, "w")
   WriteStrTable(outf, 'obj_state', obj_state)
-  WriteIntTable(outf, 'bag', bag)
+  WriteStrTable(outf, 'bag', bag)
   outf:close()
 end
 
 function ScriptAddBackScratcher()
-  AddItem(i_back_scratcher, 1)
+  AddItem('i_back_scratcher', 1)
 end
 
 function ScriptAddBou1()
-  AddItem(i_bou, 1)
+  AddItem('i_bou', 1)
 end
 
 function ScriptEnterCave()
-  AddItem(i_enter_cave, 1)
+  AddItem('i_enter_cave', 1)
 end
 
 function ScriptGiveGodzilla()
-  AddItem(i_godzilla, 1);
-  AddItem(f_crowd_funding, 1)
+  AddItem('i_godzilla', 1);
+  AddItem('f_crowd_funding', 1)
 end
 
 function ScriptInterviewUfo()
-  AddItem(f_interview_ufo, 1)
+  AddItem('f_interview_ufo', 1)
 end
 
 function ScriptMerchantBuyBou2()
   ConsumeCoin(BOU2_COST)
-  AddItem(i_bou2, 1)
+  AddItem('i_bou2', 1)
 end
 
 function ScriptMerchantBuyBou3()
   ConsumeCoin(BOU3_COST)
-  AddItem(i_bou3, 1)
+  AddItem('i_bou3', 1)
 end
 
 function ScriptSendTeacherLetter()
-  AddItem(i_letter, 1)
+  AddItem('i_letter', 1)
 end
 
 function ScriptTextCrowdFunding(fmt)
@@ -409,8 +413,8 @@ end
 
 function ScriptTransLetterToPriest()
   ConsumeCoin(CHURCH_RECV_LETTER_COST)
-  RemoveItem(i_letter, 1)
-  AddItem(f_letter_sent, 1)
+  RemoveItem('i_letter', 1)
+  AddItem('f_letter_sent', 1)
 end
 
 function SetItem(id, count)
@@ -453,10 +457,6 @@ function WaitTimer(param, t)
   else
     return false
   end
-end
-
-function WriteIntTable(outf, name, t)
-  WriteTable_i(outf, name, t, '[%s]=%s')
 end
 
 function WriteStrTable(outf, name, t)
