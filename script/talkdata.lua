@@ -357,6 +357,13 @@ TalkData = {
     {Text = '去張媽媽家看看吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
+  [1303] = {
+    {Image = grandpa_tex_id},
+    {Text = '小白這是今天給你的零用錢'},
+    {Text = '拿去買你喜歡的東西吧'},
+    {Script = ScriptGiveAllowance},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
   -- Hero village church, shelf.
   [1350] = {
     {FadeTo = {fade_time_one_sec, color_black}},

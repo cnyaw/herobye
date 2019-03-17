@@ -384,6 +384,10 @@ function ScriptEnterCave()
   AddItem('i_enter_cave', 1)
 end
 
+function ScriptGiveAllowance()
+  AddCoin(10)
+end
+
 function ScriptGiveGodzilla()
   AddItem('i_godzilla', 1);
   AddItem('f_crowd_funding', 1)

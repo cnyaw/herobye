@@ -53,7 +53,9 @@ QuestData = {
   -- Hero village church, grandpa.
   [9100] = {TalkId = {1300}, NextId = 9101},
   [9101] = {TalkId = {1301}, NextCond = IsEnterCave2Times, NextId = 9102},
-  [9102] = {TalkId = {1302}},
+  [9102] = {TalkId = {1302}, NextCond = IsEnterCave4Times, NextId = 9103},
+  [9103] = {TalkId = {1303}, NextId = 9104},
+  [9104] = {TalkId = {1302}},
   -- Hero village church, shelf.
   [9200] = {TalkId = {1350}},
   -- Hero village, Zhang home.
