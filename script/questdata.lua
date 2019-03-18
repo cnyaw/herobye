@@ -47,7 +47,9 @@ QuestData = {
   --- Main map, temple.
   [8000] = {TalkId = {1200}, NextCond = IsTempleCrowdFunding, NextId = 8001},
   [8001] = {TalkId = {1201}, RedPt = 1, NextId = 8002},
-  [8002] = {TalkId = {1201}},
+  [8002] = {TalkId = {1201}, NextCond = IsTempleCrowdFundingDone, NextId = 8003},
+  [8003] = {TalkId = {1202}, RedPt = 1, NextId = 8004},
+  [8004] = {TalkId = {1203}},
   -- Hero village, church.
   [9000] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   -- Hero village church, grandpa.

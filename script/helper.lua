@@ -272,6 +272,10 @@ function IsTempleCrowdFunding()
   return HasItem('f_crowd_funding')
 end
 
+function IsTempleCrowdFundingDone()
+  return GetCoin() >= CROWD_FUNDING_COST
+end
+
 function IsTransLetterToPriestValid()
   return HasLetter() and HasCoin(CHURCH_RECV_LETTER_COST)
 end
@@ -378,6 +382,12 @@ end
 
 function ScriptAddBou1()
   AddItem('i_bou', 1)
+end
+
+function ScriptBuildTemple()
+  ConsumeCoin(CROWD_FUNDING_COST)
+  RemoveItem('i_godzilla', 1)
+  RemoveItem('f_crowd_funding', 1)
 end
 
 function ScriptBuyBou2()

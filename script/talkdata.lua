@@ -310,16 +310,27 @@ TalkData = {
     {Text = 'ZZZ ZZZ ZZZ'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
-  -- Temple, site prepare.
+  -- Temple site.
   [1200] = {
     {Image = pinnote_tex_id},
     {Text = '整備中'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Temple, crowd funding.
   [1201] = {
     {Image = pinnote_tex_id},
     {Text = '募款蓋廟中還需要$%d', ScriptText = ScriptTextCrowdFunding},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
+  [1202] = {
+    {Image = merchant_tex_id},
+    {Text = '小兄弟您真行這麼快就募到錢了'},
+    {Text = '蓋廟的事就交給我來辨吧'},
+    {Script = ScriptBuildTemple},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
+  [1203] = {
+    {Image = GODZILLA_TEX_ID},
+    {Text = '財神廟建設中'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
   -- Hero village church, grandpa.
