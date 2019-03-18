@@ -380,6 +380,16 @@ function ScriptAddBou1()
   AddItem('i_bou', 1)
 end
 
+function ScriptBuyBou2()
+  ConsumeCoin(BOU2_COST)
+  AddItem('i_bou2', 1)
+end
+
+function ScriptBuyBou3()
+  ConsumeCoin(BOU3_COST)
+  AddItem('i_bou3', 1)
+end
+
 function ScriptEnterCave()
   AddItem('i_enter_cave', 1)
 end
@@ -395,16 +405,6 @@ end
 
 function ScriptInterviewUfo()
   AddItem('f_interview_ufo', 1)
-end
-
-function ScriptMerchantBuyBou2()
-  ConsumeCoin(BOU2_COST)
-  AddItem('i_bou2', 1)
-end
-
-function ScriptMerchantBuyBou3()
-  ConsumeCoin(BOU3_COST)
-  AddItem('i_bou3', 1)
 end
 
 function ScriptSendTeacherLetter()
