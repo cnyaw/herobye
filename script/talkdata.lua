@@ -330,7 +330,7 @@ TalkData = {
   },
   [1203] = {
     {Image = GODZILLA_TEX_ID},
-    {Text = '財神廟建設中'},
+    {Text = '龍神太子財神廟建設中'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
   -- Hero village church, grandpa.

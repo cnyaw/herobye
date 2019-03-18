@@ -269,7 +269,7 @@ function IsStickTrainingValid()
 end
 
 function IsTempleCrowdFunding()
-  return HasItem('f_crowd_funding')
+  return HasItem('i_godzilla')
 end
 
 function IsTempleCrowdFundingDone()
@@ -387,7 +387,6 @@ end
 function ScriptBuildTemple()
   ConsumeCoin(CROWD_FUNDING_COST)
   RemoveItem('i_godzilla', 1)
-  RemoveItem('f_crowd_funding', 1)
 end
 
 function ScriptBuyBou2()
@@ -410,7 +409,6 @@ end
 
 function ScriptGiveGodzilla()
   AddItem('i_godzilla', 1);
-  AddItem('f_crowd_funding', 1)
 end
 
 function ScriptInterviewUfo()

@@ -19,7 +19,6 @@ f_finish_training = 7
 f_in_place = 8                          -- Last lvl id.
 f_interview_ufo = 9
 i_godzilla = 10
-f_crowd_funding = 11
 i_back_scratcher = 12
 i_enter_cave = 13
 i_hero_coin = 14
