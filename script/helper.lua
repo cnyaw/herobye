@@ -240,6 +240,10 @@ function IsEnterCave4Times()
   return 4 <= EnterCaveCount()
 end
 
+function IsEnterCave6Times()
+  return 6 <= EnterCaveCount()
+end
+
 function IsGiveGodzillaValid()
   return IsInterviewUfo() and HasCoin(GIVE_GODZILLA_COST)
 end

@@ -2,6 +2,7 @@
 local help_pinky_lvl_id = 318
 local racing_lvl_id = 330
 local interview_hero_village_lvl_id = 331
+local clothes_drying_lvl_id = 340
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -404,7 +405,7 @@ TalkData = {
     {Script = ScriptInterviewUfo},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
-  -- Hero village, Zhang home.
+  -- Hero village, Zhang mama home.
   [1500] = {
     {Image = zhang_mama_tex_id},
     {Text = '每天都要洗好多衣服啊'},
@@ -415,6 +416,22 @@ TalkData = {
     {Text = '我們家的傳家之寶神奇石頭棍'},
     {Text = '封印在洞穴內被祖先保護著'},
     {Text = '要通過考驗才能拿到'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1502] = {
+    {Image = zhang_mama_tex_id},
+    {Text = '小白你來的正好'},
+    {Text = '請你幫我曬一下衣服'},
+    {Text = '曬好了我再給你一些零用錢'},
+    {LevelId = clothes_drying_lvl_id},
+  },
+  [1503] = {
+    {Image = zhang_mama_tex_id},
+    {Text = '小白謝謝你的幫忙'},
+    {Text = '這是給你的零用錢'},
+    {Text = '拿去買你喜歡的東西吧'},
+    {Script = ScriptGiveAllowance},
+    {Text = '「謝謝張媽媽」'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Shop.
