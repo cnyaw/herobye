@@ -67,7 +67,9 @@ QuestData = {
   [10003] = {TalkId = {1501}},
   -- Hero village, Shop.
   [11000] = {TalkId = {1600}, NextCond = IsEnterCave4Times, NextId = 11001},
-  [11001] = {TalkId = {1601}},
+  [11001] = {TalkId = {1601}, NextCond = IsFlashlightBuyable, NextId = 11002},
+  [11002] = {TalkId = {1602}, NextId = 11003},
+  [11003] = {TalkId = {1600}},
   -- Hero village, Xiang home.
   [12000] = {TalkId = {1700}},
   -- Hero village, hero home.

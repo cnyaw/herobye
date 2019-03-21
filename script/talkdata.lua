@@ -186,6 +186,11 @@ TalkData = {
     {Text = '擁有布的力量的無敵不求人'},
     {LevelId = BAG_LVL_ID},
   },
+  [606] = {
+    {Image = FLASHLIGHT_TEX_ID},
+    {Text = '光線有點暗淡的手電筒'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church, out.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -442,8 +447,17 @@ TalkData = {
   },
   [1601] = {
     {Image = merchant_tex_id},
-    {Text = '高級手電筒只賣20塊錢'},
+    {Text = string.format('高級手電筒只賣%d塊錢', FLASHLIGHT_COST)},
     {Text = '要買要快哦'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1602] = {
+    {Image = merchant_tex_id},
+    {Text = '小白你運氣真好'},
+    {Text = '這是最後一個高級手電筒了'},
+    {Image = FLASHLIGHT_TEX_ID},
+    {Text = string.format('收你%d塊錢謝謝', FLASHLIGHT_COST)},
+    {Script = ScriptBuyFlashlight},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Xiang home.

@@ -244,6 +244,10 @@ function IsEnterCave6Times()
   return 6 <= EnterCaveCount()
 end
 
+function IsFlashlightBuyable()
+  return HasCoin(FLASHLIGHT_COST)
+end
+
 function IsGiveGodzillaValid()
   return IsInterviewUfo() and HasCoin(GIVE_GODZILLA_COST)
 end
@@ -401,6 +405,11 @@ end
 function ScriptBuyBou3()
   ConsumeCoin(BOU3_COST)
   AddItem('i_bou3', 1)
+end
+
+function ScriptBuyFlashlight()
+  ConsumeCoin(FLASHLIGHT_COST)
+  AddItem('i_flashlight', 1)
 end
 
 function ScriptEnterCave()
