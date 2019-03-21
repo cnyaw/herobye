@@ -176,16 +176,8 @@ function TrainingIsClickTrainingMaxLv()
   return click_training.max_lv <= click_training.lv
 end
 
-function TrainingIsClickTrainingValid()
-  return 0 >= click_training.cd
-end
-
 function TrainingIsStickTrainingMaxLv()
   return stick_training.max_lv <= stick_training.lv
-end
-
-function TrainingIsStickTrainingValid()
-  return 0 >= stick_training.cd
 end
 
 function TrainingStickOnStepEnd(param)

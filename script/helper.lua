@@ -228,10 +228,6 @@ function IsClickTrainingMaxLv()
   return TrainingIsClickTrainingMaxLv()
 end
 
-function IsClickTrainingValid()
-  return TrainingIsClickTrainingValid()
-end
-
 function IsEnterCave2Times()
   return 2 <= EnterCaveCount()
 end
@@ -270,10 +266,6 @@ end
 
 function IsStickTrainingMaxLv()
   return TrainingIsStickTrainingMaxLv()
-end
-
-function IsStickTrainingValid()
-  return TrainingIsStickTrainingValid()
 end
 
 function IsTempleCrowdFunding()
@@ -340,16 +332,14 @@ function QuestOnStep(x, y)
     local id = Good.FindChild(lvl_id, obj_name, 1)
     if (-1 ~= id and PtInObj(x, y, id)) then
       local q = QuestData[quest_id]
-      if (nil == q.Cond or q.Cond()) then
-        if (nil ~= q.TalkId) then
-          local rand_talk_id = math.random(#q.TalkId)
-          StartTalk(q.TalkId[rand_talk_id])
-        elseif (nil ~= q.LevelId) then
-          Good.GenObj(-1, q.LevelId)
-        end
-        if (nil == q.NextCond and nil ~= q.NextId) then
-          obj_state[obj_name] = q.NextId
-        end
+      if (nil ~= q.TalkId) then
+        local rand_talk_id = math.random(#q.TalkId)
+        StartTalk(q.TalkId[rand_talk_id])
+      elseif (nil ~= q.LevelId) then
+        Good.GenObj(-1, q.LevelId)
+      end
+      if (nil == q.NextCond and nil ~= q.NextId) then
+        obj_state[obj_name] = q.NextId
       end
       return true
     end

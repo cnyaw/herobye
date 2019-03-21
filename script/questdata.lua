@@ -38,11 +38,11 @@ QuestData = {
   [5008] = {LevelId = BAG_LVL_ID},
   -- Training map, brother 1.
   [6000] = {TalkId = {100}, NextId = 6001},
-  [6001] = {LevelId = TRANINING_CLICK_LVL_ID, Cond = IsClickTrainingValid, NextCond = IsClickTrainingMaxLv, NextId = 6002},
+  [6001] = {LevelId = TRANINING_CLICK_LVL_ID, NextCond = IsClickTrainingMaxLv, NextId = 6002},
   [6002] = {TalkId = {150}},
   -- Training map, brother 2.
   [7000] = {TalkId = {200}, NextId = 7001},
-  [7001] = {LevelId = TRANINING_STICK_LVL_ID, Cond = IsStickTrainingValid, NextCond = IsStickTrainingMaxLv, NextId = 7002},
+  [7001] = {LevelId = TRANINING_STICK_LVL_ID, NextCond = IsStickTrainingMaxLv, NextId = 7002},
   [7002] = {TalkId = {250}},
   --- Main map, temple.
   [8000] = {TalkId = {1200}, NextCond = IsTempleCrowdFunding, NextId = 8001},
