@@ -1,4 +1,6 @@
 local MAX_CLOTHES = 5
+local CX_SLOT = SCR_W/MAX_CLOTHES
+local CY_SLOT = SCR_H/3
 
 local tshirt_txt_id = 377
 local pants_txt_id = 375
@@ -63,31 +65,31 @@ function DraggingClothes(param)
 end
 
 function DragClothesDone(param)
-  if (not DropClotherCorrectSlot(param)) then
+  if (not DropClothesMatchSlot(param)) then
     local o = param.obj[param.drag_idx]
     Good.SetPos(o, param.orig_x, param.orig_y)
   end
   param.mouse_down = false
 end
 
-function DropClotherCorrectSlot(param)
+function DropClothesMatchSlot(param)
   local x, y = Input.GetMousePos()
-  if (SCR_H/3 < y) then
+  if (CY_SLOT < y) then
     return false
   end
-  local i = 1 + math.floor(x / (SCR_W/MAX_CLOTHES))
+  local i = 1 + math.floor(x / CX_SLOT)
   if (nil == param.slot[i]) then
     return false
   end
   if (SameClothesType(i, param.drag_idx)) then
-    IncHitClothes(param, i)
+    IncMatchClothes(param, i)
     return true
   end
   return false
 end
 
 function GenClothes(param)
-  param.hit = 0
+  param.match = 0
   param.obj = {}
   param.slot = {}
   for i = 1, MAX_CLOTHES do
@@ -96,28 +98,28 @@ function GenClothes(param)
     local w, h = Resource.GetTexSize(tex)
     local o = Good.GenObj(-1, tex)
     local x = math.random(SCR_W - w)
-    local y = SCR_H/3 + math.random((SCR_H - SCR_H/3) - h)
+    local y = CY_SLOT + math.random((SCR_H - CY_SLOT) - h)
     Good.SetPos(o, x, y)
     param.obj[i] = o
-    param.slot[i] = GenClothesShade(SCR_W/MAX_CLOTHES * (i - 1), 20, tex)
+    param.slot[i] = GenClothesShade(CX_SLOT * (i - 1), 20, tex)
   end
 end
 
 function GenClothesShade(x, y, tex)
   local o = Good.GenObj(-1, tex)
   local w, h = Resource.GetTexSize(tex)
-  Good.SetPos(o, x + (SCR_W/MAX_CLOTHES - w)/2, y)
+  Good.SetPos(o, x + (CX_SLOT - w)/2, (CY_SLOT - h)/2)
   Good.SetBgColor(o, 0xff000000)
   return o
 end
 
-function IncHitClothes(param, slot_idx)
+function IncMatchClothes(param, slot_idx)
   local i = param.drag_idx
   Good.SetPos(param.obj[i], Good.GetPos(param.slot[slot_idx]))
   param.obj[i] = nil
   param.slot[slot_idx] = nil
-  param.hit = param.hit + 1
-  if (MAX_CLOTHES == param.hit) then
+  param.match = param.match + 1
+  if (MAX_CLOTHES == param.match) then
     param.step = ClothesDryingOnStepEnd
   end
 end
