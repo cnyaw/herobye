@@ -23,13 +23,19 @@ local training_cd_tick = 0
 TrainingMap = {}
 
 TrainingMap.OnCreate = function(param)
-  GenTrainingObj(click_training)
-  GenTrainingObj(stick_training)
+  if (not IsFinishTraining()) then
+    GenTrainingObj(click_training)
+    GenTrainingObj(stick_training)
+  end
   QuestOnCreate()
 end
 
 TrainingMap.OnStep = function(param)
   UpdateTrainingCd()
+  if (IsFinishTraining() and Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, MAIN_MAP_LVL_ID)
+    return
+  end
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end

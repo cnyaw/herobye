@@ -240,6 +240,10 @@ function IsEnterCave6Times()
   return 6 <= EnterCaveCount()
 end
 
+function IsFinishTraining()
+  return HasItem('f_finish_training')
+end
+
 function IsFlashlightBuyable()
   return HasCoin(FLASHLIGHT_COST)
 end
@@ -278,6 +282,11 @@ end
 
 function IsTransLetterToPriestValid()
   return HasLetter() and HasCoin(CHURCH_RECV_LETTER_COST)
+end
+
+function IsUnlockTraining()
+  AddItem('i_unlock_training_count', 1)
+  return 10 <= ItemCount('i_unlock_training_count')
 end
 
 function ItemCount(id)

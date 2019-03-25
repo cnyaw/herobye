@@ -23,7 +23,7 @@ local color_olive = 0xff808000
 local fade_time_one_sec = 60
 
 TalkData = {
-  -- Teacher, ini.
+  -- Teacher.
   [1] = {
     {Image = teacher_tex_id},
     {Text = '小秋徒兒你來啦！'},
@@ -32,7 +32,6 @@ TalkData = {
     {Text = '作完功課後再來見我吧'},
     {LevelId = TRAINING_MAP_LVL_ID},
   },
-  -- Teacher, training complete.
   [50] = {
     {Image = teacher_tex_id},
     {Text = '小秋徒兒你作完功課了啊'},
@@ -44,32 +43,44 @@ TalkData = {
     {Text = '要常回來勇者山看看哪'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Teacher, come back.
-  [80] = {
+  [51] = {
     {Image = teacher_tex_id},
     {Text = '勇猛精進！'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Brother 1, init.
+  [52] = {
+    {Image = teacher_tex_id},
+    {Text = '小秋徒兒你回來的正好'},
+    {Image = LETTER_TEX_ID},
+    {Text = '山下教堂的吳神父是我的老朋友'},
+    {Text = '替我將這封信交給他吧'},
+    {Script = ScriptSendTeacherLetter},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
+  [53] = {
+    {Image = teacher_tex_id},
+    {Text = '小秋徒兒你回來了啊'},
+    {Text = '跟師兄們作作功課忘掉世間雜染'},
+    {LevelId = TRAINING_MAP_LVL_ID},
+  },
+  -- Brother 1.
   [100] = {
     {Image = brother1_tex_id},
     {Text = '大師兄和你一起認真作功課'},
     {Text = '下山後可要好好的修行'},
     {LevelId = TRANINING_CLICK_LVL_ID},
   },
-  -- Brother 1, done.
   [150] = {
     {Image = brother1_tex_id},
     {Text = '自強不息'},
     {LevelId = TRAINING_MAP_LVL_ID},
   },
-  -- Brother 1, come back.
   [180] = {
     {Image = brother1_tex_id},
     {Text = '遇到困難了嗎？'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Brother 2, init.
+  -- Brother 2.
   [200] = {
     {Image = brother2_tex_id},
     {Text = '二師兄真替你開心'},
@@ -77,19 +88,17 @@ TalkData = {
     {Text = '別太貪玩哪'},
     {LevelId = TRANINING_STICK_LVL_ID},
   },
-  -- Brother 2, done.
   [250] = {
     {Image = brother2_tex_id},
     {Text = '終於作完啦'},
     {LevelId = TRAINING_MAP_LVL_ID},
   },
-  -- Brother 2, come back.
   [280] = {
     {Image = brother2_tex_id},
     {Text = '怎麼這麼快就回來啦'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Merchant, buy bou2.
+  -- Main map merchant.
   [300] = {
     {Image = merchant_tex_id},
     {Text = '小師父這裡有個好東西讓你看看'},
@@ -101,7 +110,6 @@ TalkData = {
     {Text = '銘謝惠顧'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Merchant, buy bou3.
   [400] = {
     {Image = merchant_tex_id},
     {Text = '小師父好久不見'},
@@ -115,19 +123,16 @@ TalkData = {
     {Text = '銘謝惠顧'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Merchant, reset 1 talk.
   [450] = {
     {Image = pinnote_tex_id},
     {Text = '補貨中下次再來'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Merchant, reset 2 talk.
   [500] = {
     {Image = pinnote_tex_id},
     {Text = '今日公休'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Merchant, introduce to the racing game.
   [510] = {
     {Image = merchant_tex_id},
     {Text = '小師父恭喜發財啊'},
@@ -137,13 +142,11 @@ TalkData = {
     {Text = '有錢沒錢都來看看吧'},
     {LevelId = racing_lvl_id},
   },
-  -- Merchant, welcom to the racing game.
   [511] = {
     {Image = merchant_tex_id},
     {Text = '歡迎來到賽魂世界'},
     {LevelId = racing_lvl_id},
   },
-  -- Merchant, give a godzilla to hero.
   [512] = {
     {Image = merchant_tex_id},
     {Text = '小師父恭喜發財啊'},
@@ -191,27 +194,18 @@ TalkData = {
     {Text = '光線有點暗淡的手電筒'},
     {LevelId = BAG_LVL_ID},
   },
-  -- Church, out.
+  -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
     {Text = '有事外出'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  -- Teacher, send letter to priest.
-  [1100] = {
-    {Image = teacher_tex_id},
-    {Text = '小秋徒兒你回來的正好'},
-    {Image = LETTER_TEX_ID},
-    {Text = '山下教堂的吳神父是我的老朋友'},
-    {Text = '替我將這封信交給他吧'},
-    {Script = ScriptSendTeacherLetter},
-    {LevelId = MAIN_MAP_LVL_ID},
-  },
-  -- Church, get letter from teacher.
   [1150] = {
     {Image = priest_tex_id},
-    {Text = '小兄弟你辛苦了啦'},
+    {Text = '小兄弟辛苦了你啦'},
+    {Image = LETTER_TEX_ID},
     {Text = '從勇者山帶來這封信應該累了吧'},
+    {Image = priest_tex_id},
     {Text = '請到後面讓我們為你馬殺雞'},
     {Text = string.format('友情價算你%d塊錢', CHURCH_RECV_LETTER_COST)},
     {Script = ScriptTransLetterToPriest},
@@ -315,7 +309,7 @@ TalkData = {
     {Text = 'ZZZ ZZZ ZZZ'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
-  -- Temple site.
+  -- Main map temple site.
   [1200] = {
     {Image = pinnote_tex_id},
     {Text = '整備中'},

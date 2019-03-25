@@ -34,7 +34,7 @@ end
 function SelContinue(param)
   if (0 == param.cursor) then
     LoadGame()
-    if (HasItem('f_finish_training')) then
+    if (IsFinishTraining()) then
       Good.GenObj(-1, GetLastLvlId())
     else
       StartTalk()

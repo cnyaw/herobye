@@ -4,9 +4,12 @@ local alien_path_lvl_id = 356
 
 QuestData = {
   -- Main map, hero mt.
-  [1000] = {TalkId = {80, 180, 280}, NextCond = IsSendTeacherLetterValid, NextId = 1001},
-  [1001] = {TalkId = {1100}, RedPt = 1, NextId = 1002},
-  [1002] = {TalkId = {80, 180, 280}},
+  [1000] = {TalkId = {51, 180, 280}, NextCond = IsSendTeacherLetterValid, NextId = 1001},
+  [1001] = {TalkId = {52}, RedPt = 1, NextId = 1002},
+  [1002] = {TalkId = {51, 180, 280}, NextCond = IsTempleCrowdFunding, NextId = 1003},
+  [1003] = {TalkId = {51, 180, 280}, NextCond = IsUnlockTraining, NextId = 1004},
+  [1004] = {TalkId = {53}, RedPt = 1, NextId = 1005},
+  [1005] = {TalkId = {53}},
   -- Main map, shop.
   [2000] = {TalkId = {450, 500}, NextCond = IsBuyBou2Valid, NextId = 2001},
   [2001] = {TalkId = {300}, RedPt = 1, NextId = 2002},
@@ -39,11 +42,13 @@ QuestData = {
   -- Training map, brother 1.
   [6000] = {TalkId = {100}, NextId = 6001},
   [6001] = {LevelId = TRANINING_CLICK_LVL_ID, NextCond = IsClickTrainingMaxLv, NextId = 6002},
-  [6002] = {TalkId = {150}},
+  [6002] = {TalkId = {150}, NextCond = IsTempleCrowdFunding, NextId = 6003},
+  [6003] = {LevelId = TRANINING_CLICK_LVL_ID},
   -- Training map, brother 2.
   [7000] = {TalkId = {200}, NextId = 7001},
   [7001] = {LevelId = TRANINING_STICK_LVL_ID, NextCond = IsStickTrainingMaxLv, NextId = 7002},
-  [7002] = {TalkId = {250}},
+  [7002] = {TalkId = {250}, NextCond = IsTempleCrowdFunding, NextId = 7003},
+  [7003] = {LevelId = TRANINING_STICK_LVL_ID},
   --- Main map, temple.
   [8000] = {TalkId = {1200}, NextCond = IsTempleCrowdFunding, NextId = 8001},
   [8001] = {TalkId = {1201}, RedPt = 1, NextId = 8002},
