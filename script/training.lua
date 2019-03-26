@@ -31,11 +31,11 @@ TrainingMap.OnCreate = function(param)
 end
 
 TrainingMap.OnStep = function(param)
-  UpdateTrainingCd()
-  if (IsFinishTraining() and Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, MAIN_MAP_LVL_ID)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, GetTrainingMapBackLvlId())
     return
   end
+  UpdateTrainingCd()
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -130,6 +130,14 @@ function GenTrainingObj(training)
     local l,t,w2,h2 = Good.GetDim(sand_obj)
     local ox = x + (w * sx - w2)/2
     Good.SetPos(sand_obj, ox, SCR_H - 100)
+  end
+end
+
+function GetTrainingMapBackLvlId()
+  if (IsFinishTraining()) then
+    return MAIN_MAP_LVL_ID
+  else
+    return TITLE_LVL_ID
   end
 end
 
