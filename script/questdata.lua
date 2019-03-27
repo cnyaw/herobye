@@ -94,5 +94,6 @@ QuestData = {
   [16000] = {TalkId = {2000}},
   -- Cave field, cave.
   [17000] = {TalkId = {2100}, NextCond = IsEnterCave4Times, NextId = 17001},
-  [17001] = {TalkId = {2101}},
+  [17001] = {TalkId = {2101}, NextCond = HasFlashlight, NextId = 17002},
+  [17002] = {TalkId = {2102}},
 }

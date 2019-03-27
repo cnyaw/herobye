@@ -17,6 +17,7 @@ local zhang_mama_tex_id = 329
 local ufo_tex_id = 343
 local shelf_tex_id = 352
 local frog_tex_id = 357
+local cave_door_tex_id = 0
 
 local color_black = 0xff000000
 local color_olive = 0xff808000
@@ -510,6 +511,17 @@ TalkData = {
     {Text = '慢慢的往前模索前進'},
     {Text = '好像摸到一扇門'},
     {Text = '如果有手電筒就好了'},
+    {LevelId = CAVE_FIELD_LVL_ID},
+  },
+  [2102] = {
+    {FadeTo = {fade_time_one_sec, color_black}},
+    {Text = '黑漆漆的山洞什麼都看不見'},
+    {Text = '拿出手電筒打開開關'},
+    {FadeTo = {fade_time_one_sec, color_olive}},
+    {Text = '光線有點暗淡不過可以看見了'},
+    {Image = cave_door_tex_id},
+    {Text = '走到盡頭發現一扇門'},
+    {Text = '需要密碼才能打開門'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
 }

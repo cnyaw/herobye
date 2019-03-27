@@ -192,6 +192,10 @@ function HasCoin(amount)
   return GetCoin() >= amount
 end
 
+function HasFlashlight()
+  return HasItem('i_flashlight')
+end
+
 function HasGodzilla()
   return HasItem('i_godzilla')
 end
