@@ -18,6 +18,7 @@ local ufo_tex_id = 343
 local shelf_tex_id = 352
 local frog_tex_id = 357
 local cave_door_tex_id = 0
+local chest_tex_id = 13
 
 local color_black = 0xff000000
 local color_olive = 0xff808000
@@ -380,6 +381,7 @@ TalkData = {
   [1350] = {
     {FadeTo = {fade_time_one_sec, color_black}},
     {Image = shelf_tex_id},
+    {Text = '「勇者的故事」'},
     {Text = '很久很久以前'},
     {Text = '邪惡的外星人來到勇者村'},
     {Text = '想要征服這個世界'},
@@ -388,6 +390,16 @@ TalkData = {
     {Text = '最後三位勇者打敗了魔王'},
     {Text = '拯救了這個世界'},
     {Text = '從此大家過著快快樂樂的日子'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
+  [1351] = {
+    {FadeTo = {fade_time_one_sec, color_black}},
+    {Image = shelf_tex_id},
+    {Text = '「開啟洞穴之門的方法」'},
+    {Text = '勇者們打敗魔王後'},
+    {Text = '將石頭的力量封印在洞穴'},
+    {Text = '以下是開啟密門的方法'},
+    {Text = OPEN_CAVE_DOOR_CODE},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
   -- UFO coming.
@@ -520,8 +532,15 @@ TalkData = {
     {FadeTo = {fade_time_one_sec, color_olive}},
     {Text = '光線有點暗淡不過可以看見了'},
     {Image = cave_door_tex_id},
-    {Text = '走到盡頭發現一扇門'},
+    {Text = '走到盡頭發現一道門'},
     {Text = '需要密碼才能打開門'},
+    {LevelId = CAVE_DOOR_LVL_ID},
+  },
+  [2103] = {
+    {Text = '密碼輸入正確門打開了'},
+    {Image = chest_tex_id},
+    {Text = '發現一個寶箱'},
+    {Text = '打開寶箱裡面是空的!'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
 }

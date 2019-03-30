@@ -130,6 +130,17 @@ function GetCurrBagType()
   end
 end
 
+function GetHeroVillageBackLvlId()
+  local last_lvl_id = GetLastLvlId()
+  if (last_lvl_id == HERO_VILLAGE_CHURCH_LVL_ID) then
+    return HERO_VILLAGE_LVL_ID
+  elseif (last_lvl_id == CAVE_DOOR_LVL_ID) then
+    return CAVE_FIELD_LVL_ID
+  else
+    return TITLE_LVL_ID
+  end
+end
+
 function GenNumObj(n, size)
   local s = string.format('%d', n)
   local o = Good.GenTextObj(-1, s, size)

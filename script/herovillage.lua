@@ -17,11 +17,3 @@ HeroVillage.OnStep = function(param)
     QuestOnStep(x, y)
   end
 end
-
-function GetHeroVillageBackLvlId()
-  if (GetLastLvlId() == HERO_VILLAGE_CHURCH_LVL_ID) then
-    return HERO_VILLAGE_LVL_ID
-  else
-    return TITLE_LVL_ID
-  end
-end
