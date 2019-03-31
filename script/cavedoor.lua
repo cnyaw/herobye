@@ -1,9 +1,10 @@
-local correct_input_code_talk_id = 2103
-
 local CX_BLOCK = 30
 local CX_MARGIN = 10
-local OFFSET_X = (SCR_W - string.len(OPEN_CAVE_DOOR_CODE) * (CX_BLOCK + CX_MARGIN)) / 2
+local CX_BLOCK_MARGIN = (CX_BLOCK + CX_MARGIN)
+local OFFSET_X = (SCR_W - string.len(OPEN_CAVE_DOOR_CODE) * CX_BLOCK_MARGIN) / 2
 local OFFSET_Y = 300
+
+local correct_input_code_talk_id = 2103
 
 CaveDoor = {}
 
@@ -64,35 +65,29 @@ end
 
 function InitInputCodeBlock(param)
   param.block_obj = {}
+  local x = OFFSET_X
   for i = 1, string.len(OPEN_CAVE_DOOR_CODE) do
-    param.block_obj[i] = GenInputCodeBlock(param, OFFSET_X + (CX_BLOCK + CX_MARGIN) * (i - 1), OFFSET_Y)
+    param.block_obj[i] = GenInputCodeBlock(param, x, OFFSET_Y)
+    x = x + CX_BLOCK_MARGIN
   end
   param.input_code = ''
 end
 
 function InitRpsCode(param)
-  local rps_code = {}
-  rps_code[1] = '1'
-  rps_code[2] = '2'
-  rps_code[3] = '3'
-  param.rps_code = rps_code
+  param.rps_code = {'1', '2', '3'}
 end
 
 function InitRpsObj(param)
-  local rps_obj = {}
-  rps_obj[1] = 6
-  rps_obj[2] = 9
-  rps_obj[3] = 10
-  param.rps_obj = rps_obj
+  param.rps_obj = {6, 9, 10}
 end
 
-function InputCodeFull(param)
-  return string.len(param.input_code) == string.len(OPEN_CAVE_DOOR_CODE)
+function InputCodeFull(code)
+  return string.len(code) == string.len(OPEN_CAVE_DOOR_CODE)
 end
 
 function ValidateInputCode(param)
   if (not CorrectInputCode(param.input_code)) then
-    if (InputCodeFull(param)) then
+    if (InputCodeFull(param.input_code)) then
       ClearInputCode(param)
     end
     return false
