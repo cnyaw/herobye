@@ -1,8 +1,6 @@
 local CX_BLOCK = 30
 local CX_MARGIN = 10
 local CX_BLOCK_MARGIN = (CX_BLOCK + CX_MARGIN)
-local OFFSET_X = (SCR_W - string.len(OPEN_CAVE_DOOR_CODE) * CX_BLOCK_MARGIN) / 2
-local OFFSET_Y = 300
 
 local input_code_right_talk_id = 2103
 local add_mallet_talk_id = 2104
@@ -50,7 +48,7 @@ function ClearInputCode(param)
 end
 
 function CorrectInputCode(s)
-  return s == OPEN_CAVE_DOOR_CODE
+  return GetOpenCaveDoorCode() == s
 end
 
 function GenInputCodeBlock(param, x, y)
@@ -76,9 +74,12 @@ function InitCaveDoor(param)
 end
 
 function InitInputCodeBlock(param)
+  local code = GetOpenCaveDoorCode()
+  local OFFSET_X = (SCR_W - string.len(code) * CX_BLOCK_MARGIN) / 2
+  local OFFSET_Y = 300
   param.block_obj = {}
   local x = OFFSET_X
-  for i = 1, string.len(OPEN_CAVE_DOOR_CODE) do
+  for i = 1, string.len(code) do
     param.block_obj[i] = GenInputCodeBlock(param, x, OFFSET_Y)
     x = x + CX_BLOCK_MARGIN
   end
@@ -94,7 +95,7 @@ function InitRpsObj(param)
 end
 
 function InputCodeFull(code)
-  return string.len(code) == string.len(OPEN_CAVE_DOOR_CODE)
+  return string.len(code) == string.len(GetOpenCaveDoorCode())
 end
 
 function ValidateInputCode(param)

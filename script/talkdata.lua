@@ -402,7 +402,7 @@ TalkData = {
     {Text = '勇者們打敗魔王後'},
     {Text = '將石頭的力量封印在洞穴'},
     {Text = '以下是開啟密門的方法'},
-    {Text = OPEN_CAVE_DOOR_CODE},
+    {ScriptText = GetOpenCaveDoorCode},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
   -- UFO coming.

@@ -52,6 +52,8 @@ local init_bag = {                      -- [item_id] = count
 bag = {
 }
 
+local open_cave_door_code = '1231'
+
 -- Helper.
 
 function AddCoin(amount)
@@ -139,6 +141,10 @@ function GetHeroVillageBackLvlId()
   else
     return TITLE_LVL_ID
   end
+end
+
+function GetOpenCaveDoorCode()
+  return open_cave_door_code
 end
 
 function GenNumObj(n, size)
@@ -401,6 +407,16 @@ function ResetGame()
   bag = InitTable(init_bag)
   curr_talk_id = {teacher_init_talk_id}
   ResetTraining()
+  ResetOpenCaveDoorCode()
+end
+
+function ResetOpenCaveDoorCode()
+  local len = string.len(open_cave_door_code)
+  open_cave_door_code = ''
+  local idx = math.random(3)
+  for i = 1, len do
+    open_cave_door_code = open_cave_door_code .. tostring(1 + (i + idx) % 3)
+  end
 end
 
 function SaveGame()

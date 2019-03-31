@@ -97,7 +97,7 @@ function StepOneTalk(param)
   talk_index = talk_index + 1
   if (nil ~= talk.Image) then
     HandleTalkImage(param, talk)
-  elseif (nil ~= talk.Text) then
+  elseif (nil ~= talk.Text or nil ~= talk.ScriptText) then
     HandlTalkText(param, talk)
   elseif (nil ~= talk.LevelId) then
     HandleTalkLevelId(param, talk)
