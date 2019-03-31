@@ -66,7 +66,8 @@ QuestData = {
   [9105] = {TalkId = {1301}},
   -- Hero village church, shelf.
   [9200] = {TalkId = {1350}, NextCond = HasFlashlight, NextId = 9201},
-  [9201] = {TalkId = {1351}},
+  [9201] = {TalkId = {1351}, NextCond = HasMallet, NextId = 9202},
+  [9202] = {TalkId = {1350, 1351}},
   -- Hero village, Zhang mama home.
   [10000] = {TalkId = {1500}, NextCond = IsEnterCave2Times, NextId = 10001},
   [10001] = {TalkId = {1501}, NextCond = IsEnterCave6Times, NextId = 10002},
