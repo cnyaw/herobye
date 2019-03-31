@@ -196,6 +196,11 @@ TalkData = {
     {Text = '光線有點暗淡的手電筒'},
     {LevelId = BAG_LVL_ID},
   },
+  [607] = {
+    {Image = MALLET_TEX_ID},
+    {Text = '擁有石頭力量的神奇石頭棒'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -422,7 +427,7 @@ TalkData = {
   },
   [1501] = {
     {Image = zhang_mama_tex_id},
-    {Text = '我們家的傳家之寶神奇石頭棍'},
+    {Text = '我們家的傳家之寶神奇石頭棒'},
     {Text = '封印在洞穴內被祖先保護著'},
     {Text = '要通過考驗才能拿到'},
     {LevelId = HERO_VILLAGE_LVL_ID},
@@ -448,8 +453,9 @@ TalkData = {
     {Text = '己經打門封印洞穴的門了嗎'},
     {Text = '小白你真是了不起'},
     {Text = '你只要對著空的寶箱說出咒語'},
-    {Text = '「神奇石頭棍出來吧」'},
+    {Text = '「神奇石頭棒出來吧」'},
     {Text = '擁有石頭力量的寶物就會出現了'},
+    {Script = ScriptGetMalletCode},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Shop.
@@ -549,6 +555,25 @@ TalkData = {
     {Image = chest_tex_id},
     {Text = '發現一個寶箱'},
     {Text = '打開寶箱裡面是空的!'},
+    {LevelId = CAVE_FIELD_LVL_ID},
+  },
+  [2104] = {
+    {Text = '密碼輸入正確門開了'},
+    {Image = chest_tex_id},
+    {Text = '發現一個寶箱'},
+    {Text = '打開寶箱裡面還是空的!'},
+    {Text = '說出通關咒語'},
+    {Text = '「神奇石頭棒出來吧」'},
+    {Image = MALLET_TEX_ID},
+    {Text = '得到擁有石頭力量的神奇石頭棒'},
+    {Script = ScriptAddMellet},
+    {LevelId = CAVE_FIELD_LVL_ID},
+  },
+  [2105] = {
+    {Text = '密碼輸入正確門開了'},
+    {Image = chest_tex_id},
+    {Text = '發現一個寶箱'},
+    {Text = '己經得到得到神奇石頭棒'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
 }

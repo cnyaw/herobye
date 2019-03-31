@@ -207,6 +207,10 @@ function HasFlashlight()
   return HasItem('i_flashlight')
 end
 
+function HasGetMalletCode()
+  return HasItem('f_mallet_code')
+end
+
 function HasGodzilla()
   return HasItem('i_godzilla')
 end
@@ -217,6 +221,10 @@ end
 
 function HasLetter()
   return HasItem('i_letter')
+end
+
+function HasMallet()
+  return HasItem('i_mallet')
 end
 
 function InitTable(init_tbl)
@@ -410,6 +418,10 @@ function ScriptAddBou1()
   AddItem('i_bou', 1)
 end
 
+function ScriptAddMellet()
+  SetItem('i_mallet', 1)
+end
+
 function ScriptBuildTemple()
   ConsumeCoin(CROWD_FUNDING_COST)
   RemoveItem('i_godzilla', 1)
@@ -432,6 +444,10 @@ end
 
 function ScriptEnterCave()
   AddItem('i_enter_cave', 1)
+end
+
+function ScriptGetMalletCode()
+  SetItem('f_mallet_code', 1)
 end
 
 function ScriptGiveAllowance()

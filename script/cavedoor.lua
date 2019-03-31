@@ -4,7 +4,9 @@ local CX_BLOCK_MARGIN = (CX_BLOCK + CX_MARGIN)
 local OFFSET_X = (SCR_W - string.len(OPEN_CAVE_DOOR_CODE) * CX_BLOCK_MARGIN) / 2
 local OFFSET_Y = 300
 
-local correct_input_code_talk_id = 2103
+local input_code_right_talk_id = 2103
+local add_mallet_talk_id = 2104
+local has_mallet_talk_id = 2105
 
 CaveDoor = {}
 
@@ -57,6 +59,16 @@ function GenInputCodeBlock(param, x, y)
   return o
 end
 
+function GetBingoTalkId()
+  if (HasMallet()) then
+    return has_mallet_talk_id
+  elseif (HasGetMalletCode()) then
+    return add_mallet_talk_id
+  else
+    return input_code_right_talk_id
+  end
+end
+
 function InitCaveDoor(param)
   InitRpsCode(param)
   InitRpsObj(param)
@@ -90,8 +102,7 @@ function ValidateInputCode(param)
     if (InputCodeFull(param.input_code)) then
       ClearInputCode(param)
     end
-    return false
+    return
   end
-  StartTalk(correct_input_code_talk_id) -- BINGO!!!
-  return true
+  StartTalk(GetBingoTalkId())
 end

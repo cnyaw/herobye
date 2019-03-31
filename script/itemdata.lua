@@ -8,6 +8,7 @@ local letter_desc_id = 603
 local godzilla_desc_id = 604
 local back_scratcher_desc_id = 605
 local flashlight_desc_id = 606
+local mallet_desc_id = 607
 
 --[[
 i_coin = 1
@@ -26,6 +27,8 @@ i_hero_coin = 14
 i_flashlight = 15
 i_unlock_training_count = 16
 f_open_cave_door = 17
+i_mallet = 18
+f_mallet_code = 19
 --]]
 
 e_main_bag = 1
@@ -38,5 +41,6 @@ ItemData = {
   i_letter = {BagType = e_main_bag, Image = LETTER_TEX_ID, TalkId = letter_desc_id},
   i_godzilla = {BagType = e_main_bag, Image = GODZILLA_TEX_ID, TalkId = godzilla_desc_id},
   i_back_scratcher = {BagType = e_hero_bag, Image = BACK_SCRATCHER_TEX_ID, TalkId = back_scratcher_desc_id},
-  i_flashlight = {BagType = e_hero_bag, Image = FLASHLIGHT_TEX_ID, TalkId = flashlight_desc_id}
+  i_flashlight = {BagType = e_hero_bag, Image = FLASHLIGHT_TEX_ID, TalkId = flashlight_desc_id},
+  i_mallet = {BagType = e_hero_bag, Image = MALLET_TEX_ID, TalkId = mallet_desc_id}
 }
