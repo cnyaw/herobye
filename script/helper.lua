@@ -96,7 +96,7 @@ function ConsumeRestCost()
 end
 
 function EnterCaveCount()
-  return ItemCount('i_enter_cave')
+  return ItemCount('i_enter_cave_count')
 end
 
 function EnterPlace(id)
@@ -427,11 +427,11 @@ function SaveGame()
 end
 
 function ScriptAddBackScratcher()
-  AddItem('i_back_scratcher', 1)
+  SetItem('i_back_scratcher', 1)
 end
 
 function ScriptAddBou1()
-  AddItem('i_bou', 1)
+  SetItem('i_bou', 1)
 end
 
 function ScriptAddMellet()
@@ -445,21 +445,21 @@ end
 
 function ScriptBuyBou2()
   ConsumeCoin(BOU2_COST)
-  AddItem('i_bou2', 1)
+  SetItem('i_bou2', 1)
 end
 
 function ScriptBuyBou3()
   ConsumeCoin(BOU3_COST)
-  AddItem('i_bou3', 1)
+  SetItem('i_bou3', 1)
 end
 
 function ScriptBuyFlashlight()
   ConsumeCoin(FLASHLIGHT_COST)
-  AddItem('i_flashlight', 1)
+  SetItem('i_flashlight', 1)
 end
 
 function ScriptEnterCave()
-  AddItem('i_enter_cave', 1)
+  AddItem('i_enter_cave_count', 1)
 end
 
 function ScriptGetMalletCode()
@@ -471,11 +471,11 @@ function ScriptGiveAllowance()
 end
 
 function ScriptGiveGodzilla()
-  AddItem('i_godzilla', 1);
+  SetItem('i_godzilla', 1);
 end
 
 function ScriptInterviewUfo()
-  AddItem('f_interview_ufo', 1)
+  SetItem('f_interview_ufo', 1)
 end
 
 function ScriptOpenCaveDoor()
@@ -483,7 +483,7 @@ function ScriptOpenCaveDoor()
 end
 
 function ScriptSendTeacherLetter()
-  AddItem('i_letter', 1)
+  SetItem('i_letter', 1)
 end
 
 function ScriptTextCrowdFunding(fmt)
@@ -493,7 +493,7 @@ end
 function ScriptTransLetterToPriest()
   ConsumeCoin(CHURCH_RECV_LETTER_COST)
   RemoveItem('i_letter', 1)
-  AddItem('f_letter_sent', 1)
+  SetItem('f_letter_sent', 1)
 end
 
 function SetItem(id, count)

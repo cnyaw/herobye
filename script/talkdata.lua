@@ -560,20 +560,18 @@ TalkData = {
   [2104] = {
     {Text = '密碼輸入正確門開了'},
     {Image = chest_tex_id},
-    {Text = '發現一個寶箱'},
-    {Text = '打開寶箱裡面還是空的!'},
-    {Text = '說出通關咒語'},
+    {Text = '對著空寶箱說出通關咒語'},
     {Text = '「神奇石頭棒出來吧」'},
     {Image = MALLET_TEX_ID},
     {Text = '得到擁有石頭力量的神奇石頭棒'},
+    {Text = '可以用來對抗剪刀的力量'},
     {Script = ScriptAddMellet},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
   [2105] = {
     {Text = '密碼輸入正確門開了'},
     {Image = chest_tex_id},
-    {Text = '發現一個寶箱'},
-    {Text = '己經得到得到神奇石頭棒'},
+    {Text = '己經得到寶箱裡的神奇石頭棒了'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
 }
