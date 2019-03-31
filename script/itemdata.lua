@@ -25,6 +25,7 @@ i_enter_cave = 13
 i_hero_coin = 14
 i_flashlight = 15
 i_unlock_training_count = 16
+f_open_cave_door = 17
 --]]
 
 e_main_bag = 1

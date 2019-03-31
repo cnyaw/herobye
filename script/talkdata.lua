@@ -379,7 +379,6 @@ TalkData = {
   },
   -- Hero village church, shelf.
   [1350] = {
-    {FadeTo = {fade_time_one_sec, color_black}},
     {Image = shelf_tex_id},
     {Text = '「勇者的故事」'},
     {Text = '很久很久以前'},
@@ -393,7 +392,6 @@ TalkData = {
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
   [1351] = {
-    {FadeTo = {fade_time_one_sec, color_black}},
     {Image = shelf_tex_id},
     {Text = '「開啟洞穴之門的方法」'},
     {Text = '勇者們打敗魔王後'},
@@ -445,6 +443,15 @@ TalkData = {
     {Text = '「謝謝張媽媽」'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
+  [1504] = {
+    {Image = zhang_mama_tex_id},
+    {Text = '己經打門封印洞穴的門了嗎'},
+    {Text = '小白你真是了不起'},
+    {Text = '你只要對著空的寶箱說出咒語'},
+    {Text = '「神奇石頭棍出來吧」'},
+    {Text = '擁有石頭力量的寶物就會出現了'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
   -- Hero village, Shop.
   [1600] = {
     {Image = pinnote_tex_id},
@@ -462,7 +469,7 @@ TalkData = {
     {Text = '小白你運氣真好'},
     {Text = '這是最後一個高級手電筒了'},
     {Image = FLASHLIGHT_TEX_ID},
-    {Text = string.format('收你%d塊錢謝謝', FLASHLIGHT_COST)},
+    {Text = string.format('收你%d塊錢謝謝惠顧', FLASHLIGHT_COST)},
     {Script = ScriptBuyFlashlight},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
@@ -537,7 +544,8 @@ TalkData = {
     {LevelId = CAVE_DOOR_LVL_ID},
   },
   [2103] = {
-    {Text = '密碼輸入正確門打開了'},
+    {Text = '密碼輸入正確門開了'},
+    {Script = ScriptOpenCaveDoor},
     {Image = chest_tex_id},
     {Text = '發現一個寶箱'},
     {Text = '打開寶箱裡面是空的!'},

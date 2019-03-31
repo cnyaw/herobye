@@ -332,6 +332,10 @@ function NotRestValid()
   return not IsRestValid()
 end
 
+function OpenCaveDoor()
+  return HasItem('f_open_cave_door')
+end
+
 function QuestOnCreate()
   local lvl_id = Good.GetLevelId()
   for obj_name, quest_id in pairs(obj_state) do
@@ -440,6 +444,10 @@ end
 
 function ScriptInterviewUfo()
   AddItem('f_interview_ufo', 1)
+end
+
+function ScriptOpenCaveDoor()
+  AddItem('f_open_cave_door', 1)
 end
 
 function ScriptSendTeacherLetter()
