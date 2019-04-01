@@ -123,7 +123,7 @@ function GenTrainingObj(training)
   local ox = x + (w * sx - ow)/2
   Good.SetPos(o, ox, 40)
   if (training.lv == training.max_lv) then
-    SetTextObjColor(o, 0xff00ff00)
+    SetTextObjColor(o, COLOR_GREEN)
   end
   if (0 < training.cd) then
     local sand_obj = GenSandGlassObj(training.cd)

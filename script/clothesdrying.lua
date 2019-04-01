@@ -109,7 +109,7 @@ function GenClothesShade(x, y, tex)
   local o = Good.GenObj(-1, tex)
   local w, h = Resource.GetTexSize(tex)
   Good.SetPos(o, x + (CX_SLOT - w)/2, (CY_SLOT - h)/2)
-  Good.SetBgColor(o, 0xff000000)
+  Good.SetBgColor(o, COLOR_BLACK)
   return o
 end
 

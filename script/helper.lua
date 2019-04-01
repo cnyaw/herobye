@@ -12,7 +12,6 @@ local SAV_FILE_NAME = "herobye.sav"
 
 -- Data.
 
-local last_lvl_id = nil
 local curr_talk_id = {teacher_init_talk_id}
 
 local init_obj_state = {                -- [obj_name] = quest_id
@@ -504,7 +503,6 @@ function StartTalk(id)
   if (nil ~= id) then
     curr_talk_id = {id}
   end
-  last_lvl_id = Good.GetLevelId()
   Good.GenObj(-1, talk_lvl_id)
 end
 

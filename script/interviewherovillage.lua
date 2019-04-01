@@ -30,9 +30,9 @@ function InterviewHeroVillageOnStepBlink(param)
   if (0 == math.mod(param.counter, 5)) then
     param.flag = not param.flag
     if (param.flag) then
-      Good.SetBgColor(param._id, 0xff000000)
+      Good.SetBgColor(param._id, COLOR_BLACK)
     else
-      Good.SetBgColor(param._id, 0xffff0000)
+      Good.SetBgColor(param._id, COLOR_RED)
     end
   end
   if (BLINK_TIME <= param.counter) then

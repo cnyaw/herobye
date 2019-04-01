@@ -78,7 +78,7 @@ function HandlTalkText(param, talk)
   Good.SetPos(talk_mess_obj, (SCR_W - w)/2, 270)
   local o = Good.GenObj(talk_mess_obj, arrow_tex_id, 'AnimTalkArrow')
   Good.SetPos(o, w, -32)
-  Good.SetBgColor(o, 0xff00ff00)
+  Good.SetBgColor(o, COLOR_GREEN)
   Good.SetRot(o, 90)
 end
 

@@ -2,10 +2,9 @@ local CX_BLOCK = 30
 local CX_MARGIN = 10
 local CX_BLOCK_MARGIN = (CX_BLOCK + CX_MARGIN)
 local OFFSET_Y = 300
-local COLOR_BLACK = 0xff000000
 local COLOR_GRAY = 0xff808080
-local COLOR_INPUT_RIGHT = 0xff00ff00
-local COLOR_INPUT_WRONG = 0xffff0000
+local COLOR_INPUT_RIGHT = COLOR_GREEN
+local COLOR_INPUT_WRONG = COLOR_RED
 local WAIT_TIME = 30
 
 local input_code_right_talk_id = 2103
