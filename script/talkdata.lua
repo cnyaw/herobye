@@ -200,6 +200,11 @@ TalkData = {
     {Text = '擁有石頭力量的神奇石頭棒'},
     {LevelId = BAG_LVL_ID},
   },
+  [608] = {
+    {Image = FLASHLIGHT_TEX_ID},
+    {Text = '沒有電力的手電筒'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -478,6 +483,18 @@ TalkData = {
     {Script = ScriptBuyFlashlight},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
+  [1603] = {
+    {Image = merchant_tex_id},
+    {Text = string.format('手電筒充電一次只要%d塊錢', FLASHLIGHT_COST)},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1604] = {
+    {Image = merchant_tex_id},
+    {Text = string.format('收你%d塊錢謝謝惠顧', FLASHLIGHT_COST)},
+    {Script = ScriptChargeFlashlight},
+    {Text = '手電筒充滿電了'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
   -- Hero village, Xiang home.
   [1700] = {
     {Image = pinky_tex_id},
@@ -542,6 +559,7 @@ TalkData = {
     {Text = '黑漆漆的山洞什麼都看不見'},
     {Text = '拿出手電筒打開開關'},
     {FadeTo = {fade_time_one_sec, color_olive}},
+    {Script = ScriptEnterCave},
     {Text = '光線有點暗淡不過可以看見了'},
     {Image = cave_door_tex_id},
     {Text = '走到盡頭發現一道門'},
@@ -571,6 +589,12 @@ TalkData = {
     {Text = '密碼輸入正確門開了'},
     {Image = chest_tex_id},
     {Text = '己經得到寶箱裡的神奇石頭棒了'},
+    {LevelId = CAVE_FIELD_LVL_ID},
+  },
+  [2106] = {
+    {FadeTo = {fade_time_one_sec, COLOR_BLACK}},
+    {Text = '黑漆漆的山洞什麼都看不見'},
+    {Text = '手電筒沒電了無法使用'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
 }

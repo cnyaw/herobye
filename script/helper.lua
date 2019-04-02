@@ -103,6 +103,20 @@ function EnterPlace(id)
   SaveGame()
 end
 
+function FlashlightCharged()
+  return 0 == EnterCaveCount()
+end
+
+function FlashlightOutOfPower()
+  if (HasMallet() and 5 <= EnterCaveCount()) then
+    RemoveItem('i_flashlight', 1)
+    SetItem('i_flashlight_nopower', 1)
+    return true
+  else
+    return false
+  end
+end
+
 function GenFlyUpObj(parent, tex_id)
   local x, y = Good.GetPos(parent)
   local l,t,w,h = Good.GetDim(parent)
@@ -209,7 +223,7 @@ function HasCoin(amount)
 end
 
 function HasFlashlight()
-  return HasItem('i_flashlight')
+  return HasItem('i_flashlight') or HasItem('i_flashlight_nopower')
 end
 
 function HasGetMalletCode()
@@ -455,6 +469,13 @@ end
 function ScriptBuyFlashlight()
   ConsumeCoin(FLASHLIGHT_COST)
   SetItem('i_flashlight', 1)
+end
+
+function ScriptChargeFlashlight()
+  ConsumeCoin(FLASHLIGHT_COST)
+  RemoveItem('i_flashlight_nopower', 1)
+  SetItem('i_flashlight', 1)
+  SetItem('i_enter_cave_count', 0)
 end
 
 function ScriptEnterCave()

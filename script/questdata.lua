@@ -74,12 +74,14 @@ QuestData = {
   [10002] = {TalkId = {1502}, NextId = 10003},
   [10003] = {TalkId = {1501}, NextCond = OpenCaveDoor, NextId = 10004},
   [10004] = {TalkId = {1504}, NextCond = HasMallet, NextId = 10005},
-  [10005] = {TalkId = {1500}},
+  [10005] = {TalkId = {1500, 1502}},
   -- Hero village, Shop.
   [11000] = {TalkId = {1600}, NextCond = IsEnterCave4Times, NextId = 11001},
   [11001] = {TalkId = {1601}, NextCond = IsFlashlightBuyable, NextId = 11002},
   [11002] = {TalkId = {1602}, NextId = 11003},
-  [11003] = {TalkId = {1600}},
+  [11003] = {TalkId = {1600}, NextCond = FlashlightOutOfPower, NextId = 11004},
+  [11004] = {TalkId = {1603}, NextCond = IsFlashlightBuyable, NextId = 11005},
+  [11005] = {TalkId = {1604}, NextId = 11003},
   -- Hero village, Xiang home.
   [12000] = {TalkId = {1700}},
   -- Hero village, hero home.
@@ -100,5 +102,6 @@ QuestData = {
   -- Cave field, cave.
   [17000] = {TalkId = {2100}, NextCond = IsEnterCave4Times, NextId = 17001},
   [17001] = {TalkId = {2101}, NextCond = HasFlashlight, NextId = 17002},
-  [17002] = {TalkId = {2102}},
+  [17002] = {TalkId = {2102}, NextCond = FlashlightOutOfPower, NextId = 17003},
+  [17003] = {TalkId = {2106}, NextCond = FlashlightCharged, NextId = 17002},
 }
