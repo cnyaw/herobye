@@ -1,5 +1,6 @@
 local IMAGE_WIDTH = 100
 local IMAGE_MARGIN = 20
+local CX_BACK_BTN = 50
 
 BagScene = {}
 
@@ -24,6 +25,10 @@ BagScene.OnStep = function(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     local x, y = Input.GetMousePos()
     if (PtInBagItem(param._id, x, y)) then
+      return
+    end
+    if (PtInBackBtn(x, y)) then
+      Good.GenObj(-1, GetLastLvlId())
       return
     end
   end
@@ -52,6 +57,10 @@ function GetBagItemTalkId(o)
     end
   end
   return -1
+end
+
+function PtInBackBtn(x, y)
+  return PtInRect(x, y, SCR_W - CX_BACK_BTN, SCR_H - CX_BACK_BTN, SCR_W, SCR_H)
 end
 
 function PtInBagItem(id, x, y)
