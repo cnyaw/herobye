@@ -63,7 +63,7 @@ QuestData = {
   [9102] = {TalkId = {1302}, NextCond = IsEnterCave4Times, NextId = 9103},
   [9103] = {TalkId = {1303}, NextId = 9104},
   [9104] = {TalkId = {1302}, NextCond = HasMallet, NextId = 9105},
-  [9105] = {TalkId = {1301}},
+  [9105] = {TalkId = {1304}},
   -- Hero village church, shelf.
   [9200] = {TalkId = {1350}, NextCond = HasFlashlight, NextId = 9201},
   [9201] = {TalkId = {1351}, NextCond = HasMallet, NextId = 9202},
@@ -83,7 +83,8 @@ QuestData = {
   [11004] = {TalkId = {1603}, NextCond = IsFlashlightBuyable, NextId = 11005},
   [11005] = {TalkId = {1604}, NextId = 11003},
   -- Hero village, Xiang home.
-  [12000] = {TalkId = {1700}},
+  [12000] = {TalkId = {1700}, NextCond = HasMallet, NextId = 12001},
+  [12001] = {TalkId = {1701}},
   -- Hero village, hero home.
   [13000] = {TalkId = {1800}, NextId = 13001},
   [13001] = {TalkId = {1801}},

@@ -386,6 +386,12 @@ TalkData = {
     {Text = '「謝謝爺爺」'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
+  [1304] = {
+    {Image = grandpa_tex_id},
+    {Text = '豬妹妹家擁有剪刀的力量'},
+    {Text = '去豬妹妹家看看吧'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
   -- Hero village church, shelf.
   [1350] = {
     {Image = shelf_tex_id},
@@ -499,6 +505,12 @@ TalkData = {
   [1700] = {
     {Image = pinky_tex_id},
     {Text = '小白要跟我一起玩哦'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1701] = {
+    {Image = pinky_tex_id},
+    {Text = '咔嚓咔嚓剪剪剪'},
+    {Text = '哈哈哈勞作真好玩'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, hero home.
