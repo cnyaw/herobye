@@ -24,11 +24,11 @@ BagScene.OnStep = function(param)
   end
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     local x, y = Input.GetMousePos()
-    if (PtInBagItem(param._id, x, y)) then
-      return
-    end
     if (PtInBackBtn(x, y)) then
       Good.GenObj(-1, GetLastLvlId())
+      return
+    end
+    if (PtInBagItem(param._id, x, y)) then
       return
     end
   end
