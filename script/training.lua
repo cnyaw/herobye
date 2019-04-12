@@ -4,6 +4,7 @@ local MAX_STICK_LEVEL = 3
 local MAX_CLICK = 5
 local MAX_STICK = 5
 local TIME_TRAINING_CD = 3
+local WAIT_TIME = 40
 
 local click_fish_obj_id = 269
 local stick_tex_id = 292
@@ -159,7 +160,7 @@ function SetNextTrainingLevel(id)
 end
 
 function TrainingClickOnStepEnd(param)
-  if (not WaitTimer(param, 40)) then
+  if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   AdvanceTrainingLevel(click_training)
@@ -195,7 +196,7 @@ function TrainingIsStickTrainingMaxLv()
 end
 
 function TrainingStickOnStepEnd(param)
-  if (not WaitTimer(param, 40)) then
+  if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   AdvanceTrainingLevel(stick_training)

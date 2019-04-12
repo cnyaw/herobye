@@ -1,4 +1,5 @@
 local MAX_JOHN = 5
+local WAIT_TIME = 40
 
 local john_tex_id = 317
 
@@ -25,7 +26,7 @@ HelpPinky.OnStep = function(param)
 end
 
 HelpPinkyOnStepEnd = function(param)
-  if (not WaitTimer(param, 40)) then
+  if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   StartTalk(help_pinky_done_talk_id)

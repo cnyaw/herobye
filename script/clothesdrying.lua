@@ -1,10 +1,10 @@
 local MAX_CLOTHES = 5
 local CX_SLOT = SCR_W/MAX_CLOTHES
 local CY_SLOT = SCR_H/3
+local WAIT_TIME = 40
 
 local tshirt_txt_id = 377
 local pants_txt_id = 375
-
 local clothes_tex_id = {tshirt_txt_id, pants_txt_id}
 
 local clothes_drying_done_talk_id = 1503
@@ -21,7 +21,7 @@ ClothesDrying.OnStep = function(param)
 end
 
 ClothesDryingOnStepEnd = function(param)
-  if (not WaitTimer(param, 40)) then
+  if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   StartTalk(clothes_drying_done_talk_id)
