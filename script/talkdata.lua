@@ -501,6 +501,12 @@ TalkData = {
     {Text = '手電筒充滿電了'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
+  [1605] = {
+    {Image = merchant_tex_id},
+    {Text = string.format('好吃的棒棒糖只賣%d塊錢', CANDY_COST)},
+    {Text = '要買要快哦'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
   -- Hero village, Xiang home.
   [1700] = {
     {Image = pinky_tex_id},
@@ -511,6 +517,7 @@ TalkData = {
     {Image = pinky_tex_id},
     {Text = '咔嚓咔嚓剪剪剪'},
     {Text = '哈哈哈勞作真好玩'},
+    {Script = ScriptBuyCandyLoop},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, hero home.

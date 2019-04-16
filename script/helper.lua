@@ -82,6 +82,10 @@ function AddRedPoint(parent)
   Good.SetPos(o, wp - w/2, hp - h/2)
 end
 
+function BuyCandyLoop()
+  return HasItem('f_buy_candy_loop')
+end
+
 function Consume2ndDreamCost()
   ConsumeCoin(CHURCH_2ND_DREAM_COST)
 end
@@ -368,11 +372,18 @@ function QuestOnCreate()
   for obj_name, quest_id in pairs(obj_state) do
     local id = Good.FindChild(lvl_id, obj_name, 1)
     if (-1 ~= id) then
+      local NextCondNames = {'NextCond', 'NextCond2', 'NextCond3'}
+      local NextIdNames = {'NextId', 'NextId2', 'NextId3'}
       local q = QuestData[quest_id]
-      if (nil ~= q.NextId and nil ~= q.NextCond and q.NextCond()) then
-        local next_id = q.NextId
-        obj_state[obj_name] = next_id
-        q = QuestData[next_id]
+      for i = 1, #NextCondNames do
+        local NextId = NextIdNames[i]
+        local NextCond = NextCondNames[i]
+        if (nil ~= q[NextId] and nil ~= q[NextCond] and q[NextCond]()) then
+          local next_id = q[NextId]
+          obj_state[obj_name] = next_id
+          q = QuestData[next_id]
+          break
+        end
       end
       if (nil ~= q.RedPt) then
         AddRedPoint(id)
@@ -464,6 +475,10 @@ end
 function ScriptBuyBou3()
   ConsumeCoin(BOU3_COST)
   SetItem('i_bou3', 1)
+end
+
+function ScriptBuyCandyLoop()
+  SetItem('f_buy_candy_loop', 1)
 end
 
 function ScriptBuyFlashlight()

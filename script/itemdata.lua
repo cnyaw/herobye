@@ -31,6 +31,7 @@ f_open_cave_door = 17
 i_mallet = 18
 f_mallet_code = 19
 i_flashlight_nopower = 20
+f_buy_candy_loop = 21
 --]]
 
 e_main_bag = 1

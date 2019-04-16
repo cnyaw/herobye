@@ -79,9 +79,10 @@ QuestData = {
   [11000] = {TalkId = {1600}, NextCond = IsEnterCave4Times, NextId = 11001},
   [11001] = {TalkId = {1601}, NextCond = IsFlashlightBuyable, NextId = 11002},
   [11002] = {TalkId = {1602}, NextId = 11003},
-  [11003] = {TalkId = {1600}, NextCond = FlashlightOutOfPower, NextId = 11004},
+  [11003] = {TalkId = {1600}, NextCond = FlashlightOutOfPower, NextId = 11004, NextCond2 = BuyCandyLoop, NextId2 = 11006},
   [11004] = {TalkId = {1603}, NextCond = IsFlashlightBuyable, NextId = 11005},
   [11005] = {TalkId = {1604}, NextId = 11003},
+  [11006] = {TalkId = {1605}},
   -- Hero village, Xiang home.
   [12000] = {TalkId = {1700}, NextCond = HasMallet, NextId = 12001},
   [12001] = {TalkId = {1701}},
