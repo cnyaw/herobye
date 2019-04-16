@@ -213,7 +213,7 @@ TalkData = {
   },
   [1150] = {
     {Image = priest_tex_id},
-    {Text = '小兄弟辛苦了你啦'},
+    {Text = '小兄弟辛苦你啦'},
     {Image = LETTER_TEX_ID},
     {Text = '從勇者山帶來這封信應該累了吧'},
     {Image = priest_tex_id},

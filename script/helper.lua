@@ -99,7 +99,7 @@ function EnterCaveCount()
 end
 
 function EnterPlace(id)
-  SetItem('f_in_place', id)
+  SetItem('f_last_lvl_id', id)
   SaveGame()
 end
 
@@ -203,7 +203,7 @@ function GetCurrTalk()
 end
 
 function GetLastLvlId()
-  return ItemCount('f_in_place')
+  return ItemCount('f_last_lvl_id')
 end
 
 function HasBackScratcher()
