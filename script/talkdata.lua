@@ -205,6 +205,11 @@ TalkData = {
     {Text = '沒有電力的手電筒'},
     {LevelId = BAG_LVL_ID},
   },
+  [609] = {
+    {Image = CANDY_TEX_ID},
+    {Text = '好吃的棒棒糖'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -507,6 +512,14 @@ TalkData = {
     {Text = '要買要快哦'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
+  [1606] = {
+    {Image = merchant_tex_id},
+    {Text = string.format('收你%d塊錢謝謝惠顧', CANDY_COST)},
+    {Image = CANDY_TEX_ID},
+    {Text = '這是給您的好吃的棒棒糖'},
+    {Script = ScriptBuyCandy},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
   -- Hero village, Xiang home.
   [1700] = {
     {Image = pinky_tex_id},
@@ -518,6 +531,13 @@ TalkData = {
     {Text = '咔嚓咔嚓剪剪剪'},
     {Text = '哈哈哈勞作真好玩'},
     {Script = ScriptBuyCandyLoop},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1702] = {
+    {Image = pinky_tex_id},
+    {Text = '咔嚓咔嚓剪剪剪'},
+    {Text = '哈哈哈勞作真好玩'},
+    {Text = '小白跟我一起作勞作'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, hero home.

@@ -82,10 +82,12 @@ QuestData = {
   [11003] = {TalkId = {1600}, NextCond = FlashlightOutOfPower, NextId = 11004, NextCond2 = BuyCandyLoop, NextId2 = 11006},
   [11004] = {TalkId = {1603}, NextCond = IsFlashlightBuyable, NextId = 11005},
   [11005] = {TalkId = {1604}, NextId = 11003},
-  [11006] = {TalkId = {1605}},
+  [11006] = {TalkId = {1605}, NextCond = IsBuyCandyValid, NextId = 11007},
+  [11007] = {TalkId = {1606}, NextId = 11003},
   -- Hero village, Xiang home.
   [12000] = {TalkId = {1700}, NextCond = HasMallet, NextId = 12001},
-  [12001] = {TalkId = {1701}},
+  [12001] = {TalkId = {1701}, NextCond = HasCandy, NextId = 12002},
+  [12002] = {TalkId = {1702}},
   -- Hero village, hero home.
   [13000] = {TalkId = {1800}, NextId = 13001},
   [13001] = {TalkId = {1801}},

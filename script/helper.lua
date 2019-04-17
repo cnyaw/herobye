@@ -82,8 +82,13 @@ function AddRedPoint(parent)
   Good.SetPos(o, wp - w/2, hp - h/2)
 end
 
+function ScriptBuyCandy()
+  SetItem('i_candy', 1)
+  SetItem('f_buy_candy_loop', 0)
+end
+
 function BuyCandyLoop()
-  return HasItem('f_buy_candy_loop')
+  return not HasCandy() and HasItem('f_buy_candy_loop')
 end
 
 function Consume2ndDreamCost()
@@ -226,6 +231,10 @@ function HasCoin(amount)
   return GetCoin() >= amount
 end
 
+function HasCandy()
+  return HasItem('i_candy')
+end
+
 function HasFlashlight()
   return HasItem('i_flashlight') or HasItem('i_flashlight_nopower')
 end
@@ -264,6 +273,10 @@ end
 
 function IsBuyBou3Valid()
   return not HasBou3() and HasCoin(BOU3_COST)
+end
+
+function IsBuyCandyValid()
+  return not HasCandy() and HasCoin(CANDY_COST)
 end
 
 function IsChurch2ndDreamValid()
