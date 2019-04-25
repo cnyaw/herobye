@@ -108,4 +108,6 @@ QuestData = {
   [17001] = {TalkId = {2101}, NextCond = HasFlashlight, NextId = 17002},
   [17002] = {TalkId = {2102}, NextCond = FlashlightOutOfPower, NextId = 17003},
   [17003] = {TalkId = {2106}, NextCond = FlashlightCharged, NextId = 17002},
+  -- Back button.
+  [18000] = {ScriptLevelId = GetHeroVillageBackLvlId}
 }

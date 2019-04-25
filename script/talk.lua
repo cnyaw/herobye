@@ -88,7 +88,11 @@ function HandleTalkLevelId(param, talk)
     talk_index = talk_index - 1
     return
   end
-  Good.GenObj(-1, talk.LevelId)
+  local lvl_id = talk.LevelId
+  if (nil ~= talk.ScriptLevelId) then
+    lvl_id = talk.ScriptLevelId()
+  end
+  Good.GenObj(-1, lvl_id)
 end
 
 function StepOneTalk(param)
@@ -99,7 +103,7 @@ function StepOneTalk(param)
     HandleTalkImage(param, talk)
   elseif (nil ~= talk.Text or nil ~= talk.ScriptText) then
     HandlTalkText(param, talk)
-  elseif (nil ~= talk.LevelId) then
+  elseif (nil ~= talk.LevelId or nil ~= talk.ScriptLevelId) then
     HandleTalkLevelId(param, talk)
   elseif (nil ~= talk.Script) then
     talk.Script()

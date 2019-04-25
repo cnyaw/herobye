@@ -42,6 +42,7 @@ function CaveDoorHittest(param)
       return
     end
   end
+  QuestOnStep(x, y)
 end
 
 function CaveDoorOnStepInput(param)

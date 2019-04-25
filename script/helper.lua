@@ -36,7 +36,8 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_toCaveField = 14300,
   o_KaiHome = 15000,
   o_pond = 16000,
-  o_cave = 17000
+  o_cave = 17000,
+  o_back = 18000
 }
 
 obj_state = {
@@ -414,8 +415,8 @@ function QuestOnStep(x, y)
       if (nil ~= q.TalkId) then
         local rand_talk_id = math.random(#q.TalkId)
         StartTalk(q.TalkId[rand_talk_id])
-      elseif (nil ~= q.LevelId) then
-        Good.GenObj(-1, q.LevelId)
+      elseif (nil ~= q.LevelId or nil ~= q.ScriptLevelId) then
+        HandleTalkLevelId(nil, q)
       end
       if (nil == q.NextCond and nil ~= q.NextId) then
         obj_state[obj_name] = q.NextId

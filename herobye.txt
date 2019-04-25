@@ -566,7 +566,7 @@ dim=0 0 100 64
 name=hero village church
 bgColor=128 128 0
 script=HeroVillage
-objects=351 355
+objects=351 355 22
 
 [object351]
 name=o_grandpa
@@ -581,6 +581,13 @@ texture=352
 x=368
 y=128
 dim=0 0 128 141
+
+[object22]
+name=o_back
+texture=19
+x=608
+y=352
+dim=0 0 32 32
 
 [level356]
 name=alien path
@@ -690,7 +697,7 @@ script=ClothesDrying
 name=cave door
 bgColor=128 128 0
 script=CaveDoor
-objects=6 9 10
+objects=6 9 10 24
 
 [object6]
 name=btn scissor
@@ -742,4 +749,11 @@ xpivot=0.5
 ypivot=0.5
 x=5
 dim=0 0 72 90
+
+[object24]
+name=o_back
+texture=19
+x=608
+y=352
+dim=0 0 32 32
 
