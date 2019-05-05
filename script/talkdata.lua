@@ -210,6 +210,11 @@ TalkData = {
     {Text = '好吃的棒棒糖'},
     {LevelId = BAG_LVL_ID},
   },
+  [610] = {
+    {Image = SCISSOR_TEX_ID},
+    {Text = '豬妹妹的美勞剪刀'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -520,7 +525,7 @@ TalkData = {
     {Script = ScriptBuyCandy},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
-  -- Hero village, Xiang home.
+  -- Hero village, Pinky home.
   [1700] = {
     {Image = pinky_tex_id},
     {Text = '小白要跟我一起玩哦'},
@@ -538,6 +543,15 @@ TalkData = {
     {Text = '咔嚓咔嚓剪剪剪'},
     {Text = '哈哈哈勞作真好玩'},
     {Text = '小白跟我一起作勞作'},
+    {Image = CANDY_TEX_ID},
+    {Text = '哇哇是好吃的棒棒糖ㄟ'},
+    {Text = '可以給我吃嗎'},
+    {Text = '謝謝你小白你真好^^'},
+    {Image = SCISSOR_TEX_ID},
+    {Text = '這個剪刀給你'},
+    {Script = ScriptExchangeCandyScissor},
+    {Image = pinky_tex_id},
+    {Text = '小白要跟我一起玩哦'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, hero home.

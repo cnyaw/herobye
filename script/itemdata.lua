@@ -11,6 +11,7 @@ local flashlight_desc_id = 606
 local mallet_desc_id = 607
 local flashlight_nopower_desc_id = 608
 local candy_desc_id = 609
+local scissor_desc_id = 610
 
 --[[
 i_coin = 1
@@ -34,6 +35,7 @@ f_mallet_code = 19
 i_flashlight_nopower = 20
 f_buy_candy_loop = 21
 i_candy = 22
+i_scissor = 23
 --]]
 
 e_main_bag = 1
@@ -49,5 +51,6 @@ ItemData = {
   i_flashlight = {BagType = e_hero_bag, Image = FLASHLIGHT_TEX_ID, TalkId = flashlight_desc_id},
   i_flashlight_nopower = {BagType = e_hero_bag, Image = FLASHLIGHT_TEX_ID, TalkId = flashlight_nopower_desc_id},
   i_mallet = {BagType = e_hero_bag, Image = MALLET_TEX_ID, TalkId = mallet_desc_id},
-  i_candy = {BagType = e_hero_bag, Image = CANDY_TEX_ID, TalkId = candy_desc_id}
+  i_candy = {BagType = e_hero_bag, Image = CANDY_TEX_ID, TalkId = candy_desc_id},
+  i_scissor = {BagType = e_hero_bag, Image = SCISSOR_TEX_ID, TalkId = scissor_desc_id},
 }

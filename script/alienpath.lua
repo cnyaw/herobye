@@ -3,10 +3,9 @@ local RPS_SIZE = 42
 
 local ufo_tex_id = 66
 local paper_tex_id = 358
-local scissor_tex_id = 359
 local stone_tex_id = 360
 
-local weapon_tex_id = {paper_tex_id, scissor_tex_id, stone_tex_id}
+local weapon_tex_id = {paper_tex_id, SCISSOR_TEX_ID, stone_tex_id}
 
 AlienPath = {}
 

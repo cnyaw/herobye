@@ -84,10 +84,11 @@ QuestData = {
   [11005] = {TalkId = {1604}, NextId = 11003},
   [11006] = {TalkId = {1605}, NextCond = IsBuyCandyValid, NextId = 11007},
   [11007] = {TalkId = {1606}, NextId = 11003},
-  -- Hero village, Xiang home.
+  -- Hero village, Pinky home.
   [12000] = {TalkId = {1700}, NextCond = HasMallet, NextId = 12001},
   [12001] = {TalkId = {1701}, NextCond = HasCandy, NextId = 12002},
-  [12002] = {TalkId = {1702}},
+  [12002] = {TalkId = {1702}, NextId = 12003},
+  [12003] = {TalkId = {1700}},
   -- Hero village, hero home.
   [13000] = {TalkId = {1800}, NextId = 13001},
   [13001] = {TalkId = {1801}},

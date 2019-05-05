@@ -511,6 +511,11 @@ function ScriptEnterCave()
   AddItem('i_enter_cave_count', 1)
 end
 
+function ScriptExchangeCandyScissor()
+  SetItem('i_candy', 0)
+  SetItem('i_scissor', 1)
+end
+
 function ScriptGetMalletCode()
   SetItem('f_mallet_code', 1)
 end
@@ -546,7 +551,11 @@ function ScriptTransLetterToPriest()
 end
 
 function SetItem(id, count)
-  bag[id] = count
+  if (0 < count) then
+    bag[id] = count
+  else
+    bag[id] = nil
+  end
 end
 
 function StartTalk(id)
