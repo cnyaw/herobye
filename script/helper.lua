@@ -260,6 +260,10 @@ function HasMallet()
   return HasItem('i_mallet')
 end
 
+function HasScissor()
+  return HasItem('i_scissor')
+end
+
 function InitTable(init_tbl)
   local tbl = {}
   for k,v in pairs(init_tbl) do

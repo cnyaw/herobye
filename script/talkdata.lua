@@ -554,6 +554,12 @@ TalkData = {
     {Text = '小白要跟我一起玩哦'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
+  [1703] = {
+    {Text = '哦哦糟糕'},
+    {Text = '這把美勞剪刀好像對付不了外星人'},
+    {Text = '要再想想其它辨法才行'},
+    {LevelId = ALIEN_PATH_LVL_ID},
+  },
   -- Hero village, hero home.
   [1800] = {
     {Text = '「維護世界的和平也是挺累的」'},

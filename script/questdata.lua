@@ -1,6 +1,5 @@
 
 local beg_money_lvl_id = 293
-local alien_path_lvl_id = 356
 
 QuestData = {
   -- Main map, hero mt.
@@ -93,7 +92,8 @@ QuestData = {
   [13000] = {TalkId = {1800}, NextId = 13001},
   [13001] = {TalkId = {1801}},
   -- Hero village, to alien path.
-  [14000] = {LevelId = alien_path_lvl_id},
+  [14000] = {LevelId = ALIEN_PATH_LVL_ID, NextCond = HasScissor, NextId = 14001},
+  [14001] = {TalkId = {1703}},
   -- Hero village, to country.
   [14100] = {LevelId = COUNTRY_LVL_ID},
   -- Country, to hero village.
