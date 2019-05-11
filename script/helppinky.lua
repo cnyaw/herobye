@@ -25,23 +25,24 @@ HelpPinky.OnStep = function(param)
   param.step(param)
 end
 
-HelpPinkyOnStepEnd = function(param)
+function HelpPinkyOnStepEnd(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   StartTalk(help_pinky_done_talk_id)
 end
 
-HelpPinkyOnStepPlay = function(param)
+function HelpPinkyOnStepPlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
   local x, y = Input.GetMousePos()
   for i = 1, MAX_JOHN do
-    if (nil ~= param.john[i] and PtInObj(x, y, param.john[i])) then
-      GenFlyUpObj(param.john[i], john_tex_id)
+    local o = param.john[i]
+    if (nil ~= o and PtInObj(x, y, o)) then
+      GenFlyUpObj(o, john_tex_id)
       param.hit = param.hit + 1
-      Good.KillObj(param.john[i])
+      Good.KillObj(o)
       param.john[i] = nil
       if (MAX_JOHN == param.hit) then
         param.step = HelpPinkyOnStepEnd

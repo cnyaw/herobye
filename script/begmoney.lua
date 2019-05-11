@@ -63,10 +63,11 @@ end
 
 function BeggingMoney(x, y, param)
   for i = 1, MAX_USER do
-    if (nil ~= param.user[i] and PtInObj(x, y, param.user[i])) then
-      GenFlyUpObj(param.user[i], coin_tex_id)
+    local o = param.user[i]
+    if (nil ~= o and PtInObj(x, y, o)) then
+      GenFlyUpObj(o, coin_tex_id)
       param.hit = param.hit + 1
-      Good.KillObj(param.user[i])
+      Good.KillObj(o)
       param.user[i] = nil
       AddCoin(GetCurrBouGain())
       UpdateCoinInfo(param)

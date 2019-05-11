@@ -31,13 +31,14 @@ end
 
 function AlienPathHittest(param, x, y)
   for i = 1, MAX_ALIEN do
-    if (nil ~= param.obj[i] and PtInObj(x, y, param.obj[i])) then
-      if (not CanHitAlien(param.obj[i])) then
+    local o = param.obj[i]
+    if (nil ~= o and PtInObj(x, y, o)) then
+      if (not CanHitAlien(o)) then
         break
       end
-      GenFlyUpObj(param.obj[i], ufo_tex_id)
+      GenFlyUpObj(o, ufo_tex_id)
       param.hit = param.hit + 1
-      Good.KillObj(param.obj[i])
+      Good.KillObj(o)
       param.obj[i] = nil
       if (MAX_ALIEN == param.hit) then
         -- TODO: pass to next scene.

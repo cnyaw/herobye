@@ -209,10 +209,11 @@ function TrainingStickOnStepPlay(param)
   end
   local x, y = Input.GetMousePos()
   for i = 1, MAX_STICK do
-    if (nil ~= param.stick[i] and PtInObj(x, y, param.stick[i])) then
-      GenFlyUpObj(param.stick[i], stick_tex_id)
+    local o = param.stick[i]
+    if (nil ~= o and PtInObj(x, y, o)) then
+      GenFlyUpObj(o, stick_tex_id)
       param.hit = param.hit + 1
-      Good.KillObj(param.stick[i])
+      Good.KillObj(o)
       param.stick[i] = nil
       if (MAX_STICK == param.hit) then
         param.step = TrainingStickOnStepEnd
