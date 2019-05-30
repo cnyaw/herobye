@@ -443,11 +443,15 @@ dim=0 0 32 32
 name=bag
 bgColor=128 128 0
 script=BagScene
-objects=20
+objects=26
 
-[object20]
-texture=19
-x=608
+[object26]
+texture=261
+rot=90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+x=304
 y=352
 dim=0 0 32 32
 
@@ -566,7 +570,7 @@ dim=0 0 100 64
 name=hero village church
 bgColor=128 128 0
 script=HeroVillage
-objects=351 355 22
+objects=351 355 25
 
 [object351]
 name=o_grandpa
@@ -582,10 +586,14 @@ x=368
 y=128
 dim=0 0 128 141
 
-[object22]
+[object25]
 name=o_back
-texture=19
-x=608
+texture=261
+rot=90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+x=304
 y=352
 dim=0 0 32 32
 
@@ -697,7 +705,7 @@ script=ClothesDrying
 name=cave door
 bgColor=128 128 0
 script=CaveDoor
-objects=6 9 10 24
+objects=6 9 10 22
 
 [object6]
 name=btn scissor
@@ -750,10 +758,14 @@ ypivot=0.5
 x=5
 dim=0 0 72 90
 
-[object24]
+[object22]
 name=o_back
-texture=19
-x=608
+texture=261
+rot=90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+x=304
 y=352
 dim=0 0 32 32
 

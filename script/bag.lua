@@ -1,6 +1,6 @@
 local IMAGE_WIDTH = 100
 local IMAGE_MARGIN = 20
-local CX_BACK_BTN = 50
+local CX_BACK_BTN = 64
 
 BagScene = {}
 
@@ -60,7 +60,8 @@ function GetBagItemTalkId(o)
 end
 
 function PtInBackBtn(x, y)
-  return PtInRect(x, y, SCR_W - CX_BACK_BTN, SCR_H - CX_BACK_BTN, SCR_W, SCR_H)
+  local l = (SCR_W - CX_BACK_BTN)/2
+  return PtInRect(x, y, l, SCR_H - CX_BACK_BTN, l + CX_BACK_BTN, SCR_H)
 end
 
 function PtInBagItem(id, x, y)
