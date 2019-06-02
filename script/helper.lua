@@ -83,11 +83,6 @@ function AddRedPoint(parent)
   Good.SetPos(o, wp - w/2, hp - h/2)
 end
 
-function ScriptBuyCandy()
-  SetItem('i_candy', 1)
-  SetItem('f_buy_candy_loop', 0)
-end
-
 function BuyCandyLoop()
   return not HasCandy() and HasItem('f_buy_candy_loop')
 end
@@ -324,6 +319,10 @@ function IsOpenRacingValid()
   return IsInterviewUfo() and HasCoin(10)
 end
 
+function IsPowerupScissorLoop()
+  return HasItem('f_powerup_scissor')
+end
+
 function IsRestValid()
   return HasCoin(REST_COST)
 end
@@ -495,6 +494,11 @@ function ScriptBuyBou3()
   SetItem('i_bou3', 1)
 end
 
+function ScriptBuyCandy()
+  SetItem('i_candy', 1)
+  SetItem('f_buy_candy_loop', 0)
+end
+
 function ScriptBuyCandyLoop()
   SetItem('f_buy_candy_loop', 1)
 end
@@ -537,7 +541,11 @@ function ScriptInterviewUfo()
 end
 
 function ScriptOpenCaveDoor()
-  AddItem('f_open_cave_door', 1)
+  SetItem('f_open_cave_door', 1)
+end
+
+function ScriptPowerupScissorLoop()
+  SetItem('f_powerup_scissor', 1)
 end
 
 function ScriptSendTeacherLetter()

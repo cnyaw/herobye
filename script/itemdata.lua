@@ -36,6 +36,7 @@ i_flashlight_nopower = 20
 f_buy_candy_loop = 21
 i_candy = 22
 i_scissor = 23
+f_powerup_scissor = 24
 --]]
 
 e_main_bag = 1

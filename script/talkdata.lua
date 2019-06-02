@@ -19,6 +19,7 @@ local shelf_tex_id = 352
 local frog_tex_id = 357
 local cave_door_tex_id = 0
 local chest_tex_id = 13
+local pinky_papa_tex_id = 20
 
 local color_olive = 0xff808000
 local fade_time_one_sec = 60
@@ -26,8 +27,14 @@ local fade_time_one_sec = 60
 TalkData = {
   -- Teacher.
   [1] = {
+    {FadeTo = {fade_time_one_sec, COLOR_BLACK}},
+    {Text = '唧唧啾啾'},
+    {Text = '小鳥在講話'},
+    {Text = '唧唧啾啾'},
+    {FadeTo = {fade_time_one_sec, color_olive}},
+    {Text = '「哦哦天亮了去找師父吧」'},
     {Image = teacher_tex_id},
-    {Text = '小秋徒兒你來啦！'},
+    {Text = '小秋徒兒你來啦'},
     {Text = '勇者山上的修行告一段落'},
     {Text = '你可以下山磨練磨練了'},
     {Text = '作完功課後再來見我吧'},
@@ -558,7 +565,16 @@ TalkData = {
     {Text = '哦哦糟糕'},
     {Text = '這把美勞剪刀好像對付不了外星人'},
     {Text = '要再想想其它辨法才行'},
+    {Script = ScriptPowerupScissorLoop},
     {LevelId = ALIEN_PATH_LVL_ID},
+  },
+  [1704] = {
+    {Image = pinky_papa_tex_id},
+    {Text = '呵呵呵小白好久不見'},
+    {Text = '你知道魔法咒語嗎?'},
+    {Text = '要讓美勞剪刀變成超級剪刀手'},
+    {Text = '你得再去封印洞穴找找'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, hero home.
   [1800] = {
