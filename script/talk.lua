@@ -56,6 +56,10 @@ function HandleTalkImage(param, talk)
     local o = Good.GenObj(image_pos_dummy_id, talk.Image)
     local l,t,w,h = Good.GetDim(o)
     Good.SetPos(o, (SCR_W - w)/2, 0)
+    if (nil ~= talk.Scale) then
+      Good.SetAnchor(o, 0.5, 0.5)
+      Good.SetScale(o, talk.Scale, talk.Scale)
+    end
   end
   StepOneTalk(param)
 end

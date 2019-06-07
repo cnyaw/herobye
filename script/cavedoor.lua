@@ -10,6 +10,7 @@ local WAIT_TIME = 30
 local input_code_right_talk_id = 2103
 local add_mallet_talk_id = 2104
 local has_mallet_talk_id = 2105
+local power_up_scissor_chest_talk_id = 2107
 
 CaveDoor = {}
 
@@ -84,10 +85,12 @@ function GenInputCodeBlock(param, x, y)
 end
 
 function GetBingoTalkId()
-  if (HasMallet()) then
-    return has_mallet_talk_id
+  if (IsPowerupScissorLoop()) then
+    return power_up_scissor_chest_talk_id
   elseif (HasGetMalletCode()) then
     return add_mallet_talk_id
+  elseif (HasMallet()) then
+    return has_mallet_talk_id
   else
     return input_code_right_talk_id
   end

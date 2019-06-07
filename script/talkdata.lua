@@ -672,4 +672,15 @@ TalkData = {
     {Text = '手電筒沒電了無法使用'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
+  [2107] = {
+    {Text = '密碼輸入正確門開了'},
+    {Image = chest_tex_id},
+    {Text = '打開空寶箱'},
+    {Text = '仔細一看箱子底部還有個門'},
+    {Image = chest_tex_id, Scale = 0.5},
+    {Text = '打開箱子底部發現一個小寶箱'},
+    {Text = '打開小寶箱'},
+    {Text = '裡面是空的!'},
+    {LevelId = CAVE_FIELD_LVL_ID},
+  },
 }
