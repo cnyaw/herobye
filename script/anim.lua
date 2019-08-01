@@ -3,6 +3,11 @@ function AcKillAnimObj(param)
   Good.KillObj(param._id)
 end
 
+function AcKillAnimScript(param)
+  param.k = nil
+  Good.SetScript(param._id, '')
+end
+
 BouncingObj = {}
 
 BouncingObj.OnCreate = function(param)
@@ -85,6 +90,21 @@ AnimSandGlass.OnStep = function(param)
     local loop2 = ArAddLoop(loop1, param.cd)
     ArAddMoveTo(loop2, 'Rot', 1, 360).ease = ArEaseOut
     ArAddCall(loop1, 'AcKillAnimObj', 0)
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimShowFrog = {}
+
+AnimShowFrog.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveBy(loop1, 'Pos', 0.25, 12, -55)
+    ArAddDelay(loop1, 0.5)
+    ArAddMoveBy(loop1, 'Pos', 0.25, 0, 40)
+    ArAddCall(loop1, 'AcKillAnimScript', 0)
     param.k = ArAddAnimator({loop1})
   else
     ArStepAnimator(param, param.k)

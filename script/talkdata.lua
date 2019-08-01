@@ -3,6 +3,7 @@ local help_pinky_lvl_id = 318
 local racing_lvl_id = 330
 local interview_hero_village_lvl_id = 331
 local clothes_drying_lvl_id = 340
+local seek_frog_lvl_id = 24
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -611,7 +612,9 @@ TalkData = {
   [2000] = {
     {Image = frog_tex_id},
     {Text = '呱呱呱'},
-    {LevelId = COUNTRY_LVL_ID},
+    {Text = '「哦原來是偷跑的小青蛙」'},
+    {Text = '「我們一起來玩躲貓貓吧」'},
+    {LevelId = seek_frog_lvl_id},
   },
   -- Cave field, cave.
   [2100] = {

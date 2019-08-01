@@ -2,9 +2,9 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20
+texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28
 sprites=335
-levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3
+levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24
 
 [scripts]
 306=./script/const.lua
@@ -28,6 +28,7 @@ levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3
 361=./script/alienpath.lua
 341=./script/clothesdrying.lua
 18=./script/cavedoor.lua
+27=./script/seekfrog.lua
 
 [tex1]
 name=tree1
@@ -288,6 +289,10 @@ fileName=./res/candy.png
 [tex20]
 name=pinky papa
 fileName=./res/pinkypapa.png
+
+[tex28]
+name=lotus leaf
+fileName=./res/lotus.png
 
 [sprite335]
 name=saihoon
@@ -772,4 +777,64 @@ ypivot=0.5
 x=304
 y=352
 dim=0 0 32 32
+
+[level24]
+name=seek frog
+bgColor=170 255 255
+script=SeekFrog
+objects=39 37
+
+[object39]
+name=lotus
+sprite=255
+texture=255
+map=255
+objects=36 35 34 33 32 29
+
+[object36]
+texture=28
+x=16
+y=208
+dim=0 0 176 116
+
+[object35]
+texture=28
+x=224
+y=208
+dim=0 0 176 116
+
+[object34]
+texture=28
+x=432
+y=208
+dim=0 0 176 116
+
+[object33]
+texture=28
+x=432
+y=48
+dim=0 0 176 116
+
+[object32]
+texture=28
+x=224
+y=48
+dim=0 0 176 116
+
+[object29]
+texture=28
+x=16
+y=48
+dim=0 0 176 116
+
+[object37]
+name=frog
+texture=357
+xscale=0.5
+yscale=0.5
+xpivot=0.5
+ypivot=0.5
+x=64
+y=64
+dim=0 0 170 148
 
