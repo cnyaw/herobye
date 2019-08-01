@@ -38,12 +38,17 @@ function GetLeaf(param)
 end
 
 function FindFrogFail()
-  --GenFlyUpObj(frog_obj_id, frog_tex_id)
   Good.SetScript(frog_obj_id, 'AnimShowFrog')
+end
+
+function FindFrogSucc(id)
+  ShowFrog(id)
+  Good.SetScript(frog_obj_id, 'AnimTalkArrow')
 end
 
 function HideFrog(id)
   Good.AddChild(id, frog_obj_id, 0)
+  AcKillAnimScript(Good.GetParam(frog_obj_id))
 end
 
 function HitFrog(x, y, param)
@@ -73,7 +78,7 @@ function OnSeekFrogStep(param)
   end
   local x, y = Input.GetMousePos()
   if (HitFrog(x, y, param)) then
-    ShowFrog(param._id)
+    FindFrogSucc(param._id)
   else
     FindFrogFail()
   end
