@@ -16,7 +16,6 @@ local pinky_tex_id = 316
 local grandpa_tex_id = 327
 local zhang_mama_tex_id = 329
 local ufo_tex_id = 343
-local shelf_tex_id = 352
 local frog_tex_id = 357
 local cave_door_tex_id = 0
 local chest_tex_id = 13
@@ -406,13 +405,21 @@ TalkData = {
   },
   [1304] = {
     {Image = grandpa_tex_id},
+    {Text = '圖書館裡有本書你可以看看'},
+    {Text = '它記載著開啟洞穴之門的方法'},
+    {Script = ScriptAddCaveDoorBook},
+    {Text = '「好的謝謝爺爺」'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
+  [1305] = {
+    {Image = grandpa_tex_id},
     {Text = '豬妹妹家擁有剪刀的力量'},
     {Text = '去豬妹妹家看看吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
   -- Hero village church, shelf.
   [1350] = {
-    {Image = shelf_tex_id},
+    {Image = HERO_HIS_BOOK_TEX_ID},
     {Text = '「勇者的故事」'},
     {Text = '很久很久以前'},
     {Text = '邪惡的外星人來到勇者村'},
@@ -422,16 +429,16 @@ TalkData = {
     {Text = '最後三位勇者打敗了魔王'},
     {Text = '拯救了這個世界'},
     {Text = '從此大家過著快快樂樂的日子'},
-    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+    {LevelId = BAG_LVL_ID},
   },
   [1351] = {
-    {Image = shelf_tex_id},
+    {Image = CAVE_DOOR_BOOK_TEX_ID},
     {Text = '「開啟洞穴之門的方法」'},
     {Text = '勇者們打敗魔王後'},
     {Text = '將石頭的力量封印在洞穴'},
     {Text = '以下是開啟密門的方法'},
     {ScriptText = GetOpenCaveDoorCode},
-    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+    {LevelId = BAG_LVL_ID},
   },
   -- UFO coming.
   [1400] = {

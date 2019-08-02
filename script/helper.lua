@@ -46,7 +46,8 @@ obj_state = {
 local init_bag = {                      -- [item_id] = count
   i_coin = 0,
   i_hero_coin = 0,
-  i_bou = 0
+  i_bou = 0,
+  i_hero_history_book = 1
 }
 
 bag = {
@@ -145,16 +146,17 @@ end
 function GetCurrBagType()
   if (GetLastLvlId() == MAIN_MAP_LVL_ID) then
     return e_main_bag
+  elseif (GetLastLvlId() == HERO_VILLAGE_CHURCH_LVL_ID) then
+    return e_book_lib
   else
     return e_hero_bag
   end
 end
 
 function GetHeroVillageBackLvlId()
-  local last_lvl_id = GetLastLvlId()
-  if (last_lvl_id == HERO_VILLAGE_CHURCH_LVL_ID) then
+  if (GetLastLvlId() == HERO_VILLAGE_CHURCH_LVL_ID) then
     return HERO_VILLAGE_LVL_ID
-  elseif (last_lvl_id == CAVE_DOOR_LVL_ID) then
+  elseif (GetLastLvlId() == CAVE_DOOR_LVL_ID) then
     return CAVE_FIELD_LVL_ID
   else
     return TITLE_LVL_ID
@@ -473,6 +475,10 @@ end
 
 function ScriptAddBou1()
   SetItem('i_bou', 1)
+end
+
+function ScriptAddCaveDoorBook()
+  SetItem('i_cave_door_book', 1)
 end
 
 function ScriptAddMellet()

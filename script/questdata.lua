@@ -61,12 +61,12 @@ QuestData = {
   [9101] = {TalkId = {1301}, NextCond = IsEnterCave2Times, NextId = 9102},
   [9102] = {TalkId = {1302}, NextCond = IsEnterCave4Times, NextId = 9103},
   [9103] = {TalkId = {1303}, NextId = 9104},
-  [9104] = {TalkId = {1302}, NextCond = HasMallet, NextId = 9105},
-  [9105] = {TalkId = {1304}},
+  [9104] = {TalkId = {1302}, NextCond = HasFlashlight, NextId = 9105},
+  [9105] = {TalkId = {1304}, NextId = 9106},
+  [9106] = {TalkId = {1302}, NextCond = HasMallet, NextId = 9107},
+  [9107] = {TalkId = {1305}},
   -- Hero village church, shelf.
-  [9200] = {TalkId = {1350}, NextCond = HasFlashlight, NextId = 9201},
-  [9201] = {TalkId = {1351}, NextCond = HasMallet, NextId = 9202},
-  [9202] = {TalkId = {1350, 1351}},
+  [9200] = {LevelId = BAG_LVL_ID},
   -- Hero village, Zhang mama home.
   [10000] = {TalkId = {1500}, NextCond = IsEnterCave2Times, NextId = 10001},
   [10001] = {TalkId = {1501}, NextCond = IsEnterCave6Times, NextId = 10002},

@@ -1,19 +1,5 @@
-
--- item: i_xxx, flag: f_xxx, enum: e_xxx.
-
-local bou_desc_id = 600
-local bou2_desc_id = 601
-local bou3_desc_id = 602
-local letter_desc_id = 603
-local godzilla_desc_id = 604
-local back_scratcher_desc_id = 605
-local flashlight_desc_id = 606
-local mallet_desc_id = 607
-local flashlight_nopower_desc_id = 608
-local candy_desc_id = 609
-local scissor_desc_id = 610
-
 --[[
+item: i_xxx, flag: f_xxx, enum: e_xxx.
 i_coin = 1
 i_bou = 2
 i_bou2 = 3
@@ -37,10 +23,27 @@ f_buy_candy_loop = 21
 i_candy = 22
 i_scissor = 23
 f_powerup_scissor = 24
+i_hero_history_book = 25,
+i_cave_door_book = 26
 --]]
+
+local bou_desc_id = 600
+local bou2_desc_id = 601
+local bou3_desc_id = 602
+local letter_desc_id = 603
+local godzilla_desc_id = 604
+local back_scratcher_desc_id = 605
+local flashlight_desc_id = 606
+local mallet_desc_id = 607
+local flashlight_nopower_desc_id = 608
+local candy_desc_id = 609
+local scissor_desc_id = 610
+local hero_his_book_desc_id = 1350
+local cave_door_desc_id = 1351
 
 e_main_bag = 1
 e_hero_bag = 2
+e_book_lib = 3
 
 ItemData = {
   i_bou = {BagType = e_main_bag, Image = BOU_TEX_ID, TalkId = bou_desc_id},
@@ -54,4 +57,6 @@ ItemData = {
   i_mallet = {BagType = e_hero_bag, Image = MALLET_TEX_ID, TalkId = mallet_desc_id},
   i_candy = {BagType = e_hero_bag, Image = CANDY_TEX_ID, TalkId = candy_desc_id},
   i_scissor = {BagType = e_hero_bag, Image = SCISSOR_TEX_ID, TalkId = scissor_desc_id},
+  i_hero_history_book = {BagType = e_book_lib, Image = HERO_HIS_BOOK_TEX_ID, TalkId = hero_his_book_desc_id},
+  i_cave_door_book = {BagType = e_book_lib, Image = CAVE_DOOR_BOOK_TEX_ID, TalkId = cave_door_desc_id},
 }

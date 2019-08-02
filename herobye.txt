@@ -2,7 +2,7 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28
+texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40
 sprites=335
 levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24
 
@@ -294,6 +294,10 @@ fileName=./res/pinkypapa.png
 name=lotus leaf
 fileName=./res/lotus.png
 
+[tex40]
+name=book
+fileName=./res/book.png
+
 [sprite335]
 name=saihoon
 texture=334
@@ -565,7 +569,7 @@ dim=0 0 32 32
 
 [level337]
 name=asset
-objects=343
+objects=343 41 43
 
 [object343]
 name=ufo of inverview hero village
@@ -574,6 +578,38 @@ x=32
 y=16
 script=AnimUfo
 dim=0 0 100 64
+
+[object41]
+name=hero history book
+texture=40
+x=160
+y=16
+dim=0 0 131 149
+objects=42
+
+[object42]
+texture=66
+x=16
+y=48
+dim=0 0 100 64
+
+[object43]
+name=cave door book
+texture=40
+x=304
+y=16
+dim=0 0 131 149
+objects=44
+
+[object44]
+texture=0
+xscale=0.5
+yscale=0.5
+xpivot=0.5
+ypivot=0.5
+x=-16
+y=-16
+dim=0 0 140 165
 
 [level350]
 name=hero village church
