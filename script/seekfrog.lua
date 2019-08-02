@@ -1,6 +1,7 @@
 local WAIT_TIME = 80
 
 local frog_obj_id = 37
+local back_obj_id = 38
 local frog_tex_id = 357
 
 SeekFrog = {}
@@ -77,6 +78,10 @@ function OnSeekFrogStep(param)
     return
   end
   local x, y = Input.GetMousePos()
+  if (PtInObj(x, y, back_obj_id)) then
+    Good.GenObj(-1, COUNTRY_LVL_ID)
+    return
+  end
   if (HitFrog(x, y, param)) then
     FindFrogSucc(param._id)
   else
