@@ -7,6 +7,8 @@ local COLOR_INPUT_RIGHT = COLOR_GREEN
 local COLOR_INPUT_WRONG = COLOR_RED
 local WAIT_TIME = 30
 
+local back_obj_id = 22
+
 local input_code_right_talk_id = 2103
 local add_mallet_talk_id = 2104
 local has_mallet_talk_id = 2105
@@ -15,14 +17,13 @@ local power_up_scissor_chest_talk_id = 2107
 CaveDoor = {}
 
 CaveDoor.OnCreate = function(param)
-  EnterPlace(param._id)
   InitCaveDoor(param)
   param.step = CaveDoorOnStepInput
 end
 
 CaveDoor.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, GetHeroVillageBackLvlId())
+    Good.GenObj(-1, CAVE_FIELD_LVL_ID)
     return
   end
   param.step(param)
@@ -36,6 +37,10 @@ end
 
 function CaveDoorHittest(param)
   local x, y = Input.GetMousePos()
+  if (PtInObj(x, y, back_obj_id)) then
+    Good.GenObj(-1, CAVE_FIELD_LVL_ID)
+    return
+  end
   for i = 1, #param.rps_obj do
     if (PtInObj(x, y, param.rps_obj[i])) then
       AddInputCode(param, param.rps_code[i])
@@ -43,7 +48,6 @@ function CaveDoorHittest(param)
       return
     end
   end
-  QuestOnStep(x, y)
 end
 
 function CaveDoorOnStepInput(param)
