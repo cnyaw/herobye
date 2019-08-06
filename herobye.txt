@@ -569,7 +569,7 @@ dim=0 0 32 32
 
 [level337]
 name=asset
-objects=343 41 43
+objects=343 41 43 45
 
 [object343]
 name=ufo of inverview hero village
@@ -610,6 +610,20 @@ ypivot=0.5
 x=-16
 y=-16
 dim=0 0 140 165
+
+[object45]
+name=power scissor book
+texture=40
+x=448
+y=16
+dim=0 0 131 149
+objects=46
+
+[object46]
+texture=359
+x=32
+y=32
+dim=0 0 55 90
 
 [level350]
 name=hero village church

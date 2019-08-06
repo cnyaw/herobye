@@ -485,6 +485,10 @@ function ScriptAddMellet()
   SetItem('i_mallet', 1)
 end
 
+function ScriptAddPowerScissorBook()
+  SetItem('i_power_scissor_book', 1)
+end
+
 function ScriptBuildTemple()
   ConsumeCoin(CROWD_FUNDING_COST)
   RemoveItem('i_godzilla', 1)

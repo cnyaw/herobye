@@ -25,6 +25,7 @@ i_scissor = 23
 f_powerup_scissor = 24
 i_hero_history_book = 25,
 i_cave_door_book = 26
+i_power_scissor_book = 27
 --]]
 
 local bou_desc_id = 600
@@ -39,7 +40,8 @@ local flashlight_nopower_desc_id = 608
 local candy_desc_id = 609
 local scissor_desc_id = 610
 local hero_his_book_desc_id = 1350
-local cave_door_desc_id = 1351
+local cave_door_book_desc_id = 1351
+local power_scissor_book_desc_id = 1352
 
 e_main_bag = 1
 e_hero_bag = 2
@@ -58,5 +60,6 @@ ItemData = {
   i_candy = {BagType = e_hero_bag, Image = CANDY_TEX_ID, TalkId = candy_desc_id},
   i_scissor = {BagType = e_hero_bag, Image = SCISSOR_TEX_ID, TalkId = scissor_desc_id},
   i_hero_history_book = {BagType = e_book_lib, Image = HERO_HIS_BOOK_TEX_ID, TalkId = hero_his_book_desc_id},
-  i_cave_door_book = {BagType = e_book_lib, Image = CAVE_DOOR_BOOK_TEX_ID, TalkId = cave_door_desc_id},
+  i_cave_door_book = {BagType = e_book_lib, Image = CAVE_DOOR_BOOK_TEX_ID, TalkId = cave_door_book_desc_id},
+  i_power_scissor_book = {BagType = e_book_lib, Image = POWER_SCISSOR_BOOK_TEX_ID, TalkId = power_scissor_book_desc_id}
 }

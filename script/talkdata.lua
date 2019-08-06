@@ -440,6 +440,18 @@ TalkData = {
     {ScriptText = GetOpenCaveDoorCode},
     {LevelId = BAG_LVL_ID},
   },
+  [1352] = {
+    {Image = POWER_SCISSOR_BOOK_TEX_ID},
+    {Text = '「超級剪刀手之書」'},
+    {Text = '要想獲得超級剪刀手'},
+    {Text = '首先準備一把美勞剪刀'},
+    {Text = '還要一根打鼓棒'},
+    {Text = '以及三滴青蛙眼淚'},
+    {Text = '最後大聲說出魔法咒語'},
+    {Text = '「超級剪刀手出來吧」'},
+    {Text = '就能合成超級剪刀手了'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- UFO coming.
   [1400] = {
     {FadeTo = {fade_time_one_sec, COLOR_BLACK}},
@@ -581,14 +593,14 @@ TalkData = {
     {Text = '呵呵呵小白好久不見'},
     {Text = '你知道魔法咒語嗎?'},
     {Text = '要讓美勞剪刀變成超級剪刀手'},
-    {Text = '你得再去封印洞穴找找'},
+    {Text = '你得去圖書館找找看'},
+    {Script = ScriptAddPowerScissorBook},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, hero home.
   [1800] = {
     {Text = '「維護世界的和平也是挺累的」'},
     {Text = '「讓我睡一下下吧」'},
-    {Image = -1},
     {Text = ''},
     {FadeTo = {fade_time_one_sec, COLOR_BLACK}},
     {FadeTo = {fade_time_one_sec, color_olive}},
@@ -603,7 +615,6 @@ TalkData = {
   [1801] = {
     {Text = '「維護世界的和平也是挺累的」'},
     {Text = '「讓我睡一下下吧」'},
-    {Image = -1},
     {Text = ''},
     {FadeTo = {fade_time_one_sec, COLOR_BLACK}},
     {FadeTo = {fade_time_one_sec, color_olive}},
