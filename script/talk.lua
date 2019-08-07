@@ -22,6 +22,10 @@ Talk.OnStep = function(param)
   if (FadeBgColorTo(param)) then
     return
   end
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    SkipTalk(param)
+    return
+  end
   if (force_next_lvl or Input.IsKeyPushed(Input.LBUTTON)) then
     on_create = false
     StepOneTalk(param)
@@ -97,6 +101,20 @@ function HandleTalkLevelId(param, talk)
     lvl_id = talk.ScriptLevelId()
   end
   Good.GenObj(-1, lvl_id)
+end
+
+function SkipTalk(param)
+  local talk_tbl = GetCurrTalk()
+  while true do
+    local talk = talk_tbl[talk_index]
+    talk_index = talk_index + 1
+    if (nil ~= talk.LevelId or nil ~= talk.ScriptLevelId) then
+      HandleTalkLevelId(param, talk)
+      return
+    elseif (nil ~= talk.Script) then
+      talk.Script()
+    end
+  end
 end
 
 function StepOneTalk(param)
