@@ -237,6 +237,10 @@ function HasFlashlight()
   return HasItem('i_flashlight') or HasItem('i_flashlight_nopower')
 end
 
+function HasFrogTear()
+  return HasItem('i_frog_tear')
+end
+
 function HasGetMalletCode()
   return HasItem('f_mallet_code')
 end
@@ -560,6 +564,11 @@ end
 
 function ScriptPowerupScissorLoop()
   SetItem('f_powerup_scissor', 1)
+end
+
+function ScriptSellFrogTear()
+  SetItem('i_frog_tear', 0)
+  AddCoin(4)
 end
 
 function ScriptSendTeacherLetter()

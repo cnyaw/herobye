@@ -557,6 +557,17 @@ TalkData = {
     {Script = ScriptBuyCandy},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
+  [1607] = {
+    {Image = merchant_tex_id},
+    {Text = '我正在收集青蛙眼淚製作藥劑'},
+    {Text = '請你把青蛙眼淚賣給我吧'},
+    {Image = FROG_TEAR_TEX_ID},
+    {Script = ScriptSellFrogTear},
+    {Text = '一手交錢一手交貨'},
+    {Image = merchant_tex_id},
+    {Text = '謝謝你小白'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
   -- Hero village, Pinky home.
   [1700] = {
     {Image = pinky_tex_id},

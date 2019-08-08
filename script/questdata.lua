@@ -78,11 +78,12 @@ QuestData = {
   [11000] = {TalkId = {1600}, NextCond = IsEnterCave4Times, NextId = 11001},
   [11001] = {TalkId = {1601}, NextCond = IsFlashlightBuyable, NextId = 11002},
   [11002] = {TalkId = {1602}, NextId = 11003},
-  [11003] = {TalkId = {1600}, NextCond = FlashlightOutOfPower, NextId = 11004, NextCond2 = BuyCandyLoop, NextId2 = 11006},
+  [11003] = {TalkId = {1600}, NextCond = FlashlightOutOfPower, NextId = 11004, NextCond2 = BuyCandyLoop, NextId2 = 11006, NextCond3 = HasFrogTear, NextId3 = 11008},
   [11004] = {TalkId = {1603}, NextCond = IsFlashlightBuyable, NextId = 11005},
   [11005] = {TalkId = {1604}, NextId = 11003},
   [11006] = {TalkId = {1605}, NextCond = IsBuyCandyValid, NextId = 11007},
   [11007] = {TalkId = {1606}, NextId = 11003},
+  [11008] = {TalkId = {1607}, NextId = 11003},
   -- Hero village, Pinky home.
   [12000] = {TalkId = {1700}, NextCond = HasMallet, NextId = 12001},
   [12001] = {TalkId = {1701}, NextCond = HasCandy, NextId = 12002},
