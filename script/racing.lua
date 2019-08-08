@@ -95,7 +95,7 @@ function GenBetingBtns(param)
 end
 
 OnRacingGameInitStep = function(param)
-  param.cd = PREPARE_TIME * 60
+  param.cd = PREPARE_TIME * ONE_SECOND_TICK
   GenPrepareSanGlass(param)
   GenSaiHoon(param)
   GenBetingBtns(param)
@@ -145,7 +145,7 @@ OnRacingGameRunStep = function(param)
         UpdateCoinInfo(param)
       end
       Good.SetScript(o, 'AnimTalkArrow')
-      param.cd = 3 * 60
+      param.cd = 3 * ONE_SECOND_TICK
       param.stage = OnRacingGameEndStep
       return
     end
@@ -154,7 +154,7 @@ end
 
 function CountDownPrepareTime(param)
   -- Hour glass count down.
-  local n = math.floor(param.cd / 60) + 1
+  local n = math.floor(param.cd / ONE_SECOND_TICK) + 1
   if (nil == param.count_down or param.count_down_n ~= n) then
     if (nil ~= param.count_down) then
       Good.KillObj(param.count_down)

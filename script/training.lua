@@ -225,7 +225,7 @@ end
 
 function UpdateTrainingCd()
   training_cd_tick = training_cd_tick + 1
-  if (60 <= training_cd_tick) then
+  if (ONE_SECOND_TICK <= training_cd_tick) then
     training_cd_tick = 0
     for i = 1, #all_training do
       local training = all_training[i]
