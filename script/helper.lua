@@ -481,6 +481,10 @@ function ScriptAddCaveDoorBook()
   SetItem('i_cave_door_book', 1)
 end
 
+function ScriptAddFrogTear()
+  SetItem('i_frog_tear', 1)
+end
+
 function ScriptAddMellet()
   SetItem('i_mallet', 1)
 end

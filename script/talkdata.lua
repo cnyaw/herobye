@@ -222,6 +222,11 @@ TalkData = {
     {Text = '豬妹妹的美勞剪刀'},
     {LevelId = BAG_LVL_ID},
   },
+  [611] = {
+    {Image = FROG_TEAR_TEX_ID},
+    {Text = '小青蛙的眼淚'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -417,7 +422,7 @@ TalkData = {
     {Text = '去豬妹妹家看看吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
-  -- Hero village church, shelf.
+  -- Hero village church, books.
   [1350] = {
     {Image = HERO_HIS_BOOK_TEX_ID},
     {Text = '「勇者的故事」'},
@@ -446,7 +451,7 @@ TalkData = {
     {Text = '要想獲得超級剪刀手'},
     {Text = '首先準備一把美勞剪刀'},
     {Text = '還要一根打鼓棒'},
-    {Text = '以及三滴青蛙眼淚'},
+    {Text = '以及一滴青蛙眼淚'},
     {Text = '最後大聲說出魔法咒語'},
     {Text = '「超級剪刀手出來吧」'},
     {Text = '就能合成超級剪刀手了'},
@@ -633,6 +638,15 @@ TalkData = {
     {Text = '「哦原來是偷跑的小青蛙」'},
     {Text = '「我們一起來玩躲貓貓吧」'},
     {LevelId = seek_frog_lvl_id},
+  },
+  [2001] = {
+    {Image = frog_tex_id},
+    {Text = '為什麼你都找的到我'},
+    {Text = '呱呱呱嗚嗚嗚'},
+    {Image = FROG_TEAR_TEX_ID},
+    {Text = '得到了青蛙的眼淚'},
+    {Script = ScriptAddFrogTear},
+    {LevelId = COUNTRY_LVL_ID},
   },
   -- Cave field, cave.
   [2100] = {

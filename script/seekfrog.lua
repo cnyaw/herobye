@@ -1,8 +1,11 @@
 local WAIT_TIME = 80
+local CHECK_FOUND_COUND = 8
 
 local frog_obj_id = 37
 local back_obj_id = 38
 local frog_tex_id = 357
+
+local frog_cry_talk_id = 2001
 
 SeekFrog = {}
 
@@ -10,6 +13,7 @@ SeekFrog.OnCreate = function(param)
   GetLeaf(param)
   RandomPickLeaf(param)
   param.step = OnSeekFrogStep
+  param.found_count = 0
 end
 
 SeekFrog.OnStep = function(param)
@@ -42,9 +46,10 @@ function FindFrogFail()
   Good.SetScript(frog_obj_id, 'AnimShowFrog')
 end
 
-function FindFrogSucc(id)
-  ShowFrog(id)
+function FindFrogSucc(param)
+  ShowFrog(param._id)
   Good.SetScript(frog_obj_id, 'AnimTalkArrow')
+  param.found_count = param.found_count + 1
 end
 
 function HideFrog(id)
@@ -69,6 +74,10 @@ function OnSeekFrogDelay(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
+  if (CHECK_FOUND_COUND <= param.found_count) then
+    StartTalk(frog_cry_talk_id)
+    return
+  end
   param.step = OnSeekFrogStep
   RandomPickLeaf(param)
 end
@@ -83,7 +92,7 @@ function OnSeekFrogStep(param)
     return
   end
   if (HitFrog(x, y, param)) then
-    FindFrogSucc(param._id)
+    FindFrogSucc(param)
   else
     FindFrogFail()
   end
