@@ -680,6 +680,7 @@ TalkData = {
     {Text = '拿出手電筒打開開關'},
     {FadeTo = {ONE_SECOND_TICK, color_olive}},
     {Script = ScriptEnterCave},
+    {Script = ScriptUseFlashlight},
     {Text = '光線有點暗淡不過可以看見了'},
     {Image = cave_door_tex_id},
     {Text = '走到盡頭發現一道門'},

@@ -27,6 +27,7 @@ i_hero_history_book = 25,
 i_cave_door_book = 26
 i_power_scissor_book = 27
 i_frog_tear = 28
+i_flashlight_use_count = 29
 --]]
 
 local bou_desc_id = 600

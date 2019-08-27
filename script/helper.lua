@@ -2,6 +2,7 @@
 local OPEN_CHURCH_COST = 50
 local GIVE_GODZILLA_COST = 100
 local CROWD_FUNDING_COST = 1000
+local MAX_FLASH_LIGHT_USE_COUNT = 5
 
 local tex_sandglass_id = 273
 local red_point_tex_id = 313
@@ -110,17 +111,21 @@ function EnterPlace(id)
 end
 
 function FlashlightCharged()
-  return 0 == EnterCaveCount()
+  return 0 < FlashlightUseCount()
 end
 
 function FlashlightOutOfPower()
-  if (HasMallet() and 5 <= EnterCaveCount()) then
+  if (0 == FlashlightUseCount()) then
     RemoveItem('i_flashlight', 1)
     SetItem('i_flashlight_nopower', 1)
     return true
   else
     return false
   end
+end
+
+function FlashlightUseCount()
+  return ItemCount('i_flashlight_use_count')
 end
 
 function GenFlyUpObj(parent, tex_id)
@@ -530,7 +535,7 @@ function ScriptChargeFlashlight()
   ConsumeCoin(FLASHLIGHT_COST)
   RemoveItem('i_flashlight_nopower', 1)
   SetItem('i_flashlight', 1)
-  SetItem('i_enter_cave_count', 0)
+  SetItem('i_flashlight_use_count', MAX_FLASH_LIGHT_USE_COUNT)
 end
 
 function ScriptEnterCave()
@@ -583,6 +588,10 @@ function ScriptTransLetterToPriest()
   ConsumeCoin(CHURCH_RECV_LETTER_COST)
   RemoveItem('i_letter', 1)
   SetItem('f_letter_sent', 1)
+end
+
+function ScriptUseFlashlight()
+  RemoveItem('i_flashlight_use_count', 1)
 end
 
 function SetItem(id, count)
