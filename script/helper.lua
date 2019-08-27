@@ -584,6 +584,10 @@ function ScriptTextCrowdFunding(fmt)
   return string.format(fmt, CROWD_FUNDING_COST - GetCoin())
 end
 
+function ScriptTextFlashlightUseCount(fmt)
+  return string.format(fmt, FlashlightUseCount())
+end
+
 function ScriptTransLetterToPriest()
   ConsumeCoin(CHURCH_RECV_LETTER_COST)
   RemoveItem('i_letter', 1)
