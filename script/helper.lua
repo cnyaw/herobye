@@ -529,13 +529,12 @@ end
 function ScriptBuyFlashlight()
   ConsumeCoin(FLASHLIGHT_COST)
   SetItem('i_flashlight', 1)
+  SetItem('i_flashlight_use_count', MAX_FLASH_LIGHT_USE_COUNT)
 end
 
 function ScriptChargeFlashlight()
-  ConsumeCoin(FLASHLIGHT_COST)
   RemoveItem('i_flashlight_nopower', 1)
-  SetItem('i_flashlight', 1)
-  SetItem('i_flashlight_use_count', MAX_FLASH_LIGHT_USE_COUNT)
+  ScriptBuyFlashlight()
 end
 
 function ScriptEnterCave()
