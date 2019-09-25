@@ -298,16 +298,12 @@ function IsClickTrainingMaxLv()
   return TrainingIsClickTrainingMaxLv()
 end
 
+function IsEnterCave()
+  return 0 < EnterCaveCount()
+end
+
 function IsEnterCave2Times()
   return 2 <= EnterCaveCount()
-end
-
-function IsEnterCave4Times()
-  return 4 <= EnterCaveCount()
-end
-
-function IsEnterCave6Times()
-  return 6 <= EnterCaveCount()
 end
 
 function IsFinishTraining()

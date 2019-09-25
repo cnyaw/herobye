@@ -58,8 +58,8 @@ QuestData = {
   [9000] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   -- Hero village church, grandpa.
   [9100] = {TalkId = {1300}, NextId = 9101},
-  [9101] = {TalkId = {1301}, NextCond = IsEnterCave2Times, NextId = 9102},
-  [9102] = {TalkId = {1302}, NextCond = IsEnterCave4Times, NextId = 9103},
+  [9101] = {TalkId = {1301}, NextCond = IsEnterCave, NextId = 9102},
+  [9102] = {TalkId = {1302}, NextCond = IsEnterCave2Times, NextId = 9103},
   [9103] = {TalkId = {1303}, NextId = 9104},
   [9104] = {TalkId = {1302}, NextCond = HasFlashlight, NextId = 9105},
   [9105] = {TalkId = {1304}, NextId = 9106},
@@ -68,14 +68,14 @@ QuestData = {
   -- Hero village church, shelf.
   [9200] = {LevelId = BAG_LVL_ID},
   -- Hero village, Zhang mama home.
-  [10000] = {TalkId = {1500}, NextCond = IsEnterCave2Times, NextId = 10001},
-  [10001] = {TalkId = {1501}, NextCond = IsEnterCave6Times, NextId = 10002},
+  [10000] = {TalkId = {1500}, NextCond = IsEnterCave, NextId = 10001},
+  [10001] = {TalkId = {1501}, NextCond = IsEnterCave2Times, NextId = 10002},
   [10002] = {TalkId = {1502}, NextId = 10003},
   [10003] = {TalkId = {1501}, NextCond = OpenCaveDoor, NextId = 10004},
   [10004] = {TalkId = {1504}, NextCond = HasMallet, NextId = 10005},
   [10005] = {TalkId = {1500, 1502}},
   -- Hero village, Shop.
-  [11000] = {TalkId = {1600}, NextCond = IsEnterCave4Times, NextId = 11001},
+  [11000] = {TalkId = {1600}, NextCond = IsEnterCave, NextId = 11001},
   [11001] = {TalkId = {1601}, NextCond = IsFlashlightBuyable, NextId = 11002},
   [11002] = {TalkId = {1602}, NextId = 11003},
   [11003] = {TalkId = {1600}, NextCond = FlashlightOutOfPower, NextId = 11004, NextCond2 = BuyCandyLoop, NextId2 = 11006, NextCond3 = HasFrogTear, NextId3 = 11008},
@@ -107,7 +107,7 @@ QuestData = {
   -- Country, pond.
   [16000] = {TalkId = {2000}},
   -- Cave field, cave.
-  [17000] = {TalkId = {2100}, NextCond = IsEnterCave4Times, NextId = 17001},
+  [17000] = {TalkId = {2100}, NextId = 17001},
   [17001] = {TalkId = {2101}, NextCond = HasFlashlight, NextId = 17002},
   [17002] = {TalkId = {2102}, NextCond = FlashlightOutOfPower, NextId = 17003},
   [17003] = {TalkId = {2106}, NextCond = FlashlightCharged, NextId = 17002},
