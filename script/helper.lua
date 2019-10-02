@@ -514,6 +514,7 @@ function ScriptBuyBou3()
 end
 
 function ScriptBuyCandy()
+  ConsumeCoin(CANDY_COST)
   SetItem('i_candy', 1)
   SetItem('f_buy_candy_loop', 0)
 end
