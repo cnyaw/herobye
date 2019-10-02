@@ -42,8 +42,9 @@ function GetLeaf(param)
   end
 end
 
-function FindFrogFail()
+function FindFrogFail(param)
   Good.SetScript(frog_obj_id, 'AnimShowFrog')
+  param.found_count = 0
 end
 
 function FindFrogSucc(param)
@@ -94,7 +95,7 @@ function OnSeekFrogStep(param)
   if (HitFrog(x, y, param)) then
     FindFrogSucc(param)
   else
-    FindFrogFail()
+    FindFrogFail(param)
   end
   param.step = OnSeekFrogDelay
 end
