@@ -644,6 +644,11 @@ TalkData = {
     {Text = '又又又一起來搖滾'},
     {LevelId = COUNTRY_LVL_ID},
   },
+  [1901] = {
+    {Image = kai_tex_id},
+    {Text = '小青蛙又偷跑出去玩了'},
+    {LevelId = COUNTRY_LVL_ID},
+  },
   -- Country, pond,
   [2000] = {
     {Image = frog_tex_id},

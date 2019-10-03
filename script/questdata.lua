@@ -103,7 +103,8 @@ QuestData = {
   -- Country, to cave field.
   [14300] = {LevelId = CAVE_FIELD_LVL_ID},
   -- Cuntry, Kai home.
-  [15000] = {TalkId = {1900}},
+  [15000] = {TalkId = {1900}, NextCond = IsEnterCave, NextId = 15001},
+  [15001] = {TalkId = {1901}},
   -- Country, pond.
   [16000] = {TalkId = {2000}},
   -- Cave field, cave.
