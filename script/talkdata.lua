@@ -20,6 +20,7 @@ local frog_tex_id = 357
 local cave_door_tex_id = 0
 local chest_tex_id = 13
 local pinky_papa_tex_id = 20
+local kai_tex_id = 49
 
 local color_olive = 0xff808000
 
@@ -639,6 +640,7 @@ TalkData = {
   },
   -- Country, Kai home.
   [1900] = {
+    {Image = kai_tex_id},
     {Text = '又又又一起來搖滾'},
     {LevelId = COUNTRY_LVL_ID},
   },
