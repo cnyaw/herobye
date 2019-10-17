@@ -270,10 +270,6 @@ function HasScissor()
   return HasItem('i_scissor')
 end
 
-function HasTemple()
-  return HasItem('f_temple_unlock')
-end
-
 function InitTable(init_tbl)
   local tbl = {}
   for k,v in pairs(init_tbl) do
@@ -424,6 +420,9 @@ function QuestOnCreate()
       end
       if (nil ~= q.RedPt) then
         AddRedPoint(id)
+      end
+      if (nil ~= q.TexId) then
+        Good.SetTexId(id, q.TexId)
       end
     end
   end
@@ -600,10 +599,6 @@ function ScriptTransLetterToPriest()
   ConsumeCoin(CHURCH_RECV_LETTER_COST)
   RemoveItem('i_letter', 1)
   SetItem('f_letter_sent', 1)
-end
-
-function ScriptUnlockTemple()
-  AddItem('f_temple_unlock', 1)
 end
 
 function ScriptUseFlashlight()

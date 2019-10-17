@@ -1,5 +1,6 @@
 
 local beg_money_lvl_id = 293
+local temple_tex_id = 50
 
 QuestData = {
   -- Main map, hero mt.
@@ -55,7 +56,7 @@ QuestData = {
   [8003] = {TalkId = {1202}, RedPt = 1, NextId = 8004},
   [8004] = {TalkId = {1203}, NextCond = IsUnlockNewTemple, NextId = 8005},
   [8005] = {TalkId = {1204}, RedPt = 1, NextId = 8006},
-  [8006] = {TalkId = {1205}},
+  [8006] = {TalkId = {1205}, TexId = temple_tex_id},
   -- Hero village, church.
   [9000] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   -- Hero village church, grandpa.
