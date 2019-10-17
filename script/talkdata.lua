@@ -351,7 +351,8 @@ TalkData = {
   },
   [1201] = {
     {Image = pinnote_tex_id},
-    {Text = '募款蓋廟中還需要$%d', ScriptText = ScriptTextCrowdFunding},
+    {Text = '募款蓋廟中'},
+    {Text = '還需要$%d', ScriptText = ScriptTextCrowdFunding},
     {LevelId = MAIN_MAP_LVL_ID},
   },
   [1202] = {
@@ -364,6 +365,17 @@ TalkData = {
   [1203] = {
     {Image = GODZILLA_TEX_ID},
     {Text = '龍神太子財神廟建設中'},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
+  [1204] = {
+    {Image = GODZILLA_TEX_ID},
+    {Text = '龍神太子財神廟建設完成'},
+    {Text = '您成為龍神太子財神廟廟公'},
+    {LevelId = MAIN_MAP_LVL_ID},
+  },
+  [1205] = {
+    {Image = GODZILLA_TEX_ID},
+    {Text = '龍神太子財神廟'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
   -- Hero village church, grandpa.

@@ -53,7 +53,9 @@ QuestData = {
   [8001] = {TalkId = {1201}, RedPt = 1, NextId = 8002},
   [8002] = {TalkId = {1201}, NextCond = IsTempleCrowdFundingDone, NextId = 8003},
   [8003] = {TalkId = {1202}, RedPt = 1, NextId = 8004},
-  [8004] = {TalkId = {1203}},
+  [8004] = {TalkId = {1203}, NextCond = IsUnlockNewTemple, NextId = 8005},
+  [8005] = {TalkId = {1204}, RedPt = 1, NextId = 8006},
+  [8006] = {TalkId = {1205}},
   -- Hero village, church.
   [9000] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   -- Hero village church, grandpa.
