@@ -371,6 +371,7 @@ TalkData = {
     {Image = GODZILLA_TEX_ID},
     {Text = '龍神太子財神廟建設完成'},
     {Text = '您成為龍神太子財神廟廟公'},
+    {Script = ScriptUnlockTemple},
     {LevelId = MAIN_MAP_LVL_ID},
   },
   [1205] = {
