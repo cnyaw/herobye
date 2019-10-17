@@ -298,6 +298,10 @@ function IsClickTrainingMaxLv()
   return TrainingIsClickTrainingMaxLv()
 end
 
+function IsDrumStickLoop()
+  return IsPowerupScissorLoop() and HasFrogTear()
+end
+
 function IsEnterCave()
   return 0 < EnterCaveCount()
 end

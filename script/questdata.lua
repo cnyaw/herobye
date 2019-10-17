@@ -104,7 +104,8 @@ QuestData = {
   [14300] = {LevelId = CAVE_FIELD_LVL_ID},
   -- Cuntry, Kai home.
   [15000] = {TalkId = {1900}, NextCond = IsEnterCave, NextId = 15001},
-  [15001] = {TalkId = {1901}},
+  [15001] = {TalkId = {1901}, NextCond = IsDrumStickLoop, NextId = 15002},
+  [15002] = {TalkId = {1902}},
   -- Country, pond.
   [16000] = {TalkId = {2000}},
   -- Cave field, cave.
