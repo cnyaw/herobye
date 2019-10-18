@@ -510,6 +510,10 @@ function ScriptAddPowerScissorBook()
   SetItem('i_power_scissor_book', 1)
 end
 
+function ScriptAddSlapMouseBook()
+  SetItem('i_slap_mouse_book', 1)
+end
+
 function ScriptBuildTemple()
   ConsumeCoin(CROWD_FUNDING_COST)
 end

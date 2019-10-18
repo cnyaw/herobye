@@ -29,6 +29,7 @@ i_power_scissor_book = 27
 i_frog_tear = 28
 i_flashlight_use_count = 29
 i_unlock_new_temple = 30
+i_slap_mouse_book = 31
 --]]
 
 local bou_desc_id = 600
@@ -47,6 +48,7 @@ local frog_tear_desc_id = 611
 local hero_his_book_desc_id = 1350
 local cave_door_book_desc_id = 1351
 local power_scissor_book_desc_id = 1352
+local slap_mouse_book_desc_id = 1353
 
 e_main_bag = 1
 e_hero_bag = 2
@@ -68,4 +70,5 @@ ItemData = {
   i_cave_door_book = {BagType = e_book_lib, Image = CAVE_DOOR_BOOK_TEX_ID, TalkId = cave_door_book_desc_id},
   i_power_scissor_book = {BagType = e_book_lib, Image = POWER_SCISSOR_BOOK_TEX_ID, TalkId = power_scissor_book_desc_id},
   i_frog_tear = {BagType = e_hero_bag, Image = FROG_TEAR_TEX_ID, TalkId = frog_tear_desc_id},
+  i_slap_mouse_book = {BagType = e_book_lib, Image = SLAP_MOUSE_BOOK_TEX_ID, TalkId = slap_mouse_book_desc_id},
 }

@@ -470,6 +470,17 @@ TalkData = {
     {Text = '就能合成超級剪刀手了'},
     {LevelId = BAG_LVL_ID},
   },
+  [1353] = {
+    {Image = SLAP_MOUSE_BOOK_TEX_ID},
+    {Text = '「超級老鼠拍打器 by 小明」'},
+    {Text = '1.按下紅色按鈕 拍打器跑出來'},
+    {Text = '2.按下綠色按鈕 球跑出來'},
+    {Text = '3.按下黃色按鈕 起士跑出來'},
+    {Text = '4.老鼠跑來吃起士'},
+    {Text = '5.老鼠踩到球跌倒'},
+    {Text = '6.拍打器打下來打死老鼠'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- UFO coming.
   [1400] = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
@@ -664,8 +675,17 @@ TalkData = {
   },
   [1902] = {
     {Image = kai_tex_id},
-    {Text = '你得要幫我作一件事情'},
-    {Text = '我才能把打鼓棒給你'},
+    {Text = '最近我買了超級老鼠拍打器'},
+    {Text = '如果你能幫忙我抓老鼠'},
+    {Text = '我就把打鼓棒送給你'},
+    {Text = '你可以先到教堂圖書館去'},
+    {Text = '研究研究一下使用說明書再來'},
+    {Script = ScriptAddSlapMouseBook},
+    {LevelId = COUNTRY_LVL_ID},
+  },
+  [1903] = {
+    {Image = kai_tex_id},
+    {Text = '使用超級老鼠拍打器幫忙我抓老鼠'},
     {LevelId = COUNTRY_LVL_ID},
   },
   -- Country, pond,
