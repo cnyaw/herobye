@@ -510,6 +510,7 @@ TalkData = {
   },
   [1502] = {
     {Image = zhang_mama_tex_id},
+    {Text = '每天都要洗好多衣服啊'},
     {Text = '小白你來的正好'},
     {Text = '請你幫我曬一下衣服'},
     {Text = '曬好了我再給你一些零用錢'},

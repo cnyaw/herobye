@@ -76,7 +76,7 @@ QuestData = {
   [10002] = {TalkId = {1502}, NextId = 10003},
   [10003] = {TalkId = {1501}, NextCond = OpenCaveDoor, NextId = 10004},
   [10004] = {TalkId = {1504}, NextCond = HasMallet, NextId = 10005},
-  [10005] = {TalkId = {1500, 1502}},
+  [10005] = {TalkId = {1502}},
   -- Hero village, Shop.
   [11000] = {TalkId = {1600}, NextCond = IsEnterCave, NextId = 11001},
   [11001] = {TalkId = {1601}, NextCond = IsFlashlightBuyable, NextId = 11002},
