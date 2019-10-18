@@ -22,6 +22,10 @@ BegMoney.OnCreate = function(param)
 end
 
 BegMoney.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, MAIN_MAP_LVL_ID)
+    return
+  end
   param.step(param)
 end
 

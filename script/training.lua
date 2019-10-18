@@ -56,6 +56,10 @@ end
 
 TrainingClick.OnStep = function(param)
   UpdateTrainingCd()
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, TRAINING_MAP_LVL_ID)
+    return
+  end
   param.step(param)
 end
 
@@ -77,6 +81,10 @@ end
 
 TrainingStick.OnStep = function(param)
   UpdateTrainingCd()
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, TRAINING_MAP_LVL_ID)
+    return
+  end
   param.step(param)
 end
 
