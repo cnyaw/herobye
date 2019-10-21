@@ -2,9 +2,9 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51
+texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 55 61 62 63
 sprites=335
-levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24
+levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54
 groups=
 
 [scripts]
@@ -30,6 +30,7 @@ groups=
 341=./script/clothesdrying.lua
 18=./script/cavedoor.lua
 27=./script/seekfrog.lua
+64=./script/slapmouse.lua
 
 [tex1]
 name=tree1
@@ -314,6 +315,22 @@ fileName=./res/temple.png
 [tex51]
 name=mouse
 fileName=./res/mouse.png
+
+[tex55]
+name=box
+fileName=./res/box.png
+
+[tex61]
+name=ball
+fileName=./res/ball.png
+
+[tex62]
+name=cheese
+fileName=./res/cheese.png
+
+[tex63]
+name=racket
+fileName=./res/racket.png
 
 [sprite335]
 name=saihoon
@@ -801,6 +818,7 @@ objects=6 9 10 22
 
 [object6]
 name=btn scissor
+bgColor=0 255 0
 texture=4
 x=112
 y=128
@@ -818,6 +836,7 @@ dim=0 0 55 90
 
 [object9]
 name=btn stone
+bgColor=0 255 0
 texture=4
 x=272
 y=128
@@ -835,6 +854,7 @@ dim=0 0 69 90
 
 [object10]
 name=btn paper
+bgColor=0 255 0
 texture=4
 x=432
 y=128
@@ -931,4 +951,65 @@ ypivot=0.5
 x=304
 y=352
 dim=0 0 32 32
+
+[level54]
+name=slap mouse
+bgColor=128 128 0
+script=SlapMouse
+objects=56 58 59 60 67 57 69 68
+
+[object56]
+texture=55
+xscale=17
+yscale=6
+x=48
+y=16
+dim=0 0 32 32
+
+[object58]
+name=btn 1
+texture=4
+x=112
+y=64
+dim=0 0 90 90
+
+[object59]
+name=btn 2
+texture=4
+x=280
+y=64
+dim=0 0 90 90
+
+[object60]
+name=btn 3
+texture=4
+x=448
+y=64
+dim=0 0 90 90
+
+[object67]
+name=cheese
+texture=62
+x=176
+y=240
+dim=0 0 90 89
+
+[object57]
+name=racket
+texture=63
+x=528
+y=224
+dim=0 0 52 119
+
+[object69]
+name=ball
+texture=61
+x=352
+y=240
+dim=0 0 90 90
+
+[object68]
+texture=51
+y=224
+dim=0 0 120 114
 

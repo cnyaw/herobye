@@ -4,6 +4,7 @@ local racing_lvl_id = 330
 local interview_hero_village_lvl_id = 331
 local clothes_drying_lvl_id = 340
 local seek_frog_lvl_id = 24
+local slap_mouse_lvl_id = 54
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -686,8 +687,8 @@ TalkData = {
   },
   [1903] = {
     {Image = kai_tex_id},
-    {Text = '使用超級老鼠拍打器幫忙我抓老鼠'},
-    {LevelId = COUNTRY_LVL_ID},
+    {Text = '請用超級老鼠拍打器幫忙我抓老鼠'},
+    {LevelId = slap_mouse_lvl_id},
   },
   -- Country, pond,
   [2000] = {
