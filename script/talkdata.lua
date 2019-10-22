@@ -317,7 +317,6 @@ TalkData = {
     {Text = '這是我們家的傳家之寶'},
     {Text = '總有一天你會了解的'},
     {Text = '「......」'},
-    {Image = grandpa_tex_id},
     {Text = '不多說了我要到教堂去'},
     {Text = '自己在外面玩要小心'},
     {Image = -1},
@@ -382,6 +381,14 @@ TalkData = {
   -- Hero village church, grandpa.
   [1300] = {
     {Image = grandpa_tex_id},
+    {Text = '外星人果然又來了'},
+    {Text = '圖書館有本「勇者的故事」'},
+    {Text = '你先去看看再來一下'},
+    {Script = ScriptAddHeroHisBook},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
+  [1301] = {
+    {Image = grandpa_tex_id},
     {Text = '讀過祖先的記錄了吧'},
     {Text = '找到3把上古神兵打敗外星人吧'},
     {Text = ''},
@@ -403,18 +410,18 @@ TalkData = {
     {Text = '打敗外星人拯救這個世界吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
-  [1301] = {
+  [1302] = {
     {Image = grandpa_tex_id},
     {Text = '找到3把上古神兵打敗外星人吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
-  [1302] = {
+  [1303] = {
     {Image = grandpa_tex_id},
     {Text = '張媽媽家擁有石頭的力量'},
     {Text = '去張媽媽家看看吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
-  [1303] = {
+  [1304] = {
     {Image = grandpa_tex_id},
     {Text = '小白這是今天給你的零用錢'},
     {Text = '拿去買你喜歡的東西吧'},
@@ -422,7 +429,7 @@ TalkData = {
     {Text = '「謝謝爺爺」'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
-  [1304] = {
+  [1305] = {
     {Image = grandpa_tex_id},
     {Text = '圖書館裡有本書你可以看看'},
     {Text = '它記載著開啟洞穴之門的方法'},
@@ -430,7 +437,7 @@ TalkData = {
     {Text = '「好的謝謝爺爺」'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
-  [1305] = {
+  [1306] = {
     {Image = grandpa_tex_id},
     {Text = '豬妹妹家擁有剪刀的力量'},
     {Text = '去豬妹妹家看看吧'},

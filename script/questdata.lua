@@ -61,13 +61,14 @@ QuestData = {
   [9000] = {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   -- Hero village church, grandpa.
   [9100] = {TalkId = {1300}, NextId = 9101},
-  [9101] = {TalkId = {1301}, NextCond = IsEnterCave, NextId = 9102},
-  [9102] = {TalkId = {1302}, NextCond = IsEnterCave2Times, NextId = 9103},
-  [9103] = {TalkId = {1303}, NextId = 9104},
-  [9104] = {TalkId = {1302}, NextCond = HasFlashlight, NextId = 9105},
-  [9105] = {TalkId = {1304}, NextId = 9106},
-  [9106] = {TalkId = {1302}, NextCond = HasMallet, NextId = 9107},
-  [9107] = {TalkId = {1305}},
+  [9101] = {TalkId = {1301}, NextId = 9102},
+  [9102] = {TalkId = {1302}, NextCond = IsEnterCave, NextId = 9103},
+  [9103] = {TalkId = {1303}, NextCond = IsEnterCave2Times, NextId = 9104},
+  [9104] = {TalkId = {1304}, NextId = 9105},
+  [9105] = {TalkId = {1303}, NextCond = HasFlashlight, NextId = 9106},
+  [9106] = {TalkId = {1305}, NextId = 9107},
+  [9107] = {TalkId = {1303}, NextCond = HasMallet, NextId = 9108},
+  [9108] = {TalkId = {1306}},
   -- Hero village church, shelf.
   [9200] = {LevelId = BAG_LVL_ID},
   -- Hero village, Zhang mama home.

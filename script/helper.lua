@@ -47,8 +47,7 @@ obj_state = {
 local init_bag = {                      -- [item_id] = count
   i_coin = 0,
   i_hero_coin = 0,
-  i_bou = 0,
-  i_hero_history_book = 1
+  i_bou = 0
 }
 
 bag = {
@@ -490,6 +489,10 @@ end
 
 function ScriptAddFrogTear()
   SetItem('i_frog_tear', 1)
+end
+
+function ScriptAddHeroHisBook()
+  SetItem('i_hero_history_book', 1)
 end
 
 function ScriptAddMellet()
