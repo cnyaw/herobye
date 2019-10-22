@@ -358,16 +358,6 @@ function IsTransLetterToPriestValid()
   return HasLetter() and HasCoin(CHURCH_RECV_LETTER_COST)
 end
 
-function IsUnlockNewTemple()
-  AddItem('i_unlock_new_temple', 1)
-  return 10 <= ItemCount('i_unlock_new_temple')
-end
-
-function IsUnlockTraining()
-  AddItem('i_unlock_training_count', 1)
-  return 10 <= ItemCount('i_unlock_training_count')
-end
-
 function ItemCount(id)
   if (HasItem(id)) then
     return bag[id]

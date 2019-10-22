@@ -7,7 +7,7 @@ QuestData = {
   [1000] = {TalkId = {51, 180, 280}, NextCond = IsSendTeacherLetterValid, NextId = 1001},
   [1001] = {TalkId = {52}, RedPt = 1, NextId = 1002},
   [1002] = {TalkId = {51, 180, 280}, NextCond = IsTempleCrowdFunding, NextId = 1003},
-  [1003] = {TalkId = {51, 180, 280}, NextCond = IsUnlockTraining, NextId = 1004},
+  [1003] = {TalkId = {51, 180, 280}, NextCond = HasBackScratcher, NextId = 1004},
   [1004] = {TalkId = {53}, RedPt = 1, NextId = 1005},
   [1005] = {TalkId = {53}},
   -- Main map, shop.
@@ -54,7 +54,7 @@ QuestData = {
   [8001] = {TalkId = {1201}, RedPt = 1, NextId = 8002},
   [8002] = {TalkId = {1201}, NextCond = IsTempleCrowdFundingDone, NextId = 8003},
   [8003] = {TalkId = {1202}, RedPt = 1, NextId = 8004},
-  [8004] = {TalkId = {1203}, NextCond = IsUnlockNewTemple, NextId = 8005},
+  [8004] = {TalkId = {1203}, NextCond = HasMallet, NextId = 8005},
   [8005] = {TalkId = {1204}, RedPt = 1, NextId = 8006},
   [8006] = {TalkId = {1205}, TexId = temple_tex_id},
   -- Hero village, church.

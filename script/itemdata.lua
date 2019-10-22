@@ -14,7 +14,6 @@ i_back_scratcher = 12
 i_enter_cave_count = 13
 i_hero_coin = 14
 i_flashlight = 15
-i_unlock_training_count = 16
 f_open_cave_door = 17
 i_mallet = 18
 f_mallet_code = 19
@@ -28,7 +27,6 @@ i_cave_door_book = 26
 i_power_scissor_book = 27
 i_frog_tear = 28
 i_flashlight_use_count = 29
-i_unlock_new_temple = 30
 i_slap_mouse_book = 31
 --]]
 
