@@ -40,7 +40,7 @@ function GenBagItemObj(x, y, img, item_id)
   ScaleToSize(o, IMAGE_WIDTH, IMAGE_WIDTH)
   Good.GetParam(o).item_id = item_id
   x = x + IMAGE_WIDTH + IMAGE_MARGIN
-  if (SCR_W <= x) then
+  if (SCR_W <= (x + IMAGE_WIDTH)) then
     x = IMAGE_MARGIN
     y = y + IMAGE_WIDTH + IMAGE_MARGIN
   end
