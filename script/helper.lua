@@ -237,6 +237,10 @@ function HasCandy()
   return HasItem('i_candy')
 end
 
+function HasDrumStick()
+  return HasItem('i_drum_stick')
+end
+
 function HasFlashlight()
   return HasItem('i_flashlight') or HasItem('i_flashlight_nopower')
 end
@@ -485,6 +489,10 @@ end
 
 function ScriptAddCaveDoorBook()
   SetItem('i_cave_door_book', 1)
+end
+
+function ScriptAddDrumStick()
+  SetItem('i_drum_stick', 1)
 end
 
 function ScriptAddFrogTear()

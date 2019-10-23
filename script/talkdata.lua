@@ -229,6 +229,11 @@ TalkData = {
     {Text = '小青蛙的眼淚'},
     {LevelId = BAG_LVL_ID},
   },
+  [612] = {
+    {Image = DRUM_STICK_TEX_ID},
+    {Text = '搖滾阿凱的打鼓棒'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -698,6 +703,15 @@ TalkData = {
     {LevelId = slap_mouse_lvl_id},
   },
   [1904] = {
+    {Image = kai_tex_id},
+    {Text = '真是太謝謝你了'},
+    {Text = '幫我抓那麼多老鼠'},
+    {Image = DRUM_STICK_TEX_ID},
+    {Text = '照約定我的打鼓棒送給你'},
+    {Script = ScriptAddDrumStick},
+    {LevelId = COUNTRY_LVL_ID},
+  },
+  [1905] = {
     {Image = kai_tex_id},
     {Text = '真是太謝謝你了'},
     {Text = '幫我抓那麼多老鼠'},

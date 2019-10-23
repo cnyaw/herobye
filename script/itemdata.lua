@@ -28,6 +28,7 @@ i_power_scissor_book = 27
 i_frog_tear = 28
 i_flashlight_use_count = 29
 i_slap_mouse_book = 31
+i_drum_stick = 32
 --]]
 
 local bou_desc_id = 600
@@ -42,6 +43,7 @@ local flashlight_nopower_desc_id = 608
 local candy_desc_id = 609
 local scissor_desc_id = 610
 local frog_tear_desc_id = 611
+local drum_stick_desc_id = 612
 
 local hero_his_book_desc_id = 1350
 local cave_door_book_desc_id = 1351
@@ -69,4 +71,5 @@ ItemData = {
   i_power_scissor_book = {BagType = e_book_lib, Image = POWER_SCISSOR_BOOK_TEX_ID, TalkId = power_scissor_book_desc_id},
   i_frog_tear = {BagType = e_hero_bag, Image = FROG_TEAR_TEX_ID, TalkId = frog_tear_desc_id},
   i_slap_mouse_book = {BagType = e_book_lib, Image = SLAP_MOUSE_BOOK_TEX_ID, TalkId = slap_mouse_book_desc_id},
+  i_drum_stick = {BagType = e_hero_bag, Image = DRUM_STICK_TEX_ID, TalkId = drum_stick_desc_id},
 }

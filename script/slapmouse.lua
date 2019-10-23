@@ -10,7 +10,8 @@ local cheese_obj_id = 67
 local mouse_obj_id = 68
 local mouse_tex_id = 51
 
-local kai_thanks_talk_id = 1904
+local kai_thanks_drum_stick_talk_id = 1904
+local kai_thanks_talk_id = 1905
 
 SlapMouse = {}
 
@@ -66,7 +67,11 @@ function SlapMouseOnStepDone(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  StartTalk(kai_thanks_talk_id)
+  if (HasDrumStick()) then
+    StartTalk(kai_thanks_talk_id)
+  else
+    StartTalk(kai_thanks_drum_stick_talk_id)
+  end
 end
 
 function SlapMouseOnStepInput(param)
