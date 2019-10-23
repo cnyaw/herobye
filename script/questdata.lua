@@ -93,7 +93,9 @@ QuestData = {
   [12001] = {TalkId = {1701}, NextCond = HasCandy, NextId = 12002},
   [12002] = {TalkId = {1702}, NextId = 12003},
   [12003] = {TalkId = {1700}, NextCond = IsPowerupScissorLoop, NextId = 12004},
-  [12004] = {TalkId = {1704}},
+  [12004] = {TalkId = {1704}, NextCond = IsPowerupScissorReady, NextId = 12005},
+  [12005] = {TalkId = {1705}, NextId = 12006},
+  [12006] = {TalkId = {1700}},
   -- Hero village, hero home.
   [13000] = {TalkId = {1800}, NextId = 13001},
   [13001] = {TalkId = {1801}},

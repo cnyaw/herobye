@@ -234,6 +234,11 @@ TalkData = {
     {Text = '搖滾阿凱的打鼓棒'},
     {LevelId = BAG_LVL_ID},
   },
+  [613] = {
+    {Image = SCISSOR_TEX_ID},
+    {Text = '擁有剪刀力量的超級剪刀手'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -649,6 +654,25 @@ TalkData = {
     {Text = '要讓美勞剪刀變成超級剪刀手'},
     {Text = '你得去圖書館找找看'},
     {Script = ScriptAddPowerScissorBook},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1705] = {
+    {Image = pinky_papa_tex_id},
+    {Text = '呵呵呵小白好久不見'},
+    {Text = '看來你很努力的把東西都集齊了'},
+    {Text = '讓我們一起來升級超級剪刀手吧'},
+    {Image = SCISSOR_TEX_ID},
+    {Text = '首先要一把美勞剪刀'},
+    {Image = DRUM_STICK_TEX_ID},
+    {Text = '還要一根打鼓棒'},
+    {Image = FROG_TEAR_TEX_ID},
+    {Text = '以及一滴青蛙眼淚'},
+    {Image = -1},
+    {Text = '最後讓我們一起大聲說出魔法咒語'},
+    {Text = '「超級剪刀手出來吧」'},
+    {Image = SCISSOR_TEX_ID},
+    {Script = ScriptPowerupScissor},
+    {Text = '獲得擁有剪刀力量的超級剪刀手'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, hero home.

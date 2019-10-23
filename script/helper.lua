@@ -337,6 +337,10 @@ function IsPowerupScissorLoop()
   return HasItem('f_powerup_scissor')
 end
 
+function IsPowerupScissorReady()
+  return HasFrogTear() and HasScissor() and HasDrumStick()
+end
+
 function IsRestValid()
   return HasCoin(REST_COST)
 end
@@ -577,6 +581,13 @@ end
 
 function ScriptOpenCaveDoor()
   SetItem('f_open_cave_door', 1)
+end
+
+function ScriptPowerupScissor()
+  RemoveItem('i_scissor', 1)
+  RemoveItem('i_drum_stick', 1)
+  RemoveItem('i_frog_tear', 1)
+  AddItem('i_power_scissor', 1)
 end
 
 function ScriptPowerupScissorLoop()
