@@ -818,7 +818,6 @@ objects=6 9 10 22
 
 [object6]
 name=btn scissor
-bgColor=0 255 0
 texture=4
 x=112
 y=128
@@ -836,7 +835,6 @@ dim=0 0 55 90
 
 [object9]
 name=btn stone
-bgColor=0 255 0
 texture=4
 x=272
 y=128
@@ -854,7 +852,6 @@ dim=0 0 69 90
 
 [object10]
 name=btn paper
-bgColor=0 255 0
 texture=4
 x=432
 y=128

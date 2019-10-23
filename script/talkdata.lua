@@ -694,8 +694,14 @@ TalkData = {
   },
   [1903] = {
     {Image = kai_tex_id},
-    {Text = '請用超級老鼠拍打器幫忙我抓老鼠'},
+    {Text = '請用超級老鼠拍打器幫我抓老鼠'},
     {LevelId = slap_mouse_lvl_id},
+  },
+  [1904] = {
+    {Image = kai_tex_id},
+    {Text = '真是太謝謝你了'},
+    {Text = '幫我抓那麼多老鼠'},
+    {LevelId = COUNTRY_LVL_ID},
   },
   -- Country, pond,
   [2000] = {
