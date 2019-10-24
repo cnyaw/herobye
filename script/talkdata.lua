@@ -545,6 +545,7 @@ TalkData = {
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   [1504] = {
+    {NextCond = FlashlightOutOfPower, NextId = 1502},
     {Image = zhang_mama_tex_id},
     {Text = '己經打門封印洞穴的門了嗎'},
     {Text = '小白你真是了不起'},
