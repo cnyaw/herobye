@@ -101,7 +101,8 @@ QuestData = {
   [13001] = {TalkId = {1801}},
   -- Hero village, to alien path.
   [14000] = {LevelId = ALIEN_PATH_LVL_ID, NextCond = HasScissor, NextId = 14001},
-  [14001] = {TalkId = {1703}},
+  [14001] = {TalkId = {1703}, NextCond = HasPowerScissor, NextId = 14002},
+  [14002] = {LevelId = ALIEN_PATH_LVL_ID},
   -- Hero village, to country.
   [14100] = {LevelId = COUNTRY_LVL_ID},
   -- Country, to hero village.

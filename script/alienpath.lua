@@ -54,7 +54,7 @@ function CanHitAlien(o)
 end
 
 function GenAliens(param)
-  local can_hit = {false, HasMallet(), HasBackScratcher()}
+  local can_hit = {HasPowerScissor(), HasMallet(), HasBackScratcher()}
   param.hit = 0
   param.obj = {}
   local w, h = Resource.GetTexSize(ufo_tex_id)
@@ -85,7 +85,7 @@ function GenWeaponIcon(x, y, tex_id, has)
 end
 
 function GenWeaponIcons()
-  local has = {HasBackScratcher(), false, HasMallet()}
+  local has = {HasBackScratcher(), HasPowerScissor(), HasMallet()}
   local x, y = 0, 0
   for i = 1, #weapon_tex_id do
     x, y = GenWeaponIcon(x, y, weapon_tex_id[i], has[i])
