@@ -250,7 +250,7 @@ function HasFrogTear()
 end
 
 function HasFrogTearToSell()
-  return HasFrogTear() and HasItem('i_power_scissor')
+  return HasFrogTear() and HasPowerScissor()
 end
 
 function HasGetMalletCode()
@@ -271,6 +271,10 @@ end
 
 function HasMallet()
   return HasItem('i_mallet')
+end
+
+function HasPowerScissor()
+  return HasItem('i_power_scissor')
 end
 
 function HasScissor()
@@ -591,7 +595,7 @@ function ScriptPowerupScissor()
   RemoveItem('i_scissor', 1)
   RemoveItem('i_drum_stick', 1)
   RemoveItem('i_frog_tear', 1)
-  AddItem('i_power_scissor', 1)
+  SetItem('i_power_scissor', 1)
 end
 
 function ScriptPowerupScissorLoop()

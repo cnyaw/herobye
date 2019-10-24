@@ -67,7 +67,7 @@ function SlapMouseOnStepDone(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  if (HasDrumStick()) then
+  if (HasPowerScissor() or HasDrumStick()) then
     StartTalk(kai_thanks_talk_id)
   else
     StartTalk(kai_thanks_drum_stick_talk_id)
