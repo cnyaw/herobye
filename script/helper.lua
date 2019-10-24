@@ -109,10 +109,6 @@ function EnterPlace(id)
   SaveGame()
 end
 
-function FlashlightCharged()
-  return 0 < FlashlightUseCount()
-end
-
 function FlashlightOutOfPower()
   if (0 == FlashlightUseCount()) then
     RemoveItem('i_flashlight', 1)

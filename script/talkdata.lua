@@ -520,6 +520,7 @@ TalkData = {
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   [1501] = {
+    {NextCond = FlashlightOutOfPower, NextId = 1502},
     {Image = zhang_mama_tex_id},
     {Text = '我們家的傳家之寶神奇石頭棒'},
     {Text = '封印在洞穴內被祖先保護著'},
@@ -784,6 +785,7 @@ TalkData = {
     {LevelId = CAVE_FIELD_LVL_ID},
   },
   [2102] = {
+    {NextCond = FlashlightOutOfPower, NextId = 2106},
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
     {Text = '黑漆漆的山洞什麼都看不見'},
     {Text = '拿出手電筒打開開關'},
