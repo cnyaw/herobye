@@ -55,12 +55,7 @@ TrainingClick.OnCreate = function(param)
 end
 
 TrainingClick.OnStep = function(param)
-  UpdateTrainingCd()
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, TRAINING_MAP_LVL_ID)
-    return
-  end
-  param.step(param)
+  TrainingOnStep(param)
 end
 
 TrainingStick = {}
@@ -80,12 +75,7 @@ TrainingStick.OnCreate = function(param)
 end
 
 TrainingStick.OnStep = function(param)
-  UpdateTrainingCd()
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, TRAINING_MAP_LVL_ID)
-    return
-  end
-  param.step(param)
+  TrainingOnStep(param)
 end
 
 function AdvanceTrainingLevel(training)
@@ -201,6 +191,15 @@ end
 
 function TrainingIsStickTrainingMaxLv()
   return stick_training.max_lv <= stick_training.lv
+end
+
+function TrainingOnStep(param)
+  UpdateTrainingCd()
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, TRAINING_MAP_LVL_ID)
+    return
+  end
+  param.step(param)
 end
 
 function TrainingStickOnStepEnd(param)
