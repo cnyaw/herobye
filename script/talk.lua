@@ -103,6 +103,16 @@ function HandleTalkLevelId(param, talk)
   Good.GenObj(-1, lvl_id)
 end
 
+function HandleTalkNextId(param, talk)
+  if (nil ~= talk.NextCond) then
+    if (not talk.NextCond()) then
+      StepOneTalk(param)
+      return
+    end
+  end
+  StartTalk(talk.NextId)
+end
+
 function SkipTalk(param)
   local talk_tbl = GetCurrTalk()
   while true do
@@ -132,5 +142,7 @@ function StepOneTalk(param)
     StepOneTalk(param)
   elseif (nil ~= talk.FadeTo) then
     HandleTalkFadeTo(param, talk)
+  elseif (nil ~= talk.NextId) then
+    HandleTalkNextId(param, talk)
   end
 end

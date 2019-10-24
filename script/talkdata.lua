@@ -575,6 +575,7 @@ TalkData = {
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   [1603] = {
+    {NextCond = IsFlashlightBuyable, NextId = 1604},
     {Image = merchant_tex_id},
     {Text = string.format('手電筒充電一次只要%d塊錢', FLASHLIGHT_COST)},
     {LevelId = HERO_VILLAGE_LVL_ID},
