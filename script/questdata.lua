@@ -115,7 +115,8 @@ QuestData = {
   [15002] = {TalkId = {1902}, NextId = 15003},
   [15003] = {TalkId = {1903}},
   -- Country, pond.
-  [16000] = {TalkId = {2000}},
+  [16000] = {TalkId = {2000}, NextCond = IsPowerupScissorLoop, NextId = 16001},
+  [16001] = {TalkId = {2001}},
   -- Cave field, cave.
   [17000] = {TalkId = {2100}, NextId = 17001},
   [17001] = {TalkId = {2101}, NextCond = HasFlashlight, NextId = 17002},

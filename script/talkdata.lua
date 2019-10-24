@@ -748,11 +748,16 @@ TalkData = {
   [2000] = {
     {Image = frog_tex_id},
     {Text = '呱呱呱'},
+    {LevelId = COUNTRY_LVL_ID},
+  },
+  [2001] = {
+    {Image = frog_tex_id},
+    {Text = '呱呱呱'},
     {Text = '「哦原來是偷跑的小青蛙」'},
     {Text = '「我們一起來玩躲貓貓吧」'},
     {LevelId = seek_frog_lvl_id},
   },
-  [2001] = {
+  [2002] = {
     {Image = frog_tex_id},
     {Text = '為什麼你都找的到我'},
     {Text = '呱呱呱嗚嗚嗚'},
