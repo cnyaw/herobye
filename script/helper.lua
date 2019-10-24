@@ -249,6 +249,10 @@ function HasFrogTear()
   return HasItem('i_frog_tear')
 end
 
+function HasFrogTearToSell()
+  return HasFrogTear() and HasItem('i_power_scissor')
+end
+
 function HasGetMalletCode()
   return HasItem('f_mallet_code')
 end
