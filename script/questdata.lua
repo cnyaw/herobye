@@ -1,5 +1,6 @@
 
 local beg_money_lvl_id = 293
+local alien_area_lvl_id = 71
 local temple_tex_id = 50
 
 QuestData = {
@@ -122,5 +123,7 @@ QuestData = {
   [17001] = {TalkId = {2101}, NextCond = HasFlashlight, NextId = 17002},
   [17002] = {TalkId = {2102}},
   -- Back button.
-  [18000] = {ScriptLevelId = GetHeroVillageBackLvlId}
+  [18000] = {ScriptLevelId = GetHeroVillageBackLvlId},
+  -- Alien area.
+  [19000] = {LevelId = alien_area_lvl_id},
 }

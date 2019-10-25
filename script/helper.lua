@@ -38,7 +38,8 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_KaiHome = 15000,
   o_pond = 16000,
   o_cave = 17000,
-  o_back = 18000
+  o_back = 18000,
+  o_toAlienArea = 19000,
 }
 
 obj_state = {
