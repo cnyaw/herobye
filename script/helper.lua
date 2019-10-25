@@ -439,7 +439,7 @@ function QuestOnStep(x, y)
         local rand_talk_id = math.random(#q.TalkId)
         StartTalk(q.TalkId[rand_talk_id])
       elseif (nil ~= q.LevelId or nil ~= q.ScriptLevelId) then
-        HandleTalkLevelId(nil, q)
+        HandleTalkLevelId(q)
       end
       if (nil == q.NextCond and nil ~= q.NextId) then
         obj_state[obj_name] = q.NextId
