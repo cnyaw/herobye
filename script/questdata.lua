@@ -2,6 +2,7 @@
 local beg_money_lvl_id = 293
 local alien_area_lvl_id = 71
 local temple_tex_id = 50
+local curcus_tex_id = 73
 
 QuestData = {
   -- Main map, hero mt.
@@ -18,9 +19,9 @@ QuestData = {
   [2003] = {TalkId = {400}, RedPt = 1, NextId = 2004},
   [2004] = {TalkId = {450, 500}, NextCond = IsOpenRacingValid, NextId = 2005},
   [2005] = {TalkId = {510}, RedPt = 1, NextId = 2006},
-  [2006] = {TalkId = {511}, NextCond = IsGiveGodzillaValid, NextId = 2007},
-  [2007] = {TalkId = {512}, RedPt = 1, NextId = 2008},
-  [2008] = {TalkId = {511}},
+  [2006] = {TalkId = {511}, TexId = curcus_tex_id, NextCond = IsGiveGodzillaValid, NextId = 2007},
+  [2007] = {TalkId = {512}, TexId = curcus_tex_id, RedPt = 1, NextId = 2008},
+  [2008] = {TalkId = {511}, TexId = curcus_tex_id},
   -- Main map, village.
   [3000] = {LevelId = beg_money_lvl_id},
   -- Main map, church.
