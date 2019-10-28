@@ -678,6 +678,21 @@ TalkData = {
     {Text = '獲得擁有剪刀力量的超級剪刀手'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
+  [1706] = {
+    {Image = pinky_tex_id},
+    {Text = '小白要跟我一起玩哦'},
+    {Image = JOHN_TEX_ID},
+    {Text = '哇啊啊啊救命啊有小強啊！'},
+    {Text = '小白快來救我'},
+    {LevelId = help_pinky_lvl_id},
+  },
+  [1707] = {
+    {Image = pinky_tex_id},
+    {Text = '謝謝你小白^^'},
+    {Text = '「呵呵呵我是勇者小白!」'},
+    {Text = '「我的任務是維護世界的和平！」'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
   -- Hero village, hero home.
   [1800] = {
     {Text = '「維護世界的和平也是挺累的」'},

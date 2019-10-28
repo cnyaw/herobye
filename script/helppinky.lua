@@ -1,18 +1,17 @@
 local MAX_JOHN = 5
 local WAIT_TIME = 40
 
-local john_tex_id = 317
-
-local help_pinky_done_talk_id = 1151
+local help_pinky_done_talk_id = 1707
+local help_pinky_done_dream_talk_id = 1151
 
 HelpPinky = {}
 
 HelpPinky.OnCreate = function(param)
   param.hit = 0
   param.john = {}
-  local w, h = Resource.GetTexSize(john_tex_id)
+  local w, h = Resource.GetTexSize(JOHN_TEX_ID)
   for i = 1, MAX_JOHN do
-    local o = Good.GenObj(-1, john_tex_id, 'BouncingObj')
+    local o = Good.GenObj(-1, JOHN_TEX_ID, 'BouncingObj')
     local x = math.random(SCR_W - w)
     local y = math.random(SCR_H - h)
     Good.SetPos(o, x, y)
@@ -29,7 +28,11 @@ function HelpPinkyOnStepEnd(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  StartTalk(help_pinky_done_talk_id)
+  if (HasPowerScissor()) then
+    StartTalk(help_pinky_done_talk_id)
+  else
+    StartTalk(help_pinky_done_dream_talk_id)
+  end
 end
 
 function HelpPinkyOnStepPlay(param)
@@ -40,7 +43,7 @@ function HelpPinkyOnStepPlay(param)
   for i = 1, MAX_JOHN do
     local o = param.john[i]
     if (nil ~= o and PtInObj(x, y, o)) then
-      GenFlyUpObj(o, john_tex_id)
+      GenFlyUpObj(o, JOHN_TEX_ID)
       param.hit = param.hit + 1
       Good.KillObj(o)
       param.john[i] = nil
