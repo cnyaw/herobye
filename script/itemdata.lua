@@ -17,7 +17,6 @@ i_flashlight = 15
 f_open_cave_door = 17
 i_mallet = 18
 f_mallet_code = 19
-i_flashlight_nopower = 20
 f_buy_candy_loop = 21
 i_candy = 22
 i_scissor = 23
@@ -40,7 +39,6 @@ local godzilla_desc_id = 604
 local back_scratcher_desc_id = 605
 local flashlight_desc_id = 606
 local mallet_desc_id = 607
-local flashlight_nopower_desc_id = 608
 local candy_desc_id = 609
 local scissor_desc_id = 610
 local frog_tear_desc_id = 611
@@ -64,7 +62,6 @@ ItemData = {
   i_godzilla = {BagType = e_main_bag, Image = GODZILLA_TEX_ID, TalkId = godzilla_desc_id},
   i_back_scratcher = {BagType = e_hero_bag, Image = BACK_SCRATCHER_TEX_ID, TalkId = back_scratcher_desc_id},
   i_flashlight = {BagType = e_hero_bag, Image = FLASHLIGHT_TEX_ID, TalkId = flashlight_desc_id},
-  i_flashlight_nopower = {BagType = e_hero_bag, Image = FLASHLIGHT_TEX_ID, TalkId = flashlight_nopower_desc_id},
   i_mallet = {BagType = e_hero_bag, Image = MALLET_TEX_ID, TalkId = mallet_desc_id},
   i_candy = {BagType = e_hero_bag, Image = CANDY_TEX_ID, TalkId = candy_desc_id},
   i_scissor = {BagType = e_hero_bag, Image = SCISSOR_TEX_ID, TalkId = scissor_desc_id},

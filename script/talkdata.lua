@@ -199,6 +199,7 @@ TalkData = {
     {LevelId = BAG_LVL_ID},
   },
   [606] = {
+    {NextCond = FlashlightOutOfPower, NextId = 608},
     {Image = FLASHLIGHT_TEX_ID},
     {Text = '光線有點暗淡的手電筒'},
     {Text = '電力還能夠使用%d次', ScriptText = ScriptTextFlashlightUseCount},

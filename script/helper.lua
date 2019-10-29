@@ -111,13 +111,7 @@ function EnterPlace(id)
 end
 
 function FlashlightOutOfPower()
-  if (0 == FlashlightUseCount()) then
-    RemoveItem('i_flashlight', 1)
-    SetItem('i_flashlight_nopower', 1)
-    return true
-  else
-    return false
-  end
+  return 0 == FlashlightUseCount()
 end
 
 function FlashlightUseCount()
@@ -239,7 +233,7 @@ function HasDrumStick()
 end
 
 function HasFlashlight()
-  return HasItem('i_flashlight') or HasItem('i_flashlight_nopower')
+  return HasItem('i_flashlight')
 end
 
 function HasFrogTear()
@@ -555,7 +549,6 @@ function ScriptBuyFlashlight()
 end
 
 function ScriptChargeFlashlight()
-  RemoveItem('i_flashlight_nopower', 1)
   ScriptBuyFlashlight()
 end
 
