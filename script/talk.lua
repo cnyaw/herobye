@@ -108,11 +108,9 @@ function HandleTalkLevelId(talk)
 end
 
 function HandleTalkNextId(talk)
-  if (nil ~= talk.NextCond) then
-    if (not talk.NextCond()) then
-      StepOneTalk()
-      return
-    end
+  if (nil ~= talk.NextCond and not talk.NextCond()) then
+    StepOneTalk()
+    return
   end
   StartTalk(talk.NextId)
 end
@@ -127,6 +125,8 @@ function SkipTalk()
       return
     elseif (nil ~= talk.Script) then
       talk.Script()
+    elseif (nil ~= talk.NextId) then
+      HandleTalkNextId(talk)
     end
   end
 end
