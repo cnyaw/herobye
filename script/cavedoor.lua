@@ -9,10 +9,10 @@ local WAIT_TIME = 30
 
 local back_obj_id = 22
 
-local input_code_right_talk_id = 2103
-local add_mallet_talk_id = 2104
-local has_mallet_talk_id = 2105
-local power_up_scissor_chest_talk_id = 2107
+local input_code_right_talk_id = 2104
+local add_mallet_talk_id = 2105
+local has_mallet_talk_id = 2106
+local power_up_scissor_chest_talk_id = 2108
 
 CaveDoor = {}
 

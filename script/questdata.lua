@@ -122,7 +122,8 @@ QuestData = {
   -- Cave field, cave.
   [17000] = {TalkId = {2100}, NextId = 17001},
   [17001] = {TalkId = {2101}, NextCond = HasFlashlight, NextId = 17002},
-  [17002] = {TalkId = {2102}},
+  [17002] = {TalkId = {2102}, NextId = 17003},
+  [17003] = {TalkId = {2103}},
   -- Back button.
   [18000] = {ScriptLevelId = GetHeroVillageBackLvlId},
   -- Alien area.

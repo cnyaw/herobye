@@ -802,7 +802,7 @@ TalkData = {
     {LevelId = CAVE_FIELD_LVL_ID},
   },
   [2102] = {
-    {NextCond = FlashlightOutOfPower, NextId = 2106},
+    {NextCond = FlashlightOutOfPower, NextId = 2107},
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
     {Text = '黑漆漆的山洞什麼都看不見'},
     {Text = '拿出手電筒打開開關'},
@@ -816,6 +816,16 @@ TalkData = {
     {LevelId = CAVE_DOOR_LVL_ID},
   },
   [2103] = {
+    {NextCond = FlashlightOutOfPower, NextId = 2107},
+    {Script = ScriptEnterCave},
+    {Script = ScriptUseFlashlight},
+    {Text = '光線有點暗淡'},
+    {Image = cave_door_tex_id},
+    {Text = '走到盡頭發現一道門'},
+    {Text = '需要密碼才能打開門'},
+    {LevelId = CAVE_DOOR_LVL_ID},
+  },
+  [2104] = {
     {Text = '密碼輸入正確門開了'},
     {Script = ScriptOpenCaveDoor},
     {Image = chest_tex_id},
@@ -823,7 +833,7 @@ TalkData = {
     {Text = '打開寶箱裡面是空的!'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
-  [2104] = {
+  [2105] = {
     {Text = '密碼輸入正確門開了'},
     {Image = chest_tex_id},
     {Text = '對著空寶箱說出通關咒語'},
@@ -834,19 +844,19 @@ TalkData = {
     {Script = ScriptAddMellet},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
-  [2105] = {
+  [2106] = {
     {Text = '密碼輸入正確門開了'},
     {Image = chest_tex_id},
     {Text = '己經得到寶箱裡的神奇石頭棒了'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
-  [2106] = {
+  [2107] = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
     {Text = '黑漆漆的山洞什麼都看不見'},
     {Text = '手電筒沒電了無法使用'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
-  [2107] = {
+  [2108] = {
     {Text = '密碼輸入正確門開了'},
     {Image = chest_tex_id},
     {Text = '打開空寶箱'},
