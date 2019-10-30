@@ -1,6 +1,5 @@
 
 local beg_money_lvl_id = 293
-local alien_area_lvl_id = 71
 local temple_tex_id = 50
 local curcus_tex_id = 73
 
@@ -126,6 +125,8 @@ QuestData = {
   [17003] = {TalkId = {2103}},
   -- Back button.
   [18000] = {ScriptLevelId = GetHeroVillageBackLvlId},
-  -- Alien area.
-  [19000] = {LevelId = alien_area_lvl_id},
+  -- Alien path, to alien area.
+  [19000] = {LevelId = ALIEN_AREA_LVL_ID},
+  -- Alien area, ufo.
+  [20000] = {TalkId = {2200}},
 }

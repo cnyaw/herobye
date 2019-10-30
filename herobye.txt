@@ -1042,6 +1042,7 @@ y=160
 dim=0 0 32 32
 
 [object74]
+name=o_alien
 texture=66
 x=272
 y=160
