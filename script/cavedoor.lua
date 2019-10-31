@@ -10,9 +10,6 @@ local WAIT_TIME = 30
 local back_obj_id = 22
 
 local input_code_right_talk_id = 2104
-local add_mallet_talk_id = 2105
-local has_mallet_talk_id = 2106
-local power_up_scissor_chest_talk_id = 2108
 
 CaveDoor = {}
 
@@ -60,7 +57,7 @@ function CaveDoorOnStepInputRight(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  StartTalk(GetBingoTalkId())
+  StartTalk(input_code_right_talk_id)
 end
 
 function CaveDoorOnStepInputWrong(param)
@@ -86,18 +83,6 @@ function GenInputCodeBlock(param, x, y)
   local o = GenColorObj(-1, CX_BLOCK, CX_BLOCK, COLOR_BLACK)
   Good.SetPos(o, x, y)
   return o
-end
-
-function GetBingoTalkId()
-  if (IsPowerupScissorLoop()) then
-    return power_up_scissor_chest_talk_id
-  elseif (HasGetMalletCode()) then
-    return add_mallet_talk_id
-  elseif (HasMallet()) then
-    return has_mallet_talk_id
-  else
-    return input_code_right_talk_id
-  end
 end
 
 function InitCaveDoor(param)

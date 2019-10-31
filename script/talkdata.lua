@@ -825,6 +825,9 @@ TalkData = {
     {LevelId = CAVE_DOOR_LVL_ID},
   },
   [2104] = {
+    {NextCond = IsPowerupScissorLoop, NextId = 2108},
+    {NextCond = HasMallet, NextId = 2106},
+    {NextCond = HasGetMalletCode, NextId = 2105},
     {Text = '密碼輸入正確門開了'},
     {Script = ScriptOpenCaveDoor},
     {Image = chest_tex_id},
