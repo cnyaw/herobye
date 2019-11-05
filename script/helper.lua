@@ -508,6 +508,7 @@ function ScriptAddHeroHisBook()
 end
 
 function ScriptAddMellet()
+  RemoveItem('f_mallet_code', 1)
   SetItem('i_mallet', 1)
 end
 

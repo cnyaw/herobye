@@ -10,6 +10,7 @@ local WAIT_TIME = 30
 local back_obj_id = 22
 
 local input_code_right_talk_id = 2104
+local input_code_right_small_chest_talk_id = 2108
 
 CaveDoor = {}
 
@@ -57,7 +58,12 @@ function CaveDoorOnStepInputRight(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  StartTalk(input_code_right_talk_id)
+  ScriptOpenCaveDoor()
+  if (HasPowerScissor() and HasMallet()) then
+    StartTalk(input_code_right_small_chest_talk_id)
+  else
+    StartTalk(input_code_right_talk_id)
+  end
 end
 
 function CaveDoorOnStepInputWrong(param)
