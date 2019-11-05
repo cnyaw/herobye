@@ -505,12 +505,11 @@ TalkData = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
     {Image = ufo_tex_id},
     {Text = '哇哈哈哇哈哈！我又來啦！'},
-    {Text = '我是拳頭星的外星人魔王'},
+    {Text = '我是拳頭星的猜拳大王'},
     {Text = '我要征服勇者村'},
     {Text = '然後再征服這個世界'},
     {Text = '快把勇者交出來吧'},
     {Text = '否則就嘿嘿嘿嘿嘿嘿！'},
-    {Script = ScriptInterviewUfo},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Zhang mama home.

@@ -322,15 +322,11 @@ function IsFlashlightBuyable()
 end
 
 function IsGiveGodzillaValid()
-  return IsInterviewUfo() and HasCoin(GIVE_GODZILLA_COST)
-end
-
-function IsInterviewUfo()
-  return HasItem('f_interview_ufo')
+  return HasMallet() and HasCoin(GIVE_GODZILLA_COST)
 end
 
 function IsOpenRacingValid()
-  return IsInterviewUfo() and HasCoin(10)
+  return HasBackScratcher() and HasCoin(10)
 end
 
 function IsPowerupScissorLoop()
@@ -569,10 +565,6 @@ end
 
 function ScriptGiveGodzilla()
   SetItem('i_godzilla', 1);
-end
-
-function ScriptInterviewUfo()
-  SetItem('f_interview_ufo', 1)
 end
 
 function ScriptOpenCaveDoor()

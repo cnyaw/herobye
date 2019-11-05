@@ -7,7 +7,6 @@ i_bou3 = 4
 i_letter = 5
 f_finish_training = 7
 f_last_lvl_id = 8
-f_interview_ufo = 9
 i_godzilla = 10
 i_back_scratcher = 12
 i_enter_cave_count = 13
