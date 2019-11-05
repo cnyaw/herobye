@@ -346,7 +346,7 @@ function IsRestValid()
 end
 
 function IsSendTeacherLetterValid()
-  return not LetterSent() and not HasLetter() and HasBou3() and HasCoin(OPEN_CHURCH_COST)
+  return HasBou3() and HasCoin(OPEN_CHURCH_COST)
 end
 
 function IsStickTrainingMaxLv()
@@ -371,10 +371,6 @@ function ItemCount(id)
   else
     return 0
   end
-end
-
-function LetterSent()
-  return HasItem('f_letter_sent')
 end
 
 function LoadGame()
@@ -614,7 +610,6 @@ end
 function ScriptTransLetterToPriest()
   ConsumeCoin(CHURCH_RECV_LETTER_COST)
   RemoveItem('i_letter', 1)
-  SetItem('f_letter_sent', 1)
 end
 
 function ScriptUseFlashlight()

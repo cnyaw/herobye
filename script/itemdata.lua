@@ -5,7 +5,6 @@ i_bou = 2
 i_bou2 = 3
 i_bou3 = 4
 i_letter = 5
-f_letter_sent = 6
 f_finish_training = 7
 f_last_lvl_id = 8
 f_interview_ufo = 9
