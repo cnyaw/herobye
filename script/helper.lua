@@ -575,6 +575,7 @@ function ScriptPowerupScissor()
   RemoveItem('i_scissor', 1)
   RemoveItem('i_drum_stick', 1)
   RemoveItem('i_frog_tear', 1)
+  RemoveItem('f_powerup_scissor', 1)
   SetItem('i_power_scissor', 1)
 end
 
