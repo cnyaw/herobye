@@ -50,7 +50,7 @@ end
 function FindFrogSucc(param)
   ShowFrog(param._id)
   Good.SetScript(frog_obj_id, 'AnimTalkArrow')
-  SetFoundFrogCount(param, param.found_count + 1)
+  SetFoundFrogCount(param, param.counter_dummy_count + 1)
 end
 
 function HideFrog(id)
@@ -75,7 +75,7 @@ function OnSeekFrogDelay(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  if (CHECK_FOUND_COUND <= param.found_count) then
+  if (CHECK_FOUND_COUND <= param.counter_dummy_count) then
     StartTalk(frog_cry_talk_id)
     return
   end
@@ -109,30 +109,10 @@ function RandomPickLeaf(param)
 end
 
 function SetFoundFrogCount(param, c)
-  param.found_count = c
-  UpdateFoundFrogList(param)
+  param.counter_dummy_count = c
+  UpdateCounterDummyUi(param, FROG_TEAR_TEX_ID, CHECK_FOUND_COUND)
 end
 
 function ShowFrog(id)
   Good.AddChild(id, frog_obj_id)
-end
-
-function UpdateFoundFrogList(param)
-  if (nil ~= param.found_list) then
-    Good.KillObj(param.found_list)
-    param.found_list = nil
-  end
-  local tw, th = Resource.GetTexSize(FROG_TEAR_TEX_ID)
-  local ox = 0
-  local dummy = Good.GenDummy(param._id)
-  for i = 1, CHECK_FOUND_COUND do
-    local o = Good.GenObj(dummy, FROG_TEAR_TEX_ID)
-    Good.SetScale(o, 0.2, 0.2)
-    Good.SetPos(o, ox, 0)
-    ox = ox + tw * 0.2
-    if (i > param.found_count) then
-      Good.SetBgColor(o, COLOR_BLACK)
-    end
-  end
-  param.found_list = dummy
 end

@@ -637,6 +637,26 @@ function UpdateCoinInfo(param)
   param.coin_obj = o
 end
 
+function UpdateCounterDummyUi(param, tex, count)
+  if (nil ~= param.counter_dummy) then
+    Good.KillObj(param.counter_dummy)
+    param.counter_dummy = nil
+  end
+  local tw, th = Resource.GetTexSize(tex)
+  local ox = 0
+  local dummy = Good.GenDummy(param._id)
+  for i = 1, count do
+    local o = Good.GenObj(dummy, tex)
+    Good.SetScale(o, 0.2, 0.2)
+    Good.SetPos(o, ox, 0)
+    ox = ox + tw * 0.2
+    if (i > param.counter_dummy_count) then
+      Good.SetBgColor(o, COLOR_BLACK)
+    end
+  end
+  param.counter_dummy = dummy
+end
+
 function TrueCond()
   return true
 end

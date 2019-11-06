@@ -45,8 +45,8 @@ function RandButtonColor(param)
 end
 
 function SetCatchMouseCount(param, c)
-  param.mouse_count = c
-  UpdateCatchMouseList(param)
+  param.counter_dummy_count = c
+  UpdateCounterDummyUi(param, mouse_tex_id, CHECK_CATCH_COUND)
 end
 
 function SlapMouseHittest(param)
@@ -86,10 +86,10 @@ function SlapMouseOnStepMouse(param)
   end
   param.obj_i = param.obj_i - 1
   if (0 == param.obj_i) then
-    SetCatchMouseCount(param, param.mouse_count + 1)
+    SetCatchMouseCount(param, param.counter_dummy_count + 1)
     RandButtonColor(param)
     Good.SetPos(mouse_obj_id, param.orig_mouse_x, param.orig_mouse_y)
-    if (CHECK_CATCH_COUND <= param.mouse_count) then
+    if (CHECK_CATCH_COUND <= param.counter_dummy_count) then
       param.step = SlapMouseOnStepDone
     else
       param.step = SlapMouseOnStepInput
@@ -98,26 +98,6 @@ function SlapMouseOnStepMouse(param)
   end
   local x,y = Good.GetPos(param.obj[param.obj_i])
   Good.SetPos(mouse_obj_id, x, y)
-end
-
-function UpdateCatchMouseList(param)
-  if (nil ~= param.mouse_list) then
-    Good.KillObj(param.mouse_list)
-    param.mouse_list = nil
-  end
-  local tw, th = Resource.GetTexSize(mouse_tex_id)
-  local ox = 0
-  local dummy = Good.GenDummy(param._id)
-  for i = 1, CHECK_CATCH_COUND do
-    local o = Good.GenObj(dummy, mouse_tex_id)
-    Good.SetScale(o, 0.2, 0.2)
-    Good.SetPos(o, ox, 0)
-    ox = ox + tw * 0.2
-    if (i > param.mouse_count) then
-      Good.SetBgColor(o, COLOR_BLACK)
-    end
-  end
-  param.mouse_list = dummy
 end
 
 function ValidateMachineButton(param, i)
