@@ -3,7 +3,6 @@ local CHECK_FOUND_COUND = 8
 
 local frog_obj_id = 37
 local back_obj_id = 38
-local frog_tex_id = 357
 
 local frog_cry_talk_id = 2002
 

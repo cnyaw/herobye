@@ -4,7 +4,6 @@ local MAX_SAI_HOON = 5
 local SAI_HOON_SCALE = 1.75
 local COLOR = {0xffff00ff, COLOR_RED, COLOR_GREEN, 0xff0000ff, COLOR_YELLOW}
 
-local tex_sandglass_id = 273
 local tex_plus_id = 344
 local sai_hoon_obj_id = 335
 
