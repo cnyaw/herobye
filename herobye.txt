@@ -4,7 +4,7 @@ name=Hero Bye!
 window=640 384
 texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 55 61 62 63 65 73
 sprites=335
-levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71
+levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75
 groups=
 
 [scripts]
@@ -31,6 +31,7 @@ groups=
 18=./script/cavedoor.lua
 27=./script/seekfrog.lua
 64=./script/slapmouse.lua
+77=./script/alienboss.lua
 
 [tex1]
 name=tree1
@@ -1061,4 +1062,17 @@ yscale=0.5
 xpivot=1
 x=544
 dim=0 0 90 65
+
+[level75]
+name=alien boss
+bgColor=128 128 0
+script=AlienBoss
+objects=76
+
+[object76]
+texture=66
+x=240
+y=80
+script=AnimUfo
+dim=0 0 100 64
 

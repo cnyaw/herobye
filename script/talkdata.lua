@@ -5,6 +5,7 @@ local interview_hero_village_lvl_id = 331
 local clothes_drying_lvl_id = 340
 local seek_frog_lvl_id = 24
 local slap_mouse_lvl_id = 54
+local alien_boss_lvl_id = 75
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -16,7 +17,7 @@ local dog_tex_id = 2
 local pinky_tex_id = 316
 local grandpa_tex_id = 327
 local zhang_mama_tex_id = 329
-local ufo_tex_id = 343
+local ufo_obj_id = 343
 local frog_tex_id = 357
 local cave_door_tex_id = 0
 local chest_tex_id = 13
@@ -503,7 +504,7 @@ TalkData = {
   -- UFO coming.
   [1400] = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
-    {Image = ufo_tex_id},
+    {Image = ufo_obj_id},
     {Text = '哇哈哈哇哈哈！我又來啦！'},
     {Text = '我是拳頭星的猜拳大王'},
     {Text = '我要征服勇者村'},
@@ -868,8 +869,9 @@ TalkData = {
   },
   -- Alien area, ufo.
   [2200] = {
-    {Image = ufo_tex_id},
+    {Image = UFO_TEX_ID},
+    {Text = '勇者小白你終於來了'},
     {Text = '來打我啊笨蛋！'},
-    {LevelId = ALIEN_AREA_LVL_ID},
+    {LevelId = alien_boss_lvl_id},
   },
 }

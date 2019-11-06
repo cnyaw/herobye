@@ -1,7 +1,6 @@
 local MAX_ALIEN = 6
 local RPS_SIZE = 42
 
-local ufo_tex_id = 66
 local paper_tex_id = 358
 local stone_tex_id = 360
 local to_alien_area_obj_id = 70
@@ -37,7 +36,7 @@ function AlienPathHittest(param, x, y)
       if (not CanHitAlien(o)) then
         break
       end
-      GenFlyUpObj(o, ufo_tex_id)
+      GenFlyUpObj(o, UFO_TEX_ID)
       param.hit = param.hit + 1
       Good.KillObj(o)
       param.obj[i] = nil
@@ -58,9 +57,9 @@ function GenAliens(param)
   local can_hit = {HasPowerScissor(), HasMallet(), HasBackScratcher()}
   param.hit = 0
   param.obj = {}
-  local w, h = Resource.GetTexSize(ufo_tex_id)
+  local w, h = Resource.GetTexSize(UFO_TEX_ID)
   for i = 1, MAX_ALIEN do
-    local o = Good.GenObj(-1, ufo_tex_id, 'BouncingObj')
+    local o = Good.GenObj(-1, UFO_TEX_ID, 'BouncingObj')
     local x = math.random(SCR_W - w)
     local y = math.random(SCR_H - h)
     Good.SetPos(o, x, y)
