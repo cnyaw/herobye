@@ -1,11 +1,9 @@
 local MAX_ALIEN = 6
 local RPS_SIZE = 42
 
-local paper_tex_id = 358
-local stone_tex_id = 360
 local to_alien_area_obj_id = 70
 
-local weapon_tex_id = {paper_tex_id, SCISSOR_TEX_ID, stone_tex_id}
+local weapon_tex_id = {PAPER_TEX_ID, SCISSOR_TEX_ID, STONE_TEX_ID}
 
 AlienPath = {}
 

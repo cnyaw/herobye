@@ -1067,7 +1067,7 @@ dim=0 0 90 65
 name=alien boss
 bgColor=128 128 0
 script=AlienBoss
-objects=76
+objects=76 80 81 82
 
 [object76]
 texture=66
@@ -1075,4 +1075,39 @@ x=240
 y=80
 script=AnimUfo
 dim=0 0 100 64
+
+[object80]
+texture=4
+x=112
+y=240
+dim=0 0 90 90
+objects=83
+
+[object83]
+texture=359
+x=16
+dim=0 0 55 90
+
+[object81]
+texture=4
+x=272
+y=240
+dim=0 0 90 90
+objects=84
+
+[object84]
+texture=360
+x=16
+dim=0 0 69 90
+
+[object82]
+texture=4
+x=432
+y=240
+dim=0 0 90 90
+objects=85
+
+[object85]
+texture=358
+dim=0 0 72 90
 

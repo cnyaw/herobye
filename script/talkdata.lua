@@ -874,4 +874,10 @@ TalkData = {
     {Text = '來打我啊笨蛋！'},
     {LevelId = alien_boss_lvl_id},
   },
+  [2201] = {
+    {Image = UFO_TEX_ID},
+    {Text = '我是猜拳大王你怎麼贏的了我'},
+    {Text = '不可能我不認輸'},
+    {LevelId = ALIEN_AREA_LVL_ID},
+  },
 }
