@@ -241,6 +241,14 @@ TalkData = {
     {Text = '擁有剪刀力量的超級剪刀手'},
     {LevelId = BAG_LVL_ID},
   },
+  [614] = {
+    {Image = RPS_MEDAL_TEX_ID},
+    {Text = '「猜拳高手證明書」'},
+    {Text = '特頒發此證以證明'},
+    {Text = '勇者小白戰勝拳頭星的猜拳大王'},
+    {Text = '稱號為猜拳勇者'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -871,13 +879,29 @@ TalkData = {
   [2200] = {
     {Image = UFO_TEX_ID},
     {Text = '勇者小白你終於來了'},
-    {Text = '來打我啊笨蛋！'},
+    {Text = '我們就以猜拳來一決勝敗吧'},
     {LevelId = alien_boss_lvl_id},
   },
   [2201] = {
+    {NextCond = HasRpsMedal, NextId = 2202},
     {Image = UFO_TEX_ID},
-    {Text = '我是猜拳大王你怎麼贏的了我'},
-    {Text = '不可能我不認輸'},
+    {Text = '我是拳頭星的猜拳大王ㄟ'},
+    {Text = '想不到你用猜拳戰勝了我'},
+    {Text = '果然人外有人天外有天'},
+    {Text = '我要頒發一個證書給你'},
+    {Text = '證明你是戰勝猜拳大王的猜拳勇者'},
+    {Image = RPS_MEDAL_TEX_ID},
+    {Script = ScriptAddRpsMedal},
+    {Text = '我還要繼續加油努力'},
+    {Text = '有空要再來找我猜拳哦'},
+    {LevelId = ALIEN_AREA_LVL_ID},
+  },
+  [2202] = {
+    {Image = UFO_TEX_ID},
+    {Text = '我是拳頭星的猜拳大王ㄟ'},
+    {Text = '怎麼又輸給你這個猜拳勇者了'},
+    {Text = '我還要繼續加油努力'},
+    {Text = '有空要再來找我猜拳哦'},
     {LevelId = ALIEN_AREA_LVL_ID},
   },
 }

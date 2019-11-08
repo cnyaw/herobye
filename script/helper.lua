@@ -269,6 +269,10 @@ function HasPowerScissor()
   return HasItem('i_power_scissor')
 end
 
+function HasRpsMedal()
+  return HasItem('i_rps_medal')
+end
+
 function HasScissor()
   return HasItem('i_scissor')
 end
@@ -506,6 +510,10 @@ end
 
 function ScriptAddPowerScissorBook()
   SetItem('i_power_scissor_book', 1)
+end
+
+function ScriptAddRpsMedal()
+  SetItem('i_rps_medal', 1)
 end
 
 function ScriptAddSlapMouseBook()
