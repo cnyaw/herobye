@@ -72,7 +72,7 @@ end
 
 function SetUfoFightCount(param, c)
   param.counter_dummy_count = c
-  UpdateCounterDummyUi(param, UFO_TEX_ID, CHECK_FIGHT_COUND, 0.3)
+  UpdateCounterDummyUi(param, UFO_TEX_ID, CHECK_FIGHT_COUND)
 end
 
 function ValidateAlienBossHittest(param, btn_index)

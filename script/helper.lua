@@ -645,14 +645,12 @@ function UpdateCoinInfo(param)
   param.coin_obj = o
 end
 
-function UpdateCounterDummyUi(param, tex, count, scale)
+function UpdateCounterDummyUi(param, tex, count)
   if (nil ~= param.counter_dummy) then
     Good.KillObj(param.counter_dummy)
     param.counter_dummy = nil
   end
-  if (nil == scale) then
-    scale = 0.2
-  end
+  local scale = 0.4
   local tw, th = Resource.GetTexSize(tex)
   local ox = 0
   local dummy = Good.GenDummy(param._id)
