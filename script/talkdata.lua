@@ -463,6 +463,11 @@ TalkData = {
     {Text = '去豬妹妹家看看吧'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
+  [1307] = {
+    {Image = grandpa_tex_id},
+    {Text = '地底國的小矮人需要幫忙'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
   -- Hero village church, books.
   [1350] = {
     {Image = HERO_HIS_BOOK_TEX_ID},
