@@ -23,6 +23,7 @@ local cave_door_tex_id = 0
 local chest_tex_id = 13
 local pinky_papa_tex_id = 20
 local kai_tex_id = 49
+local dwarf_tex_id = 87
 
 local color_olive = 0xff808000
 
@@ -874,10 +875,16 @@ TalkData = {
     {Image = chest_tex_id},
     {Text = '打開空寶箱'},
     {Text = '仔細一看箱子底部還有個門'},
-    {Image = chest_tex_id, Scale = 0.5},
-    {Text = '打開箱子底部發現一個小寶箱'},
-    {Text = '打開小寶箱'},
-    {Text = '裡面是空的！'},
+    {Text = '但是不知道怎麼打開'},
+    {LevelId = CAVE_FIELD_LVL_ID},
+  },
+  [2109] = {
+    {Image = dwarf_tex_id},
+    {Text = '勇者小白您好'},
+    {Text = '我是來自地下王國的小地瓜'},
+    {Text = '我們的大長老馬鈴薯爺爺邀請您'},
+    {Text = '竭誠歡迎您到我們的王國來玩玩'},
+    {Text = '我們的大長老另外有事請你幫忙'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
   -- Alien area, ufo.
