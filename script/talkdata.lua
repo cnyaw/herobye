@@ -6,6 +6,7 @@ local clothes_drying_lvl_id = 340
 local seek_frog_lvl_id = 24
 local slap_mouse_lvl_id = 54
 local alien_boss_lvl_id = 75
+local cave_maze_lvl_id = 88
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -880,12 +881,26 @@ TalkData = {
   },
   [2109] = {
     {Image = dwarf_tex_id},
-    {Text = '勇者小白您好'},
-    {Text = '我是來自地下王國的小地瓜'},
-    {Text = '我們的大長老馬鈴薯爺爺邀請您'},
-    {Text = '竭誠歡迎您到我們的王國來玩玩'},
-    {Text = '我們的大長老另外有事請你幫忙'},
+    {Text = '勇者小白尼好'},
+    {Text = '偶是來自地底王國的小地瓜'},
+    {Text = '偶們的大長老馬鈴薯爺爺邀請尼'},
+    {Text = '竭誠歡迎尼到偶們的王國來玩玩'},
+    {Text = '偶們的大長老另外有事請尼幫忙'},
+    {Text = '洞口密碼門和寶箱密門偶都拆掉了'},
+    {Text = '那麼偶們就地底王國見囉'},
     {LevelId = CAVE_FIELD_LVL_ID},
+  },
+  [2110] = {
+    {NextCond = FlashlightOutOfPower, NextId = 2107},
+    {Script = ScriptUseFlashlight},
+    {Text = '光線有點暗淡'},
+    {Image = chest_tex_id},
+    {Text = '走到洞穴盡頭打開空寶箱'},
+    {Text = '進入地底王國'},
+    {Text = ''},
+    {Image = -1},
+    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {LevelId = cave_maze_lvl_id},
   },
   -- Alien area, ufo.
   [2200] = {

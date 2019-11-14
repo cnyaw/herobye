@@ -124,7 +124,8 @@ QuestData = {
   [17001] = {TalkId = {2101}, NextCond = HasFlashlight, NextId = 17002},
   [17002] = {TalkId = {2102}, NextId = 17003},
   [17003] = {TalkId = {2103}, NextCond = HasRpsMedal, NextId = 17004},
-  [17004] = {TalkId = {2109}},
+  [17004] = {TalkId = {2109}, NextId = 17005},
+  [17005] = {TalkId = {2110}},
   -- Back button.
   [18000] = {ScriptLevelId = GetHeroVillageBackLvlId},
   -- Alien path, to alien area.
