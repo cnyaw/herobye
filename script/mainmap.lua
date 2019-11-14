@@ -8,7 +8,7 @@ end
 
 MainMap.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, TITLE_LVL_ID)
+    Good.GenObj(-1, GetHeroVillageBackLvlId())
     return
   end
   if (Input.IsKeyPushed(Input.LBUTTON)) then
