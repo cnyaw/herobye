@@ -620,7 +620,7 @@ dim=0 0 32 32
 
 [level337]
 name=asset
-objects=343 41 43 45 52
+objects=343 41 43 45 52 90
 
 [object343]
 name=ufo of inverview hero village
@@ -691,6 +691,20 @@ yscale=0.5
 xpivot=0.5
 ypivot=0.5
 dim=0 0 120 114
+
+[object90]
+name=cave maze book
+texture=40
+x=160
+y=176
+dim=0 0 131 149
+objects=91
+
+[object91]
+texture=94
+x=16
+y=32
+dim=0 0 100 67
 
 [level350]
 name=hero village church

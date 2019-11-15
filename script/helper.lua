@@ -229,6 +229,10 @@ function HasCandy()
   return HasItem('i_candy')
 end
 
+function HasCaveMazeBookFlag()
+  return HasItem('f_cave_maze_book')
+end
+
 function HasDrumStick()
   return HasItem('i_drum_stick')
 end
@@ -489,6 +493,15 @@ end
 
 function ScriptAddCaveDoorBook()
   SetItem('i_cave_door_book', 1)
+end
+
+function ScriptAddCaveMazeBookFlag()
+  SetItem('f_cave_maze_book', 1)
+end
+
+function ScriptAddCaveMazeBook()
+  RemoveItem('f_cave_maze_book', 1)
+  SetItem('i_cave_maze_book', 1)
 end
 
 function ScriptAddDrumStick()

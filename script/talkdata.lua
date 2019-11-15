@@ -470,6 +470,14 @@ TalkData = {
     {Text = '地底國的小矮人需要幫忙'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
+  [1308] = {
+    {Image = grandpa_tex_id},
+    {Text = '我記得開啟洞穴之門的書的旁邊'},
+    {Text = '就有一本書是關於迷宮的'},
+    {Text = '你可以看看'},
+    {Script = ScriptAddCaveMazeBook},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
   -- Hero village church, books.
   [1350] = {
     {Image = HERO_HIS_BOOK_TEX_ID},
@@ -514,6 +522,14 @@ TalkData = {
     {Text = '4.老鼠跑來吃起士'},
     {Text = '5.老鼠踩到球跌倒'},
     {Text = '6.拍打器打下來打死老鼠'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [1354] = {
+    {Image = CAVE_MAZE_BOOK_TEX_ID},
+    {Text = '「地底王國迷宮之書」'},
+    {Text = '要找到迷宮出口進入地底王國'},
+    {Text = '需按照底下步驟走迷宮'},
+    {Text = '右上上右上上右上'},
     {LevelId = BAG_LVL_ID},
   },
   -- UFO coming.
@@ -888,6 +904,7 @@ TalkData = {
     {Text = '偶們的大長老另外有事請尼幫忙'},
     {Text = '洞口密碼門和寶箱密門偶都拆掉了'},
     {Text = '那麼偶們就地底王國見囉'},
+    {Script = ScriptAddCaveMazeBookFlag},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
   [2110] = {

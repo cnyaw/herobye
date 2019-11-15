@@ -28,6 +28,8 @@ i_slap_mouse_book = 31
 i_drum_stick = 32
 i_power_scissor = 33
 i_rps_medal = 34
+f_cave_maze_book = 35
+i_cave_maze_book = 36
 --]]
 
 local bou_desc_id = 600
@@ -49,6 +51,7 @@ local hero_his_book_desc_id = 1350
 local cave_door_book_desc_id = 1351
 local power_scissor_book_desc_id = 1352
 local slap_mouse_book_desc_id = 1353
+local cave_maze_book_desc_id = 1354
 
 e_main_bag = 1
 e_hero_bag = 2
@@ -73,4 +76,5 @@ ItemData = {
   i_drum_stick = {BagType = e_hero_bag, Image = DRUM_STICK_TEX_ID, TalkId = drum_stick_desc_id},
   i_power_scissor = {BagType = e_hero_bag, Image = SCISSOR_TEX_ID, TalkId = power_scissor_desc_id},
   i_rps_medal = {BagType = e_hero_bag, Image = RPS_MEDAL_TEX_ID, TalkId = rps_medal_desc_id},
+  i_cave_maze_book = {BagType = e_book_lib, Image = CAVE_MAZE_BOOK_TEX_ID, TalkId = cave_maze_book_desc_id},
 }
