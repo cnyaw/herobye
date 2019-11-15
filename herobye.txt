@@ -744,6 +744,7 @@ xscale=-1
 yscale=2
 visible=0
 y=160
+script=AnimTalkArrow
 dim=0 0 32 32
 
 [level366]
@@ -1042,6 +1043,7 @@ name=o_alien
 texture=66
 x=272
 y=160
+script=AnimTalkArrow
 dim=0 0 100 64
 
 [object78]
