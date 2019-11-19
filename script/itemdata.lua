@@ -53,6 +53,8 @@ local power_scissor_book_desc_id = 1352
 local slap_mouse_book_desc_id = 1353
 local cave_maze_book_desc_id = 1354
 
+local flash_light_obj_id = 92
+
 e_main_bag = 1
 e_hero_bag = 2
 e_book_lib = 3
@@ -64,7 +66,7 @@ ItemData = {
   i_letter = {BagType = e_main_bag, Image = LETTER_TEX_ID, TalkId = letter_desc_id},
   i_godzilla = {BagType = e_main_bag, Image = GODZILLA_TEX_ID, TalkId = godzilla_desc_id},
   i_back_scratcher = {BagType = e_hero_bag, Image = BACK_SCRATCHER_TEX_ID, TalkId = back_scratcher_desc_id},
-  i_flashlight = {BagType = e_hero_bag, Image = FLASHLIGHT_TEX_ID, TalkId = flashlight_desc_id},
+  i_flashlight = {BagType = e_hero_bag, Image = flash_light_obj_id, TalkId = flashlight_desc_id},
   i_mallet = {BagType = e_hero_bag, Image = MALLET_TEX_ID, TalkId = mallet_desc_id},
   i_candy = {BagType = e_hero_bag, Image = CANDY_TEX_ID, TalkId = candy_desc_id},
   i_scissor = {BagType = e_hero_bag, Image = SCISSOR_TEX_ID, TalkId = scissor_desc_id},

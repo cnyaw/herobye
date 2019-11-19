@@ -32,6 +32,7 @@ groups=
 64=./script/slapmouse.lua
 77=./script/alienboss.lua
 89=./script/cavemaze.lua
+93=./script/asset.lua
 
 [tex1]
 name=tree1
@@ -620,7 +621,7 @@ dim=0 0 32 32
 
 [level337]
 name=asset
-objects=343 41 43 45 52 90
+objects=343 41 43 45 52 90 92
 
 [object343]
 name=ufo of inverview hero village
@@ -705,6 +706,13 @@ texture=94
 x=16
 y=32
 dim=0 0 100 67
+
+[object92]
+texture=380
+x=336
+y=224
+script=FlashlightCounter
+dim=0 0 160 63
 
 [level350]
 name=hero village church

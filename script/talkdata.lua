@@ -25,6 +25,7 @@ local chest_tex_id = 13
 local pinky_papa_tex_id = 20
 local kai_tex_id = 49
 local dwarf_tex_id = 87
+local flashlight_tex_id = 380
 
 local color_olive = 0xff808000
 
@@ -203,7 +204,7 @@ TalkData = {
   },
   [606] = {
     {NextCond = FlashlightOutOfPower, NextId = 608},
-    {Image = FLASHLIGHT_TEX_ID},
+    {Image = flashlight_tex_id},
     {Text = '光線有點暗淡的手電筒'},
     {Text = '電力還能夠使用%d次', ScriptText = ScriptTextFlashlightUseCount},
     {LevelId = BAG_LVL_ID},
@@ -214,7 +215,7 @@ TalkData = {
     {LevelId = BAG_LVL_ID},
   },
   [608] = {
-    {Image = FLASHLIGHT_TEX_ID},
+    {Image = flashlight_tex_id},
     {Text = '沒有電力的手電筒'},
     {LevelId = BAG_LVL_ID},
   },
@@ -602,7 +603,7 @@ TalkData = {
     {Image = merchant_tex_id},
     {Text = '小白你運氣真好'},
     {Text = '這是最後一個高級手電筒了'},
-    {Image = FLASHLIGHT_TEX_ID},
+    {Image = flashlight_tex_id},
     {Text = string.format('收你%d塊錢謝謝惠顧', FLASHLIGHT_COST)},
     {Script = ScriptBuyFlashlight},
     {LevelId = HERO_VILLAGE_LVL_ID},

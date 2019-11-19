@@ -2,7 +2,6 @@
 local OPEN_CHURCH_COST = 50
 local GIVE_GODZILLA_COST = 100
 local CROWD_FUNDING_COST = 1000
-local MAX_FLASH_LIGHT_USE_COUNT = 5
 
 local tex_sandglass_id = 273
 local red_point_tex_id = 313
