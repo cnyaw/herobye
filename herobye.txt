@@ -2,7 +2,7 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 55 61 62 63 65 73 86 87
+texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 55 61 62 63 65 73 86 87 95
 sprites=335
 levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75 88
 groups=
@@ -349,6 +349,10 @@ fileName=./res/medal.png
 [tex87]
 name=dwarf
 fileName=./res/dwarf.png
+
+[tex95]
+name=torch
+fileName=./res/torch.png
 
 [sprite335]
 name=saihoon
@@ -1132,6 +1136,168 @@ dim=0 0 72 90
 
 [level88]
 name=cave maze
-bgColor=0 0 0
+bgColor=128 128 64
 script=CaveMaze
+objects=97 99 101 103 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 123
+width=1920
+height=1152
+snapWidth=8
+snapHeight=8
+vgrid=640 0 0 0
+hgrid=384 0 0 0
+
+[object97]
+texture=95
+x=640
+dim=0 0 59 89
+
+[object99]
+texture=95
+x=640
+y=296
+dim=0 0 59 89
+
+[object101]
+texture=95
+x=1224
+dim=0 0 59 89
+
+[object103]
+texture=95
+x=1224
+y=296
+dim=0 0 59 89
+
+[object105]
+texture=95
+x=640
+y=384
+dim=0 0 59 89
+
+[object106]
+texture=95
+x=1224
+y=384
+dim=0 0 59 89
+
+[object107]
+texture=95
+x=1224
+y=680
+dim=0 0 59 89
+
+[object108]
+texture=95
+x=640
+y=680
+dim=0 0 59 89
+
+[object109]
+texture=95
+x=640
+y=768
+dim=0 0 59 89
+
+[object110]
+texture=95
+x=1224
+y=768
+dim=0 0 59 89
+
+[object111]
+texture=95
+x=1224
+y=1064
+dim=0 0 59 89
+
+[object112]
+texture=95
+x=640
+y=1064
+dim=0 0 59 89
+
+[object113]
+texture=95
+y=680
+dim=0 0 59 89
+
+[object114]
+texture=95
+x=584
+y=680
+dim=0 0 59 89
+
+[object115]
+texture=95
+x=584
+y=384
+dim=0 0 59 89
+
+[object116]
+texture=95
+y=384
+dim=0 0 59 89
+
+[object117]
+texture=95
+x=1280
+y=384
+dim=0 0 59 89
+
+[object118]
+texture=95
+x=1280
+y=680
+dim=0 0 59 89
+
+[object119]
+texture=95
+x=1864
+y=384
+dim=0 0 59 89
+
+[object120]
+texture=95
+x=1864
+y=680
+dim=0 0 59 89
+
+[object123]
+sprite=255
+texture=255
+map=255
+objects=121 122 124 125
+
+[object121]
+texture=261
+xscale=-1
+yscale=2
+y=160
+dim=0 0 32 32
+
+[object122]
+texture=261
+yscale=2
+x=608
+y=176
+dim=0 0 32 32
+
+[object124]
+texture=261
+rot=-90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+x=304
+dim=0 0 32 32
+
+[object125]
+texture=261
+rot=90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+x=312
+y=352
+dim=0 0 32 32
 

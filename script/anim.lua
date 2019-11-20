@@ -1,4 +1,10 @@
 
+function AcCaveMazeScrollDone(param)
+  param.k = nil
+  Good.SetScript(param._id, 'CaveMaze')
+  CenterMaze(param)
+end
+
 function AcKillAnimObj(param)
   Good.KillObj(param._id)
 end
@@ -149,6 +155,19 @@ AnimUfo.OnStep = function(param)
     ArAddDelay(loopn3, 5)
 
     param.k = ArAddAnimator({loopn, loopn2, loopn3})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimCaveMazeScroll = {}
+
+AnimCaveMazeScroll.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveTo(loop1, 'Pos', 1, param.tx, param.ty).ease = ArEaseOut
+    ArAddCall(loop1, 'AcCaveMazeScrollDone', 0)
+    param.k = ArAddAnimator({loop1})
   else
     ArStepAnimator(param, param.k)
   end
