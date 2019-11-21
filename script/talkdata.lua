@@ -26,6 +26,7 @@ local pinky_papa_tex_id = 20
 local kai_tex_id = 49
 local dwarf_tex_id = 87
 local flashlight_tex_id = 380
+local well_tex_id = 181
 
 local color_olive = 0xff808000
 
@@ -531,6 +532,8 @@ TalkData = {
     {Text = '要找到迷宮出口進入地底王國'},
     {Text = '需按照底下步驟走迷宮'},
     {Text = '右上上右上上右上'},
+    {Text = '最後看到一口井'},
+    {Text = '井底就是地底王國了'},
     {LevelId = BAG_LVL_ID},
   },
   -- UFO coming.
@@ -919,6 +922,11 @@ TalkData = {
     {Image = -1},
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
     {LevelId = cave_maze_lvl_id},
+  },
+  [2111] = {
+    {Image = well_tex_id},
+    {Text = '終於可以進入地底王國了'},
+    {LevelId = CAVE_FIELD_LVL_ID},
   },
   -- Alien area, ufo.
   [2200] = {

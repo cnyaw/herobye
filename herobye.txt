@@ -1136,9 +1136,9 @@ dim=0 0 72 90
 
 [level88]
 name=cave maze
-bgColor=128 128 64
+bgColor=128 128 0
 script=CaveMaze
-objects=97 99 101 103 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 123
+objects=97 99 101 103 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 123 126
 width=1920
 height=1152
 snapWidth=8
@@ -1297,7 +1297,13 @@ rot=90
 yscale=2
 xpivot=0.5
 ypivot=0.5
-x=312
+x=304
 y=352
 dim=0 0 32 32
+
+[object126]
+texture=181
+x=272
+y=128
+dim=0 0 91 100
 

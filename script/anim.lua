@@ -165,7 +165,7 @@ AnimCaveMazeScroll = {}
 AnimCaveMazeScroll.OnStep = function(param)
   if (nil == param.k) then
     local loop1 = ArAddLoop(nil)
-    ArAddMoveTo(loop1, 'Pos', 1, param.tx, param.ty).ease = ArEaseOut
+    ArAddMoveTo(loop1, 'Pos', 0.75, param.tx, param.ty).ease = ArEaseOut
     ArAddCall(loop1, 'AcCaveMazeScrollDone', 0)
     param.k = ArAddAnimator({loop1})
   else
