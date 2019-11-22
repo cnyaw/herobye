@@ -16,6 +16,7 @@ local curr_path = ''
 CaveMaze = {}
 
 CaveMaze.OnCreate = function(param)
+  curr_path = ''
   param.wx, param.wy = Good.GetPos(well_obj_id)
   Good.SetVisible(well_obj_id, 0)
   CenterMaze(param)
