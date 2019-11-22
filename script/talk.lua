@@ -144,5 +144,8 @@ function StepOneTalk()
     HandleTalkFadeTo(talk)
   elseif (nil ~= talk.NextId) then
     HandleTalkNextId(talk)
+  elseif (nil ~= talk.BgColor) then
+    Good.SetBgColor(curr_lvl_id, talk.BgColor)
+    StepOneTalk()
   end
 end

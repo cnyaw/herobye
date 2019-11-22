@@ -7,6 +7,7 @@ local seek_frog_lvl_id = 24
 local slap_mouse_lvl_id = 54
 local alien_boss_lvl_id = 75
 local cave_maze_lvl_id = 88
+local under_world_entrance_lvl_id = 127
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -920,13 +921,14 @@ TalkData = {
     {Text = '進入地底王國'},
     {Text = ''},
     {Image = -1},
-    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {FadeTo = {ONE_SECOND_TICK, COLOR_GRAY}},
     {LevelId = cave_maze_lvl_id},
   },
   [2111] = {
+    {BgColor = COLOR_GRAY},
     {Image = well_tex_id},
     {Text = '終於可以進入地底王國了'},
-    {LevelId = CAVE_FIELD_LVL_ID},
+    {LevelId = under_world_entrance_lvl_id},
   },
   -- Alien area, ufo.
   [2200] = {
