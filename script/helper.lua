@@ -176,30 +176,6 @@ function GenSandGlassObj(cd)
   return o
 end
 
-function GetCurrBouGain()
-  if (IsTempleCrowdFunding() and HasGodzilla()) then
-    return 20
-  elseif (HasBou3()) then
-    return 5
-  elseif (HasBou2()) then
-    return 3
-  else
-    return 1
-  end
-end
-
-function GetCurrBouTexId()
-  if (IsTempleCrowdFunding() and HasGodzilla()) then
-    return GODZILLA_TEX_ID
-  elseif (HasBou3()) then
-    return BOU3_TEX_ID
-  elseif (HasBou2()) then
-    return BOU2_TEX_ID
-  else
-    return BOU_TEX_ID
-  end
-end
-
 function GetCurrTalk()
   return TalkData[curr_talk_id[1]]
 end

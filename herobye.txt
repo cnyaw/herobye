@@ -1308,7 +1308,7 @@ y=128
 dim=0 0 91 100
 
 [level127]
-name=underworld entrance
+name=underworld entry
 bgColor=128 128 128
 objects=129 130 131 133
 
