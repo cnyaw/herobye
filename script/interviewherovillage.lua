@@ -2,23 +2,16 @@
 local WAIT_TIME = 60
 local BLINK_TIME = 120
 
-local building_group_obj_id = 368
-
 local ufo_coming_talk_id = 1400
 
 InterviewHeroVillage = {}
 
 InterviewHeroVillage.OnCreate = function(param)
-  GenObjFromBuildingGroup()
   param.step = InterviewHeroVillageOnStepInit
 end
 
 InterviewHeroVillage.OnStep = function(param)
   param.step(param)
-end
-
-function GenObjFromBuildingGroup()
-  Good.GenObj(-1, building_group_obj_id)
 end
 
 function InterviewHeroVillageOnStepBlink(param)

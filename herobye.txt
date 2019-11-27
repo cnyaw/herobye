@@ -533,6 +533,12 @@ script=HelpPinky
 name=interview hero village
 bgColor=128 128 0
 script=InterviewHeroVillage
+objects=128
+
+[object128]
+sprite=368
+texture=254
+map=254
 
 [level320]
 name=hero village
