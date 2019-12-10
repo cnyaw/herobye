@@ -53,7 +53,7 @@ function GenSaiHoon(param)
     end
     param.h = nil
   end
-  local w,h = Resource.GetSpriteSize(sai_hoon_obj_id)
+  local w,h = Resource.GetTileSize(sai_hoon_obj_id)
   sai_hoon_sz = h * SAI_HOON_SCALE
   param.h = {}
   param.n = {}
