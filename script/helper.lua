@@ -625,7 +625,7 @@ function UpdateCoinInfo(param)
     Good.KillObj(param.coin_obj)
     param.coin_obj = nil
   end
-  if (-1 == Good.FindChild(param._id, 'coin')) then
+  if (-1 == Good.FindChild(param._id, 'coin', 1)) then
     return
   end
   local o = GenNumObj(GetCoin(), 32)
