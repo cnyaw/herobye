@@ -134,4 +134,8 @@ QuestData = {
   [19000] = {LevelId = ALIEN_AREA_LVL_ID},
   -- Alien area, ufo.
   [20000] = {TalkId = {2200}},
+  -- Under world entry, well.
+  [21000] = {TalkId = {2300}},
+  -- Under world entry, dwarf potato.
+  [21100] = {TalkId = {2400}},
 }

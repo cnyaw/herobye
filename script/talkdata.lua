@@ -959,4 +959,20 @@ TalkData = {
     {Text = '有空要再來找我猜拳哦'},
     {LevelId = ALIEN_AREA_LVL_ID},
   },
+  -- Under world entry, well.
+  [2300] = {
+    {BgColor = COLOR_GRAY},
+    {Image = well_tex_id},
+    {Text = '按照原路回到地面上吧'},
+    {LevelId = CAVE_FIELD_LVL_ID},
+  },
+  -- Under world entry, dwarf potata.
+  [2400] = {
+    {BgColor = COLOR_GRAY},
+    {Image = dwarf_tex_id},
+    {Text = '勇者小白尼好'},
+    {Text = '偶是地底王國的小地瓜'},
+    {Text = '歡迎尼到偶們的王國'},
+    {LevelId = under_world_entrance_lvl_id},
+  },
 }

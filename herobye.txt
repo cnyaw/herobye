@@ -1305,29 +1305,20 @@ dim=0 0 91 100
 [level127]
 name=underworld entry
 bgColor=128 128 128
-objects=129 130 131 133
-
-[object129]
-texture=94
-x=120
-y=75
-dim=0 0 100 67
-
-[object130]
-texture=94
-x=112
-y=240
-dim=0 0 100 67
-
-[object131]
-texture=94
-x=400
-y=80
-dim=0 0 100 67
+script=MainMap
+objects=133 78
 
 [object133]
+name=o_well
 texture=181
-x=416
-y=224
+x=400
+y=160
 dim=0 0 91 100
+
+[object78]
+name=o_dwarfpotato
+texture=87
+x=144
+y=112
+dim=0 0 85 156
 
