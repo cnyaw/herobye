@@ -42,6 +42,8 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_alien = 20000,
   o_well = 21000,
   o_dwarfpotato = 21100,
+  o_toUnderMain = 21200,
+  o_toUnderEntry = 21300,
 }
 
 obj_state = {

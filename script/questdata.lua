@@ -1,5 +1,6 @@
 
 local beg_money_lvl_id = 293
+local underworld_main_lvl_id = 142
 local temple_tex_id = 50
 local curcus_tex_id = 73
 
@@ -138,4 +139,8 @@ QuestData = {
   [21000] = {TalkId = {2300}},
   -- Under world entry, dwarf potato.
   [21100] = {TalkId = {2400}},
+  -- Under world entry, to main map.
+  [21200] = {LevelId = underworld_main_lvl_id},
+  -- Under world main, to entry.
+  [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
 }

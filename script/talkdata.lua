@@ -7,7 +7,6 @@ local seek_frog_lvl_id = 24
 local slap_mouse_lvl_id = 54
 local alien_boss_lvl_id = 75
 local cave_maze_lvl_id = 88
-local under_world_entrance_lvl_id = 127
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -928,7 +927,7 @@ TalkData = {
     {BgColor = COLOR_GRAY},
     {Image = well_tex_id},
     {Text = '終於可以進入地底王國了'},
-    {LevelId = under_world_entrance_lvl_id},
+    {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
   -- Alien area, ufo.
   [2200] = {
@@ -966,13 +965,13 @@ TalkData = {
     {Text = '按照原路回到地面上吧'},
     {LevelId = CAVE_FIELD_LVL_ID},
   },
-  -- Under world entry, dwarf potata.
+  -- Under world entry, dwarf potato.
   [2400] = {
     {BgColor = COLOR_GRAY},
     {Image = dwarf_tex_id},
     {Text = '勇者小白尼好'},
     {Text = '偶是地底王國的小地瓜'},
     {Text = '歡迎尼到偶們的王國'},
-    {LevelId = under_world_entrance_lvl_id},
+    {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
 }
