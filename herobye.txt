@@ -1133,7 +1133,7 @@ dim=0 0 72 90
 name=cave maze
 bgColor=128 128 128
 script=CaveMaze
-objects=97 99 101 103 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 123 126
+objects=123 126 79 129 131 140 141
 width=1920
 height=1152
 snapWidth=8
@@ -1141,123 +1141,8 @@ snapHeight=8
 vgrid=640 0 0 0
 hgrid=384 0 0 0
 
-[object97]
-texture=95
-x=640
-dim=0 0 59 89
-
-[object99]
-texture=95
-x=640
-y=296
-dim=0 0 59 89
-
-[object101]
-texture=95
-x=1224
-dim=0 0 59 89
-
-[object103]
-texture=95
-x=1224
-y=296
-dim=0 0 59 89
-
-[object105]
-texture=95
-x=640
-y=384
-dim=0 0 59 89
-
-[object106]
-texture=95
-x=1224
-y=384
-dim=0 0 59 89
-
-[object107]
-texture=95
-x=1224
-y=680
-dim=0 0 59 89
-
-[object108]
-texture=95
-x=640
-y=680
-dim=0 0 59 89
-
-[object109]
-texture=95
-x=640
-y=768
-dim=0 0 59 89
-
-[object110]
-texture=95
-x=1224
-y=768
-dim=0 0 59 89
-
-[object111]
-texture=95
-x=1224
-y=1064
-dim=0 0 59 89
-
-[object112]
-texture=95
-x=640
-y=1064
-dim=0 0 59 89
-
-[object113]
-texture=95
-y=680
-dim=0 0 59 89
-
-[object114]
-texture=95
-x=584
-y=680
-dim=0 0 59 89
-
-[object115]
-texture=95
-x=584
-y=384
-dim=0 0 59 89
-
-[object116]
-texture=95
-y=384
-dim=0 0 59 89
-
-[object117]
-texture=95
-x=1280
-y=384
-dim=0 0 59 89
-
-[object118]
-texture=95
-x=1280
-y=680
-dim=0 0 59 89
-
-[object119]
-texture=95
-x=1864
-y=384
-dim=0 0 59 89
-
-[object120]
-texture=95
-x=1864
-y=680
-dim=0 0 59 89
-
 [object123]
+name=arrows
 sprite=255
 texture=255
 map=255
@@ -1297,16 +1182,72 @@ y=352
 dim=0 0 32 32
 
 [object126]
+name=well
 texture=181
 x=272
 y=128
 dim=0 0 91 100
 
+[object79]
+name=torches
+sprite=255
+texture=255
+map=255
+x=640
+objects=97 99 101 103
+
+[object97]
+texture=95
+dim=0 0 59 89
+
+[object99]
+texture=95
+y=296
+dim=0 0 59 89
+
+[object101]
+texture=95
+x=584
+dim=0 0 59 89
+
+[object103]
+texture=95
+x=584
+y=296
+dim=0 0 59 89
+
+[object129]
+sprite=79
+texture=254
+map=254
+y=384
+
+[object131]
+sprite=79
+texture=254
+map=254
+x=640
+y=384
+
+[object140]
+sprite=79
+texture=254
+map=254
+x=640
+y=768
+
+[object141]
+sprite=79
+texture=254
+map=254
+x=1280
+y=384
+
 [level127]
 name=underworld entry
 bgColor=128 128 128
 script=MainMap
-objects=133 78 130
+objects=133 78 130 144
 
 [object133]
 name=o_well
@@ -1332,11 +1273,16 @@ ypivot=0.5
 x=304
 dim=0 0 32 32
 
+[object144]
+sprite=79
+texture=254
+map=254
+
 [level142]
 name=underworld main
 bgColor=128 128 128
 script=MainMap
-objects=143
+objects=143 145
 
 [object143]
 name=o_toUnderEntry
@@ -1348,4 +1294,9 @@ ypivot=0.5
 x=304
 y=352
 dim=0 0 32 32
+
+[object145]
+sprite=79
+texture=254
+map=254
 
