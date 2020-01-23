@@ -7,6 +7,7 @@ local seek_frog_lvl_id = 24
 local slap_mouse_lvl_id = 54
 local alien_boss_lvl_id = 75
 local cave_maze_lvl_id = 88
+local pair_game_lvl_id = 107
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -973,5 +974,22 @@ TalkData = {
     {Text = '偶是地底王國的小地瓜'},
     {Text = '歡迎尼到偶們的王國'},
     {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
+  },
+  -- Under world entry, to main map.
+  [2500] = {
+    {BgColor = COLOR_GRAY},
+    {Image = dwarf_tex_id},
+    {Text = '勇者小白尼好'},
+    {Text = '進入偶們的王國之前'},
+    {Text = '偶想要給你一個小小的測驗'},
+    {LevelId = pair_game_lvl_id},
+  },
+  [2501] = {
+    {BgColor = COLOR_GRAY},
+    {Image = dwarf_tex_id},
+    {Text = '勇者小白尼好'},
+    {Text = '恭喜通過這個小小的測驗'},
+    {Text = '請進入偶們的王國'},
+    {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
 }
