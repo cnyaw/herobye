@@ -320,6 +320,10 @@ function IsPowerupScissorLoop()
   return HasItem('f_powerup_scissor')
 end
 
+function IsPassPotatoTest()
+  return HasItem('f_pass_potato_test')
+end
+
 function IsPowerupScissorReady()
   return HasFrogTear() and HasScissor() and HasDrumStick()
 end
@@ -569,6 +573,10 @@ end
 
 function ScriptOpenCaveDoor()
   SetItem('f_open_cave_door', 1)
+end
+
+function ScriptPassPotatoTest()
+  SetItem('f_pass_potato_test', 1)
 end
 
 function ScriptPowerupScissor()

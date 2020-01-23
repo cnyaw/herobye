@@ -975,6 +975,14 @@ TalkData = {
     {Text = '歡迎尼到偶們的王國'},
     {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
+  [2401] = {
+    {BgColor = COLOR_GRAY},
+    {Image = dwarf_tex_id},
+    {Text = '勇者小白尼好'},
+    {Text = '偶是地底王國的小地瓜'},
+    {Text = '偶想要再給你一個小小的測驗'},
+    {LevelId = pair_game_lvl_id},
+  },
   -- Under world entry, to main map.
   [2500] = {
     {BgColor = COLOR_GRAY},
@@ -989,7 +997,15 @@ TalkData = {
     {Image = dwarf_tex_id},
     {Text = '勇者小白尼好'},
     {Text = '恭喜通過這個小小的測驗'},
+    {NextCond = IsPassPotatoTest, NextId = 2502},
     {Text = '請進入偶們的王國'},
+    {Script = ScriptPassPotatoTest},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  [2502] = {
+    {BgColor = COLOR_GRAY},
+    {Image = dwarf_tex_id},
+    {Text = '隨時歡迎你再來挑戰哦'},
+    {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
 }

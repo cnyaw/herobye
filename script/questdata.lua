@@ -137,9 +137,11 @@ QuestData = {
   -- Under world entry, well.
   [21000] = {TalkId = {2300}},
   -- Under world entry, dwarf potato.
-  [21100] = {TalkId = {2400}},
+  [21100] = {TalkId = {2400}, NextCond = IsPassPotatoTest, NextId = 21101},
+  [21101] = {TalkId = {2401}},
   -- Under world entry, to main map.
-  [21200] = {TalkId = {2500}},
+  [21200] = {TalkId = {2500}, NextCond = IsPassPotatoTest, NextId = 21201},
+  [21201] = {LevelId = UNDERWORLD_MAIN_LVL_ID},
   -- Under world main, to entry.
   [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
 }
