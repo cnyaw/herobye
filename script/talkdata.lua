@@ -28,6 +28,9 @@ local kai_tex_id = 49
 local dwarf_tex_id = 87
 local flashlight_tex_id = 380
 local well_tex_id = 181
+local elder_glass_tex_id = 108
+local elder_yellow_tex_id = 106
+local elder_white_tex_id = 110
 
 local color_olive = 0xff808000
 
@@ -1007,5 +1010,27 @@ TalkData = {
     {Image = dwarf_tex_id},
     {Text = '隨時歡迎你再來挑戰哦'},
     {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
+  },
+  -- Under world main.
+  [2600] = {
+    {BgColor = COLOR_GRAY},
+    {Image = elder_glass_tex_id},
+    {Text = '尼好偶是眼鏡長老'},
+    {Text = '歡迎尼來到地底王國'},
+    {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  [2601] = {
+    {BgColor = COLOR_GRAY},
+    {Image = elder_yellow_tex_id},
+    {Text = '尼好偶是黃袍長老'},
+    {Text = '歡迎尼來到地底王國'},
+    {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  [2602] = {
+    {BgColor = COLOR_GRAY},
+    {Image = elder_white_tex_id},
+    {Text = '尼好偶是白鬍子長老'},
+    {Text = '歡迎尼來到地底王國'},
+    {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
 }

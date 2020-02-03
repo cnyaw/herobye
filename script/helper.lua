@@ -44,6 +44,9 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_dwarfpotato = 21100,
   o_toUnderMain = 21200,
   o_toUnderEntry = 21300,
+  o_elderGlass = 21400,
+  o_elderYellow = 21500,
+  o_elderWhite = 21600,
 }
 
 obj_state = {

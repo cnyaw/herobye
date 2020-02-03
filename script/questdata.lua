@@ -144,4 +144,7 @@ QuestData = {
   [21201] = {LevelId = UNDERWORLD_MAIN_LVL_ID},
   -- Under world main, to entry.
   [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
+  [21400] = {TalkId = {2600}},
+  [21500] = {TalkId = {2601}},
+  [21600] = {TalkId = {2602}},
 }

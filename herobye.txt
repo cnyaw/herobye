@@ -2,7 +2,7 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 55 61 62 63 65 73 86 87 95 105
+texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 55 61 62 63 65 73 86 87 95 105 106 108 110
 sprites=335
 levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75 88 127 142 107
 groups=
@@ -358,6 +358,18 @@ fileName=./res/torch.png
 [tex105]
 name=jewel
 fileName=./res/jewel.png
+
+[tex106]
+name=elderyellow
+fileName=./res/oldman1.png
+
+[tex108]
+name=elderglass
+fileName=./res/oldman2.png
+
+[tex110]
+name=elderwhite
+fileName=./res/oldman3.png
 
 [sprite335]
 name=saihoon
@@ -1287,7 +1299,7 @@ map=254
 name=underworld main
 bgColor=128 128 128
 script=MainMap
-objects=143 145
+objects=143 111 112 113
 
 [object143]
 name=o_toUnderEntry
@@ -1300,10 +1312,26 @@ x=304
 y=352
 dim=0 0 32 32
 
-[object145]
-sprite=79
-texture=254
-map=254
+[object111]
+name=o_elderYellow
+texture=106
+x=272
+y=80
+dim=0 0 87 200
+
+[object112]
+name=o_elderGlass
+texture=108
+x=112
+y=80
+dim=0 0 95 200
+
+[object113]
+name=o_elderWhite
+texture=110
+x=432
+y=80
+dim=0 0 92 200
 
 [level107]
 name=pair game
