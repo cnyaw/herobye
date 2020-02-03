@@ -5,18 +5,18 @@ local MARGIN = 20
 
 local jewel_id = 105
 
-local W, H = Resource.GetTexSize(jewel_id)
-local OFFSET_X = (SCR_W - (COL_COUNT * (W + MARGIN))) / 2
-local OFFSET_y = (SCR_H - (ROW_COUNT * (H + MARGIN))) / 2
-local WW, HH = W + MARGIN, H + MARGIN
-
 local COLORS = {COLOR_RED, COLOR_GREEN, COLOR_BLUE}
+local W, H, OFFSET_X, OFFSET_Y, WW, HH
 
 local pass_talk_id = 2501
 
 PairGame = {}
 
 PairGame.OnCreate = function(param)
+  W, H = Resource.GetTexSize(jewel_id)
+  OFFSET_X = (SCR_W - (COL_COUNT * (W + MARGIN))) / 2
+  OFFSET_Y = (SCR_H - (ROW_COUNT * (H + MARGIN))) / 2
+  WW, HH = W + MARGIN, H + MARGIN
   local color_offset = math.random(100)
   local objs = {}
   local colors = {}
@@ -24,7 +24,7 @@ PairGame.OnCreate = function(param)
   for i = 0, ROW_COUNT - 1 do
     for j = 0, COL_COUNT - 1 do
       local o = Good.GenObj(-1, jewel_id)
-      Good.SetPos(o, OFFSET_X + j * WW, OFFSET_y + i * HH)
+      Good.SetPos(o, OFFSET_X + j * WW, OFFSET_Y + i * HH)
       local color_index = 1 + obj_index % #COLORS
       Good.SetBgColor(o, COLORS[color_index])
       objs[obj_index] = o
@@ -50,7 +50,7 @@ PairGame.OnStep = function(param)
   local obj_index = param.color_offset
   for i = 0, ROW_COUNT - 1 do
     for j = 0, COL_COUNT - 1 do
-      local x0, y0 = OFFSET_X + j * WW, OFFSET_y + i * HH
+      local x0, y0 = OFFSET_X + j * WW, OFFSET_Y + i * HH
       if (PtInRect(x, y, x0, y0, x0 + WW, y0 + HH)) then
         local color1 = param.colors[obj_index]
         if (-1 == color1) then
