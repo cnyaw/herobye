@@ -147,4 +147,5 @@ QuestData = {
   [21400] = {TalkId = {2600}},
   [21500] = {TalkId = {2601}},
   [21600] = {TalkId = {2602}},
+  [21700] = {LevelId = TRASH_FIELD_LVL_ID},
 }

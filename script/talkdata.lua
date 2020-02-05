@@ -998,7 +998,6 @@ TalkData = {
   [2501] = {
     {BgColor = COLOR_GRAY},
     {Image = dwarf_tex_id},
-    {Text = '勇者小白尼好'},
     {Text = '恭喜通過這個小小的測驗'},
     {NextCond = IsPassPotatoTest, NextId = 2502},
     {Text = '請進入偶們的王國'},

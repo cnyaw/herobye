@@ -47,6 +47,7 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_elderGlass = 21400,
   o_elderYellow = 21500,
   o_elderWhite = 21600,
+  o_toTrashField = 21700,
 }
 
 obj_state = {
