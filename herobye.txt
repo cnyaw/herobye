@@ -2,7 +2,7 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 55 61 62 63 65 73 86 87 95 105 106 108 110 118
+texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 55 61 62 63 65 73 86 87 95 105 106 108 110 118 115
 sprites=335
 levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75 88 127 142 107 114
 groups=
@@ -374,6 +374,10 @@ fileName=./res/oldman3.png
 [tex118]
 name=fish bone
 fileName=./res/fishbone.png
+
+[tex115]
+name=old lady
+fileName=./res/oldlady.png
 
 [sprite335]
 name=saihoon
@@ -1303,7 +1307,7 @@ map=254
 name=underworld main
 bgColor=128 128 128
 script=MainMap
-objects=143 111 112 113 117
+objects=143 117 145 146 147
 
 [object143]
 name=o_toUnderEntry
@@ -1316,27 +1320,6 @@ x=304
 y=352
 dim=0 0 32 32
 
-[object111]
-name=o_elderYellow
-texture=106
-x=272
-y=80
-dim=0 0 87 200
-
-[object112]
-name=o_elderGlass
-texture=108
-x=96
-y=80
-dim=0 0 95 200
-
-[object113]
-name=o_elderWhite
-texture=110
-x=448
-y=80
-dim=0 0 92 200
-
 [object117]
 name=o_toTrashField
 texture=261
@@ -1344,6 +1327,27 @@ xscale=-1
 yscale=2
 y=160
 dim=0 0 32 32
+
+[object145]
+name=o_elderGlass
+texture=94
+x=112
+y=160
+dim=0 0 100 67
+
+[object146]
+name=o_elderYellow
+texture=94
+x=272
+y=160
+dim=0 0 100 67
+
+[object147]
+name=o_elderWhite
+texture=94
+x=432
+y=160
+dim=0 0 100 67
 
 [level107]
 name=pair game
@@ -1354,7 +1358,7 @@ script=PairGame
 name=trash field
 bgColor=128 128 128
 script=MainMap
-objects=116 163
+objects=116 163 120
 
 [object116]
 name=o_toUnderMain
@@ -1389,4 +1393,11 @@ xscale=-1
 x=176
 y=-64
 dim=0 0 100 76
+
+[object120]
+name=o_oldLady
+texture=94
+x=272
+y=160
+dim=0 0 100 67
 

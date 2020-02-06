@@ -31,6 +31,7 @@ local well_tex_id = 181
 local elder_glass_tex_id = 108
 local elder_yellow_tex_id = 106
 local elder_white_tex_id = 110
+local old_lady_tex_id = 115
 
 local color_olive = 0xff808000
 
@@ -1031,5 +1032,14 @@ TalkData = {
     {Text = '尼好偶是白鬍子長老'},
     {Text = '歡迎尼來到地底王國'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  -- Trash field.
+  [2700] = {
+    {BgColor = COLOR_GRAY},
+    {Image = old_lady_tex_id},
+    {Text = '勇者小白尼好'},
+    {Text = '請尼幫忙打掃打掃一下'},
+    {Text = '這裡實在是太髒亂了'},
+    {LevelId = TRASH_FIELD_LVL_ID},
   },
 }
