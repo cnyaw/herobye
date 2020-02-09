@@ -8,6 +8,7 @@ local slap_mouse_lvl_id = 54
 local alien_boss_lvl_id = 75
 local cave_maze_lvl_id = 88
 local pair_game_lvl_id = 107
+local pick_trash_lvl_id = 111
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -1038,8 +1039,17 @@ TalkData = {
     {BgColor = COLOR_GRAY},
     {Image = old_lady_tex_id},
     {Text = '勇者小白尼好'},
-    {Text = '請尼幫忙打掃打掃一下'},
+    {Text = '我是貓洞貓媽媽'},
     {Text = '這裡實在是太髒亂了'},
+    {Text = '可以請尼幫忙打掃一下嗎？'},
+    {LevelId = pick_trash_lvl_id},
+  },
+  [2701] = {
+    {BgColor = COLOR_GRAY},
+    {Image = old_lady_tex_id},
+    {Text = '勇者小白真是謝謝尼'},
+    {Text = '幫忙打掃的好乾淨啊'},
+    {Text = '改天偶再跟貓咪們好好招待尼'},
     {LevelId = TRASH_FIELD_LVL_ID},
   },
 }
