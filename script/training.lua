@@ -61,16 +61,7 @@ end
 TrainingStick = {}
 
 TrainingStick.OnCreate = function(param)
-  param.hit = 0
-  param.stick = {}
-  local w, h = Resource.GetTexSize(stick_tex_id)
-  for i = 1, MAX_STICK do
-    local o = Good.GenObj(-1, stick_tex_id)
-    local x = math.random(SCR_W - w)
-    local y = math.random(SCR_H - h)
-    Good.SetPos(o, x, y)
-    param.stick[i] = o
-  end
+  BounceGameInit(param, MAX_STICK, stick_tex_id, InitStick)
   param.step = TrainingStickOnStepPlay
 end
 
@@ -138,6 +129,10 @@ function GetTrainingMapBackLvlId()
   else
     return TITLE_LVL_ID
   end
+end
+
+function InitStick(o)
+  Good.SetScript(o, '')
 end
 
 function ResetTraining()
@@ -216,12 +211,12 @@ function TrainingStickOnStepPlay(param)
   end
   local x, y = Input.GetMousePos()
   for i = 1, MAX_STICK do
-    local o = param.stick[i]
+    local o = param.obj[i]
     if (nil ~= o and PtInObj(x, y, o)) then
       GenFlyUpObj(o, stick_tex_id)
       param.hit = param.hit + 1
       Good.KillObj(o)
-      param.stick[i] = nil
+      param.obj[i] = nil
       if (MAX_STICK == param.hit) then
         param.step = TrainingStickOnStepEnd
       end

@@ -7,16 +7,7 @@ local coin_tex_id = 285
 BegMoney = {}
 
 BegMoney.OnCreate = function(param)
-  param.hit = 0
-  param.user = {}
-  local w, h = Resource.GetTexSize(user_tex_id)
-  for i = 1, MAX_USER do
-    local o = Good.GenObj(-1, user_tex_id, 'BouncingObj')
-    local x = math.random(SCR_W - w)
-    local y = math.random(SCR_H - h)
-    Good.SetPos(o, x, y)
-    param.user[i] = o
-  end
+  BounceGameInit(param, MAX_USER, user_tex_id)
   UpdateCoinInfo(param)
   param.step = BegMoneyOnStep
 end
@@ -67,12 +58,12 @@ end
 
 function BeggingMoney(x, y, param)
   for i = 1, MAX_USER do
-    local o = param.user[i]
+    local o = param.obj[i]
     if (nil ~= o and PtInObj(x, y, o)) then
       GenFlyUpObj(o, coin_tex_id)
       param.hit = param.hit + 1
       Good.KillObj(o)
-      param.user[i] = nil
+      param.obj[i] = nil
       AddCoin(GetCurrBouGain())
       UpdateCoinInfo(param)
       if (MAX_USER == param.hit) then

@@ -94,6 +94,22 @@ function AddRedPoint(parent)
   Good.SetPos(o, wp - w/2, hp - h/2)
 end
 
+function BounceGameInit(param, nobj, tex, genobj)
+  param.hit = 0
+  param.obj = {}
+  local w, h = Resource.GetTexSize(tex)
+  for i = 1, nobj do
+    local x = math.random(SCR_W - w)
+    local y = math.random(SCR_H - h)
+    local o = Good.GenObj(-1, tex, 'BouncingObj')
+    Good.SetPos(o, x, y)
+    if (nil ~= genobj) then
+      genobj(o, i)
+    end
+    param.obj[i] = o
+  end
+end
+
 function BuyCandyLoop()
   return not HasCandy() and HasItem('f_buy_candy_loop')
 end

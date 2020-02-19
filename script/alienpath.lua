@@ -52,22 +52,17 @@ function CanHitAlien(o)
 end
 
 function GenAliens(param)
+  BounceGameInit(param, MAX_ALIEN, UFO_TEX_ID, GenAlienSubobj)
+end
+
+function GenAlienSubobj(o, i)
   local can_hit = {HasPowerScissor(), HasMallet(), HasBackScratcher()}
-  param.hit = 0
-  param.obj = {}
   local w, h = Resource.GetTexSize(UFO_TEX_ID)
-  for i = 1, MAX_ALIEN do
-    local o = Good.GenObj(-1, UFO_TEX_ID, 'BouncingObj')
-    local x = math.random(SCR_W - w)
-    local y = math.random(SCR_H - h)
-    Good.SetPos(o, x, y)
-    local index = 1 + (i % #weapon_tex_id)
-    local rps = Good.GenObj(o, weapon_tex_id[index])
-    local sw, sh = ScaleToSize(rps, RPS_SIZE, RPS_SIZE)
-    Good.SetPos(rps, (w - sw)/2, h - sh)
-    Good.GetParam(o).can_hit = can_hit[index]
-    param.obj[i] = o
-  end
+  local index = 1 + (i % #weapon_tex_id)
+  local rps = Good.GenObj(o, weapon_tex_id[index])
+  local sw, sh = ScaleToSize(rps, RPS_SIZE, RPS_SIZE)
+  Good.SetPos(rps, (w - sw)/2, h - sh)
+  Good.GetParam(o).can_hit = can_hit[index]
 end
 
 function GenWeaponIcon(x, y, tex_id, has)
