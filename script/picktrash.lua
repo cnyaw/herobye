@@ -23,7 +23,11 @@ PickTrash.OnCreate = function(param)
 end
 
 PickTrash.OnStep = function(param)
-  param.step(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, TRASH_FIELD_LVL_ID)
+  else
+    param.step(param)
+  end
 end
 
 function BeginDragFishBone(param)
