@@ -9,6 +9,7 @@ local on_create = false
 local force_next_lvl = false
 local fade_to = nil
 local curr_lvl_id = nil
+local talk_menu_obj = nil
 
 Talk = {}
 
@@ -18,6 +19,7 @@ Talk.OnCreate = function(param)
   on_create = true
   force_next_lvl = false
   fade_to = nil
+  talk_menu_obj = nil
   curr_lvl_id = param._id
   StepOneTalk()
 end
@@ -32,7 +34,9 @@ Talk.OnStep = function()
   end
   if (force_next_lvl or Input.IsKeyPushed(Input.LBUTTON)) then
     on_create = false
-    StepOneTalk()
+    if (not HandleTalkMenu()) then
+      StepOneTalk()
+    end
   end
 end
 
@@ -66,6 +70,37 @@ function HandleTalkImage(talk)
     Good.SetPos(o, (SCR_W - w)/2, 0)
   end
   StepOneTalk()
+end
+
+function HandleTalkMenu()
+  if (nil == talk_menu_obj) then
+    return false
+  end
+  local mx, my = Input.GetMousePos()
+  local cc = Good.GetChildCount(talk_menu_obj)
+  for i = 0, cc - 1 do
+    local o = Good.GetChild(talk_menu_obj, i)
+    local x, y = Good.GetPos(o)
+    local tw = GetTextObjWidth(o)
+    if (PtInRect(mx, my, x, y, x + tw, y + SZ_TALK_TEXT)) then
+      SelectMenuItem(1 + i)
+      return true
+    end
+  end
+  return true
+end
+
+function HandleTalkMenuText(talk)
+  talk_menu_obj = GenColorObj(-1, SCR_W, SCR_H, 0xb0000000)
+  local lw = math.floor(SCR_W / #talk.MenuText)
+  local x = 0
+  for i = 1, #talk.MenuText do
+    local o = Good.GenTextObj(talk_menu_obj, talk.MenuText[i], SZ_TALK_TEXT)
+    local tw = GetTextObjWidth(o)
+    local lx = x + (lw - tw)/2
+    Good.SetPos(o, lx, (SCR_H - SZ_TALK_TEXT) / 2)
+    x = x + lw
+  end
 end
 
 function HandlTalkText(talk)
@@ -111,6 +146,12 @@ function HandleTalkNextId(talk)
   StartTalk(talk.NextId)
 end
 
+function SelectMenuItem(i)
+  local talk_tbl = GetCurrTalk()
+  local talk = talk_tbl[talk_index - 1]
+  StartTalk(talk.MenuNextId[i])
+end
+
 function SkipTalk()
   local talk_tbl = GetCurrTalk()
   while true do
@@ -147,5 +188,7 @@ function StepOneTalk()
   elseif (nil ~= talk.BgColor) then
     Good.SetBgColor(curr_lvl_id, talk.BgColor)
     StepOneTalk()
+  elseif (nil ~= talk.MenuText) then
+    HandleTalkMenuText(talk)
   end
 end

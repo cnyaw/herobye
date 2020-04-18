@@ -145,8 +145,8 @@ QuestData = {
   -- Under world main map.
   [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   [21400] = {TalkId = {2600}},
-  [21500] = {TalkId = {2601}},
-  [21600] = {TalkId = {2602}},
+  [21500] = {TalkId = {2610}},
+  [21600] = {TalkId = {2620}},
   [21700] = {LevelId = TRASH_FIELD_LVL_ID},
   -- Trash field.
   [22000] = {TalkId = {2700}},
