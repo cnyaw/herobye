@@ -141,8 +141,7 @@ QuestData = {
   [21101] = {TalkId = {2401}},
   -- Under world entry, to main map.
   [21200] = {TalkId = {2500}, NextCond = IsPassPotatoTest, NextId = 21201},
-  [21201] = {TalkId = {2503}, NextId = 21202},
-  [21202] = {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  [21201] = {LevelId = UNDERWORLD_MAIN_LVL_ID},
   -- Under world main map.
   [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   [21400] = {TalkId = {2600}},

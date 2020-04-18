@@ -1004,16 +1004,10 @@ TalkData = {
     {NextCond = IsPassPotatoTest, NextId = 2502},
     {Text = '請進入偶們的王國'},
     {Script = ScriptPassPotatoTest},
-    {LevelId = UNDERWORLD_MAIN_LVL_ID},
-  },
-  [2502] = {
-    {BgColor = COLOR_GRAY},
-    {Image = dwarf_tex_id},
-    {Text = '隨時歡迎你再來挑戰哦'},
-    {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
-  },
-  [2503] = {
-    {BgColor = COLOR_GRAY},
+    {Image = -1},
+    {Text = ''},
+    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {FadeTo = {ONE_SECOND_TICK, COLOR_GRAY}},
     {Image = elder_glass_tex_id},
     {Text = '尼好偶是眼鏡長老'},
     {Image = elder_yellow_tex_id},
@@ -1027,6 +1021,12 @@ TalkData = {
     {Image = elder_white_tex_id},
     {Text = '歡迎尼來到地底王國'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  [2502] = {
+    {BgColor = COLOR_GRAY},
+    {Image = dwarf_tex_id},
+    {Text = '隨時歡迎你再來挑戰哦'},
+    {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
   -- Under world main.
   [2600] = {
