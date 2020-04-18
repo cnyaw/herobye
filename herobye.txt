@@ -1326,6 +1326,7 @@ x=304
 dim=0 0 32 32
 
 [object144]
+name=torches
 sprite=79
 texture=254
 map=254
@@ -1334,7 +1335,7 @@ map=254
 name=underworld main
 bgColor=128 128 128
 script=MainMap
-objects=143 117 145 146 147
+objects=143 117 145 146 147 154
 
 [object143]
 name=o_toUnderEntry
@@ -1397,6 +1398,12 @@ x=8
 y=-24
 dim=0 0 80 24
 
+[object154]
+name=ui
+sprite=132
+texture=254
+map=254
+
 [level107]
 name=pair game
 bgColor=128 128 128
@@ -1406,7 +1413,7 @@ script=PairGame
 name=cat cave
 bgColor=128 128 128
 script=MainMap
-objects=116 120
+objects=116 120 155
 
 [object116]
 name=o_toUnderMain
@@ -1431,6 +1438,12 @@ yscale=0.6
 xpivot=0.5
 y=-48
 dim=0 0 100 76
+
+[object155]
+name=ui
+sprite=132
+texture=254
+map=254
 
 [level111]
 name=pick trash
