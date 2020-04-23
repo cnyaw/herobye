@@ -194,6 +194,9 @@ function SetTalkMenuSel(sel)
 end
 
 function SkipTalk()
+  if (nil ~= talk_menu_obj) then
+    return false
+  end
   local talk_tbl = GetCurrTalk()
   while true do
     local talk = talk_tbl[talk_index]
@@ -205,6 +208,9 @@ function SkipTalk()
       talk.Script()
     elseif (nil ~= talk.NextId) then
       HandleTalkNextId(talk)
+    elseif (nil ~= talk.MenuText) then
+      HandleTalkMenuText(talk)
+      return
     end
   end
 end
