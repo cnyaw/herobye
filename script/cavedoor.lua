@@ -6,6 +6,9 @@ local COLOR_INPUT_RIGHT = COLOR_GREEN
 local COLOR_INPUT_WRONG = COLOR_RED
 local WAIT_TIME = 30
 
+local btn_scissor_obj_id = 6
+local btn_stone_obj_id = 9
+local btn_paper_obj_id = 10
 local back_obj_id = 22
 
 local input_code_right_talk_id = 2104
@@ -113,7 +116,7 @@ function InitRpsCode(param)
 end
 
 function InitRpsObj(param)
-  param.rps_obj = {6, 9, 10}
+  param.rps_obj = {btn_scissor_obj_id, btn_stone_obj_id, btn_paper_obj_id}
 end
 
 function InputCodeFull(code)
