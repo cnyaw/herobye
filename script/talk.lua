@@ -195,7 +195,7 @@ end
 
 function SkipTalk()
   if (nil ~= talk_menu_obj) then
-    return false
+    return
   end
   local talk_tbl = GetCurrTalk()
   while true do
