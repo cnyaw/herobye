@@ -19,10 +19,10 @@ AlienPath.OnStep = function(param)
   end
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     local x, y = Input.GetMousePos()
-    if (QuestOnStep(x, y)) then
+    if (AlienPathHittest(param, x, y)) then
       return
     end
-    AlienPathHittest(param, x, y)
+    QuestOnStep(x, y)
     return
   end
 end
@@ -41,9 +41,10 @@ function AlienPathHittest(param, x, y)
       if (MAX_ALIEN == param.hit) then
         Good.SetVisible(to_alien_area_obj_id, 1)
       end
-      break
+      return true
     end
   end
+  return false
 end
 
 function CanHitAlien(o)
