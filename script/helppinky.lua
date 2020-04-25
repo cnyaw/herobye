@@ -12,6 +12,9 @@ HelpPinky.OnCreate = function(param)
 end
 
 HelpPinky.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    return
+  end
   param.step(param)
 end
 
