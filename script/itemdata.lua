@@ -32,6 +32,7 @@ f_cave_maze_book = 35
 i_cave_maze_book = 36
 f_pass_potato_test = 37
 f_help_elder_white = 38
+i_shave_book = 39
 --]]
 
 local bou_desc_id = 600
@@ -54,6 +55,7 @@ local cave_door_book_desc_id = 1351
 local power_scissor_book_desc_id = 1352
 local slap_mouse_book_desc_id = 1353
 local cave_maze_book_desc_id = 1354
+local shave_book_desc_id = 1355
 
 local flash_light_obj_id = 92
 
@@ -81,4 +83,5 @@ ItemData = {
   i_power_scissor = {BagType = e_hero_bag, Image = SCISSOR_TEX_ID, TalkId = power_scissor_desc_id},
   i_rps_medal = {BagType = e_hero_bag, Image = RPS_MEDAL_TEX_ID, TalkId = rps_medal_desc_id},
   i_cave_maze_book = {BagType = e_book_lib, Image = CAVE_MAZE_BOOK_TEX_ID, TalkId = cave_maze_book_desc_id},
+  i_shave_book = {BagType = e_book_lib, Image = SHAVE_BOOK_TEX_ID, TalkId = shave_book_desc_id},
 }

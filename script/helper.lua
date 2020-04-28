@@ -281,6 +281,10 @@ function HasScissor()
   return HasItem('i_scissor')
 end
 
+function HasShaveBook()
+  return HasItem('i_shave_book')
+end
+
 function InitTable(init_tbl)
   local tbl = {}
   for k,v in pairs(init_tbl) do
@@ -535,6 +539,10 @@ end
 
 function ScriptAddRpsMedal()
   SetItem('i_rps_medal', 1)
+end
+
+function ScriptAddShaveBook()
+  SetItem('i_shave_book', 1)
 end
 
 function ScriptAddSlapMouseBook()

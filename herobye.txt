@@ -670,7 +670,7 @@ dim=0 0 32 32
 
 [level337]
 name=asset
-objects=343 41 43 45 52 90 92 132
+objects=343 41 43 45 52 90 92 132 55
 
 [object343]
 name=ufo of inverview hero village
@@ -759,7 +759,7 @@ dim=0 0 100 67
 [object92]
 name=flashlight with meter
 texture=380
-x=336
+x=320
 y=224
 script=FlashlightCounter
 dim=0 0 160 63
@@ -784,6 +784,20 @@ yscale=0.5
 xpivot=1
 x=544
 dim=0 0 90 65
+
+[object55]
+name=shave book
+texture=40
+x=496
+y=176
+dim=0 0 131 149
+objects=56
+
+[object56]
+texture=149
+x=16
+y=64
+dim=0 0 80 24
 
 [level350]
 name=hero village church
