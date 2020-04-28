@@ -734,6 +734,13 @@ TalkData = {
     {Text = '「我的任務是維護世界的和平！」'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
+  [1708] = {
+    {Image = pinky_papa_tex_id},
+    {Text = '修鬍子的事情找我就對了'},
+    {Text = '讓我來教教你怎麼作'},
+    {Text = '不過我現在有點忙晚點再來找我'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
   -- Hero village, hero home.
   [1800] = {
     {Text = '「維護世界的和平也是挺累的」'},
@@ -1089,6 +1096,7 @@ TalkData = {
     {Image = elder_white_tex_id},
     {Text = '「好啊不過我不會修鬍子」'},
     {Text = '「等我學會了再來幫你哦」'},
+    {Script = ScriptHelpElderWhite},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
   [2622] = {
@@ -1096,6 +1104,12 @@ TalkData = {
     {Image = elder_white_tex_id},
     {Text = '「對不起我不會修鬍子」'},
     {Text = '「請你再找找別人幫忙吧」'},
+    {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  [2623] = {
+    {BgColor = COLOR_GRAY},
+    {Image = elder_white_tex_id},
+    {Text = '等你幫我修鬍子哦'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
   -- Trash field.

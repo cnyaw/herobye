@@ -99,7 +99,8 @@ QuestData = {
   [12003] = {TalkId = {1700}, NextCond = IsPowerupScissorLoop, NextId = 12004},
   [12004] = {TalkId = {1704}, NextCond = IsPowerupScissorReady, NextId = 12005},
   [12005] = {TalkId = {1705}, NextId = 12006},
-  [12006] = {TalkId = {1706}},
+  [12006] = {TalkId = {1706}, NextCond = IsHelpElderWhite, NextId = 12007},
+  [12007] = {TalkId = {1708}},
   -- Hero village, hero home.
   [13000] = {TalkId = {1800}, NextId = 13001},
   [13001] = {TalkId = {1801}},
@@ -146,7 +147,8 @@ QuestData = {
   [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   [21400] = {TalkId = {2600}},
   [21500] = {TalkId = {2610}},
-  [21600] = {TalkId = {2620}},
+  [21600] = {TalkId = {2620}, NextCond=IsHelpElderWhite, NextId=21601},
+  [21601] = {TalkId = {2623}},
   [21700] = {LevelId = TRASH_FIELD_LVL_ID},
   -- Trash field.
   [22000] = {TalkId = {2700}},

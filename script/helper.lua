@@ -333,6 +333,10 @@ function IsGiveGodzillaValid()
   return HasMallet() and HasCoin(GIVE_GODZILLA_COST)
 end
 
+function IsHelpElderWhite()
+  return HasItem('f_help_elder_white')
+end
+
 function IsOpenRacingValid()
   return HasBackScratcher() and HasCoin(10)
 end
@@ -590,6 +594,10 @@ end
 
 function ScriptGiveGodzilla()
   SetItem('i_godzilla', 1);
+end
+
+function ScriptHelpElderWhite()
+  SetItem('f_help_elder_white', 1)
 end
 
 function ScriptOpenCaveDoor()
