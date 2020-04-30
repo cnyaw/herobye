@@ -17,7 +17,11 @@ ClothesDrying.OnCreate = function(param)
 end
 
 ClothesDrying.OnStep = function(param)
-  param.step(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, HERO_VILLAGE_LVL_ID)
+  else
+    param.step(param)
+  end
 end
 
 ClothesDryingOnStepEnd = function(param)
