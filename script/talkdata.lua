@@ -1035,7 +1035,7 @@ TalkData = {
     {Image = dwarf_tex_id},
     {Text = '勇者小白尼好'},
     {Text = '偶是地底王國的小地瓜'},
-    {Text = '偶想要再給你一個小小的測驗'},
+    {Text = '偶想要再給尼一個小小的測驗'},
     {LevelId = pair_game_lvl_id},
   },
   -- Under world entry, to main map.
@@ -1044,7 +1044,7 @@ TalkData = {
     {Image = dwarf_tex_id},
     {Text = '勇者小白尼好'},
     {Text = '進入偶們的王國之前'},
-    {Text = '偶想要給你一個小小的測驗'},
+    {Text = '偶想要給尼一個小小的測驗'},
     {LevelId = pair_game_lvl_id},
   },
   [2501] = {
@@ -1116,6 +1116,7 @@ TalkData = {
     {Image = elder_yellow_tex_id},
     {Text = '「OKOK我來幫你洗洗」'},
     {Text = '「請將你的袍子交給我吧」'},
+    {Script = ScriptHelpElderYellow},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
   [2612] = {
@@ -1123,6 +1124,12 @@ TalkData = {
     {Image = elder_yellow_tex_id},
     {Text = '「NONO好臭我不敢洗」'},
     {Text = '「請你找別人來幫忙吧」'},
+    {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  [2613] = {
+    {BgColor = COLOR_GRAY},
+    {Image = elder_yellow_tex_id},
+    {Text = '請問偶的袍子洗好了嗎？'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
   [2620] = {
@@ -1152,7 +1159,7 @@ TalkData = {
   [2623] = {
     {BgColor = COLOR_GRAY},
     {Image = elder_white_tex_id},
-    {Text = '偶還在等你幫我修鬍子哦'},
+    {Text = '偶還在等尼幫偶修鬍子哦'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
   [2624] = {
@@ -1169,14 +1176,14 @@ TalkData = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_GRAY}},
     {Image = elder_white_tex_id},
     {Text = '哇哇哇哇'},
-    {Text = '我的鬍子變得好滑順乾淨啊！'},
-    {Text = '謝謝你勇者小白'},
+    {Text = '偶的鬍子變得好滑順乾淨啊！'},
+    {Text = '謝謝尼勇者小白'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
   [2625] = {
     {BgColor = COLOR_GRAY},
     {Image = elder_white_tex_id},
-    {Text = '尼好勇者小白'},
+    {Text = '謝謝尼勇者小白'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
   -- Trash field.

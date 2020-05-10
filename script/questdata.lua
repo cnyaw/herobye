@@ -147,8 +147,9 @@ QuestData = {
   -- Under world main map.
   [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   [21400] = {TalkId = {2600}},
-  [21500] = {TalkId = {2610}},
-  [21600] = {TalkId = {2620}, NextCond=IsHelpElderWhite, NextId = 21601},
+  [21500] = {TalkId = {2610}, NextCond = IsHelpElderYellow, NextId = 21501},
+  [21501] = {TalkId = {2613}},
+  [21600] = {TalkId = {2620}, NextCond = IsHelpElderWhite, NextId = 21601},
   [21601] = {TalkId = {2623}, NextCond = HasShaveBook, NextId = 21602},
   [21602] = {TalkId = {2624}, NextId = 21603},
   [21603] = {TalkId = {2625}},

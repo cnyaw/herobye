@@ -341,6 +341,10 @@ function IsHelpElderWhite()
   return HasItem('f_help_elder_white')
 end
 
+function IsHelpElderYellow()
+  return HasItem('f_help_elder_yellow')
+end
+
 function IsOpenRacingValid()
   return HasBackScratcher() and HasCoin(10)
 end
@@ -606,6 +610,10 @@ end
 
 function ScriptHelpElderWhite()
   SetItem('f_help_elder_white', 1)
+end
+
+function ScriptHelpElderYellow()
+  SetItem('f_help_elder_yellow', 1)
 end
 
 function ScriptOpenCaveDoor()

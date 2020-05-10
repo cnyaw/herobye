@@ -33,6 +33,7 @@ i_cave_maze_book = 36
 f_pass_potato_test = 37
 f_help_elder_white = 38
 i_shave_book = 39
+f_help_elder_yellow = 40
 --]]
 
 local bou_desc_id = 600
