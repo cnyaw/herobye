@@ -2,8 +2,8 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 61 62 63 65 73 86 87 95 105 106 108 110 118 115 112 119 149 151 187
-maps=188
+texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 61 62 63 65 73 86 87 95 105 106 108 110 118 115 112 119 149 151 187 161
+maps=188 162
 sprites=335
 levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75 88 127 142 107 114 111 164
 groups=
@@ -398,6 +398,10 @@ fileName=./res/icon-clothes.png
 name=temple game tile
 fileName=./res/templegame.png
 
+[tex161]
+name=temple bkgnd tile
+fileName=./res/templebktile.png
+
 [map188]
 name=temple game
 width=8
@@ -408,6 +412,19 @@ tileHeight=64
 cxTile=3
 cyTile=3
 data=42RgYGDEgpmgNBsDbgBTiwuwoZkFw8xQmhOIAQ==
+vgrid=1 128 128 128
+hgrid=1 128 128 128
+
+[map162]
+name=temple game bkgnd
+width=8
+height=4
+texture=161
+tileWidth=64
+tileHeight=64
+cxTile=2
+cyTile=1
+data=Y2RgYGACYkYcNAjjAoxQjAswETAbRAMA
 vgrid=1 128 128 128
 hgrid=1 128 128 128
 
@@ -1481,7 +1498,12 @@ script=PickTrash
 name=temple
 bgColor=128 128 0
 script=Temple
-objects=159 160
+objects=165 159 160
+
+[object165]
+map=162
+x=64
+y=80
 
 [object159]
 name=map
