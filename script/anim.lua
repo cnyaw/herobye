@@ -1,3 +1,5 @@
+local bkgnd1_map_id = 162
+local bkgnd2_map_id = 166
 
 function AcCaveMazeScrollDone(param)
   param.k = nil
@@ -167,6 +169,21 @@ AnimCaveMazeScroll.OnStep = function(param)
     local loop1 = ArAddLoop(nil)
     ArAddMoveTo(loop1, 'Pos', 0.65, param.tx, param.ty).ease = ArEaseOut
     ArAddCall(loop1, 'AcCaveMazeScrollDone', 0)
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimTempleBkgnd = {}
+
+AnimTempleBkgnd.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveTo(loop1, 'MapId', 0, bkgnd2_map_id)
+    ArAddDelay(loop1, 0.5)
+    ArAddMoveTo(loop1, 'MapId', 0, bkgnd1_map_id)
+    ArAddDelay(loop1, 0.5)
     param.k = ArAddAnimator({loop1})
   else
     ArStepAnimator(param, param.k)
