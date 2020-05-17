@@ -9,6 +9,7 @@ local alien_boss_lvl_id = 75
 local cave_maze_lvl_id = 88
 local pair_game_lvl_id = 107
 local pick_trash_lvl_id = 111
+local temple_lvl_id = 164
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -405,8 +406,8 @@ TalkData = {
   },
   [1205] = {
     {Image = GODZILLA_TEX_ID},
-    {Text = '龍神太子財神廟'},
-    {LevelId = MAIN_MAP_LVL_ID},
+    {Text = '歡迎光臨龍神太子財神廟'},
+    {LevelId = temple_lvl_id},
   },
   -- Hero village church, grandpa.
   [1300] = {
