@@ -1519,7 +1519,7 @@ script=PickTrash
 name=temple
 bgColor=128 128 0
 script=Temple
-objects=167 165 159 160 169 171 174
+objects=167 165 159 160 171 174
 
 [object167]
 texture=170
@@ -1552,28 +1552,17 @@ sprite=132
 texture=254
 map=254
 
-[object169]
-name=god
-texture=349
-xscale=0.8
-yscale=0.8
-xpivot=0.5
-ypivot=0.5
-x=272
-y=144
-dim=0 0 93 140
-
 [object171]
 name=dice1
 texture=168
-x=160
+x=224
 y=176
 dim=0 0 64 64
 
 [object174]
 name=dice2
 texture=168
-x=416
+x=368
 y=176
 dim=0 0 64 64
 

@@ -189,3 +189,24 @@ AnimTempleBkgnd.OnStep = function(param)
     ArStepAnimator(param, param.k)
   end
 end
+
+AnimTempleGainCoin = {}
+
+AnimTempleGainCoin.OnStep = function(param)
+  if (nil == param.k) then
+    local dx = math.random(64/3, 2*64/3)
+    if (math.random(2) == 1) then
+      dx = -1 * dx
+    end
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveBy(loop1, 'Pos', 0.2, dx, -64/2).ease = ArEaseOut
+    ArAddMoveBy(loop1, 'Pos', 0.35, 0, 64).ease = ArEaseOutBounce
+    ArAddCall(loop1, 'AcKillAnimObj', 0.3)
+    local loop2 = ArAddLoop(nil)
+    ArAddDelay(loop2, 0.75)
+    ArAddMoveTo(loop2, 'Alpha', 0.1, 0)
+    param.k = ArAddAnimator({loop1, loop2})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end

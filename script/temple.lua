@@ -166,6 +166,9 @@ function TempleOnStepMoveUser(param)
   local c = factor * GetBetCount()
   if (0 < c) then
     AddCoin(c)
+    for i = 1, factor do
+      Good.GenObj(user_obj_id, COIN_TEX_ID, 'AnimTempleGainCoin')
+    end
   else
     ConsumeCoin(-c)
   end
