@@ -2,7 +2,7 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 61 62 63 65 73 86 87 95 105 106 108 110 118 115 112 119 149 151 187 161
+texs=1 5 11 30 31 7 48 2 8 14 23 66 94 96 98 100 102 104 181 248 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 19 21 20 28 40 47 49 50 51 61 62 63 65 73 86 87 95 105 106 108 110 118 115 112 119 149 151 187 161 168 170
 maps=188 162 166
 sprites=335
 levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75 88 127 142 107 114 111 164
@@ -402,6 +402,14 @@ fileName=./res/templegame.png
 name=temple bkgnd tile
 fileName=./res/templebktile.png
 
+[tex168]
+name=dice
+fileName=./res/dice.png
+
+[tex170]
+name=cash
+fileName=./res/cash.png
+
 [map188]
 name=temple game
 width=8
@@ -411,7 +419,7 @@ tileWidth=64
 tileHeight=64
 cxTile=3
 cyTile=3
-data=42RgYGDEgpmgNBsDbgBTiwuwoZkFw8xQmhOIAQ==
+data=Y2RgYGAEYiYoDcKsSGw2BtyAE4pxATYcZjIjsQE=
 vgrid=1 128 128 128
 hgrid=1 128 128 128
 
@@ -1511,7 +1519,13 @@ script=PickTrash
 name=temple
 bgColor=128 128 0
 script=Temple
-objects=165 159 160
+objects=167 165 159 160 169 171 174
+
+[object167]
+texture=170
+repX=1
+repY=1
+dim=0 0 64 64
 
 [object165]
 name=bkgnd
@@ -1525,10 +1539,41 @@ name=map
 map=188
 x=64
 y=80
+objects=172
+
+[object172]
+name=user
+texture=296
+dim=0 0 57 90
 
 [object160]
 name=ui
 sprite=132
 texture=254
 map=254
+
+[object169]
+name=god
+texture=349
+xscale=0.8
+yscale=0.8
+xpivot=0.5
+ypivot=0.5
+x=272
+y=144
+dim=0 0 93 140
+
+[object171]
+name=dice1
+texture=168
+x=160
+y=176
+dim=0 0 64 64
+
+[object174]
+name=dice2
+texture=168
+x=416
+y=176
+dim=0 0 64 64
 
