@@ -72,7 +72,7 @@ function GenWeaponIcon(x, y, tex_id, has)
   local sz = RPS_SIZE / 1.5
   ScaleToSize(o, sz, sz)
   if (not has) then
-    Good.SetBgColor(o, 0xff000000)
+    Good.SetBgColor(o, COLOR_BLACK)
   end
   x = x + sz + 2
   return x, y
