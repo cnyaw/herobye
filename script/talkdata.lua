@@ -496,6 +496,10 @@ TalkData = {
     {Text = '想要征服這個世界'},
     {Text = '三個勇者拿著傳說的神兵'},
     {Text = '勇敢的去挑戰魔王'},
+    {Text = '三把傳說中的神兵分別是'},
+    {Text = '擁有剪刀力量的超級剪刀手'},
+    {Text = '擁有石頭力量的神奇石頭棒'},
+    {Text = '擁有布的力量的無敵不求人'},
     {Text = '最後三位勇者打敗了魔王'},
     {Text = '拯救了這個世界'},
     {Text = '從此大家過著快快樂樂的日子'},
@@ -1076,7 +1080,7 @@ TalkData = {
   [2502] = {
     {BgColor = COLOR_GRAY},
     {Image = dwarf_tex_id},
-    {Text = '隨時歡迎你再來挑戰哦'},
+    {Text = '隨時歡迎尼再來挑戰哦'},
     {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
   -- Under world main.
