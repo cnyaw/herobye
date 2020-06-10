@@ -1,5 +1,6 @@
 local CURSOR_SZ = 32
 local OFFSET = CURSOR_SZ * 1.5
+local TEXT_SZ = 32
 
 local cursor_obj_id = 353
 
@@ -7,9 +8,9 @@ Title = {}
 
 Title.OnCreate = function(param)
   local x, y = Good.GetPos(cursor_obj_id)
-  local o = Good.GenTextObj(-1, 'Continue', 32)
+  local o = Good.GenTextObj(-1, 'Continue', TEXT_SZ)
   Good.SetPos(o, x + OFFSET, y)
-  local o2 = Good.GenTextObj(-1, 'New Game', 32)
+  local o2 = Good.GenTextObj(-1, 'New Game', TEXT_SZ)
   Good.SetPos(o2, x + OFFSET, y + OFFSET)
   param.cx = x
   param.cy = y
