@@ -1561,7 +1561,7 @@ dim=0 0 64 64
 name=lottery game
 bgColor=128 128 128
 script=Lottery
-objects=104 30 169
+objects=104 30
 
 [object104]
 texture=170
@@ -1577,9 +1577,4 @@ dim=0 0 64 64
 name=coin
 texture=285
 dim=0 0 32 32
-
-[object169]
-sprite=335
-x=560
-y=16
 

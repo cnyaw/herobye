@@ -1219,4 +1219,10 @@ TalkData = {
     {Text = '來試試你的手氣吧'},
     {LevelId = lottery_lvl_id},
   },
+  [2801] = {
+    {BgColor = COLOR_GRAY},
+    {Image = magic_mama_tex_id},
+    {Text = '謝謝惠顧歡迎下再來'},
+    {LevelId = TRASH_FIELD_LVL_ID},
+  },
 }
