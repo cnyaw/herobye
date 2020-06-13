@@ -2,10 +2,10 @@
 version=0.3
 name=Hero Bye!
 window=640 384
-texs=31 48 2 8 23 66 94 96 98 100 102 181 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 21 20 28 40 47 49 50 51 61 62 63 65 73 86 87 95 105 106 108 110 118 115 112 119 149 151 187 161 168 170
+texs=31 48 2 8 23 66 94 96 98 100 102 181 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 21 20 28 40 47 49 50 51 61 62 63 65 73 86 87 95 105 106 108 110 118 115 112 119 149 151 187 161 168 170 1 11
 maps=188 162 166
 sprites=335
-levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75 88 127 142 107 114 111 164
+levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75 88 127 142 107 114 111 164 19
 groups=
 
 [scripts]
@@ -37,6 +37,7 @@ groups=
 109=./script/pairgame.lua
 113=./script/picktrash.lua
 163=./script/temple.lua
+14=./script/lottery.lua
 
 [tex31]
 name=mount
@@ -373,6 +374,14 @@ fileName=./res/dice.png
 [tex170]
 name=cash
 fileName=./res/cash.png
+
+[tex1]
+name=icon magic ball
+fileName=./res/icon-magicball.png
+
+[tex11]
+name=magic mama
+fileName=./res/magicmama.png
 
 [map188]
 name=temple game
@@ -1442,7 +1451,7 @@ script=PairGame
 name=cat cave
 bgColor=128 128 128
 script=MainMap
-objects=116 120 155
+objects=116 120 155 5
 
 [object116]
 name=o_toUnderMain
@@ -1455,7 +1464,7 @@ dim=0 0 32 32
 [object120]
 name=o_oldLady
 texture=94
-x=272
+x=144
 y=160
 dim=0 0 100 67
 objects=153
@@ -1473,6 +1482,24 @@ name=ui
 sprite=132
 texture=254
 map=254
+
+[object5]
+name=o_magicmama
+texture=94
+x=400
+y=160
+dim=0 0 100 67
+objects=7
+
+[object7]
+texture=1
+xscale=0.8
+yscale=0.8
+xpivot=0.5
+ypivot=0.5
+x=27
+y=-52
+dim=0 0 48 62
 
 [level111]
 name=pick trash
@@ -1529,4 +1556,30 @@ texture=168
 x=368
 y=176
 dim=0 0 64 64
+
+[level19]
+name=lottery game
+bgColor=128 128 128
+script=Lottery
+objects=104 30 169
+
+[object104]
+texture=170
+repX=1
+repY=1
+xscale=0.6
+yscale=0.6
+x=16
+y=48
+dim=0 0 64 64
+
+[object30]
+name=coin
+texture=285
+dim=0 0 32 32
+
+[object169]
+sprite=335
+x=560
+y=16
 

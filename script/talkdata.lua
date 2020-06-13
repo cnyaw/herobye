@@ -10,6 +10,7 @@ local cave_maze_lvl_id = 88
 local pair_game_lvl_id = 107
 local pick_trash_lvl_id = 111
 local temple_lvl_id = 164
+local lottery_lvl_id = 19
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -34,6 +35,7 @@ local elder_glass_tex_id = 108
 local elder_yellow_tex_id = 106
 local elder_white_tex_id = 110
 local old_lady_tex_id = 115
+local magic_mama_tex_id = 11
 
 local color_olive = 0xff808000
 
@@ -1191,7 +1193,7 @@ TalkData = {
     {Text = '謝謝尼勇者小白'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
-  -- Trash field.
+  -- Trash field, old lady.
   [2700] = {
     {BgColor = COLOR_GRAY},
     {Image = old_lady_tex_id},
@@ -1208,5 +1210,13 @@ TalkData = {
     {Text = '幫忙打掃的好乾淨啊'},
     {Text = '改天偶再跟貓咪們好好招待尼'},
     {LevelId = TRASH_FIELD_LVL_ID},
+  },
+  -- Trash field, magic mama.
+  [2800] = {
+    {BgColor = COLOR_GRAY},
+    {Image = magic_mama_tex_id},
+    {Text = '我是魔法婆婆'},
+    {Text = '來試試你的手氣吧'},
+    {LevelId = lottery_lvl_id},
   },
 }

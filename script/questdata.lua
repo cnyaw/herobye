@@ -154,6 +154,8 @@ QuestData = {
   [21602] = {TalkId = {2624}, NextId = 21603},
   [21603] = {TalkId = {2625}},
   [21700] = {LevelId = TRASH_FIELD_LVL_ID},
-  -- Trash field.
+  -- Trash field, old lady.
   [22000] = {TalkId = {2700}},
+  -- Trash field, magic mama.
+  [23000] = {TalkId = {2800}},
 }
