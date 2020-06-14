@@ -6,11 +6,12 @@ local DRAW_SIZE = 32
 local TEXT_SIZE = 46
 local WAIT_TIME = 30
 
-local end_lottery_talk_id = 2801
+local end_lottery_talk_id = 2802
 
 local lottery_tex_id = nil
 local lottery_canvas = nil
 local lottery_str = nil
+local lottery_price = nil
 
 local function GenLotteryTex()
   if (nil == lottery_canvas) then
@@ -35,7 +36,8 @@ local function GenLottery()
   else
     ResetLotteryTex()
   end
-  local s = string.format('%d', math.random(1,10))
+  lottery_price = math.random(1, 10)
+  local s = string.format('%d', lottery_price)
   lottery_str = Good.GenTextObj(-1, s, TEXT_SIZE)
   local sx = LOTTERY_X + math.random(TEXT_SIZE, LOTTERY_W - 2 * TEXT_SIZE)
   local sy = LOTTERY_Y + math.random(TEXT_SIZE, LOTTERY_H - 2 * TEXT_SIZE)
@@ -108,5 +110,6 @@ LotteryOnStepEnd = function(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
+  AddCoin(lottery_price)
   StartTalk(end_lottery_talk_id)
 end

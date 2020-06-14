@@ -2,6 +2,7 @@
 local OPEN_CHURCH_COST = 50
 local GIVE_GODZILLA_COST = 100
 local CROWD_FUNDING_COST = 1000
+local LOTTERY_COST = 5
 
 local tex_sandglass_id = 273
 local red_point_tex_id = 313
@@ -113,6 +114,10 @@ end
 
 function BuyCandyLoop()
   return not HasCandy() and HasItem('f_buy_candy_loop')
+end
+
+function CanPlayLottery()
+  return HasCoin(LOTTERY_COST)
 end
 
 function Consume2ndDreamCost()
@@ -623,6 +628,10 @@ end
 
 function ScriptPassPotatoTest()
   SetItem('f_pass_potato_test', 1)
+end
+
+function ScriptPlayLottery()
+  ConsumeCoin(LOTTERY_COST)
 end
 
 function ScriptPowerupScissor()
