@@ -1516,6 +1516,8 @@ objects=167 165 159 160 171 174
 texture=170
 repX=1
 repY=1
+xscale=0.6
+yscale=0.6
 dim=0 0 64 64
 
 [object165]

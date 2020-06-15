@@ -1,5 +1,4 @@
-local LOTTERY_W = 256
-local LOTTERY_H = 256
+local LOTTERY_W, LOTTERY_H = 256, 256
 local LOTTERY_X = (SCR_W - LOTTERY_W) / 2
 local LOTTERY_Y = (SCR_H - LOTTERY_H) / 2
 local DRAW_SIZE = 32
@@ -18,8 +17,7 @@ local function GenLotteryTex()
     lottery_canvas = Graphics.GenCanvas(LOTTERY_W, LOTTERY_H)
   end
   Graphics.FillRect(lottery_canvas, 0, 0, LOTTERY_W, LOTTERY_H, COLOR_RED)
-  local idTex = Resource.GenTex(lottery_canvas)
-  return idTex
+  lottery_tex_id = Resource.GenTex(lottery_canvas)
 end
 
 local function ResetLotteryTex()
@@ -32,7 +30,7 @@ end
 
 local function GenLottery()
   if (nil == lottery_tex_id) then
-    lottery_tex_id = GenLotteryTex()
+    GenLotteryTex()
   else
     ResetLotteryTex()
   end
@@ -71,7 +69,7 @@ local function LotteryDraw(param)
   param.mousedown = true
 end
 
-local function LobberyNoDraw(param)
+local function LotteryNoDraw(param)
   param.lastx = 0
   param.lasty = 0
   if (param.mousedown) then
@@ -102,7 +100,7 @@ LotterOnStepDraw = function(param)
   if (Input.IsKeyDown(Input.LBUTTON)) then
     LotteryDraw(param)
   else
-    LobberyNoDraw(param)
+    LotteryNoDraw(param)
   end
 end
 
