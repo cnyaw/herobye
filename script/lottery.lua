@@ -6,17 +6,28 @@ local TEXT_SIZE = 46
 local WAIT_TIME = 30
 
 local end_lottery_talk_id = 2802
+local cash_tex_id = 170
 
 local lottery_tex_id = nil
 local lottery_canvas = nil
 local lottery_str = nil
 local lottery_price = nil
 
+local function FillImage(canvas, x, y, tex, w, h)
+  Graphics.FillRect(canvas, x, y, w, h, COLOR_YELLOW)
+  local cx, cy = Resource.GetTexSize(tex)
+  for ay = 0, h, cy do
+    for ax = 0, w, cx do
+      Graphics.DrawImage(canvas, ax, ay, tex, 0, 0, cx, cy)
+    end
+  end
+end
+
 local function GenLotteryTex()
   if (nil == lottery_canvas) then
     lottery_canvas = Graphics.GenCanvas(LOTTERY_W, LOTTERY_H)
   end
-  Graphics.FillRect(lottery_canvas, 0, 0, LOTTERY_W, LOTTERY_H, COLOR_RED)
+  FillImage(lottery_canvas, 0, 0, cash_tex_id, LOTTERY_W, LOTTERY_H)
   lottery_tex_id = Resource.GenTex(lottery_canvas)
 end
 
@@ -24,7 +35,7 @@ local function ResetLotteryTex()
   if (nil == lottery_canvas) then
     lottery_canvas = Graphics.GenCanvas(LOTTERY_W, LOTTERY_H)
   end
-  Graphics.FillRect(lottery_canvas, 0, 0, LOTTERY_W, LOTTERY_H, COLOR_RED)
+  FillImage(lottery_canvas, 0, 0, cash_tex_id, LOTTERY_W, LOTTERY_H)
   Resource.UpdateTex(lottery_tex_id, 0, 0, lottery_canvas, 0, 0, LOTTERY_W, LOTTERY_H)
 end
 
@@ -37,6 +48,7 @@ local function GenLottery()
   lottery_price = math.random(1, 10)
   local s = string.format('%d', lottery_price)
   lottery_str = Good.GenTextObj(-1, s, TEXT_SIZE)
+  SetTextObjColor(lottery_str, COLOR_RED)
   local sx = LOTTERY_X + math.random(TEXT_SIZE, LOTTERY_W - 2 * TEXT_SIZE)
   local sy = LOTTERY_Y + math.random(TEXT_SIZE, LOTTERY_H - 2 * TEXT_SIZE)
   Good.SetPos(lottery_str, sx, sy)

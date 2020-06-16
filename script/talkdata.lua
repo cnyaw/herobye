@@ -1230,7 +1230,7 @@ TalkData = {
   [2802] = {
     {BgColor = COLOR_GRAY},
     {Image = magic_mama_tex_id},
-    {Text = '謝謝惠顧歡迎下再來'},
+    {Text = '謝謝惠顧歡迎再來'},
     {LevelId = TRASH_FIELD_LVL_ID},
   },
 }
