@@ -98,6 +98,7 @@ Lottery.OnCreate = function(param)
   UpdateCoinInfo(param)
   GenLottery()
   param.step = LotterOnStepDraw
+  param.start_draw = false
 end
 
 Lottery.OnStep = function(param)
@@ -110,9 +111,15 @@ end
 
 LotterOnStepDraw = function(param)
   if (Input.IsKeyDown(Input.LBUTTON)) then
-    LotteryDraw(param)
+    if (param.start_draw) then
+      LotteryDraw(param)
+    end
   else
-    LotteryNoDraw(param)
+    if (not param.start_draw) then
+      param.start_draw = true
+    else
+      LotteryNoDraw(param)
+    end
   end
 end
 
