@@ -620,6 +620,14 @@ TalkData = {
     {Script = ScriptGetMalletCode},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
+  [1505] = {
+    {Image = zhang_mama_tex_id},
+    {Text = '你這件袍子太髒了我沒辨法洗'},
+    {Text = '準備好超強效洗衣精後再來找我'},
+    {Text = '請你先幫我曬一下衣服吧'},
+    {Text = '曬好了我再給你一些零用錢'},
+    {LevelId = clothes_drying_lvl_id},
+  },
   -- Hero village, Shop.
   [1600] = {
     {Image = pinnote_tex_id},

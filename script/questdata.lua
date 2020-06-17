@@ -82,7 +82,8 @@ QuestData = {
   [10002] = {TalkId = {1502}, NextId = 10003},
   [10003] = {TalkId = {1501}, NextCond = OpenCaveDoor, NextId = 10004},
   [10004] = {TalkId = {1504}, NextCond = HasMallet, NextId = 10005},
-  [10005] = {TalkId = {1502}},
+  [10005] = {TalkId = {1502}, NextCond = IsHelpElderYellow, NextId = 10006},
+  [10006] = {TalkId = {1505}},
   -- Hero village, Shop.
   [11000] = {TalkId = {1600}, NextCond = IsEnterCave, NextId = 11001},
   [11001] = {TalkId = {1601}, NextCond = IsFlashlightBuyable, NextId = 11002},
@@ -144,15 +145,18 @@ QuestData = {
   -- Under world entry, to main map.
   [21200] = {TalkId = {2500}, NextCond = IsPassPotatoTest, NextId = 21201},
   [21201] = {LevelId = UNDERWORLD_MAIN_LVL_ID},
-  -- Under world main map.
+  -- Under world main map, elder glass.
   [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   [21400] = {TalkId = {2600}},
+  -- Under world main map, elder yellow.
   [21500] = {TalkId = {2610}, NextCond = IsHelpElderYellow, NextId = 21501},
   [21501] = {TalkId = {2613}},
+  -- Under world main map, elder white.
   [21600] = {TalkId = {2620}, NextCond = IsHelpElderWhite, NextId = 21601},
   [21601] = {TalkId = {2623}, NextCond = HasShaveBook, NextId = 21602},
   [21602] = {TalkId = {2624}, NextId = 21603},
   [21603] = {TalkId = {2625}},
+  -- Under world main map.
   [21700] = {LevelId = TRASH_FIELD_LVL_ID},
   -- Trash field, old lady.
   [22000] = {TalkId = {2700}},
