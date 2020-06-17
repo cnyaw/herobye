@@ -1,7 +1,7 @@
-
 local ROW_COUNT = 3
 local COL_COUNT = 4
 local MARGIN = 20
+local WAIT_TIME = 30
 
 local jewel_tex_id = 105
 
@@ -46,6 +46,7 @@ PairGame.OnCreate = function(param)
   param.objs = objs
   param.colors = colors
   param.count = ROW_COUNT * COL_COUNT
+  param.step = PairGameOnStepGame
 end
 
 PairGame.OnStep = function(param)
@@ -53,6 +54,17 @@ PairGame.OnStep = function(param)
     Good.GenObj(-1, UNDER_WORLD_ENTRANCE_LVL_ID)
     return
   end
+  param.step(param)
+end
+
+PairGameOnStepEnd = function(param)
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  StartTalk(pass_talk_id)
+end
+
+PairGameOnStepGame = function(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -71,7 +83,7 @@ PairGame.OnStep = function(param)
           Good.SetScript(param.sel_obj, '')
           if (color1 == param.colors[param.sel_index]) then
             if (ClearPair(param, obj_index, param.sel_index)) then
-              StartTalk(pass_talk_id)
+              param.step = PairGameOnStepEnd
             end
             return
           end
@@ -85,4 +97,3 @@ PairGame.OnStep = function(param)
     end
   end
 end
-
