@@ -700,7 +700,8 @@ dim=0 0 32 32
 
 [level337]
 name=asset
-objects=343 41 43 45 52 90 92 132 55
+objects=343 41 43 45 52 90 92 132 55 173
+height=800
 
 [object343]
 name=ufo of inverview hero village
@@ -828,6 +829,24 @@ texture=149
 x=16
 y=64
 dim=0 0 80 24
+
+[object173]
+name=dirty yellow suit
+bgColor=255 255 0
+texture=377
+x=16
+y=368
+dim=0 0 100 95
+objects=175
+
+[object175]
+bgColor=64 0 0
+texture=96
+xscale=0.5
+yscale=0.5
+x=32
+y=32
+dim=0 0 99 79
 
 [level350]
 name=hero village church

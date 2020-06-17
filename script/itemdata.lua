@@ -34,6 +34,7 @@ f_pass_potato_test = 37
 f_help_elder_white = 38
 i_shave_book = 39
 f_help_elder_yellow = 40
+i_dirty_yellow_suit = 41
 --]]
 
 local bou_desc_id = 600
@@ -50,6 +51,7 @@ local frog_tear_desc_id = 611
 local drum_stick_desc_id = 612
 local power_scissor_desc_id = 613
 local rps_medal_desc_id = 614
+local dirty_yellow_suit_desc_id = 615
 
 local hero_his_book_desc_id = 1350
 local cave_door_book_desc_id = 1351
@@ -85,4 +87,5 @@ ItemData = {
   i_rps_medal = {BagType = e_hero_bag, Image = RPS_MEDAL_TEX_ID, TalkId = rps_medal_desc_id},
   i_cave_maze_book = {BagType = e_book_lib, Image = CAVE_MAZE_BOOK_TEX_ID, TalkId = cave_maze_book_desc_id},
   i_shave_book = {BagType = e_book_lib, Image = SHAVE_BOOK_TEX_ID, TalkId = shave_book_desc_id},
+  i_dirty_yellow_suit = {BagType = e_hero_bag, Image = DIRTY_YELLOW_SUIT_OBJ_ID, TalkId = dirty_yellow_suit_desc_id},
 }

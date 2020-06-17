@@ -262,6 +262,11 @@ TalkData = {
     {Text = '稱號為猜拳勇者'},
     {LevelId = BAG_LVL_ID},
   },
+  [615] = {
+    {Image = DIRTY_YELLOW_SUIT_OBJ_ID},
+    {Text = '骯髒的黃色袍子'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},

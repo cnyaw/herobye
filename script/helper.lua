@@ -620,6 +620,7 @@ end
 
 function ScriptHelpElderYellow()
   SetItem('f_help_elder_yellow', 1)
+  SetItem('i_dirty_yellow_suit', 1)
 end
 
 function ScriptOpenCaveDoor()
