@@ -552,6 +552,10 @@ function ScriptAddSlapMouseBook()
   SetItem('i_slap_mouse_book', 1)
 end
 
+function ScriptAddSuperSoapBook()
+  SetItem('i_super_soap_book', 1)
+end
+
 function ScriptBuildTemple()
   ConsumeCoin(CROWD_FUNDING_COST)
 end

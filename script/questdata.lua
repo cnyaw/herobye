@@ -91,7 +91,9 @@ QuestData = {
   [11003] = {TalkId = {1608}, NextCond = BuyCandyLoop, NextId = 11004},
   [11004] = {TalkId = {1605}, NextCond = IsBuyCandyValid, NextId = 11005},
   [11005] = {TalkId = {1606}, NextId = 11006},
-  [11006] = {TalkId = {1608}},
+  [11006] = {TalkId = {1608}, NextCond = IsHelpElderYellow, NextId = 11007},
+  [11007] = {TalkId = {1609}, NextId = 11008},
+  [11008] = {TalkId = {1608}},
   -- Hero village, Pinky home.
   [12000] = {TalkId = {1700}, NextCond = HasMallet, NextId = 12001},
   [12001] = {TalkId = {1701}, NextCond = HasCandy, NextId = 12002},

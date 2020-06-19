@@ -267,6 +267,16 @@ TalkData = {
     {Text = '骯髒的黃色袍子'},
     {LevelId = BAG_LVL_ID},
   },
+  [616] = {
+    {Image = SUPER_SOAP_BOOK_TEX_ID},
+    {Text = '「超強效洗衣精配方」'},
+    {Text = '以下是製作超強效洗衣精的配方'},
+    {Text = '1.三種不同顏色的老鼠尾巴'},
+    {Text = '2.一滴青蛙的眼淚'},
+    {Text = '3.一句密秘的魔法咒語'},
+    {Text = '這樣就能產生一份超強效洗衣精'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -698,6 +708,16 @@ TalkData = {
     {NextCond = HasFrogTearToSell, NextId = 1607},
     {Image = pinnote_tex_id},
     {Text = '今日公休'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1609] = {
+    {Image = merchant_tex_id},
+    {Text = '抱歉我沒有賣超強效洗衣精'},
+    {Text = '不過圖書館有本說明書'},
+    {Text = '記載了製作超強效洗衣精的配方'},
+    {Text = '如果你收集齊製作配方的話'},
+    {Text = '我可以免費幫你製作哦'},
+    {Script = ScriptAddSuperSoapBook},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Pinky home.
