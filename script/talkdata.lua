@@ -668,6 +668,7 @@ TalkData = {
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   [1605] = {
+    {NextCond = IsFlashlightBuyable, NextId = 1604},
     {Image = merchant_tex_id},
     {Text = string.format('好吃的棒棒糖只賣%d塊錢', CANDY_COST)},
     {Text = '要買要快哦'},
@@ -690,6 +691,13 @@ TalkData = {
     {Text = '一手交錢一手交貨'},
     {Image = merchant_tex_id},
     {Text = '謝謝你小白'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1608] = {
+    {NextCond = FlashlightOutOfPower, NextId = 1603},
+    {NextCond = HasFrogTearToSell, NextId = 1607},
+    {Image = pinnote_tex_id},
+    {Text = '今日公休'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Pinky home.
