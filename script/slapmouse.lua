@@ -12,6 +12,7 @@ local mouse_tex_id = 51
 
 local kai_thanks_drum_stick_talk_id = 1904
 local kai_thanks_talk_id = 1905
+local kai_thanks_mouse_tail_talk_id = 1906
 
 SlapMouse = {}
 
@@ -67,7 +68,9 @@ function SlapMouseOnStepDone(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  if (HasPowerScissor() or HasDrumStick()) then
+  if (IsHelpElderYellow()) then
+    StartTalk(kai_thanks_mouse_tail_talk_id)
+  elseif (HasPowerScissor() or HasDrumStick()) then
     StartTalk(kai_thanks_talk_id)
   else
     StartTalk(kai_thanks_drum_stick_talk_id)

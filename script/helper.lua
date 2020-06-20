@@ -653,6 +653,19 @@ function ScriptSendTeacherLetter()
   SetItem('i_letter', 1)
 end
 
+function ScriptTextAddMouseTail(fmt)
+  local i = math.random(3)
+  if (1 == i) then
+    SetItem('i_red_mouse_tail', 1)
+  elseif (2 == i) then
+    SetItem('i_green_mouse_tail', 1)
+  else
+    SetItem('i_yellow_mouse_tail', 1)
+  end
+  local s = {'紅', '綠', '黃'}
+  return string.format(fmt, s[i])
+end
+
 function ScriptTextCrowdFunding(fmt)
   return string.format(fmt, CROWD_FUNDING_COST - GetCoin())
 end
@@ -683,6 +696,10 @@ function StartTalk(id)
     curr_talk_id = {id}
   end
   Good.GenObj(-1, talk_lvl_id)
+end
+
+function TrueCond()
+  return true
 end
 
 function UpdateCoinInfo(param)
@@ -717,10 +734,6 @@ function UpdateCounterDummyUi(param, tex, count)
     end
   end
   param.counter_dummy = dummy
-end
-
-function TrueCond()
-  return true
 end
 
 function WaitTimer(param, t)

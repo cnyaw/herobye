@@ -277,6 +277,21 @@ TalkData = {
     {Text = '這樣就能產生一份超強效洗衣精'},
     {LevelId = BAG_LVL_ID},
   },
+  [617] = {
+    {Image = GREEN_MOUSE_TAIL_OBJ_ID},
+    {Text = '綠色老鼠尾巴'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [618] = {
+    {Image = RED_MOUSE_TAIL_OBJ_ID},
+    {Text = '紅色老鼠尾巴'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [619] = {
+    {Image = YELLOW_MOUSE_TAIL_OBJ_ID},
+    {Text = '黃色老鼠尾巴'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -899,6 +914,14 @@ TalkData = {
     {Text = '這是一點打工錢'},
     {Text = '有空再麻煩你來幫我抓老鼠哦'},
     {Script = ScriptGiveAllowance},
+    {LevelId = COUNTRY_LVL_ID},
+  },
+  [1906] = {
+    {Image = kai_tex_id},
+    {Text = '真是太謝謝你了'},
+    {Text = '幫我抓那麼多老鼠'},
+    {Text = '送你一個%s色老鼠尾巴', ScriptText = ScriptTextAddMouseTail},
+    {Text = '有空再麻煩你來幫我抓老鼠哦'},
     {LevelId = COUNTRY_LVL_ID},
   },
   -- Country, pond,
