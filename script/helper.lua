@@ -379,6 +379,10 @@ function IsStickTrainingMaxLv()
   return TrainingIsStickTrainingMaxLv()
 end
 
+function IsSuperSoapMaterialReady()
+  return HasFrogTear() and HasItem('i_green_mouse_tail') and HasItem('i_red_mouse_tail') and HasItem('i_yellow_mouse_tail')
+end
+
 function IsTempleCrowdFunding()
   return HasItem('i_godzilla')
 end
@@ -550,6 +554,14 @@ end
 
 function ScriptAddSlapMouseBook()
   SetItem('i_slap_mouse_book', 1)
+end
+
+function ScriptAddSuperSoap()
+  SetItem('i_frog_tear', 0)
+  SetItem('i_green_mouse_tail', 0)
+  SetItem('i_red_mouse_tail', 0)
+  SetItem('i_yellow_mouse_tail', 0)
+  SetItem('i_super_soap', 1)
 end
 
 function ScriptAddSuperSoapBook()
