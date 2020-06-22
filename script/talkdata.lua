@@ -1211,7 +1211,7 @@ TalkData = {
     {Text = '隨時歡迎尼再來挑戰哦'},
     {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
-  -- Under world main.
+  -- Under world main, elder glass.
   [2600] = {
     {BgColor = COLOR_GRAY},
     {Image = elder_glass_tex_id},
@@ -1235,6 +1235,7 @@ TalkData = {
     {Text = '「請你再找別人幫你」'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
+  -- Under world main, elder yellow.
   [2610] = {
     {BgColor = COLOR_GRAY},
     {Image = elder_yellow_tex_id},
@@ -1265,6 +1266,26 @@ TalkData = {
     {Text = '請問偶的袍子洗好了嗎？'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
+  [2614] = {
+    {BgColor = COLOR_GRAY},
+    {Image = elder_yellow_tex_id},
+    {Text = '「抱歉讓您久等了」'},
+    {Image = CLEAN_YELLOW_SUIT_OBJ_ID},
+    {Text = '「我己經將您的袍子洗乾淨了」'},
+    {Image = elder_yellow_tex_id},
+    {Text = '哇哇哇哇'},
+    {Text = '偶的袍子變得好乾淨啊！'},
+    {Text = '謝謝尼勇者小白'},
+    {Script = ScriptHelpElderYellowDone},
+    {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  [2615] = {
+    {BgColor = COLOR_GRAY},
+    {Image = elder_yellow_tex_id},
+    {Text = '謝謝尼勇者小白'},
+    {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  -- Under world main, elder white.
   [2620] = {
     {BgColor = COLOR_GRAY},
     {Image = elder_white_tex_id},

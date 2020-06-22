@@ -240,6 +240,10 @@ function HasCaveMazeBookFlag()
   return HasItem('f_cave_maze_book')
 end
 
+function HasCleanYellowSuit()
+  return HasItem('i_clean_yellow_suit')
+end
+
 function HasDrumStick()
   return HasItem('i_drum_stick')
 end
@@ -645,6 +649,10 @@ end
 function ScriptHelpElderYellow()
   SetItem('f_help_elder_yellow', 1)
   SetItem('i_dirty_yellow_suit', 1)
+end
+
+function ScriptHelpElderYellowDone()
+  SetItem('i_clean_yellow_suit', 0)
 end
 
 function ScriptOpenCaveDoor()

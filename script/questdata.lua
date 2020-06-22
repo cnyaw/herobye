@@ -155,7 +155,9 @@ QuestData = {
   [21400] = {TalkId = {2600}},
   -- Under world main map, elder yellow.
   [21500] = {TalkId = {2610}, NextCond = IsHelpElderYellow, NextId = 21501},
-  [21501] = {TalkId = {2613}},
+  [21501] = {TalkId = {2613}, NextCond = HasCleanYellowSuit, NextId = 21502},
+  [21502] = {TalkId = {2614}, NextId = 21503},
+  [21503] = {TalkId = {2615}},
   -- Under world main map, elder white.
   [21600] = {TalkId = {2620}, NextCond = IsHelpElderWhite, NextId = 21601},
   [21601] = {TalkId = {2623}, NextCond = HasShaveBook, NextId = 21602},
