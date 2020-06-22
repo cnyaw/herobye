@@ -83,7 +83,9 @@ QuestData = {
   [10003] = {TalkId = {1501}, NextCond = OpenCaveDoor, NextId = 10004},
   [10004] = {TalkId = {1504}, NextCond = HasMallet, NextId = 10005},
   [10005] = {TalkId = {1502}, NextCond = IsHelpElderYellow, NextId = 10006},
-  [10006] = {TalkId = {1505}},
+  [10006] = {TalkId = {1505}, NextCond = HasSuperSoap, NextId = 10007},
+  [10007] = {TalkId = {1506}, NextId = 10008},
+  [10008] = {TalkId = {1502}},
   -- Hero village, Shop.
   [11000] = {TalkId = {1600}, NextCond = IsEnterCave, NextId = 11001},
   [11001] = {TalkId = {1601}, NextCond = IsFlashlightBuyable, NextId = 11002},

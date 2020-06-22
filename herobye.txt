@@ -708,7 +708,7 @@ dim=0 0 32 32
 
 [level337]
 name=asset
-objects=343 41 43 45 52 90 92 132 55 173 176 179 180 182
+objects=343 41 43 45 52 90 92 132 55 173 176 179 180 182 183
 height=800
 
 [object343]
@@ -895,6 +895,14 @@ texture=178
 x=528
 y=336
 dim=0 0 100 145
+
+[object183]
+name=clean yellow suit
+bgColor=255 255 0
+texture=377
+x=16
+y=496
+dim=0 0 100 95
 
 [level350]
 name=hero village church

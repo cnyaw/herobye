@@ -40,6 +40,7 @@ i_green_mouse_tail = 43
 i_red_mouse_tail = 44
 i_yellow_mouse_tail = 45
 i_super_soap = 46
+i_clean_yellow_suit = 47
 --]]
 
 local bou_desc_id = 600
@@ -62,6 +63,7 @@ local green_mouse_tail_desc_id = 617
 local red_mouse_tail_desc_id = 618
 local yellow_mouse_tail_desc_id = 619
 local super_soap_desc_id = 620
+local clean_yellow_suit_desc_id = 621
 
 local hero_his_book_desc_id = 1350
 local cave_door_book_desc_id = 1351
@@ -103,4 +105,5 @@ ItemData = {
   i_red_mouse_tail = {BagType = e_hero_bag, Image = RED_MOUSE_TAIL_OBJ_ID, TalkId = red_mouse_tail_desc_id},
   i_yellow_mouse_tail = {BagType = e_hero_bag, Image = YELLOW_MOUSE_TAIL_OBJ_ID, TalkId = yellow_mouse_tail_desc_id},
   i_super_soap = {BagType = e_hero_bag, Image = SUPER_SOAP_TEX_ID, TalkId = super_soap_desc_id},
+  i_clean_yellow_suit = {BagType = e_hero_bag, Image = CLEAN_YELLOW_SUIT_OBJ_ID, TalkId = clean_yellow_suit_desc_id},
 }

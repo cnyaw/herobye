@@ -296,6 +296,10 @@ function HasShaveBook()
   return HasItem('i_shave_book')
 end
 
+function HasSuperSoap()
+  return HasItem('i_super_soap')
+end
+
 function InitTable(init_tbl)
   local tbl = {}
   for k,v in pairs(init_tbl) do
@@ -605,6 +609,12 @@ end
 
 function ScriptChargeFlashlight()
   ScriptBuyFlashlight()
+end
+
+function ScriptCleanYellowSuit()
+  SetItem('i_super_soap', 0)
+  SetItem('i_dirty_yellow_suit', 0)
+  SetItem('i_clean_yellow_suit', 1)
 end
 
 function ScriptEnterCave()

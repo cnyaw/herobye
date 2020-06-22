@@ -297,6 +297,11 @@ TalkData = {
     {Text = '超強效洗衣精'},
     {LevelId = BAG_LVL_ID},
   },
+  [621] = {
+    {Image = CLEAN_YELLOW_SUIT_OBJ_ID},
+    {Text = '乾淨的黃色袍子'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -662,6 +667,23 @@ TalkData = {
     {Text = '請你先幫我曬一下衣服吧'},
     {Text = '曬好了我再給你一些零用錢'},
     {LevelId = clothes_drying_lvl_id},
+  },
+  [1506] = {
+    {Image = zhang_mama_tex_id},
+    {Text = '超強效洗衣精己準備好的話'},
+    {Text = '我們就一起來把這件袍子洗乾淨吧'},
+    {Image = -1},
+    {Text = ''},
+    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {Text = '嘿咻嘿咻洗刷刷洗刷刷'},
+    {Text = '洗刷刷洗刷刷嘿咻嘿咻'},
+    {FadeTo = {ONE_SECOND_TICK, color_olive}},
+    {Image = CLEAN_YELLOW_SUIT_OBJ_ID},
+    {Text = '終於把這件袍子洗乾淨了'},
+    {Script = ScriptCleanYellowSuit},
+    {Image = zhang_mama_tex_id},
+    {Text = '「謝謝張媽媽的幫忙」'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Shop.
   [1600] = {
