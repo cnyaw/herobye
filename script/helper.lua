@@ -3,6 +3,7 @@ local OPEN_CHURCH_COST = 50
 local GIVE_GODZILLA_COST = 100
 local CROWD_FUNDING_COST = 1000
 local LOTTERY_COST = 5
+local SELL_ITEM_COST = 4
 
 local tex_sandglass_id = 273
 local red_point_tex_id = 313
@@ -273,6 +274,10 @@ end
 
 function HasMallet()
   return HasItem('i_mallet')
+end
+
+function HasMouseTailToSell()
+  return HasItem('i_green_mouse_tail') or HasItem('i_red_mouse_tail') or HasItem('i_yellow_mouse_tail')
 end
 
 function HasPowerScissor()
@@ -658,7 +663,17 @@ end
 
 function ScriptSellFrogTear()
   SetItem('i_frog_tear', 0)
-  AddCoin(4)
+  AddCoin(SELL_ITEM_COST)
+end
+
+function ScriptSellMouseTail()
+  local item = {'i_green_mouse_tail', 'i_red_mouse_tail', 'i_yellow_mouse_tail'}
+  for i = 1, 3 do
+    if (HasItem(item[i])) then
+      SetItem(item[i], 0)
+      AddCoin(SELL_ITEM_COST)
+    end
+  end
 end
 
 function ScriptSendTeacherLetter()

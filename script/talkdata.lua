@@ -726,6 +726,7 @@ TalkData = {
   [1608] = {
     {NextCond = FlashlightOutOfPower, NextId = 1603},
     {NextCond = HasFrogTearToSell, NextId = 1607},
+    {NextCond = HasMouseTailToSell, NextId = 1611},
     {Image = pinnote_tex_id},
     {Text = '今日公休'},
     {LevelId = HERO_VILLAGE_LVL_ID},
@@ -762,6 +763,16 @@ TalkData = {
     {Script = ScriptAddSuperSoap},
     {Text = '小白如果以後你有其它老鼠尾巴'},
     {Text = '記得賣給我哦'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1611] = {
+    {Image = merchant_tex_id},
+    {Text = '我正在收集老鼠尾巴'},
+    {Text = '要用來製作出超強效洗衣精'},
+    {Text = '請你賣給我吧'},
+    {Script = ScriptSellMouseTail},
+    {Text = '一手交錢一手交貨'},
+    {Text = '謝謝你小白'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Pinky home.
