@@ -4,21 +4,25 @@ local right_arrow_obj_id = 122
 local up_arrow_obj_id = 124
 local down_arrow_obj_id = 125
 local well_obj_id = 126
+local mirror_obj_id = 185
 
-local under_world_talk_id = 2111
+local exit_maze_talk_id = 2111
+local mirror_talk_id = 2112
 
 local arrow_obj = {left_arrow_obj_id, right_arrow_obj_id, up_arrow_obj_id, down_arrow_obj_id}
 local arrow_dir = {0, SCR_H, 2 * SCR_W, SCR_H, SCR_W, 0, SCR_W, 2 * SCR_H}
 
-local exit_path = '23323323'            -- See i_cave_maze_book for the path.
+local exit_path = '23323323'            -- See i_cave_maze_book for the path.(1left,2right,3up,4down)
+local mirror_path = '333333'
 local curr_path = ''
-
 CaveMaze = {}
 
 CaveMaze.OnCreate = function(param)
   curr_path = ''
-  param.wx, param.wy = Good.GetPos(well_obj_id)
+  param.well_x, param.well_y = Good.GetPos(well_obj_id)
   Good.SetVisible(well_obj_id, 0)
+  param.mirror_x, param.mirror_y = Good.GetPos(mirror_obj_id)
+  Good.SetVisible(mirror_obj_id, 0)
   CenterMaze(param)
 end
 
@@ -43,7 +47,9 @@ function CaveMazeHittest(param)
   end
   local lx,ly = Good.GetPos(param._id)
   if (PtInObj(lx + x, ly + y, well_obj_id)) then
-    StartTalk(under_world_talk_id)
+    StartTalk(exit_maze_talk_id)
+  elseif (PtInObj(lx + x, ly + y, mirror_obj_id)) then
+    StartTalk(mirror_talk_id)
   end
 end
 
@@ -52,21 +58,30 @@ function CaveMazeScrollTo(param, dir)
   Good.SetScript(param._id, 'AnimCaveMazeScroll')
 end
 
+function CheckMovePath_i(dir, o, x, y)
+  Good.SetVisible(o, 1)
+  local ox, oy = GetMazeDirOffset(dir)
+  Good.SetPos(o, x + ox, y + oy)
+end
+
 function CheckMovePath(param, dir)
   curr_path = curr_path .. tostring(dir)
-  if (IsCorrectMazePath()) then
-    Good.SetVisible(well_obj_id, 1)
-    local x, y = GetMazeDirOffset(dir)
-    Good.SetPos(well_obj_id, param.wx + x, param.wy + y)
+  if (IsExitMazePath()) then
+    CheckMovePath_i(dir, well_obj_id, param.well_x, param.well_y)
+  elseif (IsMirrorPath()) then
+    CheckMovePath_i(dir, mirror_obj_id, param.mirror_x, param.mirror_y)
   end
 end
 
 function CenterMaze(param)
   if (IsWrongMazePath()) then
-    curr_path = ''
+    curr_path = string.sub(curr_path, string.len(curr_path - 1))
     Good.SetVisible(well_obj_id, 0)
-  elseif (IsCorrectMazePath()) then
-    Good.SetPos(well_obj_id, param.wx + SCR_W, param.wy + SCR_H)
+    Good.SetVisible(mirror_obj_id, 0)
+  elseif (IsExitMazePath()) then
+    Good.SetPos(well_obj_id, param.well_x + SCR_W, param.well_y + SCR_H)
+  elseif (IsMirrorPath()) then
+    Good.SetPos(mirror_obj_id, param.mirror_x + SCR_W, param.mirror_y + SCR_H)
   end
   Good.SetPos(param._id, SCR_W, SCR_H)
   Good.SetPos(dummy_obj_id, SCR_W, SCR_H)
@@ -78,11 +93,19 @@ function GetMazeDirOffset(dir)
   return x, y
 end
 
-function IsCorrectMazePath()
+function IsExitMazePath()
   return curr_path == exit_path
 end
 
+function IsMirrorPath()
+  return curr_path == mirror_path
+end
+
+function IsWrongMazePath_i(s)
+  return string.len(curr_path) > string.len(s) or
+         curr_path ~= string.sub(s, 1, string.len(curr_path))
+end
+
 function IsWrongMazePath()
-  return string.len(curr_path) > string.len(exit_path) or
-         curr_path ~= string.sub(exit_path, 1, string.len(curr_path))
+  return IsWrongMazePath_i(exit_path) and IsWrongMazePath_i(mirror_path)
 end

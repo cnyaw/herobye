@@ -79,31 +79,34 @@ e_hero_bag = 2
 e_book_lib = 3
 
 ItemData = {
+  -- main.
   i_bou = {BagType = e_main_bag, Image = BOU_TEX_ID, TalkId = bou_desc_id},
   i_bou2 = {BagType = e_main_bag, Image = BOU2_TEX_ID, TalkId = bou2_desc_id},
   i_bou3 = {BagType = e_main_bag, Image = BOU3_TEX_ID, TalkId = bou3_desc_id},
   i_letter = {BagType = e_main_bag, Image = LETTER_TEX_ID, TalkId = letter_desc_id},
   i_godzilla = {BagType = e_main_bag, Image = GODZILLA_TEX_ID, TalkId = godzilla_desc_id},
+  -- hero.
   i_back_scratcher = {BagType = e_hero_bag, Image = BACK_SCRATCHER_TEX_ID, TalkId = back_scratcher_desc_id},
   i_flashlight = {BagType = e_hero_bag, Image = flash_light_obj_id, TalkId = flashlight_desc_id},
   i_mallet = {BagType = e_hero_bag, Image = MALLET_TEX_ID, TalkId = mallet_desc_id},
   i_candy = {BagType = e_hero_bag, Image = CANDY_TEX_ID, TalkId = candy_desc_id},
   i_scissor = {BagType = e_hero_bag, Image = SCISSOR_TEX_ID, TalkId = scissor_desc_id},
-  i_hero_history_book = {BagType = e_book_lib, Image = HERO_HIS_BOOK_TEX_ID, TalkId = hero_his_book_desc_id},
-  i_cave_door_book = {BagType = e_book_lib, Image = CAVE_DOOR_BOOK_TEX_ID, TalkId = cave_door_book_desc_id},
-  i_power_scissor_book = {BagType = e_book_lib, Image = POWER_SCISSOR_BOOK_TEX_ID, TalkId = power_scissor_book_desc_id},
   i_frog_tear = {BagType = e_hero_bag, Image = FROG_TEAR_TEX_ID, TalkId = frog_tear_desc_id},
-  i_slap_mouse_book = {BagType = e_book_lib, Image = SLAP_MOUSE_BOOK_TEX_ID, TalkId = slap_mouse_book_desc_id},
   i_drum_stick = {BagType = e_hero_bag, Image = DRUM_STICK_TEX_ID, TalkId = drum_stick_desc_id},
   i_power_scissor = {BagType = e_hero_bag, Image = SCISSOR_TEX_ID, TalkId = power_scissor_desc_id},
   i_rps_medal = {BagType = e_hero_bag, Image = RPS_MEDAL_TEX_ID, TalkId = rps_medal_desc_id},
-  i_cave_maze_book = {BagType = e_book_lib, Image = CAVE_MAZE_BOOK_TEX_ID, TalkId = cave_maze_book_desc_id},
-  i_shave_book = {BagType = e_book_lib, Image = SHAVE_BOOK_TEX_ID, TalkId = shave_book_desc_id},
   i_dirty_yellow_suit = {BagType = e_hero_bag, Image = DIRTY_YELLOW_SUIT_OBJ_ID, TalkId = dirty_yellow_suit_desc_id},
-  i_super_soap_book = {BagType = e_book_lib, Image = SUPER_SOAP_BOOK_TEX_ID, TalkId = super_soap_book_desc_id},
   i_green_mouse_tail = {BagType = e_hero_bag, Image = GREEN_MOUSE_TAIL_OBJ_ID, TalkId = green_mouse_tail_desc_id},
   i_red_mouse_tail = {BagType = e_hero_bag, Image = RED_MOUSE_TAIL_OBJ_ID, TalkId = red_mouse_tail_desc_id},
   i_yellow_mouse_tail = {BagType = e_hero_bag, Image = YELLOW_MOUSE_TAIL_OBJ_ID, TalkId = yellow_mouse_tail_desc_id},
   i_super_soap = {BagType = e_hero_bag, Image = SUPER_SOAP_TEX_ID, TalkId = super_soap_desc_id},
   i_clean_yellow_suit = {BagType = e_hero_bag, Image = CLEAN_YELLOW_SUIT_OBJ_ID, TalkId = clean_yellow_suit_desc_id},
+  -- book.
+  i_hero_history_book = {BagType = e_book_lib, Image = HERO_HIS_BOOK_TEX_ID, TalkId = hero_his_book_desc_id},
+  i_cave_door_book = {BagType = e_book_lib, Image = CAVE_DOOR_BOOK_TEX_ID, TalkId = cave_door_book_desc_id},
+  i_power_scissor_book = {BagType = e_book_lib, Image = POWER_SCISSOR_BOOK_TEX_ID, TalkId = power_scissor_book_desc_id},
+  i_slap_mouse_book = {BagType = e_book_lib, Image = SLAP_MOUSE_BOOK_TEX_ID, TalkId = slap_mouse_book_desc_id},
+  i_cave_maze_book = {BagType = e_book_lib, Image = CAVE_MAZE_BOOK_TEX_ID, TalkId = cave_maze_book_desc_id},
+  i_shave_book = {BagType = e_book_lib, Image = SHAVE_BOOK_TEX_ID, TalkId = shave_book_desc_id},
+  i_super_soap_book = {BagType = e_book_lib, Image = SUPER_SOAP_BOOK_TEX_ID, TalkId = super_soap_book_desc_id},
 }

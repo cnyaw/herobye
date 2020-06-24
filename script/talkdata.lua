@@ -36,6 +36,7 @@ local elder_yellow_tex_id = 106
 local elder_white_tex_id = 110
 local old_lady_tex_id = 115
 local magic_mama_tex_id = 11
+local mirror_tex_id = 185
 
 local color_olive = 0xff808000
 
@@ -587,6 +588,9 @@ TalkData = {
     {Text = '右上上右上上右上'},
     {Text = '最後看到一口井'},
     {Text = '井底就是地底王國了'},
+    {Text = '附帶一提'},
+    {Text = '在迷宮的北邊深處有一面鏡子'},
+    {Text = '傳說能看見平常看不見的密秘'},
     {LevelId = BAG_LVL_ID},
   },
   [1355] = {
@@ -1117,6 +1121,18 @@ TalkData = {
     {Image = well_tex_id},
     {Text = '終於可以進入地底王國了'},
     {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
+  },
+  [2112] = {
+    {BgColor = COLOR_GRAY},
+    {Image = mirror_tex_id},
+    {Text = '這是一面有點破損的鏡子'},
+    {Text = '走近前去照照鏡子'},
+    {Image = dog_tex_id},
+    {Text = '「小白！」'},
+    {Image = mirror_tex_id},
+    {Text = '「奇怪是我眼睛花了嗎？」'},
+    {Text = '「這面鏡子好奇怪」'},
+    {LevelId = cave_maze_lvl_id},
   },
   -- Alien area, ufo.
   [2200] = {
