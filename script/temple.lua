@@ -15,10 +15,13 @@ local TILE_POS = {0,0, 1,0, 2,0, 3,0, 4,0, 5,0, 6,0, 7,0, 7,1, 7,2, 7,3, 6,3, 5,
                   4,3, 3,3, 2,3, 1,3, 0,3, 0,2, 0,1}
 local TILE_FACTOR = {2, 3, 3, 4, 2, 3, 4, 4, -1}
 
+local temple_lvl_lvl_id = 191
+
 local map_obj_id = 159
 local dice1_obj_id = 171
 local dice2_obj_id = 174
 local user_obj_id = 172
+local lvl_obj_id = 190
 
 local user_sw, user_sh
 local user_pos, new_user_pos
@@ -32,7 +35,7 @@ local function CalCTilePos(p)
 end
 
 local function GetBetCount()
-  return BET_COIN[bet_sel]
+  return BET_COIN[bet_sel] * GetTempleLevel()
 end
 
 local function GetBetLebelPos(i)
@@ -74,7 +77,7 @@ local function SetBetCoinSelection()
   end
   bet_lebel_dummy = Good.GenDummy(-1)
   for i = 1, #BET_COIN do
-    local s = Good.GenTextObj(bet_lebel_dummy, string.format('%d', BET_COIN[i]), TEXT_SZ)
+    local s = Good.GenTextObj(bet_lebel_dummy, string.format('%d', BET_COIN[i] * GetTempleLevel()), TEXT_SZ)
     local w = GetTextObjWidth(s)
     local x = GetBetLebelPos(i) + (BET_OW - w)/2
     Good.SetPos(s, x, BET_OY)
@@ -95,6 +98,11 @@ local function HittestBetCoin()
     end
   end
   return false
+end
+
+local function HittestLevelInfo()
+  local x, y = Input.GetMousePos()
+  return PtInObj(x, y, lvl_obj_id)
 end
 
 local function SetUserMoveToPath()
@@ -151,6 +159,10 @@ function TempleOnStep(param)
     if (HittestBetCoin()) then
       return
     end
+    if (HittestLevelInfo()) then
+      Good.GenObj(-1, temple_lvl_lvl_id)
+      return
+    end
     if (GetCoin() >= GetBetCount()) then
       param.step = TempleOnStepRollDice
     end
@@ -166,6 +178,7 @@ function TempleOnStepMoveUser(param)
   local c = factor * GetBetCount()
   if (0 < c) then
     AddCoin(c)
+    AddTempleScore(c)
     for i = 1, factor do
       Good.GenObj(user_obj_id, COIN_TEX_ID, 'AnimTempleGainCoin')
     end

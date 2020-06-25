@@ -43,6 +43,8 @@ i_super_soap = 46
 i_clean_yellow_suit = 47
 f_need_rope = 48
 i_rope = 49
+i_temple_lvl = 50
+i_temple_score = 51
 --]]
 
 local bou_desc_id = 600

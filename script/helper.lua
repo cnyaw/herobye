@@ -97,6 +97,10 @@ function AddRedPoint(parent)
   Good.SetPos(o, wp - w/2, hp - h/2)
 end
 
+function AddTempleScore(amount)
+  AddItem('i_temple_score', amount)
+end
+
 function BounceGameInit(param, nobj, tex, genobj)
   param.hit = 0
   param.obj = {}
@@ -192,6 +196,10 @@ end
 
 function GetOpenCaveDoorCode()
   return open_cave_door_code
+end
+
+function GetTempleLevel()
+  return ItemCount('i_temple_lvl')
 end
 
 function GenNumObj(n, size)
@@ -713,6 +721,10 @@ end
 
 function ScriptSetNeedRopeFlag()
   SetItem('f_need_rope', 1)
+end
+
+function ScriptTempleCreated()
+  SetItem('i_temple_lvl', 1)
 end
 
 function ScriptTextAddMouseTail(fmt)
