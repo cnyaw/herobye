@@ -303,6 +303,11 @@ TalkData = {
     {Text = '乾淨的黃色袍子'},
     {LevelId = BAG_LVL_ID},
   },
+  [622] = {
+    {Image = ROPE_TEX_ID},
+    {Text = '很長的繩索'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -530,6 +535,14 @@ TalkData = {
     {Script = ScriptAddCaveMazeBook},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
+  [1309] = {
+    {Image = grandpa_tex_id},
+    {Text = '這捆繩索給你帶著吧'},
+    {Image = ROPE_TEX_ID},
+    {Text = '到地底國去應該用的到'},
+    {Script = ScriptAddRope},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
   -- Hero village church, books.
   [1350] = {
     {Image = HERO_HIS_BOOK_TEX_ID},
@@ -590,7 +603,8 @@ TalkData = {
     {Text = '井底就是地底王國了'},
     {Text = '附帶一提'},
     {Text = '在迷宮的北邊深處有一面鏡子'},
-    {Text = '傳說能看見平常看不見的密秘'},
+    {Text = '是傳說的真理之鏡'},
+    {Text = '能讓你照見平常看不見的密秘'},
     {LevelId = BAG_LVL_ID},
   },
   [1355] = {
@@ -1117,12 +1131,21 @@ TalkData = {
     {LevelId = cave_maze_lvl_id},
   },
   [2111] = {
+    {NextCond = HasRope, NextId = 2112},
+    {BgColor = COLOR_GRAY},
+    {Image = well_tex_id},
+    {Text = '這口井好像很深的樣子'},
+    {Text = '不知道該怎麼下去才好'},
+    {Script = ScriptSetNeedRopeFlag},
+    {LevelId = cave_maze_lvl_id},
+  },
+  [2112] = {
     {BgColor = COLOR_GRAY},
     {Image = well_tex_id},
     {Text = '終於可以進入地底王國了'},
     {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
-  [2112] = {
+  [2113] = {
     {BgColor = COLOR_GRAY},
     {Image = mirror_tex_id},
     {Text = '這是一面有點破損的鏡子'},

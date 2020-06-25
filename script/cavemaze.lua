@@ -7,7 +7,7 @@ local well_obj_id = 126
 local mirror_obj_id = 185
 
 local exit_maze_talk_id = 2111
-local mirror_talk_id = 2112
+local mirror_talk_id = 2113
 
 local arrow_obj = {left_arrow_obj_id, right_arrow_obj_id, up_arrow_obj_id, down_arrow_obj_id}
 local arrow_dir = {0, SCR_H, 2 * SCR_W, SCR_H, SCR_W, 0, SCR_W, 2 * SCR_H}

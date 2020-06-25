@@ -73,7 +73,9 @@ QuestData = {
   [9109] = {TalkId = {1302}, NextCond = HasRpsMedal, NextId = 9110},
   [9110] = {TalkId = {1307}, NextCond = HasCaveMazeBookFlag, NextId = 9111},
   [9111] = {TalkId = {1308}, NextId = 9112},
-  [9112] = {TalkId = {1307}},
+  [9112] = {TalkId = {1307}, NextCond = IsNeedRope, NextId = 9113},
+  [9113] = {TalkId = {1309}, NextId = 9114},
+  [9114] = {TalkId = {1307}},
   -- Hero village church, shelf.
   [9200] = {LevelId = BAG_LVL_ID},
   -- Hero village, Zhang mama home.

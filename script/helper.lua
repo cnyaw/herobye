@@ -288,6 +288,10 @@ function HasPowerScissor()
   return HasItem('i_power_scissor')
 end
 
+function HasRope()
+  return HasItem('i_rope')
+end
+
 function HasRpsMedal()
   return HasItem('i_rps_medal')
 end
@@ -362,6 +366,10 @@ end
 
 function IsHelpElderYellow()
   return HasItem('f_help_elder_yellow')
+end
+
+function IsNeedRope()
+  return HasItem('f_need_rope')
 end
 
 function IsOpenRacingValid()
@@ -557,6 +565,11 @@ function ScriptAddPowerScissorBook()
   SetItem('i_power_scissor_book', 1)
 end
 
+function ScriptAddRope()
+  SetItem('f_need_rope', 0)
+  SetItem('i_rope', 1)
+end
+
 function ScriptAddRpsMedal()
   SetItem('i_rps_medal', 1)
 end
@@ -696,6 +709,10 @@ end
 
 function ScriptSendTeacherLetter()
   SetItem('i_letter', 1)
+end
+
+function ScriptSetNeedRopeFlag()
+  SetItem('f_need_rope', 1)
 end
 
 function ScriptTextAddMouseTail(fmt)
