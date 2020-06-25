@@ -99,8 +99,7 @@ end
 
 function AddTempleScore(amount)
   AddItem('i_temple_score', amount)
-  local score = ItemCount('i_temple_score')
-  if (1000 * GetTempleLevel() < score and 10 > GetTempleLevel()) then
+  if (GetTempleMaxScore() < GetTempleScore() and 10 > GetTempleLevel()) then
     AddItem('i_temple_lvl', 1)
     SetItem('i_temple_score', 0)
   end
@@ -205,6 +204,14 @@ end
 
 function GetTempleLevel()
   return ItemCount('i_temple_lvl')
+end
+
+function GetTempleMaxScore()
+  return 1000 * GetTempleLevel()
+end
+
+function GetTempleScore()
+  return ItemCount('i_temple_score')
 end
 
 function GenNumObj(n, size)

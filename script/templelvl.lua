@@ -1,5 +1,6 @@
 local SZ_TEXT = 32
 local OFFSET_X, OFFSET_Y = 8, 8
+local SZ_LVL_STATUS = 200
 
 local LVL_TITLE = {
 '開張大吉',
@@ -16,15 +17,31 @@ local LVL_TITLE = {
 
 local cursor_obj_id = 160
 
+local function DrawLevelStatus(y)
+  local score = GetTempleScore()
+  local max_score = GetTempleMaxScore()
+  if (score > max_score) then
+    score = max_score
+  end
+  local o = GenColorObj(-1, SZ_LVL_STATUS, SZ_TEXT, COLOR_BLACK)
+  Good.SetPos(o, SCR_W/2, y)
+  local o2 = GenColorObj(-1, SZ_LVL_STATUS * score/max_score, SZ_TEXT, COLOR_RED)
+  Good.SetPos(o2, SCR_W/2, y)
+end
+
 TempleLevel = {}
 
 TempleLevel.OnCreate = function(param)
   for i = 1, #LVL_TITLE do
     local s = string.format('Lv%d %s', i, LVL_TITLE[i])
     local o = Good.GenTextObj(-1, s, SZ_TEXT)
-    Good.SetPos(o, 2 * OFFSET_X + SZ_TEXT, OFFSET_Y + (i - 1) * (SZ_TEXT + 5))
+    local y = OFFSET_Y + (i - 1) * (SZ_TEXT + 5)
+    Good.SetPos(o, 2 * OFFSET_X + SZ_TEXT, y)
     if (GetTempleLevel() < i) then
       SetTextObjColor(o, COLOR_GRAY)
+    end
+    if (GetTempleLevel() == i) then
+      DrawLevelStatus(y)
     end
   end
   Good.SetPos(cursor_obj_id, OFFSET_X, OFFSET_Y + (GetTempleLevel() - 1) * (SZ_TEXT + 5))
