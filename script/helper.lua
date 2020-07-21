@@ -380,6 +380,10 @@ function IsGiveGodzillaValid()
   return HasMallet() and HasCoin(GIVE_GODZILLA_COST)
 end
 
+function IsHelpElderGlass()
+  return HasItem('f_help_elder_glass')
+end
+
 function IsHelpElderWhite()
   return HasItem('f_help_elder_white')
 end
@@ -673,6 +677,10 @@ end
 
 function ScriptGiveGodzilla()
   SetItem('i_godzilla', 1);
+end
+
+function ScriptHelpElderGlass()
+  SetItem('f_help_elder_glass', 1)
 end
 
 function ScriptHelpElderWhite()

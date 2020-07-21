@@ -543,6 +543,12 @@ TalkData = {
     {Script = ScriptAddRope},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
+  [1310] = {
+    {Image = grandpa_tex_id},
+    {Text = '外星人的科技很發達'},
+    {Text = '應該有辨法修理眼鏡'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
   -- Hero village church, books.
   [1350] = {
     {Image = HERO_HIS_BOOK_TEX_ID},
@@ -1264,7 +1270,8 @@ TalkData = {
     {BgColor = COLOR_GRAY},
     {Image = elder_glass_tex_id},
     {Text = '「沒問題交給我來處理」'},
-    {Text = '「請告訴我怎麼作」'},
+    {Text = '「我先研究看看怎麼處理」'},
+    {Script = ScriptHelpElderGlass},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
   [2602] = {
@@ -1272,6 +1279,12 @@ TalkData = {
     {Image = elder_glass_tex_id},
     {Text = '「抱歉我沒空」'},
     {Text = '「請你再找別人幫你」'},
+    {LevelId = UNDERWORLD_MAIN_LVL_ID},
+  },
+  [2603] = {
+    {BgColor = COLOR_GRAY},
+    {Image = elder_glass_tex_id},
+    {Text = '請問偶的眼镜怎麼辨？'},
     {LevelId = UNDERWORLD_MAIN_LVL_ID},
   },
   -- Under world main, elder yellow.

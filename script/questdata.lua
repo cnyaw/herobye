@@ -75,7 +75,8 @@ QuestData = {
   [9111] = {TalkId = {1308}, NextId = 9112},
   [9112] = {TalkId = {1307}, NextCond = IsNeedRope, NextId = 9113},
   [9113] = {TalkId = {1309}, NextId = 9114},
-  [9114] = {TalkId = {1307}},
+  [9114] = {TalkId = {1307}, NextCond = IsHelpElderGlass, NextId = 9115},
+  [9115] = {TalkId = {1310}},
   -- Hero village church, shelf.
   [9200] = {LevelId = BAG_LVL_ID},
   -- Hero village, Zhang mama home.
@@ -152,9 +153,11 @@ QuestData = {
   -- Under world entry, to main map.
   [21200] = {TalkId = {2500}, NextCond = IsPassPotatoTest, NextId = 21201},
   [21201] = {LevelId = UNDERWORLD_MAIN_LVL_ID},
-  -- Under world main map, elder glass.
+  -- Under world main map, to entry.
   [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
-  [21400] = {TalkId = {2600}},
+  -- Under world main map, elder glass.
+  [21400] = {TalkId = {2600}, NextCond = IsHelpElderGlass, NextId = 21401},
+  [21401] = {TalkId = {2603}},
   -- Under world main map, elder yellow.
   [21500] = {TalkId = {2610}, NextCond = IsHelpElderYellow, NextId = 21501},
   [21501] = {TalkId = {2613}, NextCond = HasCleanYellowSuit, NextId = 21502},

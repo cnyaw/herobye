@@ -45,6 +45,7 @@ f_need_rope = 48
 i_rope = 49
 i_temple_lvl = 50
 i_temple_score = 51
+f_help_elder_glass = 52
 --]]
 
 local bou_desc_id = 600
