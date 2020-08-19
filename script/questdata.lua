@@ -144,7 +144,8 @@ QuestData = {
   -- Alien path, to alien area.
   [19000] = {LevelId = ALIEN_AREA_LVL_ID},
   -- Alien area, ufo.
-  [20000] = {TalkId = {2200}},
+  [20000] = {TalkId = {2200}, NextCond = IsHelpElderGlass, NextId = 20001},
+  [20001] = {TalkId = {2203}},
   -- Under world entry, well.
   [21000] = {TalkId = {2300}},
   -- Under world entry, dwarf potato.

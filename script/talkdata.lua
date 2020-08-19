@@ -1192,6 +1192,21 @@ TalkData = {
     {Text = '有空要再來找我猜拳哦'},
     {LevelId = ALIEN_AREA_LVL_ID},
   },
+  [2203] = {
+    {Image = UFO_TEX_ID},
+    {Text = '以拳頭星的科技來看'},
+    {Text = '你說的眼鏡應該只是磨損嚴重'},
+    {Text = '只要有S奈米擦布就很容易修復'},
+    {Text = '不過我現在沒有S奈米擦布'},
+    {Text = '必須回到拳頭星才能取得'},
+    {Text = '而且我的船因為動力不足'},
+    {Text = '也無法飛回到拳頭星'},
+    {Text = '如果能夠得到能源補充的話'},
+    {Text = '我就能用飛船帶你到拳頭星'},
+    {Text = '這樣就能取得S奈米擦布'},
+    {Text = '哎呀不說了我們還是來猜拳吧'},
+    {LevelId = alien_boss_lvl_id},
+  },
   -- Under world entry, well.
   [2300] = {
     {BgColor = COLOR_GRAY},
