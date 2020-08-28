@@ -1336,7 +1336,7 @@ vgrid=640 0 0 0
 hgrid=384 0 0 0
 
 [object185]
-name=mirror
+name=o_caveMirror
 texture=184
 x=264
 y=112
@@ -1383,7 +1383,7 @@ y=352
 dim=0 0 32 32
 
 [object126]
-name=well
+name=o_caveWell
 texture=181
 x=264
 y=128

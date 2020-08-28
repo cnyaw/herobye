@@ -39,6 +39,8 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_KaiHome = 15000,
   o_pond = 16000,
   o_cave = 17000,
+  o_caveWell = 17100,
+  o_caveMirror = 17200,
   o_back = 18000,
   o_toAlienArea = 19000,
   o_alien = 20000,
@@ -497,7 +499,7 @@ function QuestOnStep(x, y)
   local lvl_id = Good.GetLevelId()
   for obj_name, quest_id in pairs(obj_state) do
     local id = Good.FindChild(lvl_id, obj_name, 1)
-    if (-1 ~= id and PtInObj(x, y, id)) then
+    if (-1 ~= id and Good.GetVisible(id) and PtInObj(x, y, id)) then
       local q = QuestData[quest_id]
       if (nil ~= q.TalkId) then
         local rand_talk_id = math.random(#q.TalkId)

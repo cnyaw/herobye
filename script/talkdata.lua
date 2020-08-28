@@ -1157,7 +1157,6 @@ TalkData = {
     {LevelId = cave_maze_lvl_id},
   },
   [2111] = {
-    {NextCond = HasRope, NextId = 2112},
     {BgColor = COLOR_GRAY},
     {Image = well_tex_id},
     {Text = '這口井好像很深的樣子'},
