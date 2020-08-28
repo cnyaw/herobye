@@ -368,6 +368,10 @@ function IsEnterCave2Times()
   return 2 <= EnterCaveCount()
 end
 
+function IsFindUfoPower()
+  return HasItem('f_find_ufo_power')
+end
+
 function IsFinishTraining()
   return HasItem('f_finish_training')
 end
@@ -618,6 +622,10 @@ function ScriptAddSuperSoapBook()
   SetItem('i_super_soap_book', 1)
 end
 
+function ScriptAddUfoPowerBook()
+  SetItem('i_ufo_power_book', 1)
+end
+
 function ScriptBuildTemple()
   ConsumeCoin(CROWD_FUNDING_COST)
 end
@@ -665,6 +673,10 @@ end
 function ScriptExchangeCandyScissor()
   SetItem('i_candy', 0)
   SetItem('i_scissor', 1)
+end
+
+function ScriptFindUfoPower()
+  SetItem('f_find_ufo_power', 1)
 end
 
 function ScriptGetMalletCode()

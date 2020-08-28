@@ -76,7 +76,9 @@ QuestData = {
   [9112] = {TalkId = {1307}, NextCond = IsNeedRope, NextId = 9113},
   [9113] = {TalkId = {1309}, NextId = 9114},
   [9114] = {TalkId = {1307}, NextCond = IsHelpElderGlass, NextId = 9115},
-  [9115] = {TalkId = {1310}},
+  [9115] = {TalkId = {1310}, NextCond = IsFindUfoPower, NextId = 9116},
+  [9116] = {TalkId = {1311}, NextId = 9117},
+  [9117] = {TalkId = {1310}},
   -- Hero village church, shelf.
   [9200] = {LevelId = BAG_LVL_ID},
   -- Hero village, Zhang mama home.
@@ -145,7 +147,8 @@ QuestData = {
   [19000] = {LevelId = ALIEN_AREA_LVL_ID},
   -- Alien area, ufo.
   [20000] = {TalkId = {2200}, NextCond = IsHelpElderGlass, NextId = 20001},
-  [20001] = {TalkId = {2203}},
+  [20001] = {TalkId = {2203}, NextId = 20002},
+  [20002] = {TalkId = {2204}},
   -- Under world entry, well.
   [21000] = {TalkId = {2300}},
   -- Under world entry, dwarf potato.

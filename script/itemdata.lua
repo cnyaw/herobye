@@ -46,6 +46,8 @@ i_rope = 49
 i_temple_lvl = 50
 i_temple_score = 51
 f_help_elder_glass = 52
+f_find_ufo_power = 53
+i_ufo_power_book = 54
 --]]
 
 local bou_desc_id = 600
@@ -77,6 +79,7 @@ local power_scissor_book_desc_id = 1352
 local slap_mouse_book_desc_id = 1353
 local cave_maze_book_desc_id = 1354
 local shave_book_desc_id = 1355
+local ufo_power_book_desc_id = 1356
 
 local flash_light_obj_id = 92
 
@@ -116,4 +119,5 @@ ItemData = {
   i_cave_maze_book = {BagType = e_book_lib, Image = CAVE_MAZE_BOOK_TEX_ID, TalkId = cave_maze_book_desc_id},
   i_shave_book = {BagType = e_book_lib, Image = SHAVE_BOOK_TEX_ID, TalkId = shave_book_desc_id},
   i_super_soap_book = {BagType = e_book_lib, Image = SUPER_SOAP_BOOK_TEX_ID, TalkId = super_soap_book_desc_id},
+  i_ufo_power_book = {BagType = e_book_lib, Image = UFO_POWER_BOOK_TEX_ID, TalkId = ufo_power_book_desc_id},
 }
