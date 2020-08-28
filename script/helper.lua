@@ -565,6 +565,7 @@ end
 
 function ScriptAddCaveMazeBookFlag()
   SetItem('f_cave_maze_book', 1)
+  SetItem('f_open_cave_door', 0)
 end
 
 function ScriptAddCaveMazeBook()
@@ -681,7 +682,6 @@ end
 
 function ScriptGetMalletCode()
   SetItem('f_mallet_code', 1)
-  SetItem('f_open_cave_door', 0)
 end
 
 function ScriptGiveAllowance()
