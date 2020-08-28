@@ -48,6 +48,7 @@ i_temple_score = 51
 f_help_elder_glass = 52
 f_find_ufo_power = 53
 i_ufo_power_book = 54
+i_ufo_power = 55
 --]]
 
 local bou_desc_id = 600
@@ -72,6 +73,7 @@ local yellow_mouse_tail_desc_id = 619
 local super_soap_desc_id = 620
 local clean_yellow_suit_desc_id = 621
 local rope_desc_id = 622
+local ufo_power_desc_id = 623
 
 local hero_his_book_desc_id = 1350
 local cave_door_book_desc_id = 1351
@@ -111,6 +113,7 @@ ItemData = {
   i_super_soap = {BagType = e_hero_bag, Image = SUPER_SOAP_TEX_ID, TalkId = super_soap_desc_id},
   i_clean_yellow_suit = {BagType = e_hero_bag, Image = CLEAN_YELLOW_SUIT_OBJ_ID, TalkId = clean_yellow_suit_desc_id},
   i_rope = {BagType = e_hero_bag, Image = ROPE_TEX_ID, TalkId = rope_desc_id},
+  i_ufo_power = {BagType = e_hero_bag, Image = UFO_POWER_TEX_ID, TalkId = ufo_power_desc_id},
   -- book.
   i_hero_history_book = {BagType = e_book_lib, Image = HERO_HIS_BOOK_TEX_ID, TalkId = hero_his_book_desc_id},
   i_cave_door_book = {BagType = e_book_lib, Image = CAVE_DOOR_BOOK_TEX_ID, TalkId = cave_door_book_desc_id},

@@ -145,7 +145,9 @@ QuestData = {
   [17100] = {TalkId = {2111}, NextCond = HasRope, NextId = 17101},
   [17101] = {TalkId = {2112}},
   -- Cave maze, mirror.
-  [17200] = {TalkId = {2113}},
+  [17200] = {TalkId = {2113}, NextCond = HasUfoPowerBook, NextId = 17201},
+  [17201] = {TalkId = {2114}, NextId = 17202},
+  [17202] = {TalkId = {2113}},
   -- Back button.
   [18000] = {ScriptLevelId = GetHeroVillageBackLvlId},
   -- Alien path, to alien area.

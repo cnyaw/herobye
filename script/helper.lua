@@ -330,6 +330,10 @@ function HasSuperSoap()
   return HasItem('i_super_soap')
 end
 
+function HasUfoPowerBook()
+  return HasItem('i_ufo_power_book')
+end
+
 function InitTable(init_tbl)
   local tbl = {}
   for k,v in pairs(init_tbl) do
@@ -623,6 +627,11 @@ end
 
 function ScriptAddSuperSoapBook()
   SetItem('i_super_soap_book', 1)
+end
+
+function ScriptAddUfoPower()
+  SetItem('i_ufo_power', 1)
+  SetItem('f_find_ufo_power', 0)
 end
 
 function ScriptAddUfoPowerBook()

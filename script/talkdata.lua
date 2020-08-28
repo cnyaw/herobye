@@ -35,7 +35,7 @@ local elder_yellow_tex_id = 106
 local elder_white_tex_id = 110
 local old_lady_tex_id = 115
 local magic_mama_tex_id = 11
-local mirror_tex_id = 185
+local mirror_tex_id = 184
 
 local color_olive = 0xff808000
 
@@ -305,6 +305,11 @@ TalkData = {
   [622] = {
     {Image = ROPE_TEX_ID},
     {Text = '很長的繩索'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [623] = {
+    {Image = UFO_POWER_TEX_ID},
+    {Text = '外星人飛船能源'},
     {LevelId = BAG_LVL_ID},
   },
   -- Church.
@@ -1180,6 +1185,17 @@ TalkData = {
     {Image = mirror_tex_id},
     {Text = '「奇怪是我眼睛花了嗎？」'},
     {Text = '「這面鏡子好奇怪」'},
+    {LevelId = cave_maze_lvl_id},
+  },
+  [2114] = {
+    {BgColor = COLOR_GRAY},
+    {Image = mirror_tex_id},
+    {Text = '這是一面有點破損的鏡子'},
+    {Text = '走近前去仔細檢查'},
+    {Text = '發現底下有個開關可以打開鏡子'},
+    {Image = UFO_POWER_TEX_ID},
+    {Text = '在鏡子後面發現飛船能源'},
+    {Script = ScriptAddUfoPower},
     {LevelId = cave_maze_lvl_id},
   },
   -- Alien area, ufo.
