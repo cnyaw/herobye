@@ -585,7 +585,7 @@ function ScriptAddHeroHisBook()
 end
 
 function ScriptAddMellet()
-  RemoveItem('f_mallet_code', 1)
+  SetItem('f_mallet_code', 0)
   SetItem('i_mallet', 1)
 end
 
@@ -681,6 +681,7 @@ end
 
 function ScriptGetMalletCode()
   SetItem('f_mallet_code', 1)
+  SetItem('f_open_cave_door', 0)
 end
 
 function ScriptGiveAllowance()
