@@ -41,6 +41,9 @@ groups=
 192=./script/templelvl.lua
 198=./script/astroid.lua
 
+[stges]
+201=./script/particle.stge
+
 [tex31]
 name=mount
 fileName=./res/mon2.png

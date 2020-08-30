@@ -13,6 +13,22 @@ Astroid.OnCreate = function(param)
   end
 end
 
+Astroid.OnNewParticle = function(param, particle, iMgr)
+  local i = Stge.GetUserData(particle, 0, iMgr)
+  local cx = Stge.GetUserData(particle, 1, iMgr)
+  local cy = Stge.GetUserData(particle, 2, iMgr)
+  local w,h = Resource.GetTexSize(astroid_tex_id)
+  local o = Good.GenObj(-1, astroid_tex_id, 'AnimAstroidPiece')
+  Good.SetAnchor(o, .5, .5)
+  local px,py = w/cx, h/cy
+  Good.SetDim(o, (i % cx) * px, math.floor(i / cy) * py, px, py)
+  Stge.BindParticle(particle, o, iMgr)
+end
+
+Astroid.OnKillParticle = function(param, particle, iMgr)
+  Good.KillObj(Stge.GetParticleBind(particle, iMgr))
+end
+
 Astroid.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE)) then
     Good.GenObj(-1, ALIEN_AREA_LVL_ID)

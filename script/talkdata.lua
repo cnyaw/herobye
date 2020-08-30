@@ -1264,7 +1264,7 @@ TalkData = {
   [2206] = {
     {Image = UFO_TEX_ID},
     {Text = '勇者小白你來啦'},
-    {MenuText = {'比猜拳', '去拳頭星'}, MenuNextId = {2207, 2208}},
+    {MenuText = {'比賽猜拳', '去拳頭星'}, MenuNextId = {2207, 2208}},
   },
   [2207] = {
     {LevelId = alien_boss_lvl_id},

@@ -1,0 +1,8 @@
+script fx_destroy
+  repeat(9)
+    direction(rand(360))
+    speed(rand(160,200))
+    userdata($rep,3,3)                  ; Total 3x3 pieces.
+    fire()
+  end
+end

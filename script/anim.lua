@@ -11,6 +11,13 @@ function AcKillAnimObj(param)
   Good.KillObj(param._id)
 end
 
+function AcKillAstroid(param)
+  local id = param._id
+  local x, y = Good.GetPos(id)
+  Stge.RunScript('fx_destroy', x, y)
+  Good.KillObj(id)
+end
+
 function AcKillAnimScript(param)
   param.k = nil
   Good.SetScript(param._id, '')
@@ -222,7 +229,7 @@ AnimAstroid = {}
 
 AnimAstroid.OnStep = function(param)
   if (nil == param.k) then
-    local t = math.random(6,12)
+    local t = math.random(4, 12)
     local x, y = Good.GetPos(param._id)
     local loop1 = ArAddLoop(nil)
     ArAddMoveTo(loop1, 'Pos', t, x, SCR_H)
@@ -240,8 +247,20 @@ AnimDestroyAstroid = {}
 AnimDestroyAstroid.OnStep = function(param)
   if (nil == param.k) then
     local loop1 = ArAddLoop(nil)
-    ArAddMoveTo(loop1, 'Alpha', 0.5, 0)
-    ArAddCall(loop1, 'AcKillAnimObj', 0)
+    ArAddMoveTo(loop1, 'Alpha', 0.1, 0)
+    ArAddCall(loop1, 'AcKillAstroid', 0)
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimAstroidPiece = {}
+
+AnimAstroidPiece.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveBy(loop1, 'Rot', 1, 90)
     param.k = ArAddAnimator({loop1})
   else
     ArStepAnimator(param, param.k)
