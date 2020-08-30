@@ -28,6 +28,8 @@ function AcResetAstroid(param)
   local x, y = Good.GetPos(id)
   Good.SetPos(id, x, -math.random(10, 320))
   param.k = nil
+  local pp = Good.GetParam(Good.GetParent(id))
+  SetDestroyAstroidCount(pp, 0)
 end
 
 BouncingObj = {}

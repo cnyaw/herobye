@@ -38,15 +38,7 @@ Astroid.OnStep = function(param)
     return
   end
   local x, y = Input.GetMousePos()
-  for i = 1, NUM_ASTROID do
-    local o = param.o[i]
-    if (PtInObj(x, y, o)) then
-      Good.SetScript(o, 'AnimDestroyAstroid')
-      Good.GetParam(o).k = nil
-      param.o[i] = GenNewAstroid(i)
-      return
-    end
-  end
+  HittestAstroid(param, x, y)
 end
 
 function GenNewAstroid(i)
@@ -55,6 +47,23 @@ function GenNewAstroid(i)
   Good.SetPos(o, (i-1) * (SCR_W/NUM_ASTROID), -math.random(h, 4*h))
   Good.SetAnchor(o, .5, .5)
   return o
+end
+
+function HittestAstroid(param, x, y)
+  for i = 1, NUM_ASTROID do
+    local o = param.o[i]
+    if (PtInObj(x, y, o)) then
+      Good.SetScript(o, 'AnimDestroyAstroid')
+      Good.GetParam(o).k = nil
+      param.o[i] = GenNewAstroid(i)
+      IncDestroyAstroidCount(param)
+      return
+    end
+  end
+end
+
+function IncDestroyAstroidCount(param)
+  SetDestroyAstroidCount(param, param.counter_dummy_count + 1)
 end
 
 function SetDestroyAstroidCount(param, c)
