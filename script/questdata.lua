@@ -155,7 +155,9 @@ QuestData = {
   -- Alien area, ufo.
   [20000] = {TalkId = {2200}, NextCond = IsHelpElderGlass, NextId = 20001},
   [20001] = {TalkId = {2203}, NextId = 20002},
-  [20002] = {TalkId = {2204}},
+  [20002] = {TalkId = {2204}, NextCond = HasUfoPower, NextId = 20003},
+  [20003] = {TalkId = {2205}, NextId = 20004},
+  [20004] = {TalkId = {2206}},
   -- Under world entry, well.
   [21000] = {TalkId = {2300}},
   -- Under world entry, dwarf potato.

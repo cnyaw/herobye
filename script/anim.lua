@@ -16,6 +16,13 @@ function AcKillAnimScript(param)
   Good.SetScript(param._id, '')
 end
 
+function AcResetAstroid(param)
+  local id = param._id
+  local x, y = Good.GetPos(id)
+  Good.SetPos(id, x, -math.random(10, 320))
+  param.k = nil
+end
+
 BouncingObj = {}
 
 BouncingObj.OnCreate = function(param)
@@ -206,6 +213,36 @@ AnimTempleGainCoin.OnStep = function(param)
     ArAddDelay(loop2, 0.75)
     ArAddMoveTo(loop2, 'Alpha', 0.1, 0)
     param.k = ArAddAnimator({loop1, loop2})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimAstroid = {}
+
+AnimAstroid.OnStep = function(param)
+  if (nil == param.k) then
+    local t = math.random(6,12)
+    local x, y = Good.GetPos(param._id)
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveTo(loop1, 'Pos', t, x, SCR_H)
+    ArAddCall(loop1, 'AcResetAstroid', 0)
+    local loop2 = ArAddLoop(nil)
+    ArAddMoveTo(loop2, 'Rot', t, 360)
+    param.k = ArAddAnimator({loop1, loop2})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimDestroyAstroid = {}
+
+AnimDestroyAstroid.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveTo(loop1, 'Alpha', 0.5, 0)
+    ArAddCall(loop1, 'AcKillAnimObj', 0)
+    param.k = ArAddAnimator({loop1})
   else
     ArStepAnimator(param, param.k)
   end

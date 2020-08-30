@@ -330,6 +330,10 @@ function HasSuperSoap()
   return HasItem('i_super_soap')
 end
 
+function HasUfoPower()
+  return HasItem('i_ufo_power')
+end
+
 function HasUfoPowerBook()
   return HasItem('i_ufo_power_book')
 end
@@ -676,6 +680,10 @@ function ScriptCleanYellowSuit()
   SetItem('i_super_soap', 0)
   SetItem('i_dirty_yellow_suit', 0)
   SetItem('i_clean_yellow_suit', 1)
+end
+
+function ScriptConsumeUfoPower()
+  SetItem('i_ufo_power', 0)
 end
 
 function ScriptEnterCave()

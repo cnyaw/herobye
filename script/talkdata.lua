@@ -10,6 +10,7 @@ local cave_maze_lvl_id = 88
 local pair_game_lvl_id = 107
 local pick_trash_lvl_id = 111
 local lottery_lvl_id = 19
+local astroid_lvl_id = 197
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -273,7 +274,7 @@ TalkData = {
     {Text = '以下是製作超強效洗衣精的配方'},
     {Text = '1.三種不同顏色的老鼠尾巴'},
     {Text = '2.一滴青蛙的眼淚'},
-    {Text = '3.一句密秘的魔法咒語'},
+    {Text = '3.一句秘密的魔法咒語'},
     {Text = '這樣就能產生一份超強效洗衣精'},
     {LevelId = BAG_LVL_ID},
   },
@@ -623,7 +624,7 @@ TalkData = {
     {Text = '附帶一提'},
     {Text = '在迷宮的北邊深處有一面鏡子'},
     {Text = '是傳說的真理之鏡'},
-    {Text = '能讓你照見平常看不見的密秘'},
+    {Text = '能讓你照見平常看不見的秘密'},
     {LevelId = BAG_LVL_ID},
   },
   [1355] = {
@@ -826,7 +827,7 @@ TalkData = {
     {Text = '青蛙的眼淚'},
     {Image = merchant_tex_id},
     {Text = '太好了全部齊全了'},
-    {Text = '再來加上我的密秘的咒語'},
+    {Text = '再來加上我的秘密的咒語'},
     {Text = '就能製作出一份超強效洗衣精'},
     {Text = '「阿布卡阿布卡」'},
     {Image = SUPER_SOAP_TEX_ID},
@@ -1250,6 +1251,26 @@ TalkData = {
     {Text = '這樣就能取得S奈米擦布修復眼鏡'},
     {Text = '哎呀不說了我們還是來猜拳吧'},
     {LevelId = alien_boss_lvl_id},
+  },
+  [2205] = {
+    {Image = UFO_TEX_ID},
+    {Text = '勇者小白你真是太厲害啦'},
+    {Text = '你是怎麼找到飛船能源補充的？'},
+    {Text = '不管了現在可以帶你到拳頭星了'},
+    {Text = '立刻出發吧'},
+    {Script = ScriptConsumeUfoPower},
+    {LevelId = astroid_lvl_id},
+  },
+  [2206] = {
+    {Image = UFO_TEX_ID},
+    {Text = '勇者小白你來啦'},
+    {MenuText = {'比猜拳', '去拳頭星'}, MenuNextId = {2207, 2208}},
+  },
+  [2207] = {
+    {LevelId = alien_boss_lvl_id},
+  },
+  [2208] = {
+    {LevelId = astroid_lvl_id},
   },
   -- Under world entry, well.
   [2300] = {
