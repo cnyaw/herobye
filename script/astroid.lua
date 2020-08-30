@@ -1,3 +1,4 @@
+local WAIT_TIME = 80
 local NUM_ASTROID_TO_DESTROY = 10
 local NUM_ASTROID = 5
 
@@ -11,6 +12,7 @@ Astroid.OnCreate = function(param)
   for i = 1, NUM_ASTROID do
     param.o[i] = GenNewAstroid(i)
   end
+  param.step = OnDestroyAstroidStep
 end
 
 Astroid.OnNewParticle = function(param, particle, iMgr)
@@ -34,11 +36,7 @@ Astroid.OnStep = function(param)
     Good.GenObj(-1, ALIEN_AREA_LVL_ID)
     return
   end
-  if (not Input.IsKeyPushed(Input.LBUTTON)) then
-    return
-  end
-  local x, y = Input.GetMousePos()
-  HittestAstroid(param, x, y)
+  param.step(param)
 end
 
 function GenNewAstroid(i)
@@ -57,13 +55,31 @@ function HittestAstroid(param, x, y)
       Good.GetParam(o).k = nil
       param.o[i] = GenNewAstroid(i)
       IncDestroyAstroidCount(param)
-      return
+      return NUM_ASTROID_TO_DESTROY <= param.counter_dummy_count
     end
   end
+  return false
 end
 
 function IncDestroyAstroidCount(param)
   SetDestroyAstroidCount(param, param.counter_dummy_count + 1)
+end
+
+function OnDestroyAstroidStep(param)
+  if (not Input.IsKeyPushed(Input.LBUTTON)) then
+    return
+  end
+  local x, y = Input.GetMousePos()
+  if (HittestAstroid(param, x, y)) then
+    param.step = OnPassAstroidStep
+  end
+end
+
+function OnPassAstroidStep(param)
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  Good.GenObj(-1, ALIEN_AREA_LVL_ID)
 end
 
 function SetDestroyAstroidCount(param, c)
