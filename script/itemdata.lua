@@ -49,6 +49,7 @@ f_help_elder_glass = 52
 f_find_ufo_power = 53
 i_ufo_power_book = 54
 i_ufo_power = 55
+i_click_training_count = 56
 --]]
 
 local bou_desc_id = 600

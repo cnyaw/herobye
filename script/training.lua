@@ -46,11 +46,19 @@ TrainingMap.OnStep = function(param)
   end
 end
 
+function GetClickTrainingCount(param)
+  if (IsFinishTraining()) then
+    return ClickTrainingCount()
+  else
+    return MAX_CLICK - param.hit
+  end
+end
+
 TrainingClick = {}
 
 TrainingClick.OnCreate = function(param)
   param.hit = 0
-  hit_obj = GenTrainingNumInfoObj(MAX_CLICK - param.hit)
+  hit_obj = GenTrainingNumInfoObj(GetClickTrainingCount(param))
   param.step = TrainingClickOnStepPlay
 end
 
@@ -172,10 +180,15 @@ function TrainingClickOnStepPlay(param)
       Good.KillObj(hit_obj)
       hit_obj = nil
     end
-    hit_obj = GenTrainingNumInfoObj(MAX_CLICK - param.hit)
-    if (MAX_CLICK == param.hit) then
-      param.step = TrainingClickOnStepEnd
-      return
+    if (not IsFinishTraining()) then
+      hit_obj = GenTrainingNumInfoObj(GetClickTrainingCount(param))
+      if (MAX_CLICK == param.hit) then
+        param.step = TrainingClickOnStepEnd
+        return
+      end
+    else
+      IncClickTrainingCount()
+      hit_obj = GenTrainingNumInfoObj(GetClickTrainingCount(param))
     end
   end
 end

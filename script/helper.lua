@@ -132,6 +132,10 @@ function CanPlayLottery()
   return HasCoin(LOTTERY_COST)
 end
 
+function ClickTrainingCount()
+  return ItemCount('i_click_training_count')
+end
+
 function Consume2ndDreamCost()
   ConsumeCoin(CHURCH_2ND_DREAM_COST)
 end
@@ -337,6 +341,10 @@ end
 
 function HasUfoPowerBook()
   return HasItem('i_ufo_power_book')
+end
+
+function IncClickTrainingCount()
+  AddItem('i_click_training_count', 1)
 end
 
 function InitTable(init_tbl)
