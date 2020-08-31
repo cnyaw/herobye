@@ -1272,6 +1272,12 @@ TalkData = {
   [2208] = {
     {LevelId = astroid_lvl_id},
   },
+  [2209] = {
+    {Image = UFO_TEX_ID},
+    {Text = '勇者小白你想回勇者村了嗎？'},
+    {Text = '立刻出發吧'},
+    {LevelId = ALIEN_AREA_LVL_ID},
+  },
   -- Under world entry, well.
   [2300] = {
     {BgColor = COLOR_GRAY},

@@ -187,4 +187,6 @@ QuestData = {
   [22000] = {TalkId = {2700}},
   -- Trash field, magic mama.
   [23000] = {TalkId = {2800}},
+  -- Janken planet, UFO.
+  [24000] = {TalkId = {2209}},
 }
