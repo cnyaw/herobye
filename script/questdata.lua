@@ -189,4 +189,12 @@ QuestData = {
   [23000] = {TalkId = {2800}},
   -- Janken planet, UFO.
   [24000] = {TalkId = {2209}},
+  -- Janken planet, Dipsy.
+  [24100] = {TalkId = {2900}},
+  -- Janken planet, Po.
+  [24200] = {TalkId = {3000}},
+  -- Janken planet, Laalaa.
+  [24300] = {TalkId = {3100}},
+  -- Janken planet, Tinky Winky.
+  [24400] = {TalkId = {3200}},
 }

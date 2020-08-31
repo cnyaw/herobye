@@ -55,6 +55,10 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_oldLady = 22000,
   o_magicmama = 23000,
   o_jankenUfo = 24000,
+  o_dipsy = 24100,
+  o_po = 24200,
+  o_laalaa = 24300,
+  o_tinkywinky = 24400,
 }
 
 obj_state = {

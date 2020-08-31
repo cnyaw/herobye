@@ -37,6 +37,10 @@ local elder_white_tex_id = 110
 local old_lady_tex_id = 115
 local magic_mama_tex_id = 11
 local mirror_tex_id = 184
+local dipsy_tex_id = 210
+local laalaa_tex_id = 211
+local po_tex_id = 212
+local tinkywinky_tex_id = 214
 
 local color_olive = 0xff808000
 
@@ -1517,5 +1521,29 @@ TalkData = {
     {Image = magic_mama_tex_id},
     {Text = '謝謝惠顧歡迎再來'},
     {LevelId = TRASH_FIELD_LVL_ID},
+  },
+  -- Janken planet, Dipsy.
+  [2900] = {
+    {Image = dipsy_tex_id},
+    {Text = '你好'},
+    {LevelId = JANKEN_PLANET_LVL_ID},
+  },
+  -- Janken planet, Po.
+  [3000] = {
+    {Image = po_tex_id},
+    {Text = '你好'},
+    {LevelId = JANKEN_PLANET_LVL_ID},
+  },
+  -- Janken planet, Laalaa.
+  [3100] = {
+    {Image = laalaa_tex_id},
+    {Text = '你好'},
+    {LevelId = JANKEN_PLANET_LVL_ID},
+  },
+  -- Janken planet, Tinky Winky.
+  [3200] = {
+    {Image = tinkywinky_tex_id},
+    {Text = '你好'},
+    {LevelId = JANKEN_PLANET_LVL_ID},
   },
 }

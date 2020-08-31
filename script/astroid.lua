@@ -2,8 +2,6 @@ local WAIT_TIME = 80
 local NUM_ASTROID_TO_DESTROY = 10
 local NUM_ASTROID = 5
 
-local janken_planet_lvl_id = 203
-
 local astroid_tex_id = 196
 
 Astroid = {}
@@ -81,7 +79,7 @@ function OnPassAstroidStep(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  Good.GenObj(-1, janken_planet_lvl_id)
+  Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
 end
 
 function SetDestroyAstroidCount(param, c)
