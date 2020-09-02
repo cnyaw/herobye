@@ -197,4 +197,10 @@ QuestData = {
   [24300] = {TalkId = {3100}},
   -- Janken planet, Tinky Winky.
   [24400] = {TalkId = {3200}},
+  -- Janken planet, to lib.
+  [24500] = {LevelId = JANKEN_LIB_LVL_ID},
+  -- Janken lib, to planet.
+  [25000] = {LevelId = JANKEN_PLANET_LVL_ID},
+  -- Janken lib, bebe.
+  [25100] = {TalkId = {3300}},
 }

@@ -41,6 +41,7 @@ local dipsy_tex_id = 210
 local laalaa_tex_id = 211
 local po_tex_id = 212
 local tinkywinky_tex_id = 214
+local bebe_tex_id = 215
 
 local color_olive = 0xff808000
 
@@ -1545,5 +1546,11 @@ TalkData = {
     {Image = tinkywinky_tex_id},
     {Text = '你好'},
     {LevelId = JANKEN_PLANET_LVL_ID},
+  },
+  -- Janken lib, bebe.
+  [3300] = {
+    {Image = bebe_tex_id},
+    {Text = '你好我是小比博士'},
+    {LevelId = JANKEN_LIB_LVL_ID},
   },
 }
