@@ -190,13 +190,17 @@ QuestData = {
   -- Janken planet, UFO.
   [24000] = {TalkId = {2209}},
   -- Janken planet, Dipsy.
-  [24100] = {TalkId = {2900}},
+  [24100] = {TalkId = {2900}, NextCond = IsFindTeletubbies, NextId = 24101},
+  [24101] = {TalkId = {2901}},
   -- Janken planet, Po.
-  [24200] = {TalkId = {3000}},
+  [24200] = {TalkId = {3000}, NextCond = IsFindTeletubbies, NextId = 24201},
+  [24201] = {TalkId = {2901}},
   -- Janken planet, Laalaa.
-  [24300] = {TalkId = {3100}},
+  [24300] = {TalkId = {3100}, NextCond = IsFindTeletubbies, NextId = 24301},
+  [24301] = {TalkId = {2901}},
   -- Janken planet, Tinky Winky.
-  [24400] = {TalkId = {3200}},
+  [24400] = {TalkId = {3200}, NextCond = IsFindTeletubbies, NextId = 24401},
+  [24401] = {TalkId = {2901}},
   -- Janken planet, to lib.
   [24500] = {LevelId = JANKEN_LIB_LVL_ID},
   -- Janken lib, to planet.

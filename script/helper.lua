@@ -394,6 +394,10 @@ function IsEnterCave2Times()
   return 2 <= EnterCaveCount()
 end
 
+function IsFindTeletubbies()
+  return HasItem('f_find_teletubbies')
+end
+
 function IsFindUfoPower()
   return HasItem('f_find_ufo_power')
 end
@@ -709,6 +713,10 @@ end
 function ScriptExchangeCandyScissor()
   SetItem('i_candy', 0)
   SetItem('i_scissor', 1)
+end
+
+function ScriptFindTeletubbies()
+  SetItem('f_find_teletubbies', 1)
 end
 
 function ScriptFindUfoPower()

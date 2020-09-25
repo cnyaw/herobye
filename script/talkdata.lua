@@ -1529,6 +1529,11 @@ TalkData = {
     {Text = '你好'},
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
+  [2901] = {
+    {Image = pinnote_tex_id},
+    {Text = '我不在家'},
+    {LevelId = JANKEN_PLANET_LVL_ID},
+  },
   -- Janken planet, Po.
   [3000] = {
     {Image = po_tex_id},
@@ -1551,6 +1556,12 @@ TalkData = {
   [3300] = {
     {Image = bebe_tex_id},
     {Text = '你好我是小比博士'},
+    {Text = '我可以幫忙製作S奈米擦布'},
+    {Text = '首先需要四根天線寶寶的毛'},
+    {Text = '還有一塊隕石碎片'},
+    {Text = '材料收集好後再來找我吧'},
+    {Script = ScriptFindTeletubbies},
+    {Text = '先把天線寶寶們都找出來吧'},
     {LevelId = JANKEN_LIB_LVL_ID},
   },
 }
