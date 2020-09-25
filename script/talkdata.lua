@@ -11,6 +11,7 @@ local pair_game_lvl_id = 107
 local pick_trash_lvl_id = 111
 local lottery_lvl_id = 19
 local astroid_lvl_id = 197
+local puzzle_lvl_id = 221
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -37,7 +38,6 @@ local elder_white_tex_id = 110
 local old_lady_tex_id = 115
 local magic_mama_tex_id = 11
 local mirror_tex_id = 184
-local dipsy_tex_id = 210
 local laalaa_tex_id = 211
 local po_tex_id = 212
 local tinkywinky_tex_id = 214
@@ -1525,19 +1525,25 @@ TalkData = {
   },
   -- Janken planet, Dipsy.
   [2900] = {
-    {Image = dipsy_tex_id},
+    {Image = DIPSY_TEX_ID},
     {Text = '你好'},
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   [2901] = {
     {Image = pinnote_tex_id},
     {Text = '我不在家'},
-    {LevelId = JANKEN_PLANET_LVL_ID},
+    {Text = '找找看我在那裡'},
+    {LevelId = puzzle_lvl_id},
   },
   -- Janken planet, Po.
   [3000] = {
     {Image = po_tex_id},
     {Text = '你好'},
+    {LevelId = JANKEN_PLANET_LVL_ID},
+  },
+  [3001] = {
+    {Image = pinnote_tex_id},
+    {Text = '我不在家'},
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   -- Janken planet, Laalaa.
@@ -1546,10 +1552,20 @@ TalkData = {
     {Text = '你好'},
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
+  [3101] = {
+    {Image = pinnote_tex_id},
+    {Text = '我不在家'},
+    {LevelId = JANKEN_PLANET_LVL_ID},
+  },
   -- Janken planet, Tinky Winky.
   [3200] = {
     {Image = tinkywinky_tex_id},
     {Text = '你好'},
+    {LevelId = JANKEN_PLANET_LVL_ID},
+  },
+  [3201] = {
+    {Image = pinnote_tex_id},
+    {Text = '我不在家'},
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   -- Janken lib, bebe.
