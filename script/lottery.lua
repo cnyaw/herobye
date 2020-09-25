@@ -13,11 +13,16 @@ local lottery_canvas = nil
 local lottery_str = nil
 local lottery_price = nil
 
+local function FillImageTex(lottery_canvas)
+  Graphics.FillRect(lottery_canvas, 0, 0, LOTTERY_W, LOTTERY_H, COLOR_YELLOW)
+  FillImage(lottery_canvas, 0, 0, cash_tex_id, LOTTERY_W, LOTTERY_H)
+end
+
 local function GenLotteryTex()
   if (nil == lottery_canvas) then
     lottery_canvas = Graphics.GenCanvas(LOTTERY_W, LOTTERY_H)
   end
-  FillImage(lottery_canvas, 0, 0, cash_tex_id, LOTTERY_W, LOTTERY_H)
+  FillImageTex(lottery_canvas)
   lottery_tex_id = Resource.GenTex(lottery_canvas)
 end
 
@@ -25,7 +30,7 @@ local function ResetLotteryTex()
   if (nil == lottery_canvas) then
     lottery_canvas = Graphics.GenCanvas(LOTTERY_W, LOTTERY_H)
   end
-  FillImage(lottery_canvas, 0, 0, cash_tex_id, LOTTERY_W, LOTTERY_H)
+  FillImageTex(lottery_canvas)
   Resource.UpdateTex(lottery_tex_id, 0, 0, lottery_canvas, 0, 0, LOTTERY_W, LOTTERY_H)
 end
 
