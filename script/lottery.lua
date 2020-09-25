@@ -13,16 +13,6 @@ local lottery_canvas = nil
 local lottery_str = nil
 local lottery_price = nil
 
-local function FillImage(canvas, x, y, tex, w, h)
-  Graphics.FillRect(canvas, x, y, w, h, COLOR_YELLOW)
-  local cx, cy = Resource.GetTexSize(tex)
-  for ay = 0, h, cy do
-    for ax = 0, w, cx do
-      Graphics.DrawImage(canvas, ax, ay, tex, 0, 0, cx, cy)
-    end
-  end
-end
-
 local function GenLotteryTex()
   if (nil == lottery_canvas) then
     lottery_canvas = Graphics.GenCanvas(LOTTERY_W, LOTTERY_H)
