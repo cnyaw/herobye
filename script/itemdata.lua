@@ -51,6 +51,10 @@ i_ufo_power_book = 54
 i_ufo_power = 55
 i_click_training_count = 56
 f_find_teletubbies = 57
+i_dipsy_feather = 58
+i_laalaa_feather = 59
+i_po_feather = 59
+i_tinky_winky_feather = 60
 --]]
 
 local bou_desc_id = 600
@@ -76,6 +80,10 @@ local super_soap_desc_id = 620
 local clean_yellow_suit_desc_id = 621
 local rope_desc_id = 622
 local ufo_power_desc_id = 623
+local dipsy_feather_desc_id = 624
+local laalaa_feather_desc_id = 625
+local po_feather_desc_id = 626
+local tinky_winky_feather_desc_id = 627
 
 local hero_his_book_desc_id = 1350
 local cave_door_book_desc_id = 1351
@@ -116,6 +124,10 @@ ItemData = {
   i_clean_yellow_suit = {BagType = e_hero_bag, Image = CLEAN_YELLOW_SUIT_OBJ_ID, TalkId = clean_yellow_suit_desc_id},
   i_rope = {BagType = e_hero_bag, Image = ROPE_TEX_ID, TalkId = rope_desc_id},
   i_ufo_power = {BagType = e_hero_bag, Image = UFO_POWER_TEX_ID, TalkId = ufo_power_desc_id},
+  i_dipsy_feather = {BagType = e_hero_bag, Image = DIPSY_FEATHER_TEX_ID, TalkId = dipsy_feather_desc_id},
+  i_laalaa_feather = {BagType = e_hero_bag, Image = LAALAA_FEATHER_TEX_ID, TalkId = laalaa_feather_desc_id},
+  i_po_feather = {BagType = e_hero_bag, Image = PO_FEATHER_TEX_ID, TalkId = po_feather_desc_id},
+  i_tinky_winky_feather = {BagType = e_hero_bag, Image = TINKY_WINKY_FEATHER_TEX_ID, TalkId = tinky_winky_feather_desc_id},
   -- book.
   i_hero_history_book = {BagType = e_book_lib, Image = HERO_HIS_BOOK_TEX_ID, TalkId = hero_his_book_desc_id},
   i_cave_door_book = {BagType = e_book_lib, Image = CAVE_DOOR_BOOK_TEX_ID, TalkId = cave_door_book_desc_id},

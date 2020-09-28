@@ -318,6 +318,26 @@ TalkData = {
     {Text = '外星人飛船能源'},
     {LevelId = BAG_LVL_ID},
   },
+  [624] = {
+    {Image = DIPSY_FEATHER_TEX_ID},
+    {Text = '迪西的毛'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [625] = {
+    {Image = LAALAA_FEATHER_TEX_ID},
+    {Text = '拉拉的毛'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [626] = {
+    {Image = PO_FEATHER_TEX_ID},
+    {Text = '小波的毛'},
+    {LevelId = BAG_LVL_ID},
+  },
+  [627] = {
+    {Image = TINKY_WINKY_FEATHER_TEX_ID},
+    {Text = '丁丁的毛'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -1530,10 +1550,17 @@ TalkData = {
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   [2901] = {
-    {Image = pinnote_tex_id},
-    {Text = '我不在家'},
-    {Text = '找找看我在那裡'},
+    {Image = DIPSY_TEX_ID},
+    {Text = '我們來玩個拼圖遊戲吧'},
     {LevelId = puzzle_lvl_id},
+  },
+  [2902] = {
+    {Image = DIPSY_TEX_ID},
+    {Text = '你好棒棒哦'},
+    {Text = '送你一根迪西的毛'},
+    {Script = ScriptAddDipsyFeather},
+    {Text = '再見'},
+    {LevelId = JANKEN_PLANET_LVL_ID},
   },
   -- Janken planet, Po.
   [3000] = {
@@ -1577,7 +1604,7 @@ TalkData = {
     {Text = '還有一塊隕石碎片'},
     {Text = '材料收集好後再來找我吧'},
     {Script = ScriptFindTeletubbies},
-    {Text = '先把天線寶寶們都找出來吧'},
+    {Text = '先把天線寶寶的毛都收集齊全吧'},
     {LevelId = JANKEN_LIB_LVL_ID},
   },
 }

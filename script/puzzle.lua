@@ -1,23 +1,73 @@
 local PUZZLE_W, PUZZLE_H = 320, 320
+local MAX_COL, MAX_ROW = 3, 3
 
 local x,y = (SCR_W - PUZZLE_W)/2, (SCR_H - PUZZLE_H)/2
-local w,h = PUZZLE_W/3, PUZZLE_H/3
-
-local blank = 8 -- position of blank piece
+local w,h = PUZZLE_W/MAX_COL, PUZZLE_H/MAX_ROW
 
 local puzzle_tex_id = nil
+local found_dipsy_talk_id = 2902
+
+local blank = 8                         -- Position of blank piece.
+local puzzle = {}
+local puzzle_obj = nil
+
+local function SwapPiece(i, j)
+  local tmp = puzzle[i]
+  puzzle[i] = puzzle[j]
+  puzzle[j] = tmp
+end
+
+local function MovePiece(dir)
+  local col = blank % MAX_COL
+  local row = math.floor(blank / MAX_COL)
+  if (1 == dir) then                    -- Up.
+    if (MAX_ROW - 1 ~= row) then
+      SwapPiece(blank, blank + MAX_COL)
+      blank = blank + MAX_COL
+    end
+  elseif (2 == dir) then                -- Down.
+    if (0 ~= row) then
+      SwapPiece(blank, blank - MAX_COL)
+      blank = blank - MAX_COL
+    end
+  elseif (3 == dir) then                -- Left.
+    if (MAX_COL - 1 ~= col) then
+      SwapPiece(blank, blank + 1)
+      blank = blank + 1
+    end
+  elseif (4 == dir) then                -- Right
+    if (0 ~= col) then
+      SwapPiece(blank, blank - 1)
+      blank = blank - 1
+    end
+  end
+end
+
+local function GenPuzzleObj()
+  if (nil ~= puzzle_obj) then
+    Good.KillObj(puzzle_obj)
+    puzzle_obj = nil
+  end
+  puzzle_obj = Good.GenDummy(-1)
+  for i = 0, MAX_COL * MAX_ROW - 1 do
+    local p = puzzle[i]
+    if (i == blank) then
+      a = GenColorObj(puzzle_obj, w, h, COLOR_BLACK)
+    else
+      a = GenTexObj(puzzle_obj, puzzle_tex_id, w, h, w * (p % 3), h * math.floor(p / 3))
+    end
+    Good.SetPos(a, x + (1 + w) * (i % 3), y + (1 + h) * math.floor(i / 3))
+  end
+end
 
 local function GenPuzzle()
-  local a
-  for i= 1, 9 do
-    local ii = i - 1
-    if (9 == i) then
-      a = GenColorObj(-1, w, h, COLOR_BLACK)
-    else
-      a = GenTexObj(-1, puzzle_tex_id, w, h, w * (ii % 3), h * math.floor(ii / 3))
-    end
-    Good.SetPos(a, x + (1 + w) * (ii % 3), y + (1 + h) * math.floor(ii / 3))
+  for i = 0, MAX_COL * MAX_ROW - 1 do
+    puzzle[i] = i
   end
+  for i = 1, 100 do
+    MovePiece(math.random(1, 4))
+  end
+  GenPuzzleObj()
 end
 
 local function GenPuzzleTex()
@@ -28,67 +78,33 @@ local function GenPuzzleTex()
   Graphics.KillCanvas(canvas)
 end
 
-local function MoveDown()
-  if (0 == blank or 1 == blank or 2 == blank) then
-    return
+local function IsPuzzleComplete()
+  for i = 0, MAX_COL * MAX_ROW - 1 do
+    if (puzzle[i] ~= i) then
+      return false
+    end
   end
-  local xx, yy = x + (1 + w) * (blank % 3), y + (1 + h) * math.floor(blank / 3)
-  local b = Good.PickObj(xx, yy, Good.COLBG)
-  local a = Good.PickObj(xx, yy - h - 1, Good.TEXBG)
-  Good.SetPos(b, xx, yy - h - 1)
-  Good.SetPos(a, xx, yy)
-  blank = blank - 3
+  return true
+end
+
+local function MoveDown()
+  MovePiece(2)
+  GenPuzzleObj()
 end
 
 local function MoveLeft()
-  if (2 == blank or 5 == blank or 8 == blank) then
-    return
-  end
-  local xx, yy = x + (1 + w) * (blank % 3), y + (1 + h) * math.floor(blank / 3)
-  local b = Good.PickObj(xx, yy, Good.COLBG)
-  local a = Good.PickObj(xx + w + 1, yy, Good.TEXBG)
-  Good.SetPos(b, xx + w + 1, yy)
-  Good.SetPos(a, xx, yy)
-  blank = blank + 1
+  MovePiece(3)
+  GenPuzzleObj()
 end
 
 local function MoveRight()
-  if (0 == blank or 3 == blank or 6 == blank) then
-    return
-  end
-  local xx, yy = x + (1 + w) * (blank % 3), y + (1 + h) * math.floor(blank / 3)
-  local b = Good.PickObj(xx, yy, Good.COLBG)
-  local a = Good.PickObj(xx - w - 1, yy, Good.TEXBG)
-  Good.SetPos(b, xx - w - 1, yy)
-  Good.SetPos(a, xx, yy)
-  blank = blank - 1
+  MovePiece(4)
+  GenPuzzleObj()
 end
 
 local function MoveUp()
-  if (6 == blank or 7 == blank or 8 == blank) then
-    return
-  end
-  local xx, yy = x + (1 + w) * (blank % 3), y + (1 + h) * math.floor(blank / 3)
-  local b = Good.PickObj(xx, yy, Good.COLBG)
-  local a = Good.PickObj(xx, yy + h + 1, Good.TEXBG)
-  Good.SetPos(b, xx, yy + h + 1)
-  Good.SetPos(a, xx, yy)
-  blank = blank + 3
-end
-
-local function ShufflePuzzle()
-  for i=1, 150 do
-    local m = math.random(1,4)
-    if (1 == m) then
-      MoveLeft()
-    elseif (2 == m) then
-      MoveRight()
-    elseif (3 == m) then
-      MoveDown()
-    else
-      MoveUp()
-    end
-  end
+  MovePiece(1)
+  GenPuzzleObj()
 end
 
 PuzzleGame = {}
@@ -96,7 +112,6 @@ PuzzleGame = {}
 PuzzleGame.OnCreate = function(param)
   GenPuzzleTex()
   GenPuzzle()
-  ShufflePuzzle()
 end
 
 PuzzleGame.OnStep = function(param)
@@ -106,7 +121,7 @@ PuzzleGame.OnStep = function(param)
   end
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     local mx,my = Input.GetMousePos()
-    local xx, yy = x + (1 + w) * (blank % 3), y + (1 + h) * math.floor(blank / 3) -- blank pos
+    local xx, yy = x + (1 + w) * (blank % MAX_COL), y + (1 + h) * math.floor(blank / MAX_COL)
     if (mx >= xx - w and mx < xx and my >= yy and my < yy + h) then
       MoveRight()
     elseif (mx >= xx and mx < xx + w and my >= yy - h and my < yy) then
@@ -115,6 +130,9 @@ PuzzleGame.OnStep = function(param)
       MoveLeft()
     elseif (mx >= xx and mx < xx + w and my >= yy + h and my < yy + 2 * h) then
       MoveUp()
+    end
+    if (IsPuzzleComplete()) then
+      StartTalk(found_dipsy_talk_id)
     end
   end
 end

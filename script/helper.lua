@@ -603,6 +603,10 @@ function ScriptAddCaveMazeBook()
   SetItem('i_cave_maze_book', 1)
 end
 
+function ScriptAddDipsyFeather()
+  SetItem('i_dipsy_feather', 1)
+end
+
 function ScriptAddDrumStick()
   SetItem('i_drum_stick', 1)
 end
