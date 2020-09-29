@@ -268,3 +268,30 @@ AnimAstroidPiece.OnStep = function(param)
     ArStepAnimator(param, param.k)
   end
 end
+
+AnimJump = {}
+
+AnimJump.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil, 1)
+    ArAddMoveBy(loop1, 'Pos', 0.25, 0, -64)
+    ArAddMoveBy(loop1, 'Pos', 0.25, 0, 64).ease = ArEaseOutBounce
+    ArAddCall(loop1, 'AcKillAnimScript', 0)
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimFadeToBlack = {}
+
+AnimFadeToBlack.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil, 1)
+    ArAddMoveTo(loop1, 'BgColor', 1, 0xff000000).lerp = LerpARgb
+    ArAddCall(loop1, 'AcKillAnimScript', 0)
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end

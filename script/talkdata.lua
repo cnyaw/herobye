@@ -12,6 +12,7 @@ local pick_trash_lvl_id = 111
 local lottery_lvl_id = 19
 local astroid_lvl_id = 197
 local puzzle_lvl_id = 221
+local memory_lvl_id = 223
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -320,22 +321,22 @@ TalkData = {
   },
   [624] = {
     {Image = DIPSY_FEATHER_TEX_ID},
-    {Text = '迪西的毛'},
+    {Text = '綠色的毛'},
     {LevelId = BAG_LVL_ID},
   },
   [625] = {
     {Image = LAALAA_FEATHER_TEX_ID},
-    {Text = '拉拉的毛'},
+    {Text = '黄色的毛'},
     {LevelId = BAG_LVL_ID},
   },
   [626] = {
     {Image = PO_FEATHER_TEX_ID},
-    {Text = '小波的毛'},
+    {Text = '紅色的毛'},
     {LevelId = BAG_LVL_ID},
   },
   [627] = {
     {Image = TINKY_WINKY_FEATHER_TEX_ID},
-    {Text = '丁丁的毛'},
+    {Text = '紫色的毛'},
     {LevelId = BAG_LVL_ID},
   },
   -- Church.
@@ -1557,7 +1558,7 @@ TalkData = {
   [2902] = {
     {Image = DIPSY_TEX_ID},
     {Text = '你好棒棒哦'},
-    {Text = '送你一根迪西的毛'},
+    {Text = '送你一根綠色的毛'},
     {Script = ScriptAddDipsyFeather},
     {Text = '再見'},
     {LevelId = JANKEN_PLANET_LVL_ID},
@@ -1569,8 +1570,16 @@ TalkData = {
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   [3001] = {
-    {Image = pinnote_tex_id},
-    {Text = '我不在家'},
+    {Image = po_tex_id},
+    {Text = '試試看你的記憶力好不好'},
+    {LevelId = memory_lvl_id},
+  },
+  [3002] = {
+    {Image = po_tex_id},
+    {Text = '你好棒棒哦'},
+    {Text = '送你一根紅色的毛'},
+    {Script = ScriptAddPoFeather},
+    {Text = '再見'},
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   -- Janken planet, Laalaa.

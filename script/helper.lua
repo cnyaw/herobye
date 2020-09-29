@@ -624,6 +624,10 @@ function ScriptAddMellet()
   SetItem('i_mallet', 1)
 end
 
+function ScriptAddPoFeather()
+  SetItem('i_po_feather', 1)
+end
+
 function ScriptAddPowerScissorBook()
   SetItem('i_power_scissor_book', 1)
 end
