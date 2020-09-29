@@ -71,6 +71,9 @@ local function GenPuzzle()
 end
 
 local function GenPuzzleTex()
+  if (nil ~= puzzle_tex_id) then
+    return
+  end
   local canvas = Graphics.GenCanvas(PUZZLE_W, PUZZLE_H)
   Graphics.FillRect(canvas, 0, 0, PUZZLE_W, PUZZLE_H, COLOR_PURPLE)
   FillImage(canvas, 0, 0, DIPSY_TEX_ID, PUZZLE_W, PUZZLE_H)

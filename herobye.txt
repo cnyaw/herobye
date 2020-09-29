@@ -643,17 +643,6 @@ dim=0 0 32 32
 name=bag
 bgColor=128 128 0
 script=BagScene
-objects=26
-
-[object26]
-texture=261
-rot=90
-yscale=2
-xpivot=0.5
-ypivot=0.5
-x=304
-y=352
-dim=0 0 32 32
 
 [level318]
 name=help pinky
@@ -1002,7 +991,7 @@ dim=0 0 150 65
 name=hero village church
 bgColor=128 128 0
 script=MainMap
-objects=351 355 25
+objects=351 355
 
 [object351]
 name=o_grandpa
@@ -1017,17 +1006,6 @@ texture=352
 x=368
 y=128
 dim=0 0 128 141
-
-[object25]
-name=o_back
-texture=261
-rot=90
-yscale=2
-xpivot=0.5
-ypivot=0.5
-x=304
-y=352
-dim=0 0 32 32
 
 [level356]
 name=alien path
@@ -1131,13 +1109,13 @@ script=ClothesDrying
 name=cave door
 bgColor=128 128 0
 script=CaveDoor
-objects=6 9 10 22
+objects=6 9 10
 
 [object6]
 name=btn scissor
 texture=4
 x=112
-y=128
+y=144
 dim=0 0 90 90
 objects=12
 
@@ -1150,7 +1128,7 @@ dim=0 0 55 90
 name=btn stone
 texture=4
 x=272
-y=128
+y=144
 dim=0 0 90 90
 objects=16
 
@@ -1163,7 +1141,7 @@ dim=0 0 69 90
 name=btn paper
 texture=4
 x=432
-y=128
+y=144
 dim=0 0 90 90
 objects=17
 
@@ -1171,28 +1149,18 @@ objects=17
 texture=358
 dim=0 0 72 90
 
-[object22]
-name=o_back
-texture=261
-rot=90
-yscale=2
-xpivot=0.5
-ypivot=0.5
-x=304
-y=352
-dim=0 0 32 32
-
 [level24]
 name=seek frog
 bgColor=170 255 255
 script=SeekFrog
-objects=39 37 38
+objects=39 37
 
 [object39]
 name=lotus
 sprite=255
 texture=255
 map=255
+y=16
 objects=36 35 34 33 32 29
 
 [object36]
@@ -1239,19 +1207,8 @@ yscale=0.5
 xpivot=0.5
 ypivot=0.5
 x=64
-y=64
+y=80
 dim=0 0 170 148
-
-[object38]
-name=o_back
-texture=261
-rot=90
-yscale=2
-xpivot=0.5
-ypivot=0.5
-x=304
-y=352
-dim=0 0 32 32
 
 [level54]
 name=slap mouse

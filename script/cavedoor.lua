@@ -9,7 +9,6 @@ local WAIT_TIME = 30
 local btn_scissor_obj_id = 6
 local btn_stone_obj_id = 9
 local btn_paper_obj_id = 10
-local back_obj_id = 22
 
 local input_code_right_talk_id = 2104
 local input_code_right_small_chest_talk_id = 2108
@@ -37,10 +36,6 @@ end
 
 function CaveDoorHittest(param)
   local x, y = Input.GetMousePos()
-  if (PtInObj(x, y, back_obj_id)) then
-    Good.GenObj(-1, CAVE_FIELD_LVL_ID)
-    return
-  end
   for i = 1, #param.rps_obj do
     if (PtInObj(x, y, param.rps_obj[i])) then
       AddInputCode(param, param.rps_code[i])
