@@ -1301,8 +1301,13 @@ TalkData = {
   [2209] = {
     {Image = UFO_TEX_ID},
     {Text = '勇者小白你想回勇者村了嗎？'},
-    {Text = '立刻出發吧'},
+    {MenuText = {'立刻出發', '再等等'}, MenuNextId = {2210, 2211}},
+  },
+  [2210] = {
     {LevelId = ALIEN_AREA_LVL_ID},
+  },
+  [2211] = {
+    {LevelId = JANKEN_PLANET_LVL_ID},
   },
   -- Under world entry, well.
   [2300] = {
