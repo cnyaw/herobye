@@ -295,3 +295,16 @@ AnimFadeToBlack.OnStep = function(param)
     ArStepAnimator(param, param.k)
   end
 end
+
+AnimShadow = {}
+
+AnimShadow.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveTo(loop1, 'Scale', 3 + 2 * math.random(), .8, .8).ease = ArEaseOutBounce
+    ArAddCall(loop1, 'AcKillAnimScript', 0)
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end

@@ -13,6 +13,7 @@ local lottery_lvl_id = 19
 local astroid_lvl_id = 197
 local puzzle_lvl_id = 221
 local memory_lvl_id = 223
+local shadow_lvl_id = 22
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -1594,8 +1595,16 @@ TalkData = {
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   [3101] = {
-    {Image = pinnote_tex_id},
-    {Text = '我不在家'},
+    {Image = laalaa_tex_id},
+    {Text = '找找看我在那裡'},
+    {LevelId = shadow_lvl_id},
+  },
+  [3102] = {
+    {Image = laalaa_tex_id},
+    {Text = '你好棒棒哦'},
+    {Text = '送你一根黄色的毛'},
+    {Script = ScriptAddLaaLaaFeather},
+    {Text = '再見'},
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   -- Janken planet, Tinky Winky.

@@ -619,6 +619,10 @@ function ScriptAddHeroHisBook()
   SetItem('i_hero_history_book', 1)
 end
 
+function ScriptAddLaaLaaFeather()
+  SetItem('i_laalaa_feather', 1)
+end
+
 function ScriptAddMellet()
   SetItem('f_mallet_code', 0)
   SetItem('i_mallet', 1)
