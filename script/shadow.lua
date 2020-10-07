@@ -18,6 +18,16 @@ local function ResetShadowGame()
   end
 end
 
+local function ShadowAnimDone()
+  for i = 1, #objs do
+    local p = Good.GetParam(objs[i])
+    if (nil ~= p.k) then
+      return false
+    end
+  end
+  return true
+end
+
 ShadowGame = {}
 
 ShadowGame.OnCreate = function(param)
@@ -30,6 +40,9 @@ ShadowGame.OnStep = function(param)
     return
   end
   if (Input.IsKeyPushed(Input.LBUTTON)) then
+    if (not ShadowAnimDone()) then
+      return
+    end
     local x, y = Input.GetMousePos()
     if (PtInObj(x, y, laalaa_obj_id)) then
       StartTalk(found_laalaa_talk_id)
