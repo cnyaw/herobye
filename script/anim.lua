@@ -283,17 +283,35 @@ AnimJump.OnStep = function(param)
   end
 end
 
-AnimFadeToBlack = {}
+AnimFadeToColor = {}
 
-AnimFadeToBlack.OnStep = function(param)
+AnimFadeToColor.OnStep = function(param)
   if (nil == param.k) then
     local loop1 = ArAddLoop(nil, 1)
-    ArAddMoveTo(loop1, 'BgColor', 1, 0xff000000).lerp = LerpARgb
+    ArAddMoveTo(loop1, 'BgColor', 1, param.fade_to_color).lerp = LerpARgb
     ArAddCall(loop1, 'AcKillAnimScript', 0)
     param.k = ArAddAnimator({loop1})
   else
     ArStepAnimator(param, param.k)
   end
+end
+
+AnimFadeToBlack = {}
+
+AnimFadeToBlack.OnStep = function(param)
+  if (nil == param.fade_to_color) then
+    param.fade_to_color = COLOR_BLACK
+  end
+  AnimFadeToColor.OnStep(param)
+end
+
+AnimFadeToWhite = {}
+
+AnimFadeToWhite.OnStep = function(param)
+  if (nil == param.fade_to_color) then
+    param.fade_to_color = 0xffffffff
+  end
+  AnimFadeToColor.OnStep(param)
 end
 
 AnimShadow = {}

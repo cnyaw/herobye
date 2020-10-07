@@ -1,3 +1,4 @@
+local WAIT_TIME = 80
 
 local laalaa_obj_id = 38
 local found_laalaa_talk_id = 3102
@@ -32,6 +33,7 @@ ShadowGame = {}
 
 ShadowGame.OnCreate = function(param)
   ResetShadowGame()
+  param.step = ShadowGameOnStepPlay
 end
 
 ShadowGame.OnStep = function(param)
@@ -39,13 +41,25 @@ ShadowGame.OnStep = function(param)
     Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
     return
   end
+  param.step(param)
+end
+
+ShadowGameOnStepFinish = function(param)
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  StartTalk(found_laalaa_talk_id)
+end
+
+ShadowGameOnStepPlay = function(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     if (not ShadowAnimDone()) then
       return
     end
     local x, y = Input.GetMousePos()
     if (PtInObj(x, y, laalaa_obj_id)) then
-      StartTalk(found_laalaa_talk_id)
+      Good.SetScript(laalaa_obj_id, 'AnimFadeToWhite')
+      param.step = ShadowGameOnStepFinish
     else
       ResetShadowGame()
     end
