@@ -665,6 +665,10 @@ function ScriptAddSuperSoapBook()
   SetItem('i_super_soap_book', 1)
 end
 
+function ScriptAddTinkyWinkyFeather()
+  SetItem('i_tinky_winky_feather', 1)
+end
+
 function ScriptAddUfoPower()
   SetItem('i_ufo_power', 1)
   SetItem('f_find_ufo_power', 0)

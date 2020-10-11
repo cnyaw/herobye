@@ -14,6 +14,7 @@ local astroid_lvl_id = 197
 local puzzle_lvl_id = 221
 local memory_lvl_id = 223
 local shadow_lvl_id = 22
+local rainbow_lvl_id = 234
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -1614,8 +1615,16 @@ TalkData = {
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   [3201] = {
-    {Image = pinnote_tex_id},
-    {Text = '我不在家'},
+    {Image = tinkywinky_tex_id},
+    {Text = '一起來玩彩虹遊戲吧'},
+    {LevelId = rainbow_lvl_id},
+  },
+  [3202] = {
+    {Image = tinkywinky_tex_id},
+    {Text = '你好棒棒哦'},
+    {Text = '送你一根紫色的毛'},
+    {Script = ScriptAddTinkyWinkyFeather},
+    {Text = '再見'},
     {LevelId = JANKEN_PLANET_LVL_ID},
   },
   -- Janken lib, bebe.
