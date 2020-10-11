@@ -206,5 +206,6 @@ QuestData = {
   -- Janken lib, to planet.
   [25000] = {LevelId = JANKEN_PLANET_LVL_ID},
   -- Janken lib, bebe.
-  [25100] = {TalkId = {3300}},
+  [25100] = {TalkId = {3300}, NextCond = HasFourFeathers, NextId = 25101},
+  [25101] = {TalkId = {3301}},
 }

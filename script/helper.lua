@@ -294,6 +294,10 @@ function HasFrogTearToSell()
   return HasFrogTear() and HasPowerScissor()
 end
 
+function HasFourFeathers()
+  return HasItem('i_po_feather') and HasItem('i_laalaa_feather') and HasItem('i_tinky_winky_feather') and HasItem('i_dipsy_feather')
+end
+
 function HasGetMalletCode()
   return HasItem('f_mallet_code')
 end
@@ -766,6 +770,15 @@ end
 
 function ScriptHelpElderYellowDone()
   SetItem('i_clean_yellow_suit', 0)
+end
+
+function ScriptMakeSuperNanoTowel()
+  SetItem('i_dipsy_feather', 0)
+  SetItem('i_laalaa_feather', 0)
+  SetItem('i_po_feather', 0)
+  SetItem('i_tinky_winky_feather', 0)
+  SetItem('f_find_teletubbies', 0)
+  SetItem('i_super_nano_towel', 1)
 end
 
 function ScriptOpenCaveDoor()

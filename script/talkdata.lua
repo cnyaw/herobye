@@ -341,6 +341,11 @@ TalkData = {
     {Text = '紫色的毛'},
     {LevelId = BAG_LVL_ID},
   },
+  [628] = {
+    {Image = SUPER_NANO_TOWEL_TEX_ID},
+    {Text = 'S奈米擦布'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -1630,13 +1635,33 @@ TalkData = {
   -- Janken lib, bebe.
   [3300] = {
     {Image = bebe_tex_id},
-    {Text = '你好我是小比博士'},
+    {Text = '你好我是比比博士'},
     {Text = '我可以幫忙製作S奈米擦布'},
     {Text = '首先需要四根天線寶寶的毛'},
-    {Text = '還有一塊隕石碎片'},
     {Text = '材料收集好後再來找我吧'},
     {Script = ScriptFindTeletubbies},
-    {Text = '先把天線寶寶的毛都收集齊全吧'},
+    {LevelId = JANKEN_LIB_LVL_ID},
+  },
+  [3301] = {
+    {NextCond = HasFourFeathers, NextId = 3302},
+    {Image = bebe_tex_id},
+    {Text = '你好我是比比博士'},
+    {LevelId = JANKEN_LIB_LVL_ID},
+  },
+  [3302] = {
+    {Image = bebe_tex_id},
+    {Text = '太好了'},
+    {Text = '四根天線寶寶的毛全部齊全了'},
+    {Text = '我現在幫你製作S奈米擦布'},
+    {Text = '請稍等'},
+    {Image = -1},
+    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {FadeTo = {ONE_SECOND_TICK, color_olive}},
+    {Image = SUPER_NANO_TOWEL_TEX_ID},
+    {Text = 'S奈米擦布製作完成'},
+    {Script = ScriptMakeSuperNanoTowel},
+    {Image = bebe_tex_id},
+    {Text = '下次有需要再來找我哦'},
     {LevelId = JANKEN_LIB_LVL_ID},
   },
 }
