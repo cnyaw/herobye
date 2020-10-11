@@ -78,7 +78,8 @@ QuestData = {
   [9114] = {TalkId = {1307}, NextCond = IsHelpElderGlass, NextId = 9115},
   [9115] = {TalkId = {1310}, NextCond = IsFindUfoPower, NextId = 9116},
   [9116] = {TalkId = {1311}, NextId = 9117},
-  [9117] = {TalkId = {1310}},
+  [9117] = {TalkId = {1310}, NextCond = HasSuperNanoTowel, NextId = 9118},
+  [9118] = {TalkId = {1307}},
   -- Hero village church, shelf.
   [9200] = {LevelId = BAG_LVL_ID},
   -- Hero village, Zhang mama home.
@@ -170,7 +171,9 @@ QuestData = {
   [21300] = {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   -- Under world main map, elder glass.
   [21400] = {TalkId = {2600}, NextCond = IsHelpElderGlass, NextId = 21401},
-  [21401] = {TalkId = {2603}},
+  [21401] = {TalkId = {2603}, NextCond = HasSuperNanoTowel, NextId = 21402},
+  [21402] = {TalkId = {2604}, NextId = 21403},
+  [21403] = {TalkId = {2605}},
   -- Under world main map, elder yellow.
   [21500] = {TalkId = {2610}, NextCond = IsHelpElderYellow, NextId = 21501},
   [21501] = {TalkId = {2613}, NextCond = HasCleanYellowSuit, NextId = 21502},

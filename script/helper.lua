@@ -342,6 +342,10 @@ function HasShaveBook()
   return HasItem('i_shave_book')
 end
 
+function HasSuperNanoTowel()
+  return HasItem('i_super_nano_towel')
+end
+
 function HasSuperSoap()
   return HasItem('i_super_soap')
 end
@@ -766,6 +770,10 @@ end
 function ScriptHelpElderYellow()
   SetItem('f_help_elder_yellow', 1)
   SetItem('i_dirty_yellow_suit', 1)
+end
+
+function ScriptHelpElderGlassDone()
+  SetItem('i_super_nano_towel', 0)
 end
 
 function ScriptHelpElderYellowDone()
