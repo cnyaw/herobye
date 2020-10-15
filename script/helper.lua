@@ -828,6 +828,11 @@ function ScriptSellMouseTail()
   end
 end
 
+function ScriptSellSuperNanoTowel()
+  SetItem('i_super_nano_towel', 0)
+  AddCoin(6 * SELL_ITEM_COST)
+end
+
 function ScriptSendTeacherLetter()
   SetItem('i_letter', 1)
 end
