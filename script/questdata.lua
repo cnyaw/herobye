@@ -184,12 +184,16 @@ QuestData = {
   [21601] = {TalkId = {2623}, NextCond = HasShaveBook, NextId = 21602},
   [21602] = {TalkId = {2624}, NextId = 21603},
   [21603] = {TalkId = {2625}},
-  -- Under world main map.
+  -- Under world main map, to trash field.
   [21700] = {LevelId = TRASH_FIELD_LVL_ID},
+  -- Under world main map, to bat cave field,
+  [21800] = {LevelId = BAT_CAVE_FIELD_LVL_ID},
   -- Trash field, old lady.
   [22000] = {TalkId = {2700}},
   -- Trash field, magic mama.
   [23000] = {TalkId = {2800}},
+  -- Bat cave field, bat cave.
+  [23100] = {TalkId = {3400}},
   -- Janken planet, UFO.
   [24000] = {TalkId = {2209}},
   -- Janken planet, Dipsy.

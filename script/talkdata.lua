@@ -1701,4 +1701,11 @@ TalkData = {
     {Text = '下次有需要再來找我哦'},
     {LevelId = JANKEN_LIB_LVL_ID},
   },
+  -- Bat cave field, bat cave.
+  [3400] = {
+    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {Text = '黑漆漆的山洞什麼都看不見'},
+    {Text = '有大量蝙蝠飛行的聲音'},
+    {LevelId = BAT_CAVE_FIELD_LVL_ID},
+  },
 }
