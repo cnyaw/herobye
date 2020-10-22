@@ -1352,6 +1352,21 @@ TalkData = {
     {Text = '偶想要再給尼一個小小的測驗'},
     {LevelId = pair_game_lvl_id},
   },
+  [2402] = {
+    {BgColor = COLOR_GRAY},
+    {Image = dwarf_tex_id},
+    {Text = '勇者小白尼好'},
+    {Text = '讓偶來幫尼把蝙蝠洞打開'},
+    {Image = -1},
+    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {Text = '敲敲打打敲敲打打'},
+    {Text = '打打敲敲打打敲敲'},
+    {FadeTo = {ONE_SECOND_TICK, COLOR_GRAY}},
+    {Image = dwarf_tex_id},
+    {Text = '偶己經把蝙蝠洞打開了'},
+    {Script = ScriptOpenBatCave},
+    {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
+  },
   -- Under world entry, to main map.
   [2500] = {
     {BgColor = COLOR_GRAY},
@@ -1704,8 +1719,21 @@ TalkData = {
   -- Bat cave field, bat cave.
   [3400] = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
-    {Text = '黑漆漆的山洞什麼都看不見'},
+    {Text = '洞口被大石塊封住了'},
+    {LevelId = BAT_CAVE_FIELD_LVL_ID},
+  },
+  [3401] = {
+    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {Text = '洞口被大石塊封住了'},
+    {Text = '好像有一個小洞'},
+    {Text = '洞裡面黑漆漆的什麼都看不見'},
     {Text = '有大量蝙蝠飛行的聲音'},
+    {Script = ScriptBatCaveBlocked},
+    {LevelId = BAT_CAVE_FIELD_LVL_ID},
+  },
+  [3402] = {
+    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {Text = '不愧是蝙蝠洞好多蝙蝠'},
     {LevelId = BAT_CAVE_FIELD_LVL_ID},
   },
 }

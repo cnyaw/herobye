@@ -163,7 +163,9 @@ QuestData = {
   [21000] = {TalkId = {2300}},
   -- Under world entry, dwarf potato.
   [21100] = {TalkId = {2400}, NextCond = IsPassPotatoTest, NextId = 21101},
-  [21101] = {TalkId = {2401}},
+  [21101] = {TalkId = {2401}, NextCond = IsBatCaveBlocked, NextId = 21102},
+  [21102] = {TalkId = {2402}, NextId = 21103},
+  [21103] = {TalkId = {2401}},
   -- Under world entry, to main map.
   [21200] = {TalkId = {2500}, NextCond = IsPassPotatoTest, NextId = 21201},
   [21201] = {LevelId = UNDERWORLD_MAIN_LVL_ID},
@@ -193,7 +195,9 @@ QuestData = {
   -- Trash field, magic mama.
   [23000] = {TalkId = {2800}},
   -- Bat cave field, bat cave.
-  [23100] = {TalkId = {3400}},
+  [23100] = {TalkId = {3400}, NextCond = HasSuperNanoTowel, NextId = 23101},
+  [23101] = {TalkId = {3401}, NextCond = IsBatCaveOpened, NextId = 23102},
+  [23102] = {TalkId = {3402}},
   -- Janken planet, UFO.
   [24000] = {TalkId = {2209}},
   -- Janken planet, Dipsy.

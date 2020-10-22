@@ -372,6 +372,14 @@ function InitTable(init_tbl)
   return tbl
 end
 
+function IsBatCaveBlocked()
+  return HasItem('f_bat_cave_blocked')
+end
+
+function IsBatCaveOpened()
+  return 0 >= ItemCount('f_bat_cave_blocked')
+end
+
 function IsBuyBou2Valid()
   return not HasBou2() and HasCoin(BOU2_COST)
 end
@@ -688,6 +696,10 @@ function ScriptAddUfoPowerBook()
   SetItem('i_ufo_power_book', 1)
 end
 
+function ScriptBatCaveBlocked()
+  SetItem('f_bat_cave_blocked', 1)
+end
+
 function ScriptBuildTemple()
   ConsumeCoin(CROWD_FUNDING_COST)
 end
@@ -789,6 +801,10 @@ function ScriptMakeSuperNanoTowel()
   SetItem('i_tinky_winky_feather', 0)
   SetItem('f_find_teletubbies', 0)
   SetItem('i_super_nano_towel', 1)
+end
+
+function ScriptOpenBatCave()
+  SetItem('f_bat_cave_blocked', 0)
 end
 
 function ScriptOpenCaveDoor()
