@@ -15,6 +15,7 @@ local puzzle_lvl_id = 221
 local memory_lvl_id = 223
 local shadow_lvl_id = 22
 local rainbow_lvl_id = 234
+local bat_cave_lvl_id = 263
 
 local brother1_tex_id = 280
 local brother2_tex_id = 281
@@ -1746,6 +1747,13 @@ TalkData = {
   [3402] = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
     {Text = '不愧是蝙蝠洞好多蝙蝠'},
+    {Text = '讓我來練習一下打蝙蝠'},
+    {LevelId = bat_cave_lvl_id},
+  },
+  [3403] = {
+    {BgColor = COLOR_BLACK},
+    {Text = '嘿嘿我又進步了'},
+    {Text = '下次還要繼續努力加油'},
     {LevelId = BAT_CAVE_FIELD_LVL_ID},
   },
 }
