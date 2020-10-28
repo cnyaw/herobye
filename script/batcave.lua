@@ -1,10 +1,12 @@
 local MAX_BAT = 8
-local BULLET_SIZE = 8
 local BULLET_SPEED = 2.5
 
 local bat_tex_id = 255
+local net_tex_id = 286
 local gun_obj_id = 264
 local pass_talk_id = 3403
+
+local BULLET_SIZE_X, BULLET_SIZE_Y = Resource.GetTexSize(net_tex_id)
 
 local bullet_obj = nil
 
@@ -31,8 +33,8 @@ local function FireBatGunBullet()
   if (nil ~= bullet_obj) then
     return
   end
-  local o = GenColorObj(-1, BULLET_SIZE, BULLET_SIZE, COLOR_RED)
-  Good.SetPos(o, (SCR_W - BULLET_SIZE)/2, SCR_H - 48 - BULLET_SIZE)
+  local o = Good.GenObj(-1, net_tex_id)
+  Good.SetPos(o, (SCR_W - BULLET_SIZE_X)/2, SCR_H - 48 - BULLET_SIZE_Y)
   bullet_obj = o
 end
 
@@ -42,7 +44,7 @@ local function MoveBatGunBullet()
   end
   local x, y = Good.GetPos(bullet_obj)
   y = y - BULLET_SPEED
-  if (y - BULLET_SIZE < -BULLET_SIZE) then
+  if (y - BULLET_SIZE_Y < -BULLET_SIZE_Y) then
     Good.KillObj(bullet_obj)
     bullet_obj = nil
     return
