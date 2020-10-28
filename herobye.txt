@@ -2071,11 +2071,16 @@ map=254
 name=bat cave
 bgColor=0 0 0
 script=BatCave
-objects=264
+objects=299
 
-[object264]
+[object299]
 bgColor=255 0 0
-x=296
-y=336
-dim=0 0 48 48
+texture=4
+xscale=0.5
+yscale=0.5
+xpivot=0.5
+ypivot=1
+x=272
+y=296
+dim=0 0 90 90
 

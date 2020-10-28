@@ -3,7 +3,7 @@ local BULLET_SPEED = 2.5
 
 local bat_tex_id = 255
 local net_tex_id = 286
-local gun_obj_id = 264
+local gun_obj_id = 299
 local pass_talk_id = 3403
 
 local BULLET_SIZE_X, BULLET_SIZE_Y = Resource.GetTexSize(net_tex_id)
