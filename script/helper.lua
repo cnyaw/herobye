@@ -284,6 +284,10 @@ function HasDrumStick()
   return HasItem('i_drum_stick')
 end
 
+function HasFish()
+  return HasItem('i_fish')
+end
+
 function HasFlashlight()
   return HasItem('i_flashlight')
 end
@@ -829,6 +833,11 @@ end
 
 function ScriptPowerupScissorLoop()
   SetItem('f_powerup_scissor', 1)
+end
+
+function ScriptSellFish()
+  SetItem('i_fish', 0)
+  AddCoin(3 * SELL_ITEM_COST)
 end
 
 function ScriptSellFrogTear()

@@ -347,6 +347,11 @@ TalkData = {
     {Text = 'S奈米擦布'},
     {LevelId = BAG_LVL_ID},
   },
+  [629] = {
+    {Image = FISH_TEX_ID},
+    {Text = '可作成美味料理的魚'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -1597,6 +1602,31 @@ TalkData = {
     {Text = '勇者小白真是謝謝尼'},
     {Text = '幫忙打掃的好乾淨啊'},
     {Text = '改天偶再跟貓咪們好好招待尼'},
+    {LevelId = TRASH_FIELD_LVL_ID},
+  },
+  [2702] = {
+    {BgColor = COLOR_GRAY},
+    {Image = old_lady_tex_id},
+    {Text = '勇者小白尼好'},
+    {Text = '偶的貓咪孩子們最近魚不夠吃了'},
+    {Text = '如果尼有多的魚賣給偶的話'},
+    {Text = '偶們都會很開心很感謝尼的'},
+    {LevelId = TRASH_FIELD_LVL_ID},
+  },
+  [2703] = {
+    {NextCond = HasFish, NextId = 2704},
+    {NextId = 2700},
+  },
+  [2704] = {
+    {BgColor = COLOR_GRAY},
+    {Image = old_lady_tex_id},
+    {Text = '勇者小白尼好'},
+    {Image = FISH_TEX_ID},
+    {Text = '這條魚看起來真是新鮮美味'},
+    {Text = '請尼把魚賣給偶們'},
+    {Script = ScriptSellFish},
+    {Image = old_lady_tex_id},
+    {Text = '勇者小白真是謝謝尼'},
     {LevelId = TRASH_FIELD_LVL_ID},
   },
   -- Trash field, magic mama.

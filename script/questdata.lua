@@ -191,7 +191,9 @@ QuestData = {
   -- Under world main map, to bat cave field,
   [21800] = {LevelId = BAT_CAVE_FIELD_LVL_ID},
   -- Trash field, old lady.
-  [22000] = {TalkId = {2700}},
+  [22000] = {TalkId = {2700}, NextCond = HasSuperNanoTowel, NextId = 22001},
+  [22001] = {TalkId = {2702}, NextId = 22002},
+  [22002] = {TalkId = {2703}},
   -- Trash field, magic mama.
   [23000] = {TalkId = {2800}},
   -- Bat cave field, bat cave.
