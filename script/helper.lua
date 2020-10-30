@@ -1,14 +1,14 @@
 
-local OPEN_CHURCH_COST = 50
-local GIVE_GODZILLA_COST = 100
 local CROWD_FUNDING_COST = 1000
+local GIVE_GODZILLA_COST = 100
 local LOTTERY_COST = 5
+local OPEN_CHURCH_COST = 50
 local SELL_ITEM_COST = 4
 
-local tex_sandglass_id = 273
 local red_point_tex_id = 313
 local talk_lvl_id = 275
 local teacher_init_talk_id = 1
+local tex_sandglass_id = 273
 
 local SAV_FILE_NAME = "herobye.sav"
 
@@ -44,6 +44,7 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_back = 18000,
   o_toAlienArea = 19000,
   o_alien = 20000,
+  o_toDock = 20100,
   o_well = 21000,
   o_dwarfpotato = 21100,
   o_toUnderMain = 21200,
@@ -64,6 +65,7 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_toJankenLib = 24500,
   o_toJankenPlanet = 25000,
   o_bebe = 25100,
+  o_dock = 26000,
 }
 
 obj_state = {

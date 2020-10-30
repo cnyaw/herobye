@@ -1,7 +1,7 @@
 
 local beg_money_lvl_id = 293
-local temple_tex_id = 50
 local curcus_tex_id = 73
+local temple_tex_id = 50
 
 QuestData = {
   -- Main map, hero mt.
@@ -159,6 +159,8 @@ QuestData = {
   [20002] = {TalkId = {2204}, NextCond = HasUfoPower, NextId = 20003},
   [20003] = {TalkId = {2205}, NextId = 20004},
   [20004] = {TalkId = {2206}},
+  -- Alien area, to dock.
+  [20100] = {LevelId = DOCK_LVL_ID},
   -- Under world entry, well.
   [21000] = {TalkId = {2300}},
   -- Under world entry, dwarf potato.
@@ -221,4 +223,6 @@ QuestData = {
   -- Janken lib, bebe.
   [25100] = {TalkId = {3300}, NextCond = HasFourFeathers, NextId = 25101},
   [25101] = {TalkId = {3301}},
+  -- Dock, dock.
+  [26000] = {TalkId = {3500}},
 }

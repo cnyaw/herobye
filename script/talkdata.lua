@@ -1,51 +1,52 @@
 
-local help_pinky_lvl_id = 318
-local racing_lvl_id = 330
-local interview_hero_village_lvl_id = 331
-local clothes_drying_lvl_id = 340
-local seek_frog_lvl_id = 24
-local slap_mouse_lvl_id = 54
 local alien_boss_lvl_id = 75
+local astroid_lvl_id = 197
+local bat_cave_lvl_id = 263
 local cave_maze_lvl_id = 88
+local clothes_drying_lvl_id = 340
+local help_pinky_lvl_id = 318
+local interview_hero_village_lvl_id = 331
+local lottery_lvl_id = 19
+local memory_lvl_id = 223
 local pair_game_lvl_id = 107
 local pick_trash_lvl_id = 111
-local lottery_lvl_id = 19
-local astroid_lvl_id = 197
 local puzzle_lvl_id = 221
-local memory_lvl_id = 223
-local shadow_lvl_id = 22
+local racing_lvl_id = 330
 local rainbow_lvl_id = 234
-local bat_cave_lvl_id = 263
+local seek_frog_lvl_id = 24
+local shadow_lvl_id = 22
+local slap_mouse_lvl_id = 54
 
+local bebe_tex_id = 215
 local brother1_tex_id = 280
 local brother2_tex_id = 281
-local merchant_tex_id = 305
-local pinnote_tex_id = 314
-local priest_tex_id = 304
-local teacher_tex_id = 276
-local dog_tex_id = 2
-local pinky_tex_id = 316
-local grandpa_tex_id = 327
-local zhang_mama_tex_id = 329
-local ufo_obj_id = 343
-local frog_tex_id = 357
 local cave_door_tex_id = 0
 local chest_tex_id = 13
-local pinky_papa_tex_id = 20
-local kai_tex_id = 49
+local dock_tex_id = 336
+local dog_tex_id = 2
 local dwarf_tex_id = 87
-local flashlight_tex_id = 380
-local well_tex_id = 181
 local elder_glass_tex_id = 108
-local elder_yellow_tex_id = 106
 local elder_white_tex_id = 110
-local old_lady_tex_id = 115
-local magic_mama_tex_id = 11
-local mirror_tex_id = 184
+local elder_yellow_tex_id = 106
+local flashlight_tex_id = 380
+local frog_tex_id = 357
+local grandpa_tex_id = 327
+local kai_tex_id = 49
 local laalaa_tex_id = 211
+local magic_mama_tex_id = 11
+local merchant_tex_id = 305
+local mirror_tex_id = 184
+local old_lady_tex_id = 115
+local pinky_papa_tex_id = 20
+local pinky_tex_id = 316
+local pinnote_tex_id = 314
 local po_tex_id = 212
+local priest_tex_id = 304
+local teacher_tex_id = 276
 local tinkywinky_tex_id = 214
-local bebe_tex_id = 215
+local ufo_obj_id = 343
+local well_tex_id = 181
+local zhang_mama_tex_id = 329
 
 local color_olive = 0xff808000
 
@@ -1785,5 +1786,11 @@ TalkData = {
     {Text = '嘿嘿我又進步了'},
     {Text = '下次還要繼續努力加油'},
     {LevelId = BAT_CAVE_FIELD_LVL_ID},
+  },
+  -- Dock, dock.
+  [3500] = {
+    {Image = dock_tex_id},
+    {Text = '有船的話就能夠出海了'},
+    {LevelId = DOCK_LVL_ID},
   },
 }
