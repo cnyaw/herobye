@@ -887,6 +887,10 @@ function ScriptTextAddMouseTail(fmt)
   return string.format(fmt, s[i])
 end
 
+function ScriptTextBuyShipCost(fmt)
+  return string.format(fmt, SHIP_COST)
+end
+
 function ScriptTextCrowdFunding(fmt)
   return string.format(fmt, CROWD_FUNDING_COST - GetCoin())
 end

@@ -79,7 +79,7 @@ QuestData = {
   [9115] = {TalkId = {1310}, NextCond = IsFindUfoPower, NextId = 9116},
   [9116] = {TalkId = {1311}, NextId = 9117},
   [9117] = {TalkId = {1310}, NextCond = HasSuperNanoTowel, NextId = 9118},
-  [9118] = {TalkId = {1307}},
+  [9118] = {TalkId = {1312}},
   -- Hero village church, shelf.
   [9200] = {LevelId = BAG_LVL_ID},
   -- Hero village, Zhang mama home.
@@ -103,7 +103,8 @@ QuestData = {
   [11007] = {TalkId = {1609}, NextId = 11008},
   [11008] = {TalkId = {1608}, NextCond = IsSuperSoapMaterialReady, NextId = 11009},
   [11009] = {TalkId = {1610}, NextId = 11010},
-  [11010] = {TalkId = {1608}},
+  [11010] = {TalkId = {1608}, NextCond = HasSuperNanoTowel, NextId = 11011},
+  [11011] = {TalkId = {1613}},
   -- Hero village, Pinky home.
   [12000] = {TalkId = {1700}, NextCond = HasMallet, NextId = 12001},
   [12001] = {TalkId = {1701}, NextCond = HasCandy, NextId = 12002},

@@ -603,6 +603,12 @@ TalkData = {
     {Script = ScriptAddUfoPowerBook},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
+  [1312] = {
+    {Image = grandpa_tex_id},
+    {Text = '如果港口有船可以出海的話'},
+    {Text = '就可以到更廣闊的世界冒險了'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
   -- Hero village church, books.
   [1350] = {
     {Image = HERO_HIS_BOOK_TEX_ID},
@@ -897,6 +903,16 @@ TalkData = {
     {Script = ScriptSellSuperNanoTowel},
     {Image = merchant_tex_id},
     {Text = '謝謝你小白'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1613] = {
+    {NextCond = FlashlightOutOfPower, NextId = 1603},
+    {NextCond = HasFrogTearToSell, NextId = 1607},
+    {NextCond = HasMouseTailToSell, NextId = 1611},
+    {Image = merchant_tex_id},
+    {Text = '最近打撈到一艘古代船'},
+    {Text = '如果你有%d塊錢的話就賣給你', ScriptText = ScriptTextBuyShipCost},
+    {Text = '這樣你就可以出海去冒險了'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Pinky home.
