@@ -554,8 +554,7 @@ function QuestOnStep(x, y)
     if (-1 ~= id and Good.GetVisible(id) and PtInObj(x, y, id)) then
       local q = QuestData[quest_id]
       if (nil ~= q.TalkId) then
-        local rand_talk_id = math.random(#q.TalkId)
-        StartTalk(q.TalkId[rand_talk_id])
+        StartTalk(q.TalkId)
       elseif (nil ~= q.LevelId or nil ~= q.ScriptLevelId) then
         HandleTalkLevelId(q)
       end
@@ -566,6 +565,10 @@ function QuestOnStep(x, y)
     end
   end
   return false
+end
+
+function RandCond()
+  return 1 == math.random(2);
 end
 
 function RemoveItem(id, count)
@@ -798,6 +801,11 @@ end
 
 function ScriptHelpElderYellowDone()
   SetItem('i_clean_yellow_suit', 0)
+end
+
+function ScriptHeroMtNextId()
+  local id = {51, 180, 280}
+  return id[math.random(3)]
 end
 
 function ScriptMakeSuperNanoTowel()

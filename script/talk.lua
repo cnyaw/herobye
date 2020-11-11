@@ -158,7 +158,11 @@ function HandleTalkNextId(talk)
     StepOneTalk()
     return
   end
-  StartTalk(talk.NextId)
+  if (nil ~= talk.NextId) then
+    StartTalk(talk.NextId)
+  elseif (nil ~= talk.ScriptNextId) then
+    StartTalk(talk.ScriptNextId())
+  end
 end
 
 function KillTalkMenuSelMessCursor(sel)
@@ -206,7 +210,7 @@ function SkipTalk()
       return
     elseif (nil ~= talk.Script) then
       talk.Script()
-    elseif (nil ~= talk.NextId) then
+    elseif (nil ~= talk.NextId or nil ~= talk.ScriptNextId) then
       HandleTalkNextId(talk)
     elseif (nil ~= talk.MenuText) then
       HandleTalkMenuText(talk)
@@ -230,7 +234,7 @@ function StepOneTalk()
     StepOneTalk()
   elseif (nil ~= talk.FadeTo) then
     HandleTalkFadeTo(talk)
-  elseif (nil ~= talk.NextId) then
+  elseif (nil ~= talk.NextId or nil ~= talk.ScriptNextId) then
     HandleTalkNextId(talk)
   elseif (nil ~= talk.BgColor) then
     Good.SetBgColor(curr_lvl_id, talk.BgColor)

@@ -66,6 +66,9 @@ TalkData = {
     {Text = '作完功課後再來見我吧'},
     {LevelId = TRAINING_MAP_LVL_ID},
   },
+  [2] = {
+    {ScriptNextId = ScriptHeroMtNextId},
+  },
   [50] = {
     {Image = teacher_tex_id},
     {Text = '小秋徒兒你作完功課了啊'},
@@ -158,6 +161,7 @@ TalkData = {
     {LevelId = MAIN_MAP_LVL_ID},
   },
   [450] = {
+    {NextCond = RandCond, NextId = 500},
     {Image = pinnote_tex_id},
     {Text = '補貨中下次再來'},
     {LevelId = MAIN_MAP_LVL_ID},
