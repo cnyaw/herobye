@@ -159,6 +159,21 @@ function ConsumeRestCost()
   ConsumeCoin(REST_COST)
 end
 
+function DragHandler(param, BeginDrag, Dragging, EndDrag)
+  if (Input.IsKeyDown(Input.LBUTTON)) then
+    if (not param.mouse_down) then
+      param.mouse_down = BeginDrag(param)
+    else
+      Dragging(param)
+    end
+  else
+    if (param.mouse_down) then
+      EndDrag(param)
+      param.mouse_down = false
+    end
+  end
+end
+
 function EnterCaveCount()
   return ItemCount('i_enter_cave_count')
 end

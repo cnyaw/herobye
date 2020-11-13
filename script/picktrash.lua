@@ -34,15 +34,15 @@ function BeginDragFishBone(param)
   local x, y = Input.GetMousePos()
   for i = 1, NUM_FISH_BONE do
     if (nil ~= fish_bone[i] and PtInObj(x, y, fish_bone[i])) then
-      param.mouse_down = true
       local o = fish_bone[i]
       Good.AddChild(-1, o)              -- Change zorder to topmost.
       param.drag_idx = i
       param.orig_x, param.orig_y = Good.GetPos(o)
       param.click_x, param.click_y = x, y
-      break
+      return true
     end
   end
+  return false
 end
 
 function DraggingFishBone(param)
@@ -62,7 +62,6 @@ function DragFishBoneDone(param)
     fish_bone[param.drag_idx] = nil
     SetPickTrashCount(param, param.counter_dummy_count + 1)
   end
-  param.mouse_down = false
 end
 
 function DropFishBoneToTrash(param)
@@ -123,17 +122,7 @@ function PickTrashOnStepPlay(param)
     param.step = PickTrashOnStepDone
     return
   end
-  if (Input.IsKeyDown(Input.LBUTTON)) then
-    if (not param.mouse_down) then
-      BeginDragFishBone(param)
-    else
-      DraggingFishBone(param)
-    end
-  else
-    if (param.mouse_down) then
-      DragFishBoneDone(param)
-    end
-  end
+  DragHandler(param, BeginDragFishBone, DraggingFishBone, DragFishBoneDone)
 end
 
 function SetPickTrashCount(param, c)

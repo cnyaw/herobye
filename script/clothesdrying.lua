@@ -32,32 +32,22 @@ ClothesDryingOnStepEnd = function(param)
 end
 
 ClothesDryingOnStepPlay = function(param)
-  if (Input.IsKeyDown(Input.LBUTTON)) then
-    if (not param.mouse_down) then
-      BeginDragClothes(param)
-    else
-      DraggingClothes(param)
-    end
-  else
-    if (param.mouse_down) then
-      DragClothesDone(param)
-    end
-  end
+  DragHandler(param, BeginDragClothes, DraggingClothes, DragClothesDone)
 end
 
 function BeginDragClothes(param)
   local x, y = Input.GetMousePos()
   for i = 1, MAX_CLOTHES do
     if (nil ~= param.obj[i] and PtInObj(x, y, param.obj[i])) then
-      param.mouse_down = true
       local o = param.obj[i]
       Good.AddChild(-1, o)              -- Change zorder to topmost.
       param.drag_idx = i
       param.orig_x, param.orig_y = Good.GetPos(o)
       param.click_x, param.click_y = x, y
-      break
+      return true
     end
   end
+  return false
 end
 
 function DraggingClothes(param)
@@ -73,7 +63,6 @@ function DragClothesDone(param)
     local o = param.obj[param.drag_idx]
     Good.SetPos(o, param.orig_x, param.orig_y)
   end
-  param.mouse_down = false
 end
 
 function DropClothesMatchSlot(param)
