@@ -911,7 +911,13 @@ function ScriptTempleCreated()
 end
 
 function ScriptTextAddMouseTail(fmt)
-  local i = math.random(3)
+  local i = 1
+  if (HasItem('i_red_mouse_tail')) then
+    i = 2
+  end
+  if (HasItem('i_green_mouse_tail')) then
+    i = 3
+  end
   if (1 == i) then
     SetItem('i_red_mouse_tail', 1)
   elseif (2 == i) then
