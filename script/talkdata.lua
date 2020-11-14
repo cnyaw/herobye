@@ -1823,9 +1823,10 @@ TalkData = {
     {Text = '有船的話就能夠出海了'},
     {LevelId = DOCK_LVL_ID},
   },
-  [3501] = {
-    {Image = SHIP_TEX_ID},
-    {Text = '可以準備出海冒險了'},
-    {LevelId = DOCK_LVL_ID},
+  -- Fish field, fish.
+  [3600] = {
+    {Image = FISH_TEX_ID},
+    {Text = '可以釣魚嗎'},
+    {LevelId = FISH_FIELD_LVL_ID},
   },
 }
