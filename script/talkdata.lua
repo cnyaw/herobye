@@ -915,8 +915,18 @@ TalkData = {
     {NextCond = HasMouseTailToSell, NextId = 1611},
     {Image = merchant_tex_id},
     {Text = '最近打撈到一艘古代船'},
-    {Text = '如果你有%d塊錢的話就賣給你', ScriptText = ScriptTextBuyShipCost},
+    {Text = string.format('如果你有%d塊錢的話就賣給你', SHIP_COST)},
     {Text = '這樣你就可以出海去冒險了'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1614] = {
+    {Image = merchant_tex_id},
+    {Text = string.format('收您%d塊錢古代船就賣給您了', SHIP_COST)},
+    {Script = ScriptBuyShip},
+    {Image = SHIP_TEX_ID},
+    {Text = '古代船就在港口可以隨時使用'},
+    {Image = merchant_tex_id},
+    {Text = '謝謝惪顧'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Pinky home.
@@ -1811,6 +1821,11 @@ TalkData = {
   [3500] = {
     {Image = dock_tex_id},
     {Text = '有船的話就能夠出海了'},
+    {LevelId = DOCK_LVL_ID},
+  },
+  [3501] = {
+    {Image = SHIP_TEX_ID},
+    {Text = '可以準備出海冒險了'},
     {LevelId = DOCK_LVL_ID},
   },
 }

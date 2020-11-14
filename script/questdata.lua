@@ -104,7 +104,9 @@ QuestData = {
   [11008] = {TalkId = 1608, NextCond = IsSuperSoapMaterialReady, NextId = 11009},
   [11009] = {TalkId = 1610, NextId = 11010},
   [11010] = {TalkId = 1608, NextCond = HasSuperNanoTowel, NextId = 11011},
-  [11011] = {TalkId = 1613},
+  [11011] = {TalkId = 1613, NextCond, CanBuyShip, NextId = 11012},
+  [11012] = {TalkId = 1614, NextId = 11013},
+  [11013] = {TalkId = 1608},
   -- Hero village, Pinky home.
   [12000] = {TalkId = 1700, NextCond = HasMallet, NextId = 12001},
   [12001] = {TalkId = 1701, NextCond = HasCandy, NextId = 12002},
@@ -225,5 +227,6 @@ QuestData = {
   [25100] = {TalkId = 3300, NextCond = HasFourFeathers, NextId = 25101},
   [25101] = {TalkId = 3301},
   -- Dock, dock.
-  [26000] = {TalkId = 3500},
+  [26000] = {TalkId = 3500, NextCond = HasShip, NextId = 26001},
+  [26001] = {TalkId = 3501, TexId = SHIP_TEX_ID},
 }

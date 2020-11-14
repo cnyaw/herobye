@@ -58,6 +58,7 @@ i_tinky_winky_feather = 60
 i_super_nano_towel = 61
 f_bat_cave_blocked = 62
 i_fish = 63
+f_ship = 64
 --]]
 
 local bou_desc_id = 600

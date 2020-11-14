@@ -139,6 +139,10 @@ function BuyCandyLoop()
   return not HasCandy() and HasItem('f_buy_candy_loop')
 end
 
+function CanBuyShip()
+  return HasCoin(SHIP_COST)
+end
+
 function CanPlayLottery()
   return HasCoin(LOTTERY_COST)
 end
@@ -363,6 +367,10 @@ end
 
 function HasShaveBook()
   return HasItem('i_shave_book')
+end
+
+function HasShip()
+  return HasItem('f_ship')
 end
 
 function HasSuperNanoTowel()
@@ -754,6 +762,11 @@ function ScriptBuyFlashlight()
   SetItem('i_flashlight_use_count', MAX_FLASH_LIGHT_USE_COUNT)
 end
 
+function ScriptBuyShip()
+  ConsumeCoin(SHIP_COST)
+  SetItem('f_ship', 1)
+end
+
 function ScriptChargeFlashlight()
   ScriptBuyFlashlight()
 end
@@ -908,10 +921,6 @@ function ScriptTextAddMouseTail(fmt)
   end
   local s = {'紅', '綠', '黃'}
   return string.format(fmt, s[i])
-end
-
-function ScriptTextBuyShipCost(fmt)
-  return string.format(fmt, SHIP_COST)
 end
 
 function ScriptTextCrowdFunding(fmt)
