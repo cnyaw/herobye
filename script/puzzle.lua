@@ -4,6 +4,7 @@ local MAX_COL, MAX_ROW = 3, 3
 local x,y = (SCR_W - PUZZLE_W)/2, (SCR_H - PUZZLE_H)/2
 local w,h = PUZZLE_W/MAX_COL, PUZZLE_H/MAX_ROW
 
+local universe_tex_id = 199
 local puzzle_tex_id = nil
 local found_dipsy_talk_id = 2902
 
@@ -75,8 +76,14 @@ local function GenPuzzleTex()
     return
   end
   local canvas = Graphics.GenCanvas(PUZZLE_W, PUZZLE_H)
-  Graphics.FillRect(canvas, 0, 0, PUZZLE_W, PUZZLE_H, COLOR_PURPLE)
+  FillImage(canvas, 0, 0, universe_tex_id, PUZZLE_W, PUZZLE_H)
   FillImage(canvas, 0, 0, DIPSY_TEX_ID, PUZZLE_W, PUZZLE_H)
+  local tw, th = PUZZLE_W/MAX_COL, PUZZLE_H/MAX_ROW
+  for i = 0, MAX_COL-1 do
+    for j = 0, MAX_ROW-1 do
+      Graphics.DrawText(canvas, i *tw, j* th, string.format('%d', 1+i+j*MAX_COL))
+    end
+  end
   puzzle_tex_id = Resource.GenTex(canvas)
   Graphics.KillCanvas(canvas)
 end
