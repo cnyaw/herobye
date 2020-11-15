@@ -326,3 +326,17 @@ AnimShadow.OnStep = function(param)
     ArStepAnimator(param, param.k)
   end
 end
+
+AnimFish = {}
+
+AnimFish.OnStep = function(param)
+  local prev_dirx = param.dirx
+  BouncingObj.OnStep(param)
+  if (prev_dirx ~= param.dirx) then
+    local dir = 1
+    if (0 > param.dirx) then
+      dir = -1
+    end
+    Good.SetScale(param._id, dir, 1)
+  end
+end

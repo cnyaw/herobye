@@ -662,6 +662,10 @@ function ScriptAddDrumStick()
   SetItem('i_drum_stick', 1)
 end
 
+function ScriptAddFish()
+  SetItem('i_fish', 1)
+end
+
 function ScriptAddFrogTear()
   SetItem('i_frog_tear', 1)
 end

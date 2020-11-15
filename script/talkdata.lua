@@ -4,6 +4,7 @@ local astroid_lvl_id = 197
 local bat_cave_lvl_id = 263
 local cave_maze_lvl_id = 88
 local clothes_drying_lvl_id = 340
+local fishing_lvl_id = 389
 local help_pinky_lvl_id = 318
 local interview_hero_village_lvl_id = 331
 local lottery_lvl_id = 19
@@ -1826,7 +1827,13 @@ TalkData = {
   -- Fish field, fish.
   [3600] = {
     {Image = FISH_TEX_ID},
-    {Text = '可以釣魚嗎'},
+    {Text = '來釣魚囉'},
+    {LevelId = fishing_lvl_id},
+  },
+  [3601] = {
+    {Image = FISH_TEX_ID},
+    {Text = '釣到美味的魚囉'},
+    {Script = ScriptAddFish},
     {LevelId = FISH_FIELD_LVL_ID},
   },
 }
