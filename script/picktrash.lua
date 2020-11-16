@@ -33,8 +33,8 @@ end
 function BeginDragFishBone(param)
   local x, y = Input.GetMousePos()
   for i = 1, NUM_FISH_BONE do
-    if (nil ~= fish_bone[i] and PtInObj(x, y, fish_bone[i])) then
-      local o = fish_bone[i]
+    local o = fish_bone[i]
+    if (nil ~= o and PtInObj(x, y, o)) then
       Good.AddChild(-1, o)              -- Change zorder to topmost.
       param.drag_idx = i
       param.orig_x, param.orig_y = Good.GetPos(o)

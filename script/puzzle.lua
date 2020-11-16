@@ -1,3 +1,4 @@
+local WAIT_TIME = 60
 local PUZZLE_W, PUZZLE_H = 320, 320
 local MAX_COL, MAX_ROW = 3, 3
 
@@ -122,6 +123,7 @@ PuzzleGame = {}
 PuzzleGame.OnCreate = function(param)
   GenPuzzleTex()
   GenPuzzle()
+  param.step = PuzzleGameOnStepPlay
 end
 
 PuzzleGame.OnStep = function(param)
@@ -129,6 +131,17 @@ PuzzleGame.OnStep = function(param)
     Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
     return
   end
+  param.step(param)
+end
+
+function PuzzleGameOnStepEnd(param)
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  StartTalk(found_dipsy_talk_id)
+end
+
+function PuzzleGameOnStepPlay(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     local mx,my = Input.GetMousePos()
     local xx, yy = x + (1 + w) * (blank % MAX_COL), y + (1 + h) * math.floor(blank / MAX_COL)
@@ -142,7 +155,7 @@ PuzzleGame.OnStep = function(param)
       MoveUp()
     end
     if (IsPuzzleComplete()) then
-      StartTalk(found_dipsy_talk_id)
+      param.step = PuzzleGameOnStepEnd
     end
   end
 end

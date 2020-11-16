@@ -41,7 +41,6 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_cave = 17000,
   o_caveMazeWell = 17100,
   o_caveMazeMirror = 17200,
-  o_back = 18000,
   o_toAlienArea = 19000,
   o_alien = 20000,
   o_toDock = 20100,
