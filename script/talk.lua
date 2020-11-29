@@ -201,8 +201,8 @@ function SkipTalk()
   if (nil ~= talk_menu_obj) then
     return
   end
-  local talk_tbl = GetCurrTalk()
   while true do
+    local talk_tbl = GetCurrTalk()
     local talk = talk_tbl[talk_index]
     talk_index = talk_index + 1
     if (nil ~= talk.LevelId or nil ~= talk.ScriptLevelId) then
