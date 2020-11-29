@@ -15,6 +15,7 @@ local puzzle_lvl_id = 221
 local racing_lvl_id = 330
 local rainbow_lvl_id = 234
 local seek_frog_lvl_id = 24
+local snake_cave_lvl_id = 392
 local shadow_lvl_id = 22
 local slap_mouse_lvl_id = 54
 
@@ -1813,6 +1814,12 @@ TalkData = {
     {LevelId = bat_cave_lvl_id},
   },
   [3403] = {
+    {BgColor = COLOR_BLACK},
+    {Text = '嘿嘿我又進步了'},
+    {Text = '繼續挑戰下一關'},
+    {LevelId = snake_cave_lvl_id},
+  },
+  [3404] = {
     {BgColor = COLOR_BLACK},
     {Text = '嘿嘿我又進步了'},
     {Text = '下次還要繼續努力加油'},
