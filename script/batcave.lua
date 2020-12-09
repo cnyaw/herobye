@@ -6,7 +6,7 @@ local net_tex_id = 286
 local gun_obj_id = 299
 local pass_talk_id = 3403
 
-local BULLET_SIZE_X, BULLET_SIZE_Y = Resource.GetTexSize(net_tex_id)
+local BULLET_SIZE_X, BULLET_SIZE_Y
 
 local bullet_obj = nil
 
@@ -57,6 +57,7 @@ BatCave = {}
 BatCave.OnCreate = function(param)
   bullet_obj = nil
   BounceGameInit(param, MAX_BAT, bat_tex_id)
+  BULLET_SIZE_X, BULLET_SIZE_Y = Resource.GetTexSize(net_tex_id)
 end
 
 BatCave.OnStep = function(param)
