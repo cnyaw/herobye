@@ -6,6 +6,7 @@ local COLOR_INPUT_RIGHT = COLOR_GREEN
 local COLOR_INPUT_WRONG = COLOR_RED
 local WAIT_TIME = 30
 
+local btn_back_obj_id = 411
 local btn_scissor_obj_id = 6
 local btn_stone_obj_id = 9
 local btn_paper_obj_id = 10
@@ -36,6 +37,10 @@ end
 
 function CaveDoorHittest(param)
   local x, y = Input.GetMousePos()
+  if (PtInObj(x, y, btn_back_obj_id)) then
+    Good.GenObj(-1, CAVE_FIELD_LVL_ID)
+    return
+  end
   for i = 1, #param.rps_obj do
     if (PtInObj(x, y, param.rps_obj[i])) then
       AddInputCode(param, param.rps_code[i])
