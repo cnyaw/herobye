@@ -228,9 +228,7 @@ function GetCurrBagType()
 end
 
 function GetHeroVillageBackLvlId()
-  if (GetLastLvlId() == HERO_VILLAGE_CHURCH_LVL_ID) then
-    return HERO_VILLAGE_LVL_ID
-  elseif (GetLastLvlId() == CAVE_DOOR_LVL_ID) then
+  if (GetLastLvlId() == CAVE_DOOR_LVL_ID) then
     return CAVE_FIELD_LVL_ID
   else
     return TITLE_LVL_ID

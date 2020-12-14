@@ -1039,7 +1039,7 @@ dim=0 0 150 65
 name=hero village church
 bgColor=128 128 0
 script=MainMap
-objects=351 355
+objects=351 355 414
 
 [object351]
 name=o_grandpa
@@ -1054,6 +1054,17 @@ texture=352
 x=368
 y=128
 dim=0 0 128 141
+
+[object414]
+name=o_toHeroVillage
+texture=261
+rot=90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+x=304
+y=352
+dim=0 0 32 32
 
 [level356]
 name=alien path
