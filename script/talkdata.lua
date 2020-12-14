@@ -24,6 +24,7 @@ local brother1_tex_id = 280
 local brother2_tex_id = 281
 local cave_door_tex_id = 0
 local chest_tex_id = 13
+local computer_tex_id = 394
 local dock_tex_id = 336
 local dog_tex_id = 2
 local dwarf_tex_id = 87
@@ -1768,13 +1769,13 @@ TalkData = {
     {Text = '首先需要四根天線寶寶的毛'},
     {Text = '材料收集好後再來找我吧'},
     {Script = ScriptFindTeletubbies},
-    {LevelId = JANKEN_LIB_LVL_ID},
+    {LevelId = INSIDE_JANKEN_LIB_LVL_ID},
   },
   [3301] = {
     {NextCond = HasFourFeathers, NextId = 3302},
     {Image = bebe_tex_id},
     {Text = '你好我是比比博士'},
-    {LevelId = JANKEN_LIB_LVL_ID},
+    {LevelId = INSIDE_JANKEN_LIB_LVL_ID},
   },
   [3302] = {
     {Image = bebe_tex_id},
@@ -1790,7 +1791,17 @@ TalkData = {
     {Script = ScriptMakeSuperNanoTowel},
     {Image = bebe_tex_id},
     {Text = '下次有需要再來找我哦'},
-    {LevelId = JANKEN_LIB_LVL_ID},
+    {LevelId = INSIDE_JANKEN_LIB_LVL_ID},
+  },
+  -- Janken lib, computer.
+  [3350] = {
+    {Image = bebe_tex_id},
+    {Text = '你好我是比比博士'},
+    {Text = '我正在研發一台虛擬實境遊戲機'},
+    {Image = computer_tex_id},
+    {Text = '請耐心等待'},
+    {Text = '完成後歡迎進入奇幻的冒險世界'},
+    {LevelId = INSIDE_JANKEN_LIB_LVL_ID},
   },
   -- Bat cave field, bat cave.
   [3400] = {

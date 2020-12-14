@@ -1,6 +1,7 @@
 
 local beg_money_lvl_id = 293
 local curcus_tex_id = 73
+local janken_lib_lvl_id = 217
 local temple_tex_id = 50
 
 QuestData = {
@@ -218,12 +219,16 @@ QuestData = {
   [24400] = {TalkId = 3200, NextCond = IsFindTeletubbies, NextId = 24401},
   [24401] = {TalkId = 3201},
   -- Janken planet, to lib.
-  [24500] = {LevelId = JANKEN_LIB_LVL_ID},
+  [24500] = {LevelId = janken_lib_lvl_id},
   -- Janken lib, to planet.
   [25000] = {LevelId = JANKEN_PLANET_LVL_ID},
+  -- Janken lib, inside lib.
+  [25050] = {LevelId = INSIDE_JANKEN_LIB_LVL_ID},
   -- Janken lib, bebe.
   [25100] = {TalkId = 3300, NextCond = HasFourFeathers, NextId = 25101},
   [25101] = {TalkId = 3301},
+  -- Janken lib, computer.
+  [25200] = {TalkId = 3350},
   -- Dock, dock.
   [26000] = {TalkId = 3500, NextCond = HasShip, NextId = 26001},
   [26001] = {LevelId = FISH_FIELD_LVL_ID, TexId = SHIP_TEX_ID},
