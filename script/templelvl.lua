@@ -2,6 +2,8 @@ local SZ_TEXT = 32
 local OFFSET_X, OFFSET_Y = 8, 8
 local SZ_LVL_STATUS = 200
 
+local back_btn_obj_id = 412
+
 local LVL_TITLE = {
 '開張大吉',
 '香油錢',
@@ -48,7 +50,7 @@ TempleLevel.OnCreate = function(param)
 end
 
 TempleLevel.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
+  if (Input.IsKeyPressed(Input.ESCAPE) or HittestBackButton(back_btn_obj_id)) then
     Good.GenObj(-1, TEMPLE_LVL_ID)
     return
   end

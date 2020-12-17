@@ -389,6 +389,14 @@ function HasUfoPowerBook()
   return HasItem('i_ufo_power_book')
 end
 
+function HittestBackButton(btn_obj_id)
+  if (not Input.IsKeyPushed(Input.LBUTTON)) then
+    return false
+  end
+  local x, y = Input.GetMousePos()
+  return PtInObj(x, y, btn_obj_id)
+end
+
 function IncClickTrainingCount()
   AddItem('i_click_training_count', 1)
 end

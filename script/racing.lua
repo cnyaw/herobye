@@ -6,6 +6,7 @@ local COLOR = {COLOR_PURPLE, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_YELLOW}
 
 local tex_plus_id = 344
 local sai_hoon_obj_id = 335
+local back_btn_obj_id = 415
 
 local sai_hoon_sz = 0
 
@@ -22,7 +23,7 @@ RacingGame.OnCreate = function(param)
 end
 
 RacingGame.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
+  if (Input.IsKeyPressed(Input.ESCAPE) or HittestBackButton(back_btn_obj_id)) then
     Good.GenObj(-1, MAIN_MAP_LVL_ID)
     return
   end

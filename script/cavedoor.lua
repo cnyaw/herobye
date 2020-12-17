@@ -35,7 +35,10 @@ function AddInputCode(param, code)
   Good.SetBgColor(param.block_obj[idx], COLOR_GRAY)
 end
 
-function CaveDoorHittest(param)
+function CaveDoorOnStepInput(param)
+  if (not Input.IsKeyPushed(Input.LBUTTON)) then
+    return
+  end
   local x, y = Input.GetMousePos()
   if (PtInObj(x, y, btn_back_obj_id)) then
     Good.GenObj(-1, CAVE_FIELD_LVL_ID)
@@ -47,12 +50,6 @@ function CaveDoorHittest(param)
       ValidateInputCode(param)
       return
     end
-  end
-end
-
-function CaveDoorOnStepInput(param)
-  if (Input.IsKeyPushed(Input.LBUTTON)) then
-    CaveDoorHittest(param)
   end
 end
 

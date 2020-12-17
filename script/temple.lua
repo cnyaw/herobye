@@ -15,6 +15,7 @@ local TILE_POS = {0,0, 1,0, 2,0, 3,0, 4,0, 5,0, 6,0, 7,0, 7,1, 7,2, 7,3, 6,3, 5,
                   4,3, 3,3, 2,3, 1,3, 0,3, 0,2, 0,1}
 local TILE_FACTOR = {2, 3, 3, 4, 2, 3, 4, 4, -1}
 
+local back_btn_obj_id = 413
 local temple_lvl_lvl_id = 191
 
 local map_obj_id = 159
@@ -147,7 +148,7 @@ Temple.OnCreate = function(param)
 end
 
 Temple.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
+  if (Input.IsKeyPressed(Input.ESCAPE) or HittestBackButton(back_btn_obj_id)) then
     Good.GenObj(-1, MAIN_MAP_LVL_ID)
     return
   end
