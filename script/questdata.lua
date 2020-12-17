@@ -105,7 +105,7 @@ QuestData = {
   [11008] = {TalkId = 1608, NextCond = IsSuperSoapMaterialReady, NextId = 11009},
   [11009] = {TalkId = 1610, NextId = 11010},
   [11010] = {TalkId = 1608, NextCond = HasSuperNanoTowel, NextId = 11011},
-  [11011] = {TalkId = 1613, NextCond, CanBuyShip, NextId = 11012},
+  [11011] = {TalkId = 1613, NextCond = CanBuyShip, NextId = 11012},
   [11012] = {TalkId = 1614, NextId = 11013},
   [11013] = {TalkId = 1608},
   -- Hero village, Pinky home.
