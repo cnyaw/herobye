@@ -9,17 +9,24 @@ local mirror_obj_id = 185
 local arrow_obj = {left_arrow_obj_id, right_arrow_obj_id, up_arrow_obj_id, down_arrow_obj_id}
 local arrow_dir = {0, SCR_H, 2 * SCR_W, SCR_H, SCR_W, 0, SCR_W, 2 * SCR_H}
 
-local exit_path = '23323323'            -- See i_cave_maze_book for the path.(1left,2right,3up,4down)
-local mirror_path = '333333'
+local path_data = {                     -- See i_cave_maze_book for the path.(1left,2right,3up,4down)
+  [1] = {well_obj_id, '23323323'},
+  [2] = {mirror_obj_id, '333333'},
+}
+
 local curr_path = ''
+
 CaveMaze = {}
 
 CaveMaze.OnCreate = function(param)
   curr_path = ''
-  param.well_x, param.well_y = Good.GetPos(well_obj_id)
-  Good.SetVisible(well_obj_id, 0)
-  param.mirror_x, param.mirror_y = Good.GetPos(mirror_obj_id)
-  Good.SetVisible(mirror_obj_id, 0)
+  param.x = {}
+  param.y = {}
+  for i = 1, #path_data do
+    local p = path_data[i]
+    param.x[i], param.y[i] = Good.GetPos(p[1])
+    Good.SetVisible(p[1], 0)
+  end
   CenterMaze(param)
   QuestOnCreate()
 end
@@ -60,22 +67,30 @@ end
 
 function CheckMovePath(param, dir)
   curr_path = curr_path .. tostring(dir)
-  if (IsExitMazePath()) then
-    CheckMovePath_i(dir, well_obj_id, param.well_x, param.well_y)
-  elseif (IsMirrorPath()) then
-    CheckMovePath_i(dir, mirror_obj_id, param.mirror_x, param.mirror_y)
+  for i = 1, #path_data do
+    local p = path_data[i]
+    if (p[2] == curr_path) then
+      CheckMovePath_i(dir, p[1], param.x[i], param.y[i])
+      return
+    end
   end
 end
 
 function CenterMaze(param)
   if (IsWrongMazePath()) then
-    curr_path = string.sub(curr_path, string.len(curr_path - 1))
-    Good.SetVisible(well_obj_id, 0)
-    Good.SetVisible(mirror_obj_id, 0)
-  elseif (IsExitMazePath()) then
-    Good.SetPos(well_obj_id, param.well_x + SCR_W, param.well_y + SCR_H)
-  elseif (IsMirrorPath()) then
-    Good.SetPos(mirror_obj_id, param.mirror_x + SCR_W, param.mirror_y + SCR_H)
+    curr_path = string.sub(curr_path, string.len(curr_path) - 1)
+    for i = 1, #path_data do
+      local p = path_data[i]
+      Good.SetVisible(p[1], 0)
+    end
+  else
+    for i = 1, #path_data do
+      local p = path_data[i]
+      if (p[2] == curr_path) then
+        Good.SetPos(p[1], param.x[i] + SCR_W, param.y[i] + SCR_H)
+        break
+      end
+    end
   end
   Good.SetPos(param._id, SCR_W, SCR_H)
   Good.SetPos(dummy_obj_id, SCR_W, SCR_H)
@@ -87,19 +102,17 @@ function GetMazeDirOffset(dir)
   return x, y
 end
 
-function IsExitMazePath()
-  return curr_path == exit_path
-end
-
-function IsMirrorPath()
-  return curr_path == mirror_path
-end
-
 function IsWrongMazePath_i(s)
   return string.len(curr_path) > string.len(s) or
          curr_path ~= string.sub(s, 1, string.len(curr_path))
 end
 
 function IsWrongMazePath()
-  return IsWrongMazePath_i(exit_path) and IsWrongMazePath_i(mirror_path)
+  for i = 1, #path_data do
+    local p = path_data[i]
+    if (not IsWrongMazePath_i(p[2])) then
+      return false
+    end
+  end
+  return true
 end
