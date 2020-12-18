@@ -5,6 +5,7 @@ local up_arrow_obj_id = 124
 local down_arrow_obj_id = 125
 local well_obj_id = 126
 local mirror_obj_id = 185
+local ladder_obj_id = 417
 
 local arrow_obj = {left_arrow_obj_id, right_arrow_obj_id, up_arrow_obj_id, down_arrow_obj_id}
 local arrow_dir = {0, SCR_H, 2 * SCR_W, SCR_H, SCR_W, 0, SCR_W, 2 * SCR_H}
@@ -12,6 +13,7 @@ local arrow_dir = {0, SCR_H, 2 * SCR_W, SCR_H, SCR_W, 0, SCR_W, 2 * SCR_H}
 local path_data = {                     -- See i_cave_maze_book for the path.(1left,2right,3up,4down)
   [1] = {well_obj_id, '23323323'},
   [2] = {mirror_obj_id, '333333'},
+  [3] = {ladder_obj_id, '444'},
 }
 
 local curr_path = ''
@@ -51,6 +53,10 @@ function CaveMazeHittest(param)
     end
   end
   local lx,ly = Good.GetPos(param._id)
+  if (PtInObj(lx + x, ly + y, ladder_obj_id)) then
+    Good.GenObj(-1, CAVE_FIELD_LVL_ID)
+    return
+  end
   QuestOnStep(lx + x, ly + y)
 end
 
