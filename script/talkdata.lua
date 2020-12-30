@@ -18,6 +18,7 @@ local seek_frog_lvl_id = 24
 local snake_cave_lvl_id = 392
 local shadow_lvl_id = 22
 local slap_mouse_lvl_id = 54
+local zoo_lvl_id = 421
 
 local bebe_tex_id = 215
 local brother1_tex_id = 280
@@ -509,6 +510,12 @@ TalkData = {
     {Image = GODZILLA_TEX_ID},
     {Text = '歡迎光臨龍神太子財神廟'},
     {LevelId = TEMPLE_LVL_ID},
+  },
+  -- Main map, to hero mt zoo.
+  [1250] = {
+    {Image = pinnote_tex_id},
+    {Text = '歡迎光臨勇者山動物園'},
+    {LevelId = zoo_lvl_id},
   },
   -- Hero village church, grandpa.
   [1300] = {

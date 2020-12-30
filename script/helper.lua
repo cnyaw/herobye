@@ -23,6 +23,7 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_mainMapShop = 2000,
   o_mainMapVillage = 3000,
   o_mainMapChurch = 4000,
+  o_toHeroMtZoo = 4100,
   o_bag = 5000,
   o_mainMapTempleSite = 8000,
   o_heroVillageChurch = 9000,
