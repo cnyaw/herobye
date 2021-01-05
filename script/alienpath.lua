@@ -28,26 +28,10 @@ AlienPath.OnStep = function(param)
 end
 
 function AlienPathHittest(param, x, y)
-  for i = 1, MAX_ALIEN do
-    local o = param.obj[i]
-    if (nil ~= o and PtInObj(x, y, o)) then
-      if (not CanHitAlien(o)) then
-        break
-      end
-      GenFlyUpObj(o, UFO_TEX_ID)
-      param.hit = param.hit + 1
-      Good.KillObj(o)
-      param.obj[i] = nil
-      if (MAX_ALIEN == param.hit) then
-        Good.SetVisible(to_alien_area_obj_id, 1)
-      end
-      return true
-    end
-  end
-  return false
+  return BounceGameHittest(param, x, y, OnHitAlien, CanHitAlien)
 end
 
-function CanHitAlien(o)
+function CanHitAlien(param, o)
   local param = Good.GetParam(o)
   return param.can_hit
 end
@@ -83,5 +67,12 @@ function GenWeaponIcons()
   local x, y = 0, 0
   for i = 1, #weapon_tex_id do
     x, y = GenWeaponIcon(x, y, weapon_tex_id[i], has[i])
+  end
+end
+
+function OnHitAlien(param, o)
+  GenFlyUpObj(o, UFO_TEX_ID)
+  if (MAX_ALIEN == param.hit) then
+    Good.SetVisible(to_alien_area_obj_id, 1)
   end
 end

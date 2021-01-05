@@ -44,7 +44,7 @@ function BegMoneyOnStep(param)
   local x, y = Input.GetMousePos()
   if (nil == param.boa) then
     param.boa = GenBegMoneyBoa(x, y)
-    BeggingMoney(x, y, param)
+    BounceGameHittest(param, x, y, OnBegMoney)
   end
 end
 
@@ -52,24 +52,6 @@ function BegMoneyOnStepDone(param)
   if (nil == param.boa) then
     Good.GenObj(-1, MAIN_MAP_LVL_ID)
     return
-  end
-end
-
-function BeggingMoney(x, y, param)
-  for i = 1, MAX_USER do
-    local o = param.obj[i]
-    if (nil ~= o and PtInObj(x, y, o)) then
-      GenFlyUpObj(o, COIN_TEX_ID)
-      param.hit = param.hit + 1
-      Good.KillObj(o)
-      param.obj[i] = nil
-      AddCoin(GetCurrBouGain())
-      UpdateCoinInfo(param)
-      if (MAX_USER == param.hit) then
-        param.step = BegMoneyOnStepDone
-      end
-      break
-    end
   end
 end
 
@@ -103,5 +85,14 @@ function GetCurrBouTexId()
     return BOU2_TEX_ID
   else
     return BOU_TEX_ID
+  end
+end
+
+function OnBegMoney(param, o)
+  GenFlyUpObj(o, COIN_TEX_ID)
+  AddCoin(GetCurrBouGain())
+  UpdateCoinInfo(param)
+  if (MAX_USER == param.hit) then
+    param.step = BegMoneyOnStepDone
   end
 end

@@ -138,6 +138,25 @@ function BounceGameInit(param, nobj, tex, genobj)
   end
 end
 
+function BounceGameHittest(param, x, y, OnHit, CanHit)
+  for i = 1, #param.obj do
+    local o = param.obj[i]
+    if (-1 ~= o and PtInObj(x, y, o)) then
+      if (nil ~= CanHit and not CanHit(param, o)) then
+        break
+      end
+      param.hit = param.hit + 1
+      if (nil ~= OnHit) then
+        OnHit(param, o)
+      end
+      Good.KillObj(o)
+      param.obj[i] = -1
+      return true
+    end
+  end
+  return false
+end
+
 function BuyCandyLoop()
   return not HasCandy() and HasItem('f_buy_candy_loop')
 end

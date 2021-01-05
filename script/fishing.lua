@@ -25,16 +25,7 @@ local function HittestFish(param)
   local x, y = Good.GetPos(hook_obj_id)
   x = x + w/2
   y = y + h/2
-  for i = 1, MAX_FISH do
-    local o = param.obj[i]
-    if (nil ~= o and PtInObj(x, y, o)) then
-      Good.KillObj(o)
-      param.obj[i] = nil
-      param.hit = param.hit + 1
-      return true
-    end
-  end
-  return false
+  return BounceGameHittest(param, x, y)
 end
 
 local function InitFish(o)

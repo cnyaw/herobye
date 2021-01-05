@@ -201,6 +201,13 @@ function TrainingIsStickTrainingMaxLv()
   return stick_training.max_lv <= stick_training.lv
 end
 
+function TrainingStickOnHitStick(param, o)
+  GenFlyUpObj(o, stick_tex_id)
+  if (MAX_STICK == param.hit) then
+    param.step = TrainingStickOnStepEnd
+  end
+end
+
 function TrainingOnStep(param)
   UpdateTrainingCd()
   if (Input.IsKeyPressed(Input.ESCAPE)) then
@@ -223,19 +230,7 @@ function TrainingStickOnStepPlay(param)
     return
   end
   local x, y = Input.GetMousePos()
-  for i = 1, MAX_STICK do
-    local o = param.obj[i]
-    if (nil ~= o and PtInObj(x, y, o)) then
-      GenFlyUpObj(o, stick_tex_id)
-      param.hit = param.hit + 1
-      Good.KillObj(o)
-      param.obj[i] = nil
-      if (MAX_STICK == param.hit) then
-        param.step = TrainingStickOnStepEnd
-      end
-      break
-    end
-  end
+  BounceGameHittest(param, x, y, TrainingStickOnHitStick)
 end
 
 function UpdateTrainingCd()

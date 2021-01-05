@@ -10,23 +10,17 @@ local BULLET_SIZE_X, BULLET_SIZE_Y
 
 local bullet_obj = nil
 
+local function OnHitBat(param, o)
+  Good.KillObj(bullet_obj)
+  bullet_obj = nil
+end
+
 local function BatGunBulletHitTest(param)
   if (nil == bullet_obj) then
     return
   end
   local x, y = Good.GetPos(bullet_obj)
-  for i = 1, MAX_BAT do
-    local o = param.obj[i]
-    if (nil ~= o and PtInObj(x, y, o)) then
-      Good.KillObj(bullet_obj)
-      bullet_obj = nil
-      Good.KillObj(o)
-      param.obj[i] = nil
-      param.hit = param.hit + 1
-      return true
-    end
-  end
-  return false
+  return BounceGameHittest(param, x, y, OnHitBat)
 end
 
 local function FireBatGunBullet()

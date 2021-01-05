@@ -34,17 +34,12 @@ function HelpPinkyOnStepPlay(param)
     return
   end
   local x, y = Input.GetMousePos()
-  for i = 1, MAX_JOHN do
-    local o = param.obj[i]
-    if (nil ~= o and PtInObj(x, y, o)) then
-      GenFlyUpObj(o, JOHN_TEX_ID)
-      param.hit = param.hit + 1
-      Good.KillObj(o)
-      param.obj[i] = nil
-      if (MAX_JOHN == param.hit) then
-        param.step = HelpPinkyOnStepEnd
-      end
-      break
-    end
+  BounceGameHittest(param, x, y, OnHitJohn)
+end
+
+function OnHitJohn(param, o)
+  GenFlyUpObj(o, JOHN_TEX_ID)
+  if (MAX_JOHN == param.hit) then
+    param.step = HelpPinkyOnStepEnd
   end
 end
