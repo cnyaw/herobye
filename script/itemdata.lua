@@ -59,6 +59,7 @@ i_super_nano_towel = 61
 f_bat_cave_blocked = 62
 i_fish = 63
 f_ship = 64
+i_jewel = 65
 --]]
 
 local bou_desc_id = 600
@@ -90,6 +91,7 @@ local po_feather_desc_id = 626
 local tinky_winky_feather_desc_id = 627
 local super_nano_towel_desc_id = 628
 local fish_desc_id = 629
+local jewel_desc_id = 630
 
 local hero_his_book_desc_id = 1350
 local cave_door_book_desc_id = 1351
@@ -136,6 +138,7 @@ ItemData = {
   i_tinky_winky_feather = {BagType = e_hero_bag, Image = TINKY_WINKY_FEATHER_TEX_ID, TalkId = tinky_winky_feather_desc_id},
   i_super_nano_towel = {BagType = e_hero_bag, Image = SUPER_NANO_TOWEL_TEX_ID, TalkId = super_nano_towel_desc_id},
   i_fish = {BagType = e_hero_bag, Image = FISH_TEX_ID, TalkId = fish_desc_id},
+  i_jewel = {BagType = e_hero_bag, Image = JEWEL_TEX_ID, TalkId = jewel_desc_id},
   -- book.
   i_hero_history_book = {BagType = e_book_lib, Image = HERO_HIS_BOOK_TEX_ID, TalkId = hero_his_book_desc_id},
   i_cave_door_book = {BagType = e_book_lib, Image = CAVE_DOOR_BOOK_TEX_ID, TalkId = cave_door_book_desc_id},

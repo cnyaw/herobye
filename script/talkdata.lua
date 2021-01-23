@@ -361,6 +361,11 @@ TalkData = {
     {Text = '可作成美味料理的魚'},
     {LevelId = BAG_LVL_ID},
   },
+  [630] = {
+    {Image = JEWEL_TEX_ID},
+    {Text = '亮晶晶的寶石'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -1842,7 +1847,10 @@ TalkData = {
   [3404] = {
     {BgColor = COLOR_BLACK},
     {Text = '嘿嘿我又進步了'},
-    {Text = '下次還要繼續努力加油'},
+    {Text = '走到蝙蝠洞底部'},
+    {Image = JEWEL_TEX_ID},
+    {Text = '獲得一顆寶石'},
+    {Script = ScriptAddJewel},
     {LevelId = BAT_CAVE_FIELD_LVL_ID},
   },
   -- Dock, dock.

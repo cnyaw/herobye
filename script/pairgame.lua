@@ -3,8 +3,6 @@ local COL_COUNT = 4
 local MARGIN = 20
 local WAIT_TIME = 30
 
-local jewel_tex_id = 105
-
 local COLORS = {COLOR_RED, COLOR_GREEN, COLOR_BLUE}
 local W, H, OFFSET_X, OFFSET_Y, WW, HH
 
@@ -23,7 +21,7 @@ end
 PairGame = {}
 
 PairGame.OnCreate = function(param)
-  W, H = Resource.GetTexSize(jewel_tex_id)
+  W, H = Resource.GetTexSize(JEWEL_TEX_ID)
   OFFSET_X = (SCR_W - (COL_COUNT * (W + MARGIN))) / 2
   OFFSET_Y = (SCR_H - (ROW_COUNT * (H + MARGIN))) / 2
   WW, HH = W + MARGIN, H + MARGIN
@@ -33,7 +31,7 @@ PairGame.OnCreate = function(param)
   local obj_index = color_offset
   for i = 0, ROW_COUNT - 1 do
     for j = 0, COL_COUNT - 1 do
-      local o = Good.GenObj(-1, jewel_tex_id)
+      local o = Good.GenObj(-1, JEWEL_TEX_ID)
       Good.SetPos(o, OFFSET_X + j * WW, OFFSET_Y + i * HH)
       local color_index = 1 + obj_index % #COLORS
       Good.SetBgColor(o, COLORS[color_index])

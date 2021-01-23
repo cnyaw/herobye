@@ -701,6 +701,10 @@ function ScriptAddHeroHisBook()
   SetItem('i_hero_history_book', 1)
 end
 
+function ScriptAddJewel()
+  SetItem('i_jewel', 1)
+end
+
 function ScriptAddLaaLaaFeather()
   SetItem('i_laalaa_feather', 1)
 end
