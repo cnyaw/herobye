@@ -1399,6 +1399,7 @@ TalkData = {
     {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
   [2401] = {
+    {NextCond = HasJewel, NextId = 2403},
     {BgColor = COLOR_GRAY},
     {Image = dwarf_tex_id},
     {Text = '勇者小白尼好'},
@@ -1419,6 +1420,19 @@ TalkData = {
     {Image = dwarf_tex_id},
     {Text = '偶己經把蝙蝠洞打開了'},
     {Script = ScriptOpenBatCave},
+    {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
+  },
+  [2403] = {
+    {BgColor = COLOR_GRAY},
+    {Image = dwarf_tex_id},
+    {Text = '勇者小白尼好'},
+    {Text = '請尼把亮晶晶的寶石賣給偶'},
+    {Text = '偶最喜歡亮晶晶的寶石'},
+    {Image = JEWEL_TEX_ID},
+    {Text = '十分感謝尼'},
+    {Script = ScriptSellJewel},
+    {Image = dwarf_tex_id},
+    {Text = '還有寶石的話請全都賣偶'},
     {LevelId = UNDER_WORLD_ENTRANCE_LVL_ID},
   },
   -- Under world entry, to main map.

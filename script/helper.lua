@@ -357,6 +357,10 @@ function HasItem(id)
   return nil ~= bag[id]
 end
 
+function HasJewel()
+  return HasItem('i_jewel')
+end
+
 function HasLetter()
   return HasItem('i_letter')
 end
@@ -911,12 +915,17 @@ end
 
 function ScriptSellFish()
   SetItem('i_fish', 0)
-  AddCoin(3 * SELL_ITEM_COST)
+  AddCoin(5 * SELL_ITEM_COST)
 end
 
 function ScriptSellFrogTear()
   SetItem('i_frog_tear', 0)
   AddCoin(SELL_ITEM_COST)
+end
+
+function ScriptSellJewel()
+  SetItem('i_jewel', 0)
+  AddCoin(3 * SELL_ITEM_COST)
 end
 
 function ScriptSellMouseTail()
