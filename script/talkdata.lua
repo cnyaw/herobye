@@ -1855,16 +1855,23 @@ TalkData = {
   [3403] = {
     {BgColor = COLOR_BLACK},
     {Text = '嘿嘿我又進步了'},
-    {Text = '繼續挑戰下一關'},
+    {Text = '繼續加油挑戰下一關'},
     {LevelId = snake_cave_lvl_id},
   },
   [3404] = {
+    {NextCond = HasJewel, NextId = 3405},
     {BgColor = COLOR_BLACK},
     {Text = '嘿嘿我又進步了'},
     {Text = '走到蝙蝠洞底部'},
     {Image = JEWEL_TEX_ID},
     {Text = '獲得一顆寶石'},
     {Script = ScriptAddJewel},
+    {LevelId = BAT_CAVE_FIELD_LVL_ID},
+  },
+  [3405] = {
+    {BgColor = COLOR_BLACK},
+    {Text = '嘿嘿我又進步了'},
+    {Text = '還要繼續努力不斷進步'},
     {LevelId = BAT_CAVE_FIELD_LVL_ID},
   },
   -- Dock, dock.
