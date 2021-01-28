@@ -309,7 +309,7 @@ AnimFadeToWhite = {}
 
 AnimFadeToWhite.OnStep = function(param)
   if (nil == param.fade_to_color) then
-    param.fade_to_color = 0xffffffff
+    param.fade_to_color = COLOR_WHITE
   end
   AnimFadeToColor.OnStep(param)
 end
@@ -338,5 +338,18 @@ AnimFish.OnStep = function(param)
       dir = -1
     end
     Good.SetScale(param._id, dir, 1)
+  end
+end
+
+AnimConsoleCursor = {}
+
+AnimConsoleCursor.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil)
+    ArAddMoveTo(loop1, 'BgColor', 0.25, COLOR_BLACK).lerp = LerpARgb
+    ArAddMoveTo(loop1, 'BgColor', 0.25, COLOR_WHITE).lerp = LerpARgb
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
   end
 end

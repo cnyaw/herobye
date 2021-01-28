@@ -4,6 +4,7 @@ local astroid_lvl_id = 197
 local bat_cave_lvl_id = 263
 local cave_maze_lvl_id = 88
 local clothes_drying_lvl_id = 340
+local computer_lvl_id = 449
 local fishing_lvl_id = 389
 local help_pinky_lvl_id = 318
 local interview_hero_village_lvl_id = 331
@@ -1831,6 +1832,11 @@ TalkData = {
     {Text = '請耐心等待'},
     {Text = '完成後歡迎進入奇幻的冒險世界'},
     {LevelId = INSIDE_JANKEN_LIB_LVL_ID},
+  },
+  [3351] = {
+    {Image = computer_tex_id},
+    {Text = '歡迎使用虛擬實境遊戲機'},
+    {LevelId = computer_lvl_id},
   },
   -- Bat cave field, bat cave.
   [3400] = {

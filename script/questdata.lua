@@ -230,7 +230,8 @@ QuestData = {
   [25100] = {TalkId = 3300, NextCond = HasFourFeathers, NextId = 25101},
   [25101] = {TalkId = 3301},
   -- Janken lib, computer.
-  [25200] = {TalkId = 3350},
+  [25200] = {TalkId = 3350, NextCond = HasJewel, NextId = 25201},
+  [25201] = {TalkId = 3351},
   -- Dock, dock.
   [26000] = {TalkId = 3500, NextCond = HasShip, NextId = 26001},
   [26001] = {LevelId = FISH_FIELD_LVL_ID, TexId = SHIP_TEX_ID},

@@ -86,3 +86,4 @@ COLOR_GREEN = 0xff00ff00
 COLOR_PURPLE = 0xffff00ff
 COLOR_RED = 0xffff0000
 COLOR_YELLOW = 0xffffff00
+COLOR_WHITE = 0xffffffff
