@@ -6,6 +6,7 @@ local MAX_CONSOLE_LINE = 4
 local STR_BKSP = 'bksp'
 local STR_ENTER = 'enter'
 local STR_PROMPT = '$ '
+local STR_INVALID_CMD = '無效指令'
 
 local console_scr_obj_id = 451
 
@@ -89,7 +90,7 @@ local function CompCheckCmd()
       return
     end
   end
-  CompAddLine('無效指令')
+  CompAddLine(STR_INVALID_CMD)
   CompNewLine()
 end
 
