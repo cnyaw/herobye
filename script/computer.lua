@@ -5,6 +5,7 @@ local CHAR_SIZE = 24
 local MAX_CONSOLE_LINE = 4
 local STR_BKSP = 'bksp'
 local STR_ENTER = 'enter'
+local STR_PROMPT = '$ '
 
 local console_scr_obj_id = 451
 
@@ -16,10 +17,9 @@ local init_kbd_data = {
 }
 
 local init_console_line = {
-  '$ 歡迎光臨虛擬遊戲世界系統',
-  '$ 由拳頭星比比博士設計製造',
-  '$ 請輸入help命令了解詳細資訊',
-  --'$ '
+  '歡迎光臨虛擬遊戲世界系統',
+  '由拳頭星比比博士設計製造',
+  '請輸入help命令了解詳細資訊',
 }
 
 local kbd_data
@@ -50,7 +50,7 @@ local function CompAddLine(s)
   end
   local dummy = Good.GenDummy(console_scr_obj_id)
   Good.SetPos(dummy, BTN_PADDING, 4 * BTN_PADDING + (i - 1) * (CHAR_SIZE + 2 * BTN_PADDING))
-  local o = Good.GenTextObj(dummy, s, CHAR_SIZE)
+  local o = Good.GenTextObj(dummy, STR_PROMPT .. s, CHAR_SIZE)
   SetTextObjColor(o, COLOR_WHITE)
   console_line[i] = dummy
 end
@@ -72,7 +72,7 @@ local function CompShowHelp()
 end
 
 local function CompNewLine()
-  cur_input = '$ '
+  cur_input = ''
   CompAddLine(cur_input)
   CompSetCursorPos()
 end
@@ -81,16 +81,15 @@ local function CompCheckCmd()
   local valid_cmd_data = {
     [1] = {'help', CompShowHelp},
   }
-  local inp = cur_input:sub(3, #cur_input)
   for i = 1, #valid_cmd_data do
     local cmd = valid_cmd_data[i]
-    if (inp == cmd[1]) then
+    if (cur_input == cmd[1]) then
       cmd[2]()
       CompNewLine()
       return
     end
   end
-  CompAddLine('$ 無效指令')
+  CompAddLine('無效指令')
   CompNewLine()
 end
 
@@ -153,7 +152,7 @@ local function CompUpdateCmdLine()
   Good.KillObj(dummy)
   dummy = Good.GenDummy(console_scr_obj_id)
   Good.SetPos(dummy, x, y)
-  local o = Good.GenTextObj(dummy, cur_input, CHAR_SIZE)
+  local o = Good.GenTextObj(dummy, STR_PROMPT .. cur_input, CHAR_SIZE)
   SetTextObjColor(o, COLOR_WHITE)
   console_line[#console_line] = dummy
   CompSetCursorPos()
