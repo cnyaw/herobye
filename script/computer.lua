@@ -1,7 +1,7 @@
 
 local BTN_PADDING = 5
-local BTN_W, BTN_H = 46, 38
-local CHAR_SIZE = 24
+local BTN_W, BTN_H = 48, 42
+local CHAR_SIZE = 26
 local MAX_CONSOLE_LINE = 4
 local STR_BKSP = 'bksp'
 local STR_ENTER = 'enter'
@@ -12,15 +12,15 @@ local console_scr_obj_id = 451
 
 local init_kbd_data = {
   [1] = '1234567890',
-  [2] = 'qwertyuiop',
-  [3] = 'asdfghjkl',
-  [4] = 'zxcvbnm',
+  [2] = 'QWERTYUIOP',
+  [3] = 'ASDFGHJKL',
+  [4] = 'ZXCVBNM',
 }
 
 local init_console_line = {
   '歡迎光臨虛擬遊戲世界系統',
   '由拳頭星比比博士設計製造',
-  '請輸入help命令了解詳細資訊',
+  '請輸入HELP命令了解詳細資訊',
 }
 
 local kbd_data
@@ -80,7 +80,7 @@ end
 
 local function CompCheckCmd()
   local valid_cmd_data = {
-    [1] = {'help', CompShowHelp},
+    [1] = {'HELP', CompShowHelp},
   }
   for i = 1, #valid_cmd_data do
     local cmd = valid_cmd_data[i]
@@ -123,10 +123,10 @@ end
 
 local function CompGenKbd()
   kbd_data = {}
-  local y = SCR_H - 5 * BTN_H
+  local y = SCR_H - 4.7 * BTN_H
   for i = 1, #init_kbd_data do
     local s = init_kbd_data[i]
-    local x = 20
+    local x = 0
     local dummy = Good.GenDummy(-1)
     for j = 1, #s do
       local ch = s:sub(j, j)
