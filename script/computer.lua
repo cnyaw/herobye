@@ -159,6 +159,20 @@ local function CompUpdateCmdLine()
   CompSetCursorPos()
 end
 
+local function CompHandleCmd(ch)
+  if (STR_BKSP == ch) then
+    if (2 < #cur_input) then
+      cur_input = cur_input:sub(1, #cur_input - 1)
+      CompUpdateCmdLine()
+    end
+  elseif (STR_ENTER == ch) then
+    CompCheckCmd()
+  elseif (28 > #cur_input) then
+    cur_input = cur_input .. ch
+    CompUpdateCmdLine()
+  end
+end
+
 Computer = {}
 
 Computer.OnCreate = function(param)
@@ -184,17 +198,7 @@ Computer.OnStep = function(param)
       local o = Good.GetChild(dummy, j)
       if (PtInObj(x - dx, y - dy, o)) then
         local ch = Good.GetName(o)
-        if (STR_BKSP == ch) then
-          if (2 < #cur_input) then
-            cur_input = cur_input:sub(1, #cur_input - 1)
-            CompUpdateCmdLine()
-          end
-        elseif (STR_ENTER == ch) then
-          CompCheckCmd()
-        elseif (28 > #cur_input) then
-          cur_input = cur_input .. ch
-          CompUpdateCmdLine()
-        end
+        CompHandleCmd(ch)
         return
       end
     end
