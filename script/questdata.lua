@@ -237,4 +237,8 @@ QuestData = {
   [26001] = {LevelId = FISH_FIELD_LVL_ID, TexId = SHIP_TEX_ID},
   -- Fish field, fish.
   [27000] = {TalkId = 3600},
+  -- Dq2, back.
+  [28000] = {LevelId = COMPUTER_LVL_ID},
+  -- Dq2, castle.
+  [29000] = {TalkId = 3700},
 }

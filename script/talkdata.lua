@@ -4,7 +4,6 @@ local astroid_lvl_id = 197
 local bat_cave_lvl_id = 263
 local cave_maze_lvl_id = 88
 local clothes_drying_lvl_id = 340
-local computer_lvl_id = 449
 local fishing_lvl_id = 389
 local help_pinky_lvl_id = 318
 local interview_hero_village_lvl_id = 331
@@ -25,6 +24,7 @@ local zoo_lvl_id = 421
 local bebe_tex_id = 215
 local brother1_tex_id = 280
 local brother2_tex_id = 281
+local castle_tex_id = 452
 local cave_door_tex_id = 0
 local chest_tex_id = 13
 local computer_tex_id = 394
@@ -1836,7 +1836,7 @@ TalkData = {
   [3351] = {
     {Image = computer_tex_id},
     {Text = '歡迎使用虛擬實境遊戲機'},
-    {LevelId = computer_lvl_id},
+    {LevelId = COMPUTER_LVL_ID},
   },
   -- Bat cave field, bat cave.
   [3400] = {
@@ -1904,5 +1904,11 @@ TalkData = {
     {Text = '釣到美味的魚囉'},
     {Script = ScriptAddFish},
     {LevelId = FISH_FIELD_LVL_ID},
+  },
+  -- Dq2, castle.
+  [3700] = {
+    {Image = castle_tex_id},
+    {Text = '國王城堡'},
+    {LevelId = DQ2_LVL_ID},
   },
 }

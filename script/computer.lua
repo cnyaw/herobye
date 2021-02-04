@@ -23,6 +23,12 @@ local init_console_line = {
   '請輸入HELP命令了解詳細資訊',
 }
 
+local help_message = {
+  'HELP 顯示此訊息',
+  'EXIT 退出系統',
+  'DQ2 虛擬遊戲世界',
+}
+
 local kbd_data
 local console_line
 local cur_input
@@ -56,6 +62,16 @@ local function CompAddLine(s)
   console_line[i] = dummy
 end
 
+local function CompDq2Game()
+  Good.GenObj(-1, DQ2_LVL_ID)
+  return true
+end
+
+local function CompExitSys()
+  Good.GenObj(-1, INSIDE_JANKEN_LIB_LVL_ID)
+  return true
+end
+
 local function CompSetCursorPos()
   local dummy = console_line[#console_line]
   if (nil ~= obj_cursor) then
@@ -67,6 +83,13 @@ local function CompSetCursorPos()
 end
 
 local function CompShowHelp()
+  for i = 1, #help_message do
+    CompAddLine(help_message[i])
+  end
+  return false
+end
+
+local function CompShowInitHelp()
   for i = 1, #init_console_line do
     CompAddLine(init_console_line[i])
   end
@@ -81,11 +104,15 @@ end
 local function CompCheckCmd()
   local valid_cmd_data = {
     [1] = {'HELP', CompShowHelp},
+    [2] = {'EXIT', CompExitSys},
+    [3] = {'DQ2', CompDq2Game},
   }
   for i = 1, #valid_cmd_data do
     local cmd = valid_cmd_data[i]
     if (cur_input == cmd[1]) then
-      cmd[2]()
+      if (cmd[2]()) then
+        return
+      end
       CompNewLine()
       return
     end
@@ -143,7 +170,7 @@ end
 
 local function CompInitConsole()
   console_line = {}
-  CompShowHelp()
+  CompShowInitHelp()
   CompNewLine()
 end
 
