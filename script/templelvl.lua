@@ -35,7 +35,12 @@ TempleLevel = {}
 
 TempleLevel.OnCreate = function(param)
   for i = 1, #LVL_TITLE do
-    local s = string.format('Lv%d %s', i, LVL_TITLE[i])
+    local s
+    if (GetTempleLevel() < i) then
+      s = string.format('Lv%d ？？？', i)
+    else
+      s = string.format('Lv%d %s', i, LVL_TITLE[i])
+    end
     local o = Good.GenTextObj(-1, s, SZ_TEXT)
     local y = OFFSET_Y + (i - 1) * (SZ_TEXT + 5)
     Good.SetPos(o, 2 * OFFSET_X + SZ_TEXT, y)
