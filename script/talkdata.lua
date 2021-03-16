@@ -1911,4 +1911,10 @@ TalkData = {
     {Text = '國王城堡'},
     {LevelId = DQ2_LVL_ID},
   },
+  -- Island field, island.
+  [3800] = {
+    {Image = pinnote_tex_id},
+    {Text = '歡迎來到我們這一家之島'},
+    {LevelId = ISLAND_FIELD_LVL_ID},
+  },
 }
