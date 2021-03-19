@@ -330,6 +330,10 @@ function HasDrumStick()
   return HasItem('i_drum_stick')
 end
 
+function HasFeatherToSell()
+  return HasItem('i_po_feather') or HasItem('i_laalaa_feather') or HasItem('i_tinky_winky_feather') or HasItem('i_dipsy_feather')
+end
+
 function HasFish()
   return HasItem('i_fish')
 end
@@ -918,6 +922,11 @@ function ScriptPowerupScissorLoop()
   SetItem('f_powerup_scissor', 1)
 end
 
+function ScriptSellFeather()
+  local item = {'i_po_feather', 'i_laalaa_feather', 'i_tinky_winky_feather', 'i_dipsy_feather'}
+  ScriptSellItems_i(item, 2 * SELL_ITEM_COST)
+end
+
 function ScriptSellFish()
   SetItem('i_fish', 0)
   AddCoin(5 * SELL_ITEM_COST)
@@ -928,6 +937,15 @@ function ScriptSellFrogTear()
   AddCoin(SELL_ITEM_COST)
 end
 
+function ScriptSellItems_i(item, num)
+  for i = 1, #item do
+    if (HasItem(item[i])) then
+      SetItem(item[i], 0)
+      AddCoin(num)
+    end
+  end
+end
+
 function ScriptSellJewel()
   SetItem('i_jewel', 0)
   AddCoin(3 * SELL_ITEM_COST)
@@ -935,12 +953,7 @@ end
 
 function ScriptSellMouseTail()
   local item = {'i_green_mouse_tail', 'i_red_mouse_tail', 'i_yellow_mouse_tail'}
-  for i = 1, 3 do
-    if (HasItem(item[i])) then
-      SetItem(item[i], 0)
-      AddCoin(SELL_ITEM_COST)
-    end
-  end
+  ScriptSellItems_i(item, SELL_ITEM_COST)
 end
 
 function ScriptSellSuperNanoTowel()

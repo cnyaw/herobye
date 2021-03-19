@@ -735,7 +735,7 @@ name=o_mainMapShop
 texture=311
 x=80
 y=240
-dim=0 0 81 90
+dim=0 0 96 96
 
 [object309]
 name=o_mainMapChurch
@@ -842,34 +842,34 @@ name=o_ZhangHome
 texture=98
 x=80
 y=64
-dim=0 0 100 100
+dim=0 0 96 96
 
 [object324]
 name=o_heroHome
 texture=100
 x=464
 y=240
-dim=0 0 95 100
+dim=0 0 96 96
 
 [object323]
 name=o_XiangHome
 texture=8
 x=464
 y=64
-dim=0 0 82 96
+dim=0 0 96 96
 
 [object322]
 name=o_heroVillageShop
 texture=311
 x=80
 y=240
-dim=0 0 81 90
+dim=0 0 96 96
 
 [object321]
 name=o_heroVillageChurch
 texture=23
-x=272
-y=144
+x=284
+y=142
 dim=0 0 71 99
 
 [object139]
@@ -1218,16 +1218,16 @@ dim=0 0 32 32
 [object371]
 name=o_KaiHome
 texture=102
-x=160
+x=144
 y=144
-dim=0 0 100 96
+dim=0 0 96 96
 
 [object372]
 name=o_pond
 texture=96
-x=416
-y=160
-dim=0 0 99 79
+x=400
+y=144
+dim=0 0 96 96
 
 [object373]
 name=o_toCaveField
@@ -1454,7 +1454,7 @@ dim=0 0 120 114
 name=alien area
 bgColor=128 128 0
 script=MainMap
-objects=72 74 137 338
+objects=72 74 338 458 137
 
 [object72]
 name=o_toHeroVillage
@@ -1472,12 +1472,6 @@ y=160
 script=AnimTalkArrow
 dim=0 0 100 64
 
-[object137]
-name=ui
-sprite=132
-texture=254
-map=254
-
 [object338]
 name=o_toDock
 texture=261
@@ -1485,6 +1479,17 @@ xscale=-1
 yscale=2
 y=160
 dim=0 0 32 32
+
+[object458]
+texture=31
+repX=1
+dim=0 0 90 90
+
+[object137]
+name=ui
+sprite=132
+texture=254
+map=254
 
 [level75]
 name=alien boss
@@ -1984,35 +1989,35 @@ objects=204 205 206 207 208 213 216
 [object204]
 name=o_dipsy
 texture=202
-x=64
+x=80
 y=48
-dim=0 0 105 92
+dim=0 0 96 96
 
 [object205]
 name=o_po
 texture=202
-x=64
+x=80
 y=240
-dim=0 0 105 92
+dim=0 0 96 96
 
 [object206]
 name=o_laalaa
 texture=202
 x=448
 y=48
-dim=0 0 105 92
+dim=0 0 96 96
 
 [object207]
 name=o_tinkywinky
 texture=202
 x=448
 y=240
-dim=0 0 105 92
+dim=0 0 96 96
 
 [object208]
 name=o_jankenUfo
 texture=66
-x=256
+x=270
 y=160
 dim=0 0 100 64
 
@@ -2038,9 +2043,9 @@ objects=218 219 220
 [object218]
 name=o_jankenLib
 texture=202
-x=256
+x=272
 y=144
-dim=0 0 105 92
+dim=0 0 96 96
 
 [object219]
 name=o_toJankenPlanet
@@ -2311,8 +2316,8 @@ map=254
 [object381]
 name=o_dock
 texture=336
-y=128
-dim=0 0 120 108
+y=144
+dim=0 0 96 96
 
 [level384]
 name=fish field
@@ -2459,14 +2464,14 @@ objects=408 406 409
 [object408]
 name=o_computer
 texture=394
-x=384
+x=400
 y=160
 dim=0 0 104 103
 
 [object406]
 name=o_bebe
 texture=215
-x=128
+x=112
 y=112
 dim=0 0 146 157
 
@@ -2482,7 +2487,7 @@ y=352
 dim=0 0 32 32
 
 [level421]
-name=hero mt zoo
+name=zoo
 bgColor=128 128 0
 script=HeroMtZoo
 objects=422 428 429 430 431 432 433 434 435 436
@@ -2499,43 +2504,43 @@ dim=0 0 32 32
 texture=425
 x=48
 y=16
-dim=0 0 90 87
+dim=0 0 96 96
 
 [object429]
 texture=426
 x=48
 y=144
-dim=0 0 90 88
+dim=0 0 96 96
 
 [object430]
 texture=427
 x=272
 y=16
-dim=0 0 90 90
+dim=0 0 96 96
 
 [object431]
 texture=423
 x=480
-y=32
-dim=0 0 90 65
+y=16
+dim=0 0 96 96
 
 [object432]
 texture=424
 x=48
 y=272
-dim=0 0 90 71
+dim=0 0 96 96
 
 [object433]
 texture=420
 x=272
 y=144
-dim=0 0 76 90
+dim=0 0 96 96
 
 [object434]
 texture=419
 x=480
 y=144
-dim=0 0 82 90
+dim=0 0 96 96
 
 [object435]
 texture=20
@@ -2577,9 +2582,9 @@ objects=454 457
 [object454]
 name=o_dq2Castle
 texture=452
-x=288
-y=160
-dim=0 0 64 64
+x=272
+y=144
+dim=0 0 96 96
 
 [object457]
 name=o_toComputer
@@ -2606,9 +2611,9 @@ dim=0 0 90 90
 [object460]
 name=o_island
 texture=459
-x=256
-y=128
-dim=0 0 100 100
+x=272
+y=144
+dim=0 0 96 96
 
 [object461]
 name=o_toFishField

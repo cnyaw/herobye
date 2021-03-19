@@ -869,6 +869,7 @@ TalkData = {
     {NextCond = HasFrogTearToSell, NextId = 1607},
     {NextCond = HasMouseTailToSell, NextId = 1611},
     {NextCond = HasSuperNanoTowel, NextId = 1612},
+    {NextCond = HasFeatherToSell, NextId = 1615},
     {Image = pinnote_tex_id},
     {Text = '今日公休'},
     {LevelId = HERO_VILLAGE_LVL_ID},
@@ -946,6 +947,15 @@ TalkData = {
     {Text = '古代船就在港口可以隨時使用'},
     {Image = merchant_tex_id},
     {Text = '謝謝惪顧'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1615] = {
+    {Image = merchant_tex_id},
+    {Text = '哇這是稀有的外星人的毛'},
+    {Text = '請你賣給我吧'},
+    {Script = ScriptSellFeather},
+    {Text = '一手交錢一手交貨'},
+    {Text = '謝謝你小白'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
   -- Hero village, Pinky home.
