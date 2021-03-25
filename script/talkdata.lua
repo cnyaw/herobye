@@ -8,6 +8,7 @@ local fishing_lvl_id = 389
 local help_pinky_lvl_id = 318
 local interview_hero_village_lvl_id = 331
 local jewel_cave_lvl_id = 447
+local island_lvl_id = 464
 local lottery_lvl_id = 19
 local memory_lvl_id = 223
 local pair_game_lvl_id = 107
@@ -1925,6 +1926,6 @@ TalkData = {
   [3800] = {
     {Image = pinnote_tex_id},
     {Text = '歡迎來到我們這一家之島'},
-    {LevelId = ISLAND_FIELD_LVL_ID},
+    {LevelId = island_lvl_id},
   },
 }
