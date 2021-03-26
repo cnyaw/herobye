@@ -82,7 +82,8 @@ QuestData = {
   [9115] = {TalkId = 1310, NextCond = IsFindUfoPower, NextId = 9116},
   [9116] = {TalkId = 1311, NextId = 9117},
   [9117] = {TalkId = 1310, NextCond = HasSuperNanoTowel, NextId = 9118},
-  [9118] = {TalkId = 1312},
+  [9118] = {TalkId = 1312, NextCond = HasShip, NextId = 9119},
+  [9119] = {TalkId = 1313},
   -- Hero village church, shelf.
   [9200] = {LevelId = BAG_LVL_ID},
   -- Hero village, Zhang mama home.

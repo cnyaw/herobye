@@ -631,6 +631,12 @@ TalkData = {
     {Text = '就可以到更廣闊的世界冒險了'},
     {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
   },
+  [1313] = {
+    {Image = grandpa_tex_id},
+    {Text = '勇敢的到寛廣的世界去冒險吧'},
+    {Text = '無畏的到遼闊的宇宙去冒險吧'},
+    {LevelId = HERO_VILLAGE_CHURCH_LVL_ID},
+  },
   -- Hero village church, books.
   [1350] = {
     {Image = HERO_HIS_BOOK_TEX_ID},
