@@ -248,4 +248,12 @@ QuestData = {
   [31000] = {TalkId = 3800},
   -- Island field, to fish field.
   [31100] = {LevelId = FISH_FIELD_LVL_ID},
+  -- Island, my papa.
+  [32000] = {TalkId = 3900},
+  -- Island, my mama.
+  [32100] = {TalkId = 4000},
+  -- Island, my guan.
+  [32200] = {TalkId = 4100},
+  -- Island, my ming.
+  [32300] = {TalkId = 4200},
 }

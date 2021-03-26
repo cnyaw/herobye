@@ -74,6 +74,10 @@ local init_obj_state = {                -- [obj_name] = quest_id
   o_dq2Castle = 29000,
   o_island = 31000,
   o_toFishField = 31100,
+  o_mypapa = 32000,
+  o_mymama = 32100,
+  o_myguan = 32200,
+  o_myming = 32300,
 }
 
 obj_state = {

@@ -43,6 +43,10 @@ local laalaa_tex_id = 211
 local magic_mama_tex_id = 11
 local merchant_tex_id = 305
 local mirror_tex_id = 184
+local my_guan_tex_id = 468
+local my_mama_tex_id = 469
+local my_ming_tex_id = 470
+local my_papa_tex_id = 471
 local old_lady_tex_id = 115
 local pinky_papa_tex_id = 20
 local pinky_tex_id = 316
@@ -1932,6 +1936,30 @@ TalkData = {
   [3800] = {
     {Image = pinnote_tex_id},
     {Text = '歡迎來到我們這一家之島'},
+    {LevelId = island_lvl_id},
+  },
+  -- Island, my papa.
+  [3900] = {
+    {Image = my_papa_tex_id},
+    {Text = '我是爸爸'},
+    {LevelId = island_lvl_id},
+  },
+  -- Island, my mama.
+  [4000] = {
+    {Image = my_mama_tex_id},
+    {Text = '我是媽媽'},
+    {LevelId = island_lvl_id},
+  },
+  -- Island, my guan.
+  [4100] = {
+    {Image = my_guan_tex_id},
+    {Text = '我是小光'},
+    {LevelId = island_lvl_id},
+  },
+  -- Island, my ming.
+  [4200] = {
+    {Image = my_ming_tex_id},
+    {Text = '我是小明'},
     {LevelId = island_lvl_id},
   },
 }
