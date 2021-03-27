@@ -215,11 +215,15 @@ AnimTempleGainCoin.OnStep = function(param)
       dx = -1 * dx
     end
     local loop1 = ArAddLoop(nil)
+    local delay = math.random() * 0.5
+    ArAddMoveTo(loop1, 'Visible', 0, 0)
+    ArAddDelay(loop1, delay)
+    ArAddMoveTo(loop1, 'Visible', 0, 1)
     ArAddMoveBy(loop1, 'Pos', 0.2, dx, -64/2).ease = ArEaseOut
     ArAddMoveBy(loop1, 'Pos', 0.35, 0, 64).ease = ArEaseOutBounce
     ArAddCall(loop1, 'AcKillAnimObj', 0.3)
     local loop2 = ArAddLoop(nil)
-    ArAddDelay(loop2, 0.75)
+    ArAddDelay(loop2, 0.75 + delay)
     ArAddMoveTo(loop2, 'Alpha', 0.1, 0)
     param.k = ArAddAnimator({loop1, loop2})
   else

@@ -2480,16 +2480,16 @@ objects=408 406 409
 [object408]
 name=o_computer
 texture=394
-x=400
-y=160
-dim=0 0 104 103
+x=416
+y=128
+dim=0 0 96 96
 
 [object406]
 name=o_bebe
 texture=215
-x=112
+x=144
 y=112
-dim=0 0 146 157
+dim=0 0 128 128
 
 [object409]
 name=o_toJankenLib
@@ -2672,27 +2672,27 @@ dim=0 0 32 32
 name=o_mypapa
 texture=471
 x=128
-y=48
+y=64
 dim=0 0 96 96
 
 [object473]
 name=o_mymama
 texture=469
 x=416
-y=48
+y=64
 dim=0 0 96 96
 
 [object474]
 name=o_myguan
 texture=468
 x=128
-y=208
+y=224
 dim=0 0 96 96
 
 [object475]
 name=o_myming
 texture=470
 x=416
-y=208
+y=224
 dim=0 0 96 96
 
