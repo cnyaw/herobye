@@ -4,11 +4,11 @@ local astroid_lvl_id = 197
 local bat_cave_lvl_id = 263
 local cave_maze_lvl_id = 88
 local clothes_drying_lvl_id = 340
+local find_slippers_lvl_id = 476
 local fishing_lvl_id = 389
 local help_pinky_lvl_id = 318
 local interview_hero_village_lvl_id = 331
 local jewel_cave_lvl_id = 447
-local island_lvl_id = 464
 local lottery_lvl_id = 19
 local memory_lvl_id = 223
 local pair_game_lvl_id = 107
@@ -1936,30 +1936,38 @@ TalkData = {
   [3800] = {
     {Image = pinnote_tex_id},
     {Text = '歡迎來到我們這一家之島'},
-    {LevelId = island_lvl_id},
+    {LevelId = ISLAND_LVL_ID},
   },
   -- Island, my papa.
   [3900] = {
     {Image = my_papa_tex_id},
     {Text = '我是爸爸'},
-    {LevelId = island_lvl_id},
+    {LevelId = ISLAND_LVL_ID},
   },
   -- Island, my mama.
   [4000] = {
     {Image = my_mama_tex_id},
     {Text = '我是媽媽'},
-    {LevelId = island_lvl_id},
+    {Text = '哎唷討厭ㄋㄟ'},
+    {Text = '我的拖鞋又跑到哪裡去了啦'},
+    {Text = '快幫我找一下'},
+    {LevelId = find_slippers_lvl_id},
+  },
+  [4001] = {
+    {Image = my_mama_tex_id},
+    {Text = '謝謝你喔'},
+    {LevelId = ISLAND_LVL_ID},
   },
   -- Island, my guan.
   [4100] = {
     {Image = my_guan_tex_id},
     {Text = '我是小光'},
-    {LevelId = island_lvl_id},
+    {LevelId = ISLAND_LVL_ID},
   },
   -- Island, my ming.
   [4200] = {
     {Image = my_ming_tex_id},
     {Text = '我是小明'},
-    {LevelId = island_lvl_id},
+    {LevelId = ISLAND_LVL_ID},
   },
 }
