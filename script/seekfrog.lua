@@ -48,7 +48,7 @@ end
 function FindFrogSucc(param)
   ShowFrog(param._id)
   Good.SetScript(frog_obj_id, 'AnimTalkArrow')
-  SetFoundFrogCount(param, param.counter_dummy_count + 1)
+  SetFoundFrogCount(param, GetCounterUiCount(param) + 1)
 end
 
 function HideFrog(id)
@@ -73,7 +73,7 @@ function OnSeekFrogDelay(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  if (CHECK_FOUND_COUND <= param.counter_dummy_count) then
+  if (CHECK_FOUND_COUND <= GetCounterUiCount(param)) then
     StartTalk(frog_cry_talk_id)
     return
   end
@@ -103,8 +103,8 @@ function RandomPickLeaf(param)
 end
 
 function SetFoundFrogCount(param, c)
-  param.counter_dummy_count = c
-  UpdateCounterDummyUi(param, FROG_TEAR_TEX_ID, CHECK_FOUND_COUND)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, FROG_TEAR_TEX_ID, CHECK_FOUND_COUND)
 end
 
 function ShowFrog(id)

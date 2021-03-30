@@ -46,8 +46,8 @@ function RandButtonColor(param)
 end
 
 function SetCatchMouseCount(param, c)
-  param.counter_dummy_count = c
-  UpdateCounterDummyUi(param, mouse_tex_id, CHECK_CATCH_COUND)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, mouse_tex_id, CHECK_CATCH_COUND)
 end
 
 function SlapMouseHittest(param)
@@ -89,10 +89,10 @@ function SlapMouseOnStepMouse(param)
   end
   param.obj_i = param.obj_i - 1
   if (0 == param.obj_i) then
-    SetCatchMouseCount(param, param.counter_dummy_count + 1)
+    SetCatchMouseCount(param, GetCounterUiCount(param) + 1)
     RandButtonColor(param)
     Good.SetPos(mouse_obj_id, param.orig_mouse_x, param.orig_mouse_y)
-    if (CHECK_CATCH_COUND <= param.counter_dummy_count) then
+    if (CHECK_CATCH_COUND <= GetCounterUiCount(param)) then
       param.step = SlapMouseOnStepDone
     else
       param.step = SlapMouseOnStepInput

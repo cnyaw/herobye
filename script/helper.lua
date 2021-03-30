@@ -246,6 +246,10 @@ function GetCoinId()
   end
 end
 
+function GetCounterUiCount(param)
+  return param.counter_dummy_count
+end
+
 function GetCurrBagType()
   if (GetLastLvlId() == MAIN_MAP_LVL_ID) then
     return e_main_bag
@@ -1013,6 +1017,10 @@ function ScriptUseFlashlight()
   RemoveItem('i_flashlight_use_count', 1)
 end
 
+function SetCounterUiCount(param, c)
+  param.counter_dummy_count = c
+end
+
 function SetItem(id, count)
   if (0 < count) then
     bag[id] = count
@@ -1045,7 +1053,7 @@ function UpdateCoinInfo(param)
   param.coin_obj = o
 end
 
-function UpdateCounterDummyUi(param, tex, count)
+function UpdateCounterUi(param, tex, count)
   if (nil ~= param.counter_dummy) then
     Good.KillObj(param.counter_dummy)
     param.counter_dummy = nil
@@ -1059,7 +1067,7 @@ function UpdateCounterDummyUi(param, tex, count)
     Good.SetScale(o, scale, scale)
     Good.SetPos(o, ox, 0)
     ox = ox + tw * scale
-    if (i > param.counter_dummy_count) then
+    if (i > GetCounterUiCount(param)) then
       Good.SetBgColor(o, COLOR_BLACK)
     end
   end

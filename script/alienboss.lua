@@ -50,7 +50,7 @@ function AlienBossOnStepInput(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     AlienBossHittest(param)
   end
-  if (CHECK_FIGHT_COUND <= param.counter_dummy_count) then
+  if (CHECK_FIGHT_COUND <= GetCounterUiCount(param)) then
     param.step = AlienBossOnStepWin
   end
 end
@@ -71,13 +71,13 @@ function RandUfoWeapon()
 end
 
 function SetUfoFightCount(param, c)
-  param.counter_dummy_count = c
-  UpdateCounterDummyUi(param, UFO_TEX_ID, CHECK_FIGHT_COUND)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, UFO_TEX_ID, CHECK_FIGHT_COUND)
 end
 
 function ValidateAlienBossHittest(param, btn_index)
   if (btn_index == curr_weapon_index) then
-    SetUfoFightCount(param, param.counter_dummy_count + 1)
+    SetUfoFightCount(param, GetCounterUiCount(param) + 1)
   else
     SetUfoFightCount(param, 0)
   end

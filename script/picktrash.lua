@@ -60,7 +60,7 @@ function DragFishBoneDone(param)
   else
     Good.KillObj(fish_bone[param.drag_idx])
     fish_bone[param.drag_idx] = nil
-    SetPickTrashCount(param, param.counter_dummy_count + 1)
+    SetPickTrashCount(param, GetCounterUiCount(param) + 1)
   end
 end
 
@@ -118,7 +118,7 @@ function PickTrashOnStepDone(param)
 end
 
 function PickTrashOnStepPlay(param)
-  if (NUM_FISH_BONE == param.counter_dummy_count) then
+  if (NUM_FISH_BONE == GetCounterUiCount(param)) then
     param.step = PickTrashOnStepDone
     return
   end
@@ -126,6 +126,6 @@ function PickTrashOnStepPlay(param)
 end
 
 function SetPickTrashCount(param, c)
-  param.counter_dummy_count = c
-  UpdateCounterDummyUi(param, trash_can_tex_id, NUM_FISH_BONE)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, trash_can_tex_id, NUM_FISH_BONE)
 end

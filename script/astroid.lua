@@ -55,14 +55,14 @@ function HittestAstroid(param, x, y)
       Good.GetParam(o).k = nil
       param.o[i] = GenNewAstroid(i)
       IncDestroyAstroidCount(param)
-      return NUM_ASTROID_TO_DESTROY <= param.counter_dummy_count
+      return NUM_ASTROID_TO_DESTROY <= GetCounterUiCount(param)
     end
   end
   return false
 end
 
 function IncDestroyAstroidCount(param)
-  SetDestroyAstroidCount(param, param.counter_dummy_count + 1)
+  SetDestroyAstroidCount(param, GetCounterUiCount(param) + 1)
 end
 
 function OnDestroyAstroidStep(param)
@@ -83,6 +83,6 @@ function OnPassAstroidStep(param)
 end
 
 function SetDestroyAstroidCount(param, c)
-  param.counter_dummy_count = c
-  UpdateCounterDummyUi(param, astroid_tex_id, NUM_ASTROID_TO_DESTROY)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, astroid_tex_id, NUM_ASTROID_TO_DESTROY)
 end
