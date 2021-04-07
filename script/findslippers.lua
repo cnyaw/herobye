@@ -41,7 +41,7 @@ end
 
 local function GenSlipper(w, h, color)
   local o = Good.GenObj(-1, slippers_tex_id, '')
-  Good.SetPos(o, math.random(w, SCR_W - 2 * w), math.random(h/2, SCR_H - 1.5 * h))
+  Good.SetPos(o, math.random(0, SCR_W - w), math.random(h/2, SCR_H - 1.5 * h))
   Good.SetBgColor(o, color)
   return o
 end
@@ -50,10 +50,11 @@ local function GenSlippers()
   local colors = {COLOR_BLUE, COLOR_GRAY, COLOR_GREEN, COLOR_PURPLE, COLOR_YELLOW, COLOR_WHITE}
   local w,h = Resource.GetTexSize(slippers_tex_id)
   local o = GenSlipper(w, h, COLOR_RED)
-  Good.SetPos(o, math.random(2 * w, SCR_W - 3 * w), math.random(h, SCR_H - 2 * h))
+  local o2
   for i = 1, 64 do
-    GenSlipper(w, h, colors[1 + (i % #colors)])
+    o2 = GenSlipper(w, h, colors[1 + (i % #colors)])
   end
+  Good.SetPos(o, Good.GetPos(o2))
 end
 
 local function OnStepFindSlippers(param)
