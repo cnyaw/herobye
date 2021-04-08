@@ -6,7 +6,7 @@ snds=438 439 440 441 442 443 444 445 446
 texs=31 48 2 8 23 66 94 96 98 100 102 181 261 266 292 273 276 280 281 277 290 296 285 298 303 305 307 311 313 314 301 304 310 316 317 326 327 329 334 344 349 352 358 359 360 363 357 375 377 380 0 4 13 15 21 20 28 40 47 49 50 51 61 62 63 65 73 86 87 95 105 106 108 110 118 115 112 119 149 151 187 161 168 170 1 11 169 178 184 186 193 196 199 202 210 211 212 214 215 224 246 254 255 286 264 336 382 379 397 391 394 416 419 420 423 424 425 426 427 452 459 468 469 470 471 465
 maps=188 162 166
 sprites=335
-levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75 88 127 142 107 114 111 164 19 191 197 203 217 221 223 22 234 256 263 339 384 389 392 405 421 447 449 453 455 464 476
+levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3 24 54 71 75 88 127 142 107 114 111 164 19 191 197 203 217 221 223 22 234 256 263 339 384 389 392 405 421 447 449 453 455 464 476 478
 
 [scripts]
 306=./script/const.lua
@@ -51,6 +51,7 @@ levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3
 448=./script/jewelcave.lua
 450=./script/computer.lua
 477=./script/findslippers.lua
+479=./script/setclock.lua
 
 [stges]
 201=./script/particle.stge
@@ -2705,4 +2706,192 @@ dim=0 0 96 96
 name=find slippers
 bgColor=128 128 0
 script=FindSlippers
+
+[level478]
+name=set clock
+bgColor=128 128 0
+script=SetClock
+objects=480 496
+snapWidth=8
+snapHeight=8
+
+[object480]
+name=analog clock
+x=64
+y=92
+dim=0 0 200 200
+objects=482 485 486 487 488 489 490 491 492 493 494 495
+
+[object482]
+bgColor=0 0 0
+text=6
+textsize=28
+x=88
+y=176
+
+[object485]
+bgColor=0 0 0
+text=1
+textsize=28
+x=144
+y=8
+
+[object486]
+bgColor=0 0 0
+text=3
+textsize=28
+x=184
+y=80
+
+[object487]
+bgColor=0 0 0
+text=9
+textsize=28
+y=80
+
+[object488]
+bgColor=0 0 0
+text=12
+textsize=28
+x=88
+
+[object489]
+bgColor=0 0 0
+text=2
+textsize=28
+x=184
+y=32
+
+[object490]
+bgColor=0 0 0
+text=4
+textsize=28
+x=184
+y=128
+
+[object491]
+bgColor=0 0 0
+text=5
+textsize=28
+x=144
+y=168
+
+[object492]
+bgColor=0 0 0
+text=7
+textsize=28
+x=32
+y=168
+
+[object493]
+bgColor=0 0 0
+text=8
+textsize=28
+y=128
+
+[object494]
+bgColor=0 0 0
+text=10
+textsize=28
+y=32
+
+[object495]
+bgColor=0 0 0
+text=11
+textsize=28
+x=32
+y=8
+
+[object496]
+name=digit clock
+x=328
+y=112
+dim=0 0 250 160
+objects=500 510 511 481 484 499
+
+[object500]
+name=7seg led
+sprite=255
+texture=255
+map=255
+objects=504 507 509 505 508 506 501
+
+[object504]
+name=a
+bgColor=255 0 0
+x=16
+y=32
+dim=0 0 32 8
+
+[object507]
+name=b
+bgColor=255 0 0
+x=48
+y=44
+dim=0 0 8 32
+
+[object509]
+name=c
+bgColor=255 0 0
+x=48
+y=91
+dim=0 0 8 32
+
+[object505]
+name=d
+bgColor=255 0 0
+x=16
+y=128
+dim=0 0 32 8
+
+[object508]
+name=e
+bgColor=255 0 0
+x=8
+y=93
+dim=0 0 8 32
+
+[object506]
+name=f
+bgColor=255 0 0
+x=8
+y=43
+dim=0 0 8 32
+
+[object501]
+name=g
+bgColor=255 0 0
+x=16
+y=80
+dim=0 0 32 8
+
+[object510]
+sprite=500
+texture=254
+map=254
+x=56
+
+[object511]
+sprite=500
+texture=254
+map=254
+x=128
+
+[object481]
+sprite=500
+texture=254
+map=254
+x=184
+
+[object484]
+bgColor=255 0 0
+x=120
+y=64
+dim=0 0 8 8
+
+[object499]
+bgColor=255 0 0
+x=120
+y=96
+dim=0 0 8 8
 

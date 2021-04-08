@@ -17,6 +17,7 @@ local puzzle_lvl_id = 221
 local racing_lvl_id = 330
 local rainbow_lvl_id = 234
 local seek_frog_lvl_id = 24
+local set_clock_lvl_id = 478
 local snake_cave_lvl_id = 392
 local shadow_lvl_id = 22
 local slap_mouse_lvl_id = 54
@@ -1968,6 +1969,8 @@ TalkData = {
   [4200] = {
     {Image = my_ming_tex_id},
     {Text = '我是小明'},
-    {LevelId = ISLAND_LVL_ID},
+    {Text = '爸爸說從小就要有時間觀念'},
+    {Text = '我們一起來練習看看'},
+    {LevelId = set_clock_lvl_id},
   },
 }
