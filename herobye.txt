@@ -2711,7 +2711,7 @@ script=FindSlippers
 name=set clock
 bgColor=128 128 0
 script=SetClock
-objects=480 496
+objects=480 496 483 497 498 502
 snapWidth=8
 snapHeight=8
 
@@ -2894,4 +2894,34 @@ bgColor=255 0 0
 x=120
 y=96
 dim=0 0 8 8
+
+[object483]
+name=incAnaMn
+texture=261
+x=200
+y=328
+dim=0 0 32 32
+
+[object497]
+name=decAnaMn
+texture=261
+xscale=-1
+x=88
+y=328
+dim=0 0 32 32
+
+[object498]
+name=decDigMn
+texture=261
+xscale=-1
+x=384
+y=328
+dim=0 0 32 32
+
+[object502]
+name=incDigMn
+texture=261
+x=496
+y=328
+dim=0 0 32 32
 

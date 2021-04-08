@@ -1,9 +1,27 @@
 local analog_clock_obj_id = 480
+local dec_ana_mn_obj_id = 497
+local dec_dig_mn_obj_id = 498
+local inc_ana_mn_obj_id = 483
+local inc_dig_mn_obj_id = 502
 local led_hr1_obj_id = 500
 local led_hr2_obj_id = 510
 local led_mn1_obj_id = 511
 local led_mn2_obj_id = 481
 local led_obj_id = {led_hr1_obj_id, led_hr2_obj_id, led_mn1_obj_id, led_mn2_obj_id}
+
+local anaClock, digClock
+local anaHrDummy, anaMnDummy
+
+local function DecClockMin(clk)
+  clk[2] = clk[2] - 1
+  if (0 > clk[2]) then
+    clk[2] = 59
+    clk[1] = clk[1] - 1
+    if (0 >= clk[1]) then
+      clk[1] = 12
+    end
+  end
+end
 
 local function GenDotLineObj(parent, x1, y1, x2, y2, sz, gap, color)
   local len = math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2))
@@ -15,6 +33,17 @@ local function GenDotLineObj(parent, x1, y1, x2, y2, sz, gap, color)
     t = t + delta
     if (1 <= t) then
       break
+    end
+  end
+end
+
+local function IncClockMin(clk)
+  clk[2] = clk[2] + 1
+  if (60 <= clk[2]) then
+    clk[2] = 0
+    clk[1] = clk[1] + 1
+    if (12 < clk[1]) then
+      clk[1] = 1
     end
   end
 end
@@ -46,15 +75,25 @@ local function SetAnalogClockHand(ang, length, sz, gap)
   local ay = -math.cos(ang * math.pi / 180)
   local x = length * w/2 * ax + w/2
   local y = length * h/2 * ay + h/2
-  GenDotLineObj(analog_clock_obj_id, w/2, h/2, x, y, sz, gap, COLOR_BLACK)
+  local dummy = Good.GenDummy(analog_clock_obj_id)
+  GenDotLineObj(dummy, w/2, h/2, x, y, sz, gap, COLOR_BLACK)
+  return dummy
 end
 
 local function SetAnalogClock(hour, minute)
+  if (nil ~= anaHrDummy) then
+    Good.KillObj(anaHrDummy)
+    anaHrDummy = nil
+  end
+  if (nil ~= anaMnDummy) then
+    Good.KillObj(anaMnDummy)
+    anaMnDummy = nil
+  end
   local angTick = 360 / 60
   local angHour = angTick * (5 * hour + minute / 12)
   local angMinute = angTick * minute
-  SetAnalogClockHand(angMinute, 0.8, 4, 6)
-  SetAnalogClockHand(angHour, 0.6, 6, 6)
+  anaMnDummy = SetAnalogClockHand(angMinute, 0.8, 4, 6)
+  anaHrDummy = SetAnalogClockHand(angHour, 0.6, 6, 6)
 end
 
 local function SetDigitClock(hour, minute)
@@ -68,19 +107,47 @@ local function SetDigitClock(hour, minute)
 end
 
 local function SetRandTime()
-  SetAnalogClock(math.random(1,12), math.random(0, 59))
-  SetDigitClock(math.random(1,12), math.random(0, 59))
+  anaClock = {math.random(1,12), math.random(0, 59)}
+  SetAnalogClock(anaClock[1], anaClock[2])
+  digClock = {math.random(1,12), math.random(0, 59)}
+  SetDigitClock(digClock[1], digClock[2])
 end
 
 SetClock = {}
 
 SetClock.OnCreate = function(param)
+  anaHrDummy = nil
+  anaMnDummy = nil
   SetRandTime()
 end
 
 SetClock.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE)) then
     Good.GenObj(-1, ISLAND_LVL_ID)
+    return
+  end
+  if (not Input.IsKeyDown(Input.LBUTTON)) then
+    return
+  end
+  local x, y = Input.GetMousePos()
+  if (PtInObj(x, y, inc_ana_mn_obj_id)) then
+    IncClockMin(anaClock)
+    SetAnalogClock(anaClock[1], anaClock[2])
+    return
+  end
+  if (PtInObj(x, y, dec_ana_mn_obj_id)) then
+    DecClockMin(anaClock)
+    SetAnalogClock(anaClock[1], anaClock[2])
+    return
+  end
+  if (PtInObj(x, y, inc_dig_mn_obj_id)) then
+    IncClockMin(digClock)
+    SetDigitClock(digClock[1], digClock[2])
+    return
+  end
+  if (PtInObj(x, y, dec_dig_mn_obj_id)) then
+    DecClockMin(digClock)
+    SetDigitClock(digClock[1], digClock[2])
     return
   end
 end
