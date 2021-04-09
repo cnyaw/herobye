@@ -1,8 +1,12 @@
 local analog_clock_obj_id = 480
-local dec_ana_mn_obj_id = 497
-local dec_dig_mn_obj_id = 498
-local inc_ana_mn_obj_id = 483
-local inc_dig_mn_obj_id = 502
+local dec_ana_obj_id = 497
+local dec_ana2_obj_id = 512
+local dec_dig_obj_id = 498
+local dec_dig2_obj_id = 514
+local inc_ana_obj_id = 483
+local inc_ana2_obj_id = 503
+local inc_dig_obj_id = 502
+local inc_dig2_obj_id = 513
 local led_hr1_obj_id = 500
 local led_hr2_obj_id = 510
 local led_mn1_obj_id = 511
@@ -80,23 +84,23 @@ local function SetAnalogClockHand(ang, length, sz, gap)
   return dummy
 end
 
-local function SetAnalogClock(hour, minute)
-  if (nil ~= anaHrDummy) then
-    Good.KillObj(anaHrDummy)
-    anaHrDummy = nil
-  end
-  if (nil ~= anaMnDummy) then
-    Good.KillObj(anaMnDummy)
-    anaMnDummy = nil
-  end
+local function SetAnalogClock()
+  local hour, minute = anaClock[1], anaClock[2]
   local angTick = 360 / 60
   local angHour = angTick * (5 * hour + minute / 12)
   local angMinute = angTick * minute
+  if (nil ~= anaMnDummy) then
+    Good.KillObj(anaMnDummy)
+  end
   anaMnDummy = SetAnalogClockHand(angMinute, 0.8, 4, 6)
+  if (nil ~= anaHrDummy) then
+    Good.KillObj(anaHrDummy)
+  end
   anaHrDummy = SetAnalogClockHand(angHour, 0.6, 6, 6)
 end
 
-local function SetDigitClock(hour, minute)
+local function SetDigitClock()
+  local hour, minute = digClock[1], digClock[2]
   local s = string.format('%02d%02d', hour, minute)
   local digits = '0123456789'
   for i = 1, #s do
@@ -108,9 +112,31 @@ end
 
 local function SetRandTime()
   anaClock = {math.random(1,12), math.random(0, 59)}
-  SetAnalogClock(anaClock[1], anaClock[2])
+  SetAnalogClock()
   digClock = {math.random(1,12), math.random(0, 59)}
-  SetDigitClock(digClock[1], digClock[2])
+  SetDigitClock()
+end
+
+local function UpdateClockTime(inc_ana, dec_ana, inc_dig, dec_dig)
+  local x, y = Input.GetMousePos()
+  if (PtInObj(x, y, inc_ana)) then
+    IncClockMin(anaClock)
+    SetAnalogClock()
+    return true
+  elseif (PtInObj(x, y, dec_ana)) then
+    DecClockMin(anaClock)
+    SetAnalogClock()
+    return true
+  elseif (PtInObj(x, y, inc_dig)) then
+    IncClockMin(digClock)
+    SetDigitClock()
+    return true
+  elseif (PtInObj(x, y, dec_dig)) then
+    DecClockMin(digClock)
+    SetDigitClock()
+    return true
+  end
+  return false
 end
 
 SetClock = {}
@@ -126,28 +152,12 @@ SetClock.OnStep = function(param)
     Good.GenObj(-1, ISLAND_LVL_ID)
     return
   end
-  if (not Input.IsKeyDown(Input.LBUTTON)) then
-    return
+  if (Input.IsKeyPushed(Input.LBUTTON)) then
+    if (UpdateClockTime(inc_ana_obj_id, dec_ana_obj_id, inc_dig_obj_id, dec_dig_obj_id)) then
+      return
+    end
   end
-  local x, y = Input.GetMousePos()
-  if (PtInObj(x, y, inc_ana_mn_obj_id)) then
-    IncClockMin(anaClock)
-    SetAnalogClock(anaClock[1], anaClock[2])
-    return
-  end
-  if (PtInObj(x, y, dec_ana_mn_obj_id)) then
-    DecClockMin(anaClock)
-    SetAnalogClock(anaClock[1], anaClock[2])
-    return
-  end
-  if (PtInObj(x, y, inc_dig_mn_obj_id)) then
-    IncClockMin(digClock)
-    SetDigitClock(digClock[1], digClock[2])
-    return
-  end
-  if (PtInObj(x, y, dec_dig_mn_obj_id)) then
-    DecClockMin(digClock)
-    SetDigitClock(digClock[1], digClock[2])
-    return
+  if (Input.IsKeyDown(Input.LBUTTON)) then
+    UpdateClockTime(inc_ana2_obj_id, dec_ana2_obj_id, inc_dig2_obj_id, dec_dig2_obj_id)
   end
 end
