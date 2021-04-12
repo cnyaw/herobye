@@ -1973,4 +1973,10 @@ TalkData = {
     {Text = '我們一起來練習看看'},
     {LevelId = set_clock_lvl_id},
   },
+  [4201] = {
+    {Image = my_ming_tex_id},
+    {Text = '太好了'},
+    {Text = '要繼續練習哦'},
+    {LevelId = ISLAND_LVL_ID},
+  },
 }

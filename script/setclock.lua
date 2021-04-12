@@ -1,8 +1,14 @@
+local CHECK_FOUND_COUND = 10
+local WAIT_TIME = 50
+
+local ana_clock_btns = 515
 local analog_clock_obj_id = 480
+local clock_tex_id = 517
 local dec_ana_obj_id = 497
 local dec_ana2_obj_id = 512
 local dec_dig_obj_id = 498
 local dec_dig2_obj_id = 514
+local dig_clock_btns = 516
 local inc_ana_obj_id = 483
 local inc_ana2_obj_id = 503
 local inc_dig_obj_id = 502
@@ -13,17 +19,36 @@ local led_mn1_obj_id = 511
 local led_mn2_obj_id = 481
 local led_obj_id = {led_hr1_obj_id, led_hr2_obj_id, led_mn1_obj_id, led_mn2_obj_id}
 
+local end_set_clock_talk_id = 4201
+
 local anaClock, digClock
 local anaHrDummy, anaMnDummy
+local selAnaClock
+
+local function CheckSetClockMatch()
+  return anaClock[1] == digClock[1] and anaClock[2] == digClock[2]
+end
+
+local function DecClockHour(clk)
+  clk[1] = clk[1] - 1
+  if (0 >= clk[1]) then
+    clk[1] = 12
+  end
+end
 
 local function DecClockMin(clk)
   clk[2] = clk[2] - 1
   if (0 > clk[2]) then
     clk[2] = 59
-    clk[1] = clk[1] - 1
-    if (0 >= clk[1]) then
-      clk[1] = 12
-    end
+    DecClockHour(clk)
+  end
+end
+
+local function DecClock(clk, update_min)
+  if (update_min) then
+    DecClockMin(clk)
+  else
+    DecClockHour(clk)
   end
 end
 
@@ -41,14 +66,26 @@ local function GenDotLineObj(parent, x1, y1, x2, y2, sz, gap, color)
   end
 end
 
+local function IncClockHour(clk)
+  clk[1] = clk[1] + 1
+  if (12 < clk[1]) then
+    clk[1] = 1
+  end
+end
+
 local function IncClockMin(clk)
   clk[2] = clk[2] + 1
   if (60 <= clk[2]) then
     clk[2] = 0
-    clk[1] = clk[1] + 1
-    if (12 < clk[1]) then
-      clk[1] = 1
-    end
+    IncClockHour(clk)
+  end
+end
+
+local function IncClock(clk, update_min)
+  if (update_min) then
+    IncClockMin(clk)
+  else
+    IncClockHour(clk)
   end
 end
 
@@ -110,6 +147,11 @@ local function SetDigitClock()
   end
 end
 
+function SetPassClockCount(param, c)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, clock_tex_id, CHECK_FOUND_COUND)
+end
+
 local function SetRandTime()
   anaClock = {math.random(1,12), math.random(0, 59)}
   SetAnalogClock()
@@ -117,26 +159,68 @@ local function SetRandTime()
   SetDigitClock()
 end
 
-local function UpdateClockTime(inc_ana, dec_ana, inc_dig, dec_dig)
+local function UpdateClock(inc_ana, dec_ana, inc_dig, dec_dig, update_min)
   local x, y = Input.GetMousePos()
-  if (PtInObj(x, y, inc_ana)) then
-    IncClockMin(anaClock)
+  if (PtInObj(x, y, inc_ana, 1)) then
+    IncClock(anaClock, update_min)
     SetAnalogClock()
     return true
-  elseif (PtInObj(x, y, dec_ana)) then
-    DecClockMin(anaClock)
+  elseif (PtInObj(x, y, dec_ana, 1)) then
+    DecClock(anaClock, update_min)
     SetAnalogClock()
     return true
-  elseif (PtInObj(x, y, inc_dig)) then
-    IncClockMin(digClock)
+  elseif (PtInObj(x, y, inc_dig, 1)) then
+    IncClock(digClock, update_min)
     SetDigitClock()
     return true
-  elseif (PtInObj(x, y, dec_dig)) then
-    DecClockMin(digClock)
+  elseif (PtInObj(x, y, dec_dig, 1)) then
+    DecClock(digClock, update_min)
     SetDigitClock()
     return true
   end
   return false
+end
+
+local function OnStepDone(param)
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  StartTalk(end_set_clock_talk_id)
+end
+
+local function NewTest(param)
+  if (GetCounterUiCount(param) == CHECK_FOUND_COUND) then
+    param.step = OnStepDone
+    return
+  end
+  SetRandTime()
+  if (selAnaClock) then
+    Good.SetVisible(ana_clock_btns, 1)
+    Good.SetVisible(dig_clock_btns, 0)
+  else
+    Good.SetVisible(ana_clock_btns, 0)
+    Good.SetVisible(dig_clock_btns, 1)
+  end
+  selAnaClock = not selAnaClock
+end
+
+local function OnStepSetClock(param)
+  if (not Input.IsKeyPushed(Input.LBUTTON)) then
+    return
+  end
+  if (UpdateClock(inc_ana_obj_id, dec_ana_obj_id, inc_dig_obj_id, dec_dig_obj_id, true)) then
+    if (CheckSetClockMatch()) then
+      SetPassClockCount(param, GetCounterUiCount(param) + 1)
+      NewTest(param)
+    end
+    return
+  end
+  if (UpdateClock(inc_ana2_obj_id, dec_ana2_obj_id, inc_dig2_obj_id, dec_dig2_obj_id, false)) then
+    if (CheckSetClockMatch()) then
+      SetPassClockCount(param, GetCounterUiCount(param) + 1)
+      NewTest(param)
+    end
+  end
 end
 
 SetClock = {}
@@ -144,7 +228,10 @@ SetClock = {}
 SetClock.OnCreate = function(param)
   anaHrDummy = nil
   anaMnDummy = nil
-  SetRandTime()
+  selAnaClock = true
+  SetPassClockCount(param, 0)
+  NewTest(param)
+  param.step = OnStepSetClock
 end
 
 SetClock.OnStep = function(param)
@@ -152,12 +239,5 @@ SetClock.OnStep = function(param)
     Good.GenObj(-1, ISLAND_LVL_ID)
     return
   end
-  if (Input.IsKeyPushed(Input.LBUTTON)) then
-    if (UpdateClockTime(inc_ana_obj_id, dec_ana_obj_id, inc_dig_obj_id, dec_dig_obj_id)) then
-      return
-    end
-  end
-  if (Input.IsKeyDown(Input.LBUTTON)) then
-    UpdateClockTime(inc_ana2_obj_id, dec_ana2_obj_id, inc_dig2_obj_id, dec_dig2_obj_id)
-  end
+  param.step(param)
 end

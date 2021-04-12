@@ -1058,15 +1058,14 @@ function UpdateCounterUi(param, tex, count)
     Good.KillObj(param.counter_dummy)
     param.counter_dummy = nil
   end
-  local scale = 0.4
-  local tw, th = Resource.GetTexSize(tex)
+  local w_ui = 34
   local ox = 0
   local dummy = Good.GenDummy(param._id)
   for i = 1, count do
     local o = Good.GenObj(dummy, tex)
-    Good.SetScale(o, scale, scale)
+    ScaleToSize(o, w_ui, w_ui)
     Good.SetPos(o, ox, 0)
-    ox = ox + tw * scale
+    ox = ox + w_ui
     if (i > GetCounterUiCount(param)) then
       Good.SetBgColor(o, COLOR_BLACK)
     end
