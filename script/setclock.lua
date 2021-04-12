@@ -52,20 +52,6 @@ local function DecClock(clk, update_min)
   end
 end
 
-local function GenDotLineObj(parent, x1, y1, x2, y2, sz, gap, color)
-  local len = math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2))
-  local delta = 1 / (len / gap)
-  local t = 0
-  while (true) do
-    local o = GenColorObj(parent, sz, sz, color)
-    Good.SetPos(o, Lerp(x1, x2, t), Lerp(y1, y2, t))
-    t = t + delta
-    if (1 <= t) then
-      break
-    end
-  end
-end
-
 local function IncClockHour(clk)
   clk[1] = clk[1] + 1
   if (12 < clk[1]) then
