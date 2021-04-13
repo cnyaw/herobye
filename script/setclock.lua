@@ -88,7 +88,7 @@ local function Set7SegLen(id, n)
     {1, 1, 1, 1, 1, 1, 1},              -- 8
     {1, 1, 1, 1, 0, 1, 1},              -- 9
   }
-  local colors = {[1]=COLOR_RED, [0]=0xfffff0f0}
+  local colors = {[1]=COLOR_RED, [0]=0xffffe0e0}
   local digit = digit10[n]
   for i = 1, #digit do
     local o = Good.GetChild(id, i - 1)
