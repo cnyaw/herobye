@@ -147,22 +147,27 @@ end
 
 local function UpdateClock(inc_ana, dec_ana, inc_dig, dec_dig, update_min)
   local x, y = Input.GetMousePos()
-  if (PtInObj(x, y, inc_ana, 1)) then
-    IncClock(anaClock, update_min)
-    SetAnalogClock()
-    return true
-  elseif (PtInObj(x, y, dec_ana, 1)) then
-    DecClock(anaClock, update_min)
-    SetAnalogClock()
-    return true
-  elseif (PtInObj(x, y, inc_dig, 1)) then
-    IncClock(digClock, update_min)
-    SetDigitClock()
-    return true
-  elseif (PtInObj(x, y, dec_dig, 1)) then
-    DecClock(digClock, update_min)
-    SetDigitClock()
-    return true
+  local curSelAnaClock = not selAnaClock
+  if (curSelAnaClock) then
+    if (PtInObj(x, y, inc_ana, 1)) then
+      IncClock(anaClock, update_min)
+      SetAnalogClock()
+      return true
+    elseif (PtInObj(x, y, dec_ana, 1)) then
+      DecClock(anaClock, update_min)
+      SetAnalogClock()
+      return true
+    end
+  else
+    if (PtInObj(x, y, inc_dig, 1)) then
+      IncClock(digClock, update_min)
+      SetDigitClock()
+      return true
+    elseif (PtInObj(x, y, dec_dig, 1)) then
+      DecClock(digClock, update_min)
+      SetDigitClock()
+      return true
+    end
   end
   return false
 end
