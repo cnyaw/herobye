@@ -11,6 +11,7 @@ local interview_hero_village_lvl_id = 331
 local jewel_cave_lvl_id = 447
 local lottery_lvl_id = 19
 local memory_lvl_id = 223
+local mouse_cave_lvl_id = 520
 local pair_game_lvl_id = 107
 local pick_trash_lvl_id = 111
 local puzzle_lvl_id = 221
@@ -1891,10 +1892,16 @@ TalkData = {
     {BgColor = COLOR_BLACK},
     {Text = '嘿嘿我又進步了'},
     {Text = '繼續加油挑戰下一關'},
-    {LevelId = jewel_cave_lvl_id},
+    {LevelId = mouse_cave_lvl_id},
   },
   [3405] = {
-    {NextCond = HasJewel, NextId = 3406},
+    {BgColor = COLOR_BLACK},
+    {Text = '嘿嘿我又進步了'},
+    {Text = '繼續加油挑戰下一關'},
+    {LevelId = jewel_cave_lvl_id},
+  },
+  [3406] = {
+    {NextCond = HasJewel, NextId = 3407},
     {BgColor = COLOR_BLACK},
     {Text = '嘿嘿我又進步了'},
     {Text = '走到蝙蝠洞底部'},
@@ -1903,7 +1910,7 @@ TalkData = {
     {Script = ScriptAddJewel},
     {LevelId = BAT_CAVE_FIELD_LVL_ID},
   },
-  [3406] = {
+  [3407] = {
     {BgColor = COLOR_BLACK},
     {Text = '嘿嘿我又進步了'},
     {Text = '還要繼續努力不斷進步'},

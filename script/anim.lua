@@ -23,6 +23,19 @@ function AcKillAnimScript(param)
   Good.SetScript(param._id, '')
 end
 
+function AcMoleBeginHit(param)
+  param.hit = false
+end
+
+function AcMoleEndHit(param)
+  param.hit = nil
+end
+
+function AcMoleHide(param)
+  param.k = nil
+  Good.SetScript(param._id, 'AnimMole')
+end
+
 function AcResetAstroid(param)
   local id = param._id
   local x, y = Good.GetPos(id)
@@ -101,6 +114,35 @@ AnimFlyUpObj.OnStep = function(param)
     ArAddDelay(loop2, 0.1)
     ArAddMoveTo(loop2, 'Alpha', 0.15, 0)
     param.k = ArAddAnimator({loop1, loop2})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimMole = {}
+
+AnimMole.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil, 1)
+    ArAddCall(loop1, 'AcMoleBeginHit', 0)
+    ArAddMoveBy(loop1, 'Pos', 0.5, 0, -80).ease = ArEaseOut
+    ArAddDelay(loop1, 0.8)
+    ArAddMoveBy(loop1, 'Pos', 0.5, 0, 80).ease = ArEaseOut
+    ArAddCall(loop1, 'AcMoleEndHit', 0)
+    ArAddCall(loop1, 'AcMoleHide', math.random(2, 6))
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimMoleInit = {}
+
+AnimMoleInit.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil, 1)
+    ArAddCall(loop1, 'AcMoleHide', math.random(2, 6))
+    param.k = ArAddAnimator({loop1})
   else
     ArStepAnimator(param, param.k)
   end

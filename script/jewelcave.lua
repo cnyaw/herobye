@@ -4,7 +4,7 @@ local TILE_W, TILE_H = 64, 64
 local COLORS = {COLOR_BLUE, COLOR_GREEN, COLOR_PURPLE, COLOR_RED, COLOR_YELLOW}
 local mx, my = (SCR_W - MAP_W*TILE_W)/2, (SCR_H - MAP_H*TILE_H)/2
 
-local pass_talk_id = 3405
+local pass_talk_id = 3406
 
 JewelCave = {}
 
