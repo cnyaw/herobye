@@ -1,5 +1,7 @@
 
 local CHECK_COUNT = 10
+local NUM_MOUSE = 8
+local NUM_MOUSE_PER_ROW = 4
 
 local hole_tex_id = 522
 local mouse_tex_id = 519
@@ -16,10 +18,10 @@ MouseCave.OnCreate = function(param)
   param.obj = {}
   local texw, texh = Resource.GetTexSize(mouse_tex_id)
   local holew, holeh = Resource.GetTexSize(hole_tex_id)
-  local tilew = SCR_W / 4
-  for i = 0, 7 do
-    local row = math.floor(i / 4)
-    local col = i % 4
+  local tilew = SCR_W / NUM_MOUSE_PER_ROW
+  for i = 0, NUM_MOUSE - 1 do
+    local row = math.floor(i / NUM_MOUSE_PER_ROW)
+    local col = i % NUM_MOUSE_PER_ROW
     local dummy = Good.GenDummy(-1)
     Good.SetPos(dummy, tilew * col + (tilew - texw)/2, 150 + row * (texh * 1.5))
     local hole = Good.GenObj(dummy, hole_tex_id)
@@ -42,7 +44,7 @@ MouseCave.OnStep = function(param)
     return
   end
   local x, y = Input.GetMousePos()
-  for i = 1, 8 do
+  for i = 1, #param.obj do
     local o = param.obj[i]
     local dx, dy = Good.GetPos(Good.GetParent(o))
     if (PtInObj(x - dx, y - dy, o)) then
