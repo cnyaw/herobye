@@ -2495,13 +2495,13 @@ objects=408 406 409
 name=o_computer
 texture=394
 x=416
-y=128
+y=144
 dim=0 0 96 96
 
 [object406]
 name=o_bebe
 texture=215
-x=144
+x=128
 y=112
 dim=0 0 128 128
 

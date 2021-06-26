@@ -7,6 +7,7 @@ local STR_BKSP = 'bksp'
 local STR_ENTER = 'enter'
 local STR_PROMPT = '$ '
 local STR_INVALID_CMD = '無效指令'
+local MAX_CMD_LEN = 28
 
 local console_scr_obj_id = 451
 
@@ -188,13 +189,11 @@ end
 
 local function CompHandleCmd(ch)
   if (STR_BKSP == ch) then
-    if (2 < #cur_input) then
-      cur_input = cur_input:sub(1, #cur_input - 1)
-      CompUpdateCmdLine()
-    end
+    cur_input = cur_input:sub(1, #cur_input - 1)
+    CompUpdateCmdLine()
   elseif (STR_ENTER == ch) then
     CompCheckCmd()
-  elseif (28 > #cur_input) then
+  elseif (MAX_CMD_LEN > #cur_input) then
     cur_input = cur_input .. ch
     CompUpdateCmdLine()
   end
