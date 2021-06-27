@@ -2453,7 +2453,7 @@ dim=0 0 32 32
 name=snake cave
 bgColor=0 0 0
 script=SnakeCave
-objects=395 396 403
+objects=395 396 403 527
 
 [object395]
 name=hero
@@ -2496,6 +2496,16 @@ xpivot=0.5
 ypivot=0.5
 x=32
 y=32
+dim=0 0 32 32
+
+[object527]
+bgColor=0 255 0
+texture=261
+rot=-90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+x=304
 dim=0 0 32 32
 
 [level405]
