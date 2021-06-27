@@ -34,6 +34,7 @@ end
 function AcMoleHide(param)
   param.k = nil
   Good.SetScript(param._id, 'AnimMole')
+  Good.SetBgColor(param._id, COLOR_WHITE)
 end
 
 function AcResetAstroid(param)
@@ -130,6 +131,18 @@ AnimMole.OnStep = function(param)
     ArAddMoveBy(loop1, 'Pos', 0.5, 0, 80).ease = ArEaseOut
     ArAddCall(loop1, 'AcMoleEndHit', 0)
     ArAddCall(loop1, 'AcMoleHide', math.random(2, 6))
+    param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimMoleHit = {}
+
+AnimMoleHit.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil, 1)
+    ArAddCall(loop1, 'AcKillAnimObj', 0.5)
     param.k = ArAddAnimator({loop1})
   else
     ArStepAnimator(param, param.k)

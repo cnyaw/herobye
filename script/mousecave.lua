@@ -3,9 +3,16 @@ local CHECK_COUNT = 10
 local NUM_MOUSE = 8
 local NUM_MOUSE_PER_ROW = 4
 
+local hit_tex_id = 523
 local hole_tex_id = 522
 local mouse_tex_id = 519
 local pass_talk_id = 3405
+
+local function GenHitObj(x, y)
+  local tx, ty = Resource.GetTexSize(hit_tex_id)
+  local hit = Good.GenObj(-1, hit_tex_id, 'AnimMoleHit')
+  Good.SetPos(hit, x - tx/2, y - ty/2)
+end
 
 local function SetHitMoleCount(param, c)
   SetCounterUiCount(param, c)
@@ -50,6 +57,8 @@ MouseCave.OnStep = function(param)
     if (PtInObj(x - dx, y - dy, o)) then
       local p = Good.GetParam(o)
       if (nil ~= p.hit and not p.hit) then
+        Good.SetBgColor(o, COLOR_RED)
+        GenHitObj(x, y)
         p.hit = true
         SetHitMoleCount(param, GetCounterUiCount(param) + 1)
         if (CHECK_COUNT <= GetCounterUiCount(param)) then
