@@ -941,6 +941,11 @@ function ScriptSellFish()
   AddCoin(5 * SELL_ITEM_COST)
 end
 
+function ScriptSellFishToFishman()
+  SetItem('i_fish', 0)
+  AddCoin(SELL_ITEM_COST)
+end
+
 function ScriptSellFrogTear()
   SetItem('i_frog_tear', 0)
   AddCoin(SELL_ITEM_COST)

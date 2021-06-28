@@ -237,7 +237,7 @@ QuestData = {
   [26100] = {TalkId = 3550, NextCond = HasSuperNanoTowel, NextId = 26101},
   [26101] = {TalkId = 3551, NextCond = CanBuyShip, NextId = 26102},
   [26102] = {TalkId = 3552, NextId = 26103},
-  [26103] = {TalkId = 3550},
+  [26103] = {TalkId = 3553},
   -- Fish field, fish.
   [27000] = {TalkId = 3600},
   -- Fish field, to island field.
