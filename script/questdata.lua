@@ -107,10 +107,7 @@ QuestData = {
   [11007] = {TalkId = 1609, NextId = 11008},
   [11008] = {TalkId = 1608, NextCond = IsSuperSoapMaterialReady, NextId = 11009},
   [11009] = {TalkId = 1610, NextId = 11010},
-  [11010] = {TalkId = 1608, NextCond = HasSuperNanoTowel, NextId = 11011},
-  [11011] = {TalkId = 1613, NextCond = CanBuyShip, NextId = 11012},
-  [11012] = {TalkId = 1614, NextId = 11013},
-  [11013] = {TalkId = 1608},
+  [11010] = {TalkId = 1608},
   -- Hero village, Pinky home.
   [12000] = {TalkId = 1700, NextCond = HasMallet, NextId = 12001},
   [12001] = {TalkId = 1701, NextCond = HasCandy, NextId = 12002},
@@ -237,7 +234,10 @@ QuestData = {
   [26000] = {TalkId = 3500, NextCond = HasShip, NextId = 26001},
   [26001] = {LevelId = FISH_FIELD_LVL_ID, TexId = SHIP_TEX_ID},
   -- Dock, fishman.
-  [26100] = {TalkId = 3550},
+  [26100] = {TalkId = 3550, NextCond = HasSuperNanoTowel, NextId = 26101},
+  [26101] = {TalkId = 3551, NextCond = CanBuyShip, NextId = 26102},
+  [26102] = {TalkId = 3552, NextId = 26103},
+  [26103] = {TalkId = 3550},
   -- Fish field, fish.
   [27000] = {TalkId = 3600},
   -- Fish field, to island field.
