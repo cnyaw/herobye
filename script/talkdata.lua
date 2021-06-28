@@ -6,6 +6,7 @@ local cave_maze_lvl_id = 88
 local clothes_drying_lvl_id = 340
 local find_slippers_lvl_id = 476
 local fishing_lvl_id = 389
+local fishman_tex_id = 529
 local help_pinky_lvl_id = 318
 local interview_hero_village_lvl_id = 331
 local jewel_cave_lvl_id = 447
@@ -1920,6 +1921,12 @@ TalkData = {
   [3500] = {
     {Image = dock_tex_id},
     {Text = '有船的話就能夠出海了'},
+    {LevelId = DOCK_LVL_ID},
+  },
+  -- Dock, fishman.
+  [3550] = {
+    {Image = fishman_tex_id},
+    {Text = '大海無限寛廣擁有一切可能'},
     {LevelId = DOCK_LVL_ID},
   },
   -- Fish field, fish.

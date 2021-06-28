@@ -236,6 +236,8 @@ QuestData = {
   -- Dock, dock.
   [26000] = {TalkId = 3500, NextCond = HasShip, NextId = 26001},
   [26001] = {LevelId = FISH_FIELD_LVL_ID, TexId = SHIP_TEX_ID},
+  -- Dock, fishman.
+  [26100] = {TalkId = 3550},
   -- Fish field, fish.
   [27000] = {TalkId = 3600},
   -- Fish field, to island field.
