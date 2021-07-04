@@ -17,7 +17,7 @@ end
 
 local function BatGunBulletHitTest(param)
   if (nil == bullet_obj) then
-    return
+    return false
   end
   local x, y = Good.GetPos(bullet_obj)
   return BounceGameHittest(param, x, y, OnHitBat)

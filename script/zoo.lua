@@ -8,7 +8,7 @@ HeroMtZoo = {}
 
 HeroMtZoo.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE) or HittestBackButton(back_btn_obj_id)) then
-    Good.GenObj(-1, MAIN_MAP_LVL_ID)
+    Good.GenObj(-1, ISLAND_FIELD_LVL_ID)
     return
   end
   if (not Input.IsKeyPushed(Input.LBUTTON)) then

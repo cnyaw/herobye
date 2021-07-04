@@ -526,12 +526,6 @@ TalkData = {
     {Text = '歡迎光臨龍神太子財神廟'},
     {LevelId = TEMPLE_LVL_ID},
   },
-  -- Main map, to hero mt zoo.
-  [1250] = {
-    {Image = pinnote_tex_id},
-    {Text = '歡迎光臨勇者山動物園'},
-    {LevelId = zoo_lvl_id},
-  },
   -- Hero village church, grandpa.
   [1300] = {
     {Image = grandpa_tex_id},
@@ -2007,5 +2001,11 @@ TalkData = {
     {Text = '太好了'},
     {Text = '要繼續練習哦'},
     {LevelId = ISLAND_LVL_ID},
+  },
+  -- Zoo islang, to zoo island.
+  [4300] = {
+    {Image = pinnote_tex_id},
+    {Text = '歡迎光臨動物園之島'},
+    {LevelId = zoo_lvl_id},
   },
 }

@@ -31,8 +31,6 @@ QuestData = {
   [4003] = {TalkId = 1152, RedPt = 1, NextId = 4004},
   [4004] = {TalkId = 1153, NextCond = IsRestValid, NextId = 4005},
   [4005] = {TalkId = 1154, NextCond = NotRestValid, NextId = 4004},
-  -- Main map, to hero mt zoo.
-  [4100] = {TalkId = 1250},
   -- Main map, bag.
   [5000] = {LevelId = BAG_LVL_ID, NextCond = HasBou2, NextId = 5001},
   [5001] = {LevelId = BAG_LVL_ID, NextCond = TrueCond, RedPt = 1, NextId = 5002},
@@ -258,4 +256,6 @@ QuestData = {
   [32200] = {TalkId = 4100},
   -- Island, my ming.
   [32300] = {TalkId = 4200},
+  -- Zoo island, to zoo island.
+  [33000] = {TalkId = 4300},
 }
