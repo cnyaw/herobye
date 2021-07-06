@@ -4,6 +4,7 @@ local LOTTERY_Y = (SCR_H - LOTTERY_H) / 2
 local DRAW_SIZE = 32
 local TEXT_SIZE = 46
 local WAIT_TIME = 30
+local LOTTERY_TEX_NAME = 'lottery_tex'
 
 local end_lottery_talk_id = 2802
 local cash_tex_id = 170
@@ -23,7 +24,7 @@ local function GenLotteryTex()
     lottery_canvas = Graphics.GenCanvas(LOTTERY_W, LOTTERY_H)
   end
   FillImageTex(lottery_canvas)
-  lottery_tex_id = Resource.GenTex(lottery_canvas)
+  lottery_tex_id = Resource.GenTex(lottery_canvas, LOTTERY_TEX_NAME)
 end
 
 local function ResetLotteryTex()
@@ -35,7 +36,8 @@ local function ResetLotteryTex()
 end
 
 local function GenLottery()
-  if (nil == lottery_tex_id) then
+  lottery_tex_id = Resource.GetTexId(LOTTERY_TEX_NAME)
+  if (-1 == lottery_tex_id) then
     GenLotteryTex()
   else
     ResetLotteryTex()
