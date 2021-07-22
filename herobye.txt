@@ -678,7 +678,14 @@ loop=1
 name=title
 bgColor=80 175 80
 script=Title
-objects=158 156 346 347 353
+objects=530 346 347 353
+
+[object530]
+name=mount sky
+sprite=255
+texture=255
+map=255
+objects=158 156
 
 [object158]
 bgColor=159 159 255
@@ -1497,7 +1504,13 @@ dim=0 0 120 114
 name=alien area
 bgColor=128 128 0
 script=MainMap
-objects=72 74 338 458 137
+objects=535 72 74 338 137
+
+[object535]
+name=mount sky
+sprite=530
+texture=254
+map=254
 
 [object72]
 name=o_toHeroVillage
@@ -1522,11 +1535,6 @@ xscale=-1
 yscale=2
 y=160
 dim=0 0 32 32
-
-[object458]
-texture=31
-repX=1
-dim=0 0 90 90
 
 [object137]
 name=ui
@@ -2335,12 +2343,13 @@ dim=0 0 90 90
 name=dock
 bgColor=128 128 0
 script=MainMap
-objects=525 383 364 369 381 526
+objects=536 383 364 369 381 526
 
-[object525]
-texture=31
-repX=1
-dim=0 0 90 90
+[object536]
+name=mount sky
+sprite=530
+texture=254
+map=254
 
 [object383]
 texture=382
