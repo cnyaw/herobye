@@ -1058,7 +1058,14 @@ TalkData = {
     {Text = '「我知道了謝謝豬爸爸」'},
     {LevelId = HERO_VILLAGE_LVL_ID},
   },
-  -- Hero village, hero home.
+  [1709] = {
+    {Image = pinky_papa_tex_id},
+    {Text = '呵呵呵小白好久不見'},
+    {Text = '我在動物園打工'},
+    {Text = '賺點零用錢給豬小妹買零食'},
+    {LevelId = zoo_lvl_id},
+  },
+  -- Hero village, hero hom
   [1800] = {
     {Text = '「維護世界的和平也是挺累的」'},
     {Text = '「讓我睡一下下吧」'},

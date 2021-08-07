@@ -2616,6 +2616,7 @@ y=128
 dim=0 0 96 96
 
 [object435]
+name=pinky papa
 texture=20
 xscale=0.4
 yscale=0.4
