@@ -1065,7 +1065,7 @@ TalkData = {
     {Text = '賺點零用錢給豬小妹買零食'},
     {LevelId = zoo_lvl_id},
   },
-  -- Hero village, hero hom
+  -- Hero village, hero home.
   [1800] = {
     {Text = '「維護世界的和平也是挺累的」'},
     {Text = '「讓我睡一下下吧」'},
@@ -1670,6 +1670,8 @@ TalkData = {
     {Image = old_lady_tex_id},
     {Text = '勇者小白真是謝謝尼'},
     {Text = '幫忙打掃的好乾淨啊'},
+    {Text = '這是給你的一點零用錢'},
+    {Script = ScriptGiveAllowance},
     {Text = '改天偶再跟貓咪們好好招待尼'},
     {LevelId = TRASH_FIELD_LVL_ID},
   },
