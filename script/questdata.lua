@@ -117,8 +117,9 @@ QuestData = {
   [12007] = {TalkId = 1708, NextCond = HasShaveBook, NextId = 12008},
   [12008] = {TalkId = 1706},
   -- Hero village, hero home.
-  [13000] = {TalkId = 1800, NextId = 13001},
-  [13001] = {TalkId = 1801},
+  [13000] = {TalkId = 1800, NextCond = HasFlashlight, NextId = 13001},
+  [13001] = {TalkId = 1801, NextId = 13002},
+  [13002] = {TalkId = 1802},
   -- Hero village, to alien path.
   [14000] = {LevelId = ALIEN_PATH_LVL_ID, NextCond = HasScissor, NextId = 14001},
   [14001] = {TalkId = 1703, NextCond = HasPowerScissor, NextId = 14002},

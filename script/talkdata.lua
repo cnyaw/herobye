@@ -1067,6 +1067,11 @@ TalkData = {
   },
   -- Hero village, hero home.
   [1800] = {
+    {Text = '「爺爺知道很多事情」'},
+    {Text = '「先去教堂找爺爺再回來休息」'},
+    {LevelId = HERO_VILLAGE_LVL_ID},
+  },
+  [1801] = {
     {Text = '「維護世界的和平也是挺累的」'},
     {Text = '「讓我睡一下下吧」'},
     {Text = ''},
@@ -1080,7 +1085,7 @@ TalkData = {
     {Text = '「原來是個夢」'},
     {LevelId = MAIN_MAP_LVL_ID},
   },
-  [1801] = {
+  [1802] = {
     {Text = '「維護世界的和平也是挺累的」'},
     {Text = '「讓我睡一下下吧」'},
     {Text = ''},
@@ -1670,7 +1675,7 @@ TalkData = {
     {Image = old_lady_tex_id},
     {Text = '勇者小白真是謝謝尼'},
     {Text = '幫忙打掃的好乾淨啊'},
-    {Text = '這是給你的一點零用錢'},
+    {Text = '這是給尼的一點零用錢'},
     {Script = ScriptGiveAllowance},
     {Text = '改天偶再跟貓咪們好好招待尼'},
     {LevelId = TRASH_FIELD_LVL_ID},
