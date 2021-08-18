@@ -37,6 +37,11 @@ function AcMoleHide(param)
   Good.SetBgColor(param._id, COLOR_WHITE)
 end
 
+function AcKillMusicalNoteObj(param)
+  param.clear()
+  AcKillAnimObj(param)
+end
+
 function AcResetAstroid(param)
   local id = param._id
   local x, y = Good.GetPos(id)
@@ -156,6 +161,22 @@ AnimMoleInit.OnStep = function(param)
     local loop1 = ArAddLoop(nil, 1)
     ArAddCall(loop1, 'AcMoleHide', math.random(2, 6))
     param.k = ArAddAnimator({loop1})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
+AnimMusicalNote = {}
+
+AnimMusicalNote.OnStep = function(param)
+  if (nil == param.k) then
+    Good.SetAnchor(param._id, 0.7, 0.5)
+    local loop1 = ArAddLoop(nil, 1)
+    ArAddMoveTo(loop1, 'Pos', param.dt, param.target_x, param.target_y)
+    ArAddCall(loop1, 'AcKillMusicalNoteObj', 0)
+    local loop2 = ArAddLoop(nil, 1)
+    ArAddMoveTo(loop2, 'Scale', param.dt, 2.5, 2.5)
+    param.k = ArAddAnimator({loop1, loop2})
   else
     ArStepAnimator(param, param.k)
   end

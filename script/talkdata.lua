@@ -13,6 +13,7 @@ local jewel_cave_lvl_id = 447
 local lottery_lvl_id = 19
 local memory_lvl_id = 223
 local mouse_cave_lvl_id = 520
+local music_game_lvl_id = 458
 local pair_game_lvl_id = 107
 local pick_trash_lvl_id = 111
 local puzzle_lvl_id = 221
@@ -2000,6 +2001,14 @@ TalkData = {
   [4100] = {
     {Image = my_guan_tex_id},
     {Text = '我是小光'},
+    {Text = '啦啦啦我最愛唱歌跳舞了'},
+    {Text = '跟我一起玩吧'},
+    {LevelId = music_game_lvl_id},
+  },
+  [4101] = {
+    {Image = my_guan_tex_id},
+    {Text = '真的好開心哦'},
+    {Text = '要再我跟一起玩哦'},
     {LevelId = ISLAND_LVL_ID},
   },
   -- Island, my ming.
