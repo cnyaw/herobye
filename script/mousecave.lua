@@ -14,7 +14,7 @@ local function GenHitObj(x, y)
   Good.SetPos(hit, x - tx/2, y - ty/2)
 end
 
-local function SetHitMoleCount(param, c)
+local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
   UpdateCounterUi(param, mouse_tex_id, CHECK_COUNT)
 end
@@ -39,7 +39,7 @@ MouseCave.OnCreate = function(param)
     Good.SetDim(hole, 0, holeh/2, holew, holeh/2)
     param.obj[1 + i] = o
   end
-  SetHitMoleCount(param, 0)
+  SetCheckCount(param, 0)
 end
 
 MouseCave.OnStep = function(param)
@@ -60,7 +60,7 @@ MouseCave.OnStep = function(param)
         Good.SetBgColor(o, COLOR_RED)
         GenHitObj(x, y)
         p.hit = true
-        SetHitMoleCount(param, GetCounterUiCount(param) + 1)
+        SetCheckCount(param, GetCounterUiCount(param) + 1)
         if (CHECK_COUNT <= GetCounterUiCount(param)) then
           StartTalk(pass_talk_id)
           return
@@ -69,5 +69,5 @@ MouseCave.OnStep = function(param)
       end
     end
   end
-  SetHitMoleCount(param, 0)
+  SetCheckCount(param, 0)
 end

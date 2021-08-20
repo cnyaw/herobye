@@ -2,8 +2,12 @@ local WAIT_TIME = 80
 local CHECK_COUND = 8
 
 local frog_obj_id = 37
-
 local frog_cry_talk_id = 2002
+
+local function SetCheckCount(param, c)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, FROG_TEAR_TEX_ID, CHECK_COUND)
+end
 
 SeekFrog = {}
 
@@ -11,7 +15,7 @@ SeekFrog.OnCreate = function(param)
   GetLeaf(param)
   RandomPickLeaf(param)
   param.step = OnSeekFrogStep
-  SetFoundFrogCount(param, 0)
+  SetCheckCount(param, 0)
 end
 
 SeekFrog.OnStep = function(param)
@@ -42,13 +46,13 @@ end
 
 function FindFrogFail(param)
   Good.SetScript(frog_obj_id, 'AnimShowFrog')
-  SetFoundFrogCount(param, 0)
+  SetCheckCount(param, 0)
 end
 
 function FindFrogSucc(param)
   ShowFrog(param._id)
   Good.SetScript(frog_obj_id, 'AnimTalkArrow')
-  SetFoundFrogCount(param, GetCounterUiCount(param) + 1)
+  SetCheckCount(param, GetCounterUiCount(param) + 1)
 end
 
 function HideFrog(id)
@@ -100,11 +104,6 @@ function RandomPickLeaf(param)
   param.pos_frog = i
   CenterFrog(o)
   HideFrog(param._id)
-end
-
-function SetFoundFrogCount(param, c)
-  SetCounterUiCount(param, c)
-  UpdateCounterUi(param, FROG_TEAR_TEX_ID, CHECK_COUND)
 end
 
 function ShowFrog(id)

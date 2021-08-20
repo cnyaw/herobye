@@ -10,6 +10,11 @@ local clean_done_talk_id = 2701
 local trash_can = nil
 local fish_bone = nil
 
+local function SetCheckCount(param, c)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, trash_can_tex_id, CHECK_COUND)
+end
+
 PickTrash = {}
 
 PickTrash.OnCreate = function(param)
@@ -18,7 +23,7 @@ PickTrash.OnCreate = function(param)
   for i = 1, CHECK_COUND do
     fish_bone[i] = GenFishBone()
   end
-  SetPickTrashCount(param, 0)
+  SetCheckCount(param, 0)
   param.step = PickTrashOnStepPlay
 end
 
@@ -60,7 +65,7 @@ function DragFishBoneDone(param)
   else
     Good.KillObj(fish_bone[param.drag_idx])
     fish_bone[param.drag_idx] = nil
-    SetPickTrashCount(param, GetCounterUiCount(param) + 1)
+    SetCheckCount(param, GetCounterUiCount(param) + 1)
   end
 end
 
@@ -123,9 +128,4 @@ function PickTrashOnStepPlay(param)
     return
   end
   DragHandler(param, BeginDragFishBone, DraggingFishBone, DragFishBoneDone)
-end
-
-function SetPickTrashCount(param, c)
-  SetCounterUiCount(param, c)
-  UpdateCounterUi(param, trash_can_tex_id, CHECK_COUND)
 end

@@ -11,6 +11,11 @@ local curr_weapon_index = nil
 local weapon_obj = nil
 local btn_obj = {80, 81, 82}
 
+local function SetCheckCount(param, c)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, UFO_TEX_ID, CHECK_COUND)
+end
+
 AlienBoss = {}
 
 AlienBoss.OnCreate = function(param)
@@ -19,7 +24,7 @@ AlienBoss.OnCreate = function(param)
   local sw, sh = ScaleToSize(weapon_obj, RPS_SIZE, RPS_SIZE)
   local w, h = Resource.GetTexSize(UFO_TEX_ID)
   Good.SetPos(weapon_obj, (w - sw)/2, h - sh)
-  SetUfoFightCount(param, 0)
+  SetCheckCount(param, 0)
   param.step = AlienBossOnStepInput
 end
 
@@ -70,15 +75,10 @@ function RandUfoWeapon()
   Good.SetTexId(weapon_obj, weapon_tex_id[curr_weapon_index])
 end
 
-function SetUfoFightCount(param, c)
-  SetCounterUiCount(param, c)
-  UpdateCounterUi(param, UFO_TEX_ID, CHECK_COUND)
-end
-
 function ValidateAlienBossHittest(param, btn_index)
   if (btn_index == curr_weapon_index) then
-    SetUfoFightCount(param, GetCounterUiCount(param) + 1)
+    SetCheckCount(param, GetCounterUiCount(param) + 1)
   else
-    SetUfoFightCount(param, 0)
+    SetCheckCount(param, 0)
   end
 end

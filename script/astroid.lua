@@ -4,13 +4,18 @@ local NUM_ASTROID = 5
 
 local astroid_tex_id = 196
 
+local function SetCheckCount(param, c)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, astroid_tex_id, CHECK_COUND)
+end
+
 Astroid = {}
 
 Astroid.OnCreate = function(param)
-  SetDestroyAstroidCount(param, 0)
+  SetCheckCount(param, 0)
   param.o = {}
   for i = 1, NUM_ASTROID do
-    param.o[i] = GenNewAstroid(i)
+    param.o[i] = GenNewAstroid(i, param)
   end
   param.step = OnDestroyAstroidStep
 end
@@ -39,11 +44,12 @@ Astroid.OnStep = function(param)
   param.step(param)
 end
 
-function GenNewAstroid(i)
+function GenNewAstroid(i, param)
   local w,h = Resource.GetTexSize(astroid_tex_id)
   local o = Good.GenObj(-1, astroid_tex_id, 'AnimAstroid')
   Good.SetPos(o, (i-1) * (SCR_W/NUM_ASTROID), -math.random(h, 4*h))
   Good.SetAnchor(o, .5, .5)
+  Good.GetParam(o).clear = function() SetCheckCount(param, 0) end
   return o
 end
 
@@ -53,7 +59,7 @@ function HittestAstroid(param, x, y)
     if (PtInObj(x, y, o)) then
       Good.SetScript(o, 'AnimDestroyAstroid')
       Good.GetParam(o).k = nil
-      param.o[i] = GenNewAstroid(i)
+      param.o[i] = GenNewAstroid(i, param)
       IncDestroyAstroidCount(param)
       return CHECK_COUND <= GetCounterUiCount(param)
     end
@@ -62,7 +68,7 @@ function HittestAstroid(param, x, y)
 end
 
 function IncDestroyAstroidCount(param)
-  SetDestroyAstroidCount(param, GetCounterUiCount(param) + 1)
+  SetCheckCount(param, GetCounterUiCount(param) + 1)
 end
 
 function OnDestroyAstroidStep(param)
@@ -80,9 +86,4 @@ function OnPassAstroidStep(param)
     return
   end
   Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
-end
-
-function SetDestroyAstroidCount(param, c)
-  SetCounterUiCount(param, c)
-  UpdateCounterUi(param, astroid_tex_id, CHECK_COUND)
 end

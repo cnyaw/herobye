@@ -14,6 +14,11 @@ local kai_thanks_drum_stick_talk_id = 1904
 local kai_thanks_talk_id = 1905
 local kai_thanks_mouse_tail_talk_id = 1906
 
+local function SetCheckCount(param, c)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, mouse_tex_id, CHECK_COUND)
+end
+
 SlapMouse = {}
 
 SlapMouse.OnCreate = function(param)
@@ -22,7 +27,7 @@ SlapMouse.OnCreate = function(param)
   param.obj = {racket_obj_id, ball_obj_id, cheese_obj_id}
   RandButtonColor(param)
   param.step = SlapMouseOnStepInput
-  SetCatchMouseCount(param, 0)
+  SetCheckCount(param, 0)
 end
 
 SlapMouse.OnStep = function(param)
@@ -43,11 +48,6 @@ function RandButtonColor(param)
   end
   param.btn_i = ri
   param.obj_i = 1
-end
-
-function SetCatchMouseCount(param, c)
-  SetCounterUiCount(param, c)
-  UpdateCounterUi(param, mouse_tex_id, CHECK_COUND)
 end
 
 function SlapMouseHittest(param)
@@ -89,7 +89,7 @@ function SlapMouseOnStepMouse(param)
   end
   param.obj_i = param.obj_i - 1
   if (0 == param.obj_i) then
-    SetCatchMouseCount(param, GetCounterUiCount(param) + 1)
+    SetCheckCount(param, GetCounterUiCount(param) + 1)
     RandButtonColor(param)
     Good.SetPos(mouse_obj_id, param.orig_mouse_x, param.orig_mouse_y)
     if (CHECK_COUND <= GetCounterUiCount(param)) then
@@ -117,6 +117,6 @@ function ValidateMachineButton(param, i)
   else
     -- Wrong step.
     RandButtonColor(param)
-    SetCatchMouseCount(param, 0)
+    SetCheckCount(param, 0)
   end
 end

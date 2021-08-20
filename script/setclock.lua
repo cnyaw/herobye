@@ -122,6 +122,11 @@ local function SetAnalogClock()
   anaHrDummy = SetAnalogClockHand(angHour, 0.6, 6, 6)
 end
 
+local function SetCheckCount(param, c)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, clock_tex_id, CHECK_COUND)
+end
+
 local function SetDigitClock()
   local hour, minute = digClock[1], digClock[2]
   local s = string.format('%02d%02d', hour, minute)
@@ -131,11 +136,6 @@ local function SetDigitClock()
     local n = string.find(digits, c)
     Set7SegLen(led_obj_id[i], n)
   end
-end
-
-function SetPassClockCount(param, c)
-  SetCounterUiCount(param, c)
-  UpdateCounterUi(param, clock_tex_id, CHECK_COUND)
 end
 
 local function SetRandTime()
@@ -201,14 +201,14 @@ local function OnStepSetClock(param)
   end
   if (UpdateClock(inc_ana_obj_id, dec_ana_obj_id, inc_dig_obj_id, dec_dig_obj_id, true)) then
     if (CheckSetClockMatch()) then
-      SetPassClockCount(param, GetCounterUiCount(param) + 1)
+      SetCheckCount(param, GetCounterUiCount(param) + 1)
       NewTest(param)
     end
     return
   end
   if (UpdateClock(inc_ana2_obj_id, dec_ana2_obj_id, inc_dig2_obj_id, dec_dig2_obj_id, false)) then
     if (CheckSetClockMatch()) then
-      SetPassClockCount(param, GetCounterUiCount(param) + 1)
+      SetCheckCount(param, GetCounterUiCount(param) + 1)
       NewTest(param)
     end
   end
@@ -220,7 +220,7 @@ SetClock.OnCreate = function(param)
   anaHrDummy = nil
   anaMnDummy = nil
   selAnaClock = true
-  SetPassClockCount(param, 0)
+  SetCheckCount(param, 0)
   NewTest(param)
   param.step = OnStepSetClock
 end
