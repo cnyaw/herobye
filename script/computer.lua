@@ -146,7 +146,7 @@ local function CompGenKbdBkspkey()
 end
 
 local function CompGenKbdEnterkey()
-  CompGenKbdCtrlKey(3, '↩', STR_ENTER)
+  CompGenKbdCtrlKey(3, '↲', STR_ENTER)
 end
 
 local function CompGenKbd()
