@@ -1,5 +1,5 @@
 local WAIT_TIME = 80
-local NUM_ASTROID_TO_DESTROY = 10
+local CHECK_COUND = 10
 local NUM_ASTROID = 5
 
 local astroid_tex_id = 196
@@ -55,7 +55,7 @@ function HittestAstroid(param, x, y)
       Good.GetParam(o).k = nil
       param.o[i] = GenNewAstroid(i)
       IncDestroyAstroidCount(param)
-      return NUM_ASTROID_TO_DESTROY <= GetCounterUiCount(param)
+      return CHECK_COUND <= GetCounterUiCount(param)
     end
   end
   return false
@@ -84,5 +84,5 @@ end
 
 function SetDestroyAstroidCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, astroid_tex_id, NUM_ASTROID_TO_DESTROY)
+  UpdateCounterUi(param, astroid_tex_id, CHECK_COUND)
 end

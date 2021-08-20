@@ -1,4 +1,4 @@
-local CHECK_FOUND_COUND = 10
+local CHECK_COUND = 10
 local WAIT_TIME = 50
 
 local ana_clock_btns = 515
@@ -135,7 +135,7 @@ end
 
 function SetPassClockCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, clock_tex_id, CHECK_FOUND_COUND)
+  UpdateCounterUi(param, clock_tex_id, CHECK_COUND)
 end
 
 local function SetRandTime()
@@ -180,7 +180,7 @@ local function OnStepDone(param)
 end
 
 local function NewTest(param)
-  if (GetCounterUiCount(param) == CHECK_FOUND_COUND) then
+  if (GetCounterUiCount(param) == CHECK_COUND) then
     param.step = OnStepDone
     return
   end

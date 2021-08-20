@@ -1,5 +1,5 @@
 local WAIT_TIME = 40
-local CHECK_CATCH_COUND = 5
+local CHECK_COUND = 5
 
 local btn1_obj_id = 58
 local btn2_obj_id = 59
@@ -47,7 +47,7 @@ end
 
 function SetCatchMouseCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, mouse_tex_id, CHECK_CATCH_COUND)
+  UpdateCounterUi(param, mouse_tex_id, CHECK_COUND)
 end
 
 function SlapMouseHittest(param)
@@ -92,7 +92,7 @@ function SlapMouseOnStepMouse(param)
     SetCatchMouseCount(param, GetCounterUiCount(param) + 1)
     RandButtonColor(param)
     Good.SetPos(mouse_obj_id, param.orig_mouse_x, param.orig_mouse_y)
-    if (CHECK_CATCH_COUND <= GetCounterUiCount(param)) then
+    if (CHECK_COUND <= GetCounterUiCount(param)) then
       param.step = SlapMouseOnStepDone
     else
       param.step = SlapMouseOnStepInput

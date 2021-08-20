@@ -1,5 +1,5 @@
 
-local NUM_FISH_BONE = 6
+local CHECK_COUND = 6
 local WAIT_TIME = 60
 
 local trash_can_tex_id = 112
@@ -15,7 +15,7 @@ PickTrash = {}
 PickTrash.OnCreate = function(param)
   trash_can = GenTrashCan()
   fish_bone = {}
-  for i = 1, NUM_FISH_BONE do
+  for i = 1, CHECK_COUND do
     fish_bone[i] = GenFishBone()
   end
   SetPickTrashCount(param, 0)
@@ -32,7 +32,7 @@ end
 
 function BeginDragFishBone(param)
   local x, y = Input.GetMousePos()
-  for i = 1, NUM_FISH_BONE do
+  for i = 1, CHECK_COUND do
     local o = fish_bone[i]
     if (nil ~= o and PtInObj(x, y, o)) then
       Good.AddChild(-1, o)              -- Change zorder to topmost.
@@ -118,7 +118,7 @@ function PickTrashOnStepDone(param)
 end
 
 function PickTrashOnStepPlay(param)
-  if (NUM_FISH_BONE == GetCounterUiCount(param)) then
+  if (CHECK_COUND == GetCounterUiCount(param)) then
     param.step = PickTrashOnStepDone
     return
   end
@@ -127,5 +127,5 @@ end
 
 function SetPickTrashCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, trash_can_tex_id, NUM_FISH_BONE)
+  UpdateCounterUi(param, trash_can_tex_id, CHECK_COUND)
 end

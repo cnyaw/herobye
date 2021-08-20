@@ -1,6 +1,6 @@
 local WAIT_TIME = 100
 local RPS_SIZE = 48
-local CHECK_FIGHT_COUND = 10
+local CHECK_COUND = 10
 
 local ufo_obj_id = 76
 local win_talk_id = 2201
@@ -50,7 +50,7 @@ function AlienBossOnStepInput(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     AlienBossHittest(param)
   end
-  if (CHECK_FIGHT_COUND <= GetCounterUiCount(param)) then
+  if (CHECK_COUND <= GetCounterUiCount(param)) then
     param.step = AlienBossOnStepWin
   end
 end
@@ -72,7 +72,7 @@ end
 
 function SetUfoFightCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, UFO_TEX_ID, CHECK_FIGHT_COUND)
+  UpdateCounterUi(param, UFO_TEX_ID, CHECK_COUND)
 end
 
 function ValidateAlienBossHittest(param, btn_index)
