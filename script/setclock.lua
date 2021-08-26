@@ -186,11 +186,11 @@ local function NewTest(param)
   end
   SetRandTime()
   if (selAnaClock) then
-    Good.SetVisible(ana_clock_btns, 1)
-    Good.SetVisible(dig_clock_btns, 0)
+    Good.SetVisible(ana_clock_btns, Good.VISIBLE)
+    Good.SetVisible(dig_clock_btns, Good.INVISIBLE)
   else
-    Good.SetVisible(ana_clock_btns, 0)
-    Good.SetVisible(dig_clock_btns, 1)
+    Good.SetVisible(ana_clock_btns, Good.INVISIBLE)
+    Good.SetVisible(dig_clock_btns, Good.VISIBLE)
   end
   selAnaClock = not selAnaClock
 end

@@ -60,7 +60,7 @@ JewelCave.OnCreate = function(param)
   -- Gen selection mask.
   local o = GenColorObj(param._id, TILE_W, TILE_H, 0xaaff0000)
   Good.SetPos(o, mx, my)
-  Good.SetVisible(o, 0)
+  Good.SetVisible(o, Good.INVISIBLE)
   param.s = o
 end
 
@@ -218,7 +218,7 @@ JewelCave.OnStep = function(param)
       param.p2 = -1
       param.link = {}
       param.c = param.c - 2
-      Good.SetVisible(param.s, 0)
+      Good.SetVisible(param.s, Good.INVISIBLE)
       -- Level clear?
       if (0 == param.c) then
         param.timer = 10
@@ -268,14 +268,14 @@ JewelCave.OnStep = function(param)
     elseif (-1 == param.p1) then
       param.p1 = pi
       Good.SetPos(param.s, mx + TILE_W * c, my + TILE_H * r)
-      Good.SetVisible(param.s, 1)
+      Good.SetVisible(param.s, Good.VISIBLE)
     elseif (-1 == param.p2) then
       if (param.p[param.p1] == param.p[pi]) then
         param.p2 = pi
       else
         param.p1 = pi
         Good.SetPos(param.s, mx + TILE_W * c, my + TILE_H * r)
-        Good.SetVisible(param.s, 1)
+        Good.SetVisible(param.s, Good.VISIBLE)
       end
     end
     if (-1 == param.p1 or -1 == param.p2) then
@@ -286,7 +286,7 @@ JewelCave.OnStep = function(param)
       param.p1 = pi
       param.p2 = -1
       Good.SetPos(param.s, mx + TILE_W * c, my + TILE_H * r)
-      Good.SetVisible(param.s, 1)
+      Good.SetVisible(param.s, Good.VISIBLE)
       return
     end
     -- Clear link.

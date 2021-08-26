@@ -73,6 +73,6 @@ end
 function OnHitAlien(param, o)
   GenFlyUpObj(o, UFO_TEX_ID)
   if (MAX_ALIEN == param.hit) then
-    Good.SetVisible(to_alien_area_obj_id, 1)
+    Good.SetVisible(to_alien_area_obj_id, Good.VISIBLE)
   end
 end

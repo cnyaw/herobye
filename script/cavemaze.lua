@@ -27,7 +27,7 @@ CaveMaze.OnCreate = function(param)
   for i = 1, #path_data do
     local p = path_data[i]
     param.x[i], param.y[i] = Good.GetPos(p[1])
-    Good.SetVisible(p[1], 0)
+    Good.SetVisible(p[1], Good.INVISIBLE)
   end
   CenterMaze(param)
   QuestOnCreate()
@@ -66,7 +66,7 @@ function CaveMazeScrollTo(param, dir)
 end
 
 function CheckMovePath_i(dir, o, x, y)
-  Good.SetVisible(o, 1)
+  Good.SetVisible(o, Good.VISIBLE)
   local ox, oy = GetMazeDirOffset(dir)
   Good.SetPos(o, x + ox, y + oy)
 end
@@ -87,7 +87,7 @@ function CenterMaze(param)
     curr_path = string.sub(curr_path, string.len(curr_path) - 1)
     for i = 1, #path_data do
       local p = path_data[i]
-      Good.SetVisible(p[1], 0)
+      Good.SetVisible(p[1], Good.INVISIBLE)
     end
   else
     for i = 1, #path_data do
