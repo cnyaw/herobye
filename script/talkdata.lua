@@ -1815,12 +1815,20 @@ TalkData = {
     {LevelId = INSIDE_JANKEN_LIB_LVL_ID},
   },
   [3301] = {
-    {NextCond = HasFourFeathers, NextId = 3302},
+    {NextCond = HasSuperNanoTowel, NextId = 3302},
+    {NextCond = HasFourFeathers, NextId = 3303},
     {Image = bebe_tex_id},
     {Text = '你好我是比比博士'},
     {LevelId = INSIDE_JANKEN_LIB_LVL_ID},
   },
   [3302] = {
+    {Image = bebe_tex_id},
+    {Text = '我是比比博士'},
+    {Text = '你己經有一條S奈米擦布了'},
+    {Text = '下次有需要再來找我吧'},
+    {LevelId = INSIDE_JANKEN_LIB_LVL_ID},
+  },
+  [3303] = {
     {Image = bebe_tex_id},
     {Text = '太好了'},
     {Text = '四根天線寶寶的毛全部齊全了'},
