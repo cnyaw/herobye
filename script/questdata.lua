@@ -219,6 +219,8 @@ QuestData = {
   [24401] = {TalkId = 3201},
   -- Janken planet, to lib.
   [24500] = {LevelId = janken_lib_lvl_id},
+  -- Janken planet, to observatory.
+  [24600] = {LevelId = JANKEN_OBSERVATORY_LVL_ID},
   -- Janken lib, to planet.
   [25000] = {LevelId = JANKEN_PLANET_LVL_ID},
   -- Janken lib, inside lib.
@@ -229,6 +231,8 @@ QuestData = {
   -- Janken lib, computer.
   [25200] = {TalkId = 3350, NextCond = HasJewel, NextId = 25201},
   [25201] = {TalkId = 3351},
+  -- Janken observatory.
+  [25300] = {TalkId = 3380},
   -- Dock, dock.
   [26000] = {TalkId = 3500, NextCond = HasShip, NextId = 26001},
   [26001] = {LevelId = FISH_FIELD_LVL_ID, TexId = SHIP_TEX_ID},

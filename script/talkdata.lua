@@ -1859,6 +1859,12 @@ TalkData = {
     {Text = '歡迎使用虛擬實境遊戲機'},
     {LevelId = COMPUTER_LVL_ID},
   },
+  -- Janken observatory.
+  [3380] = {
+    {Image = pinnote_tex_id},
+    {Text = '歡迎光臨拳頭星天文台'},
+    {LevelId = JANKEN_OBSERVATORY_LVL_ID},
+  },
   -- Bat cave field, bat cave.
   [3400] = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
