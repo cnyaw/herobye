@@ -107,6 +107,9 @@ function HandleTalkMenu()
 end
 
 function HandleTalkMenuText(talk)
+  if (nil ~= talk_mess_obj) then
+    Good.KillAllChild(talk_mess_obj)
+  end
   talk_menu_obj = GenColorObj(-1, SCR_W, SCR_H, 0xb0000000)
   local lw = math.floor(SCR_W / #talk.MenuText)
   local x = 0
