@@ -57,10 +57,12 @@ local pinky_tex_id = 316
 local pinnote_tex_id = 314
 local po_tex_id = 212
 local priest_tex_id = 304
+local red_castle_obj_id = 548
 local teacher_tex_id = 276
 local tinkywinky_tex_id = 214
 local ufo_obj_id = 343
 local well_tex_id = 181
+local white_castle_obj_id = 549
 local zhang_mama_tex_id = 329
 
 local color_olive = 0xff808000
@@ -1979,11 +1981,23 @@ TalkData = {
     {Script = ScriptAddFish},
     {LevelId = FISH_FIELD_LVL_ID},
   },
-  -- Dq2, castle.
+  -- Dq, castle.
   [3700] = {
     {Image = castle_obj_id},
-    {Text = '國王城堡'},
-    {LevelId = DQ2_LVL_ID},
+    {Text = '北方的紅之國和白之國正在戰爭'},
+    {LevelId = DQ_LVL_ID},
+  },
+  -- Dq, red castle.
+  [3750] = {
+    {Image = red_castle_obj_id},
+    {Text = '紅之國是最強的'},
+    {LevelId = NORTH_NATION_LVL_ID},
+  },
+  -- Dq, white castle.
+  [3780] = {
+    {Image = white_castle_obj_id},
+    {Text = '白之國是無敵的'},
+    {LevelId = NORTH_NATION_LVL_ID},
   },
   -- Island field, island.
   [3800] = {

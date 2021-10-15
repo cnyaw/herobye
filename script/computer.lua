@@ -63,8 +63,8 @@ local function CompAddLine(s)
   console_line[i] = dummy
 end
 
-local function CompDq2Game()
-  Good.GenObj(-1, DQ2_LVL_ID)
+local function CompDqGame()
+  Good.GenObj(-1, DQ_LVL_ID)
   return true
 end
 
@@ -106,7 +106,7 @@ local function CompCheckCmd()
   local valid_cmd_data = {
     [1] = {'HELP', CompShowHelp},
     [2] = {'EXIT', CompExitSys},
-    [3] = {'DQ2', CompDq2Game},
+    [3] = {'DQ2', CompDqGame},
   }
   for i = 1, #valid_cmd_data do
     local cmd = valid_cmd_data[i]
