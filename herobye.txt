@@ -2684,6 +2684,7 @@ objects=454 457
 
 [object454]
 name=o_dq2Castle
+bgColor=192 192 192
 texture=452
 x=272
 y=144

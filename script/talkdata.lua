@@ -29,7 +29,7 @@ local zoo_lvl_id = 421
 local bebe_tex_id = 215
 local brother1_tex_id = 280
 local brother2_tex_id = 281
-local castle_tex_id = 452
+local castle_obj_id = 454
 local cave_door_tex_id = 0
 local chest_tex_id = 13
 local computer_tex_id = 394
@@ -1981,7 +1981,7 @@ TalkData = {
   },
   -- Dq2, castle.
   [3700] = {
-    {Image = castle_tex_id},
+    {Image = castle_obj_id},
     {Text = '國王城堡'},
     {LevelId = DQ2_LVL_ID},
   },
