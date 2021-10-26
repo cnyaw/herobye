@@ -1999,6 +1999,18 @@ TalkData = {
     {Text = '白之國是無敵的'},
     {LevelId = NORTH_NATION_LVL_ID},
   },
+  -- Dq, red castle training.
+  [3790] = {
+    {Image = pinnote_tex_id},
+    {Text = '紅之國訓練場'},
+    {LevelId = NORTH_NATION_LVL_ID},
+  },
+  -- Dq, white castle training.
+  [3795] = {
+    {Image = pinnote_tex_id},
+    {Text = '白之國訓練場'},
+    {LevelId = NORTH_NATION_LVL_ID},
+  },
   -- Island field, island.
   [3800] = {
     {Image = pinnote_tex_id},

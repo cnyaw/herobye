@@ -3149,7 +3149,7 @@ dim=0 0 96 147
 name=dq north nation
 bgColor=80 175 80
 script=MainMap
-objects=548 549 550
+objects=548 549 550 551 553
 
 [object548]
 name=o_redCastle
@@ -3175,5 +3175,21 @@ xpivot=0.5
 ypivot=0.5
 x=304
 y=352
+dim=0 0 32 32
+
+[object551]
+name=o_toRedCastleTraining
+texture=261
+xscale=-1
+yscale=2
+y=160
+dim=0 0 32 32
+
+[object553]
+name=o_toWhiteCastleTraining
+texture=261
+yscale=2
+x=608
+y=160
 dim=0 0 32 32
 

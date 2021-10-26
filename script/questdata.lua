@@ -245,7 +245,7 @@ QuestData = {
   [27000] = {TalkId = 3600},
   -- Fish field, to island field.
   [27100] = {LevelId = ISLAND_FIELD_LVL_ID},
-  -- Dq, main castle.
+  -- Dq, main map.
   [28000] = {LevelId = COMPUTER_LVL_ID},
   [28100] = {LevelId = NORTH_NATION_LVL_ID},
   -- Dq, castle.
@@ -254,6 +254,8 @@ QuestData = {
   [29100] = {TalkId = 3750},
   [29200] = {TalkId = 3780},
   [29300] = {LevelId = DQ_LVL_ID},
+  [29400] = {TalkId = 3790},
+  [29500] = {TalkId = 3795},
   -- Island field, island.
   [31000] = {TalkId = 3800},
   -- Island field, to fish field.
