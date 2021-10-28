@@ -78,6 +78,19 @@ BouncingObj.OnStep = function(param)
   end
 end
 
+BouncingTarget = {}
+
+BouncingTarget.OnStep = function(param)
+  if (nil == param.dirx) then
+    param.dirx = 1.2
+    if (math.random(2) == 1) then
+      param.dirx = -1 * param.dirx
+    end
+    param.diry = 0
+  end
+  BouncingObj.OnStep(param)
+end
+
 AnimClickFish = {}
 
 AnimClickFish.OnStep = function(param)

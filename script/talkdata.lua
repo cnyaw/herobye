@@ -19,6 +19,7 @@ local pick_trash_lvl_id = 111
 local puzzle_lvl_id = 221
 local racing_lvl_id = 330
 local rainbow_lvl_id = 234
+local red_training_lvl_id = 557
 local seek_frog_lvl_id = 24
 local set_clock_lvl_id = 478
 local snake_cave_lvl_id = 392
@@ -2003,6 +2004,10 @@ TalkData = {
   [3790] = {
     {Image = pinnote_tex_id},
     {Text = '紅之國訓練場'},
+    {LevelId = red_training_lvl_id},
+  },
+  [3791] = {
+    {Text = '幹的好繼續加油！'},
     {LevelId = NORTH_NATION_LVL_ID},
   },
   -- Dq, white castle training.
