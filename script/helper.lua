@@ -387,6 +387,10 @@ function HasJewel()
   return HasItem('i_jewel')
 end
 
+function HasKingPermission()
+  return HasItem('f_king_permission')
+end
+
 function HasLetter()
   return HasItem('i_letter')
 end
@@ -733,6 +737,10 @@ end
 
 function ScriptAddJewel()
   SetItem('i_jewel', 1)
+end
+
+function ScriptAddKingPermission()
+  SetItem('f_king_permission', 1)
 end
 
 function ScriptAddLaaLaaFeather()

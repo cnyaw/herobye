@@ -247,9 +247,11 @@ QuestData = {
   [27100] = {LevelId = ISLAND_FIELD_LVL_ID},
   -- Dq, main map.
   [28000] = {LevelId = COMPUTER_LVL_ID},
-  [28100] = {LevelId = NORTH_NATION_LVL_ID},
+  [28100] = {TalkId = 3705, NextCond = HasKingPermission, NextId = 28101},
+  [28101] = {LevelId = NORTH_NATION_LVL_ID},
   -- Dq, castle.
-  [29000] = {TalkId = 3700},
+  [29000] = {TalkId = 3700, NextCond = HasKingPermission, NextId = 29001},
+  [29001] = {TalkId = 3704},
   -- Dq, north nation.
   [29100] = {TalkId = 3750},
   [29200] = {TalkId = 3780},
