@@ -44,7 +44,7 @@ PairGame.OnCreate = function(param)
   param.objs = objs
   param.colors = colors
   param.count = ROW_COUNT * COL_COUNT
-  param.step = PairGameOnStepGame
+  param.step = PairGamePlay
 end
 
 PairGame.OnStep = function(param)
@@ -55,14 +55,14 @@ PairGame.OnStep = function(param)
   param.step(param)
 end
 
-PairGameOnStepEnd = function(param)
+PairGameEnd = function(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   StartTalk(pass_talk_id)
 end
 
-PairGameOnStepGame = function(param)
+PairGamePlay = function(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -81,7 +81,7 @@ PairGameOnStepGame = function(param)
           Good.SetScript(param.sel_obj, '')
           if (color1 == param.colors[param.sel_index]) then
             if (ClearPair(param, obj_index, param.sel_index)) then
-              param.step = PairGameOnStepEnd
+              param.step = PairGameEnd
             end
             return
           end

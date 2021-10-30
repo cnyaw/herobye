@@ -24,7 +24,7 @@ end
 MemoryGame = {}
 
 MemoryGame.OnCreate = function(param)
-  param.step = MemoryGameOnStepNewQuiz
+  param.step = MemoryGameNewQuiz
 end
 
 MemoryGame.OnStep = function(param)
@@ -35,7 +35,7 @@ MemoryGame.OnStep = function(param)
   param.step(param)
 end
 
-function MemoryGameOnStepInitQuiz(param)
+function MemoryGameInitQuiz(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -48,12 +48,12 @@ function MemoryGameOnStepInitQuiz(param)
   Good.SetPos(o, 2 * SZ_INPUT_COLOR_OBJ * #param.quiz, 0)
   table.insert(param.quiz_obj, o)
   if (LEN_QUIZ == #param.quiz) then
-    param.step = MemoryGameOnStepPlay
+    param.step = MemoryGamePlay
     Good.SetScript(param.quiz_obj[1], 'AnimCursor')
   end
 end
 
-function MemoryGameOnStepNewQuiz(param)
+function MemoryGameNewQuiz(param)
   param.quiz = {}
   if (nil ~= param.quiz_obj) then
     for i = 1, #param.quiz_obj do
@@ -62,10 +62,10 @@ function MemoryGameOnStepNewQuiz(param)
   end
   param.quiz_obj = {}
   param.input = {}
-  param.step = MemoryGameOnStepInitQuiz
+  param.step = MemoryGameInitQuiz
 end
 
-function MemoryGameOnStepPlay(param)
+function MemoryGamePlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -83,7 +83,7 @@ function MemoryGameOnStepPlay(param)
         if (IsMemoryCorrect(param)) then
           StartTalk(memory_correct_talk_id)
         else
-          param.step = MemoryGameOnStepNewQuiz
+          param.step = MemoryGameNewQuiz
         end
       end
       return

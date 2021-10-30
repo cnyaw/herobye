@@ -13,7 +13,7 @@ ClothesDrying = {}
 
 ClothesDrying.OnCreate = function(param)
   GenClothes(param)
-  param.step = ClothesDryingOnStepPlay
+  param.step = ClothesDryingPlay
 end
 
 ClothesDrying.OnStep = function(param)
@@ -24,14 +24,14 @@ ClothesDrying.OnStep = function(param)
   end
 end
 
-ClothesDryingOnStepEnd = function(param)
+ClothesDryingEnd = function(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   StartTalk(clothes_drying_done_talk_id)
 end
 
-ClothesDryingOnStepPlay = function(param)
+ClothesDryingPlay = function(param)
   DragHandler(param, BeginDragClothes, DraggingClothes, DragClothesDone)
 end
 
@@ -113,7 +113,7 @@ function IncMatchClothes(param, slot_idx)
   param.slot[slot_idx] = nil
   param.match = param.match + 1
   if (MAX_CLOTHES == param.match) then
-    param.step = ClothesDryingOnStepEnd
+    param.step = ClothesDryingEnd
   end
 end
 

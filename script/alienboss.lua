@@ -25,7 +25,7 @@ AlienBoss.OnCreate = function(param)
   local w, h = Resource.GetTexSize(UFO_TEX_ID)
   Good.SetPos(weapon_obj, (w - sw)/2, h - sh)
   SetCheckCount(param, 0)
-  param.step = AlienBossOnStepInput
+  param.step = AlienBossInput
 end
 
 AlienBoss.OnStep = function(param)
@@ -51,16 +51,16 @@ function AlienBossHittest(param)
   end
 end
 
-function AlienBossOnStepInput(param)
+function AlienBossInput(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     AlienBossHittest(param)
   end
   if (CHECK_COUND <= GetCounterUiCount(param)) then
-    param.step = AlienBossOnStepWin
+    param.step = AlienBossWin
   end
 end
 
-function AlienBossOnStepWin(param)
+function AlienBossWin(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end

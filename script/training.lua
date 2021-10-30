@@ -59,7 +59,7 @@ TrainingClick = {}
 TrainingClick.OnCreate = function(param)
   param.hit = 0
   hit_obj = GenTrainingNumInfoObj(GetClickTrainingCount(param))
-  param.step = TrainingClickOnStepPlay
+  param.step = TrainingClickPlay
 end
 
 TrainingClick.OnStep = function(param)
@@ -70,7 +70,7 @@ TrainingStick = {}
 
 TrainingStick.OnCreate = function(param)
   BounceGameInit(param, MAX_STICK, stick_tex_id, InitStick)
-  param.step = TrainingStickOnStepPlay
+  param.step = TrainingStickPlay
 end
 
 TrainingStick.OnStep = function(param)
@@ -160,7 +160,7 @@ function SetNextTrainingLevel(id)
   end
 end
 
-function TrainingClickOnStepEnd(param)
+function TrainingClickEnd(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -168,7 +168,7 @@ function TrainingClickOnStepEnd(param)
   SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
 end
 
-function TrainingClickOnStepPlay(param)
+function TrainingClickPlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -183,7 +183,7 @@ function TrainingClickOnStepPlay(param)
     if (not IsFinishTraining()) then
       hit_obj = GenTrainingNumInfoObj(GetClickTrainingCount(param))
       if (MAX_CLICK == param.hit) then
-        param.step = TrainingClickOnStepEnd
+        param.step = TrainingClickEnd
         return
       end
     else
@@ -204,7 +204,7 @@ end
 function TrainingStickOnHitStick(param, o)
   GenFlyUpObj(o, stick_tex_id)
   if (MAX_STICK == param.hit) then
-    param.step = TrainingStickOnStepEnd
+    param.step = TrainingStickEnd
   end
 end
 
@@ -217,7 +217,7 @@ function TrainingOnStep(param)
   param.step(param)
 end
 
-function TrainingStickOnStepEnd(param)
+function TrainingStickEnd(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -225,7 +225,7 @@ function TrainingStickOnStepEnd(param)
   SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
 end
 
-function TrainingStickOnStepPlay(param)
+function TrainingStickPlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end

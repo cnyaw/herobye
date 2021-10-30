@@ -8,7 +8,7 @@ BegMoney = {}
 BegMoney.OnCreate = function(param)
   BounceGameInit(param, MAX_USER, user_tex_id)
   UpdateCoinInfo(param)
-  param.step = BegMoneyOnStep
+  param.step = BegMoneyPlay
 end
 
 BegMoney.OnStep = function(param)
@@ -37,7 +37,7 @@ BegMoneyBou.OnStep = function(param)
   end
 end
 
-function BegMoneyOnStep(param)
+function BegMoneyPlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -48,7 +48,7 @@ function BegMoneyOnStep(param)
   end
 end
 
-function BegMoneyOnStepDone(param)
+function BegMoneyDone(param)
   if (nil == param.boa) then
     Good.GenObj(-1, MAIN_MAP_LVL_ID)
     return
@@ -93,6 +93,6 @@ function OnBegMoney(param, o)
   AddCoin(GetCurrBouGain())
   UpdateCoinInfo(param)
   if (MAX_USER == param.hit) then
-    param.step = BegMoneyOnStepDone
+    param.step = BegMoneyDone
   end
 end

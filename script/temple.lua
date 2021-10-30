@@ -165,12 +165,12 @@ function TempleOnStep(param)
       return
     end
     if (GetCoin() >= GetBetCount()) then
-      param.step = TempleOnStepRollDice
+      param.step = TempleRollDice
     end
   end
 end
 
-function TempleOnStepMoveUser(param)
+function TempleMoveUser(param)
   if (not WaitTimer(param, user_move_time)) then
     return
   end
@@ -190,7 +190,7 @@ function TempleOnStepMoveUser(param)
   param.step = TempleOnStep
 end
 
-function TempleOnStepRollDice(param)
+function TempleRollDice(param)
   local n = RollDice()
   if (not WaitTimer(param, WAIT_TIME)) then
     return
@@ -200,5 +200,5 @@ function TempleOnStepRollDice(param)
   user_move_time = n * USER_MOVE_SPEED
   new_user_pos = CalCTilePos(user_pos + n)
   SetUserMoveToPath()
-  param.step = TempleOnStepMoveUser
+  param.step = TempleMoveUser
 end

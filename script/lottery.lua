@@ -84,7 +84,7 @@ local function LotteryNoDraw(param)
   if (param.mousedown) then
     param.mousedown = false
     if (IsLotteryEnd()) then
-      param.step = LotteryOnStepEnd
+      param.step = LotteryEnd
     end
   end
 end
@@ -94,7 +94,7 @@ Lottery = {}
 Lottery.OnCreate = function(param)
   UpdateCoinInfo(param)
   GenLottery()
-  param.step = LotterOnStepDraw
+  param.step = LotterDraw
   param.start_draw = false
 end
 
@@ -106,7 +106,7 @@ Lottery.OnStep = function(param)
   param.step(param)
 end
 
-LotterOnStepDraw = function(param)
+LotterDraw = function(param)
   if (Input.IsKeyDown(Input.LBUTTON)) then
     if (param.start_draw) then
       LotteryDraw(param)
@@ -120,7 +120,7 @@ LotterOnStepDraw = function(param)
   end
 end
 
-LotteryOnStepEnd = function(param)
+LotteryEnd = function(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end

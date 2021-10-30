@@ -18,7 +18,7 @@ CaveDoor = {}
 
 CaveDoor.OnCreate = function(param)
   InitCaveDoor(param)
-  param.step = CaveDoorOnStepInput
+  param.step = CaveDoorInput
 end
 
 CaveDoor.OnStep = function(param)
@@ -35,7 +35,7 @@ function AddInputCode(param, code)
   Good.SetBgColor(param.block_obj[idx], COLOR_GRAY)
 end
 
-function CaveDoorOnStepInput(param)
+function CaveDoorInput(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -53,7 +53,7 @@ function CaveDoorOnStepInput(param)
   end
 end
 
-function CaveDoorOnStepInputRight(param)
+function CaveDoorInputRight(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -65,12 +65,12 @@ function CaveDoorOnStepInputRight(param)
   end
 end
 
-function CaveDoorOnStepInputWrong(param)
+function CaveDoorInputWrong(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   ClearInputCode(param)
-  param.step = CaveDoorOnStepInput
+  param.step = CaveDoorInput
 end
 
 function ClearInputCode(param)
@@ -132,9 +132,9 @@ function ValidateInputCode(param)
   end
   if (not CorrectInputCode(param.input_code)) then
     SetInputCodeBlockColor(param, COLOR_INPUT_WRONG)
-    param.step = CaveDoorOnStepInputWrong
+    param.step = CaveDoorInputWrong
   else
     SetInputCodeBlockColor(param, COLOR_INPUT_RIGHT)
-    param.step = CaveDoorOnStepInputRight
+    param.step = CaveDoorInputRight
   end
 end

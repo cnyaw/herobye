@@ -33,7 +33,7 @@ ShadowGame = {}
 
 ShadowGame.OnCreate = function(param)
   ResetShadowGame()
-  param.step = ShadowGameOnStepPlay
+  param.step = ShadowGamePlay
 end
 
 ShadowGame.OnStep = function(param)
@@ -44,14 +44,14 @@ ShadowGame.OnStep = function(param)
   param.step(param)
 end
 
-ShadowGameOnStepFinish = function(param)
+ShadowGameDone = function(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   StartTalk(found_laalaa_talk_id)
 end
 
-ShadowGameOnStepPlay = function(param)
+ShadowGamePlay = function(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     if (not ShadowAnimDone()) then
       return
@@ -59,7 +59,7 @@ ShadowGameOnStepPlay = function(param)
     local x, y = Input.GetMousePos()
     if (PtInObj(x, y, laalaa_obj_id)) then
       Good.SetScript(laalaa_obj_id, 'AnimFadeToWhite')
-      param.step = ShadowGameOnStepFinish
+      param.step = ShadowGameDone
     else
       ResetShadowGame()
     end

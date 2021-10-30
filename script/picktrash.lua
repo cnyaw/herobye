@@ -24,7 +24,7 @@ PickTrash.OnCreate = function(param)
     fish_bone[i] = GenFishBone()
   end
   SetCheckCount(param, 0)
-  param.step = PickTrashOnStepPlay
+  param.step = PickTrashPlay
 end
 
 PickTrash.OnStep = function(param)
@@ -115,16 +115,16 @@ function IntersectObj(x, y, w, h, o)
   return x + w > ox and y + h > oy and x < ox + ow and y < oy + oh
 end
 
-function PickTrashOnStepDone(param)
+function PickTrashDone(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   StartTalk(clean_done_talk_id)
 end
 
-function PickTrashOnStepPlay(param)
+function PickTrashPlay(param)
   if (CHECK_COUND == GetCounterUiCount(param)) then
-    param.step = PickTrashOnStepDone
+    param.step = PickTrashDone
     return
   end
   DragHandler(param, BeginDragFishBone, DraggingFishBone, DragFishBoneDone)

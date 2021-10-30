@@ -123,7 +123,7 @@ PuzzleGame = {}
 PuzzleGame.OnCreate = function(param)
   GenPuzzleTex()
   GenPuzzle()
-  param.step = PuzzleGameOnStepPlay
+  param.step = PuzzleGamePlay
 end
 
 PuzzleGame.OnStep = function(param)
@@ -134,14 +134,14 @@ PuzzleGame.OnStep = function(param)
   param.step(param)
 end
 
-function PuzzleGameOnStepEnd(param)
+function PuzzleGameEnd(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   StartTalk(found_dipsy_talk_id)
 end
 
-function PuzzleGameOnStepPlay(param)
+function PuzzleGamePlay(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     local mx,my = Input.GetMousePos()
     local xx, yy = x + (1 + w) * (blank % MAX_COL), y + (1 + h) * math.floor(blank / MAX_COL)
@@ -155,7 +155,7 @@ function PuzzleGameOnStepPlay(param)
       MoveUp()
     end
     if (IsPuzzleComplete()) then
-      param.step = PuzzleGameOnStepEnd
+      param.step = PuzzleGameEnd
     end
   end
 end

@@ -8,7 +8,7 @@ HelpPinky = {}
 
 HelpPinky.OnCreate = function(param)
   BounceGameInit(param, MAX_JOHN, JOHN_TEX_ID)
-  param.step = HelpPinkyOnStepPlay
+  param.step = HelpPinkyPlay
 end
 
 HelpPinky.OnStep = function(param)
@@ -18,7 +18,7 @@ HelpPinky.OnStep = function(param)
   param.step(param)
 end
 
-function HelpPinkyOnStepEnd(param)
+function HelpPinkyEnd(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -29,7 +29,7 @@ function HelpPinkyOnStepEnd(param)
   end
 end
 
-function HelpPinkyOnStepPlay(param)
+function HelpPinkyPlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -40,6 +40,6 @@ end
 function OnHitJohn(param, o)
   GenFlyUpObj(o, JOHN_TEX_ID)
   if (MAX_JOHN == param.hit) then
-    param.step = HelpPinkyOnStepEnd
+    param.step = HelpPinkyEnd
   end
 end

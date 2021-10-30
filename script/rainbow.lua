@@ -94,7 +94,7 @@ RainbowGame.OnCreate = function(param)
   InitPalette()
   InitRainbow()
   SelPalette(1)
-  param.step = RainbowGameOnStepPlay
+  param.step = RainbowGamePlay
 end
 
 RainbowGame.OnStep = function(param)
@@ -105,14 +105,14 @@ RainbowGame.OnStep = function(param)
   param.step(param)
 end
 
-RainbowGameOnStepDone = function(param)
+RainbowGameDone = function(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
   StartTalk(beautiful_rainbow_talk_id)
 end
 
-RainbowGameOnStepPlay = function(param)
+RainbowGamePlay = function(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     local x, y = Input.GetMousePos()
     if (HittestPalette(x, y)) then
@@ -120,7 +120,7 @@ RainbowGameOnStepPlay = function(param)
     end
     if (HittestRainbow(x, y)) then
       if (IsBeautifulRainbow()) then
-        param.step = RainbowGameOnStepDone
+        param.step = RainbowGameDone
       end
       return
     end

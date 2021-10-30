@@ -26,7 +26,7 @@ SlapMouse.OnCreate = function(param)
   param.btn = {btn1_obj_id, btn2_obj_id, btn3_obj_id}
   param.obj = {racket_obj_id, ball_obj_id, cheese_obj_id}
   RandButtonColor(param)
-  param.step = SlapMouseOnStepInput
+  param.step = SlapMouseInput
   SetCheckCount(param, 0)
 end
 
@@ -64,7 +64,7 @@ function SlapMouseHittest(param)
   end
 end
 
-function SlapMouseOnStepDone(param)
+function SlapMouseDone(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -77,13 +77,13 @@ function SlapMouseOnStepDone(param)
   end
 end
 
-function SlapMouseOnStepInput(param)
+function SlapMouseInput(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     SlapMouseHittest(param)
   end
 end
 
-function SlapMouseOnStepMouse(param)
+function SlapMouseMoving(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -93,9 +93,9 @@ function SlapMouseOnStepMouse(param)
     RandButtonColor(param)
     Good.SetPos(mouse_obj_id, param.orig_mouse_x, param.orig_mouse_y)
     if (CHECK_COUND <= GetCounterUiCount(param)) then
-      param.step = SlapMouseOnStepDone
+      param.step = SlapMouseDone
     else
-      param.step = SlapMouseOnStepInput
+      param.step = SlapMouseInput
     end
     return
   end
@@ -111,7 +111,7 @@ function ValidateMachineButton(param, i)
     param.btn_i = (param.btn_i + 1) % 3
     param.obj_i = param.obj_i + 1
     if (4 == param.obj_i) then
-      param.step = SlapMouseOnStepMouse
+      param.step = SlapMouseMoving
       return
     end
   else
