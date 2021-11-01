@@ -768,7 +768,7 @@ y=32
 name=training map
 bgColor=128 128 0
 script=TrainingMap
-objects=282 283
+objects=282 283 571
 
 [object282]
 name=o_brother1
@@ -784,6 +784,18 @@ x=352
 y=96
 dim=0 0 224 224
 
+[object571]
+name=back
+texture=261
+rot=90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+visible=0
+x=304
+y=352
+dim=0 0 32 32
+
 [level295]
 name=training stick
 bgColor=128 128 0
@@ -793,7 +805,7 @@ script=TrainingStick
 name=training click
 bgColor=128 128 0
 script=TrainingClick
-objects=269
+objects=269 572
 
 [object269]
 name=fish
@@ -801,6 +813,18 @@ texture=266
 x=224
 y=112
 dim=0 0 200 200
+
+[object572]
+name=back
+texture=261
+rot=90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+visible=0
+x=304
+y=352
+dim=0 0 32 32
 
 [level287]
 name=main map

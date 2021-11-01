@@ -6,6 +6,8 @@ local MAX_STICK = 5
 local TIME_TRAINING_CD = 3
 local WAIT_TIME = 40
 
+local back_obj_id = 571
+local click_back_obj_id = 572
 local click_fish_obj_id = 269
 local stick_tex_id = 292
 local circle_tex_id = 326
@@ -27,6 +29,8 @@ TrainingMap.OnCreate = function(param)
   if (not IsFinishTraining()) then
     GenTrainingObj(click_training)
     GenTrainingObj(stick_training)
+  else
+    Good.SetVisible(back_obj_id, Good.VISIBLE)
   end
   QuestOnCreate()
 end
@@ -42,6 +46,10 @@ TrainingMap.OnStep = function(param)
   end
   local x, y = Input.GetMousePos()
   if (QuestOnStep(x, y)) then
+    return
+  end
+  if (PtInObj(x, y, back_obj_id)) then
+    Good.GenObj(-1, GetTrainingMapBackLvlId())
     return
   end
 end
@@ -60,9 +68,19 @@ TrainingClick.OnCreate = function(param)
   param.hit = 0
   hit_obj = GenTrainingNumInfoObj(GetClickTrainingCount(param))
   param.step = TrainingClickPlay
+  if (IsFinishTraining()) then
+    Good.SetVisible(click_back_obj_id, Good.VISIBLE)
+  end
 end
 
 TrainingClick.OnStep = function(param)
+  if (Input.IsKeyPushed(Input.LBUTTON)) then
+    local x, y = Input.GetMousePos()
+    if (PtInObj(x, y, click_back_obj_id)) then
+      Good.GenObj(-1, TRAINING_MAP_LVL_ID)
+      return
+    end
+  end
   TrainingOnStep(param)
 end
 
