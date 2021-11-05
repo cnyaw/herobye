@@ -25,6 +25,7 @@ local set_clock_lvl_id = 478
 local snake_cave_lvl_id = 392
 local shadow_lvl_id = 22
 local slap_mouse_lvl_id = 54
+local white_training_lvl_id = 564
 local zoo_lvl_id = 421
 
 local bebe_tex_id = 215
@@ -2054,7 +2055,7 @@ TalkData = {
   [3795] = {
     {Image = pinnote_tex_id},
     {Text = '白之國訓練場'},
-    {LevelId = NORTH_NATION_LVL_ID},
+    {LevelId = white_training_lvl_id},
   },
   -- Island field, island.
   [3800] = {

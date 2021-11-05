@@ -236,6 +236,21 @@ AnimTalkArrow.OnStep = function(param)
   end
 end
 
+AnimTree = {}
+
+AnimTree.OnStep = function(param)
+  if (nil == param.k) then
+    local loop1 = ArAddLoop(nil, 1)
+    ArAddMoveTo(loop1, 'Pos', param.dt, param.target_x, param.target_y)
+    ArAddCall(loop1, 'AcKillAnimObj', 0)
+    local loop2 = ArAddLoop(nil, 1)
+    ArAddMoveTo(loop2, 'Scale', param.dt, 1, 1)
+    param.k = ArAddAnimator({loop1, loop2})
+  else
+    ArStepAnimator(param, param.k)
+  end
+end
+
 AnimUfo = {}
 
 AnimUfo.OnStep = function(param)
