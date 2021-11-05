@@ -281,6 +281,21 @@ function GetOpenCaveDoorCode()
   return open_cave_door_code
 end
 
+function GetRandomTarget(param, n)
+  if (nil == param.last_i) then
+    param.last_i = 0
+  end
+  local i = 0
+  while true do
+    i = math.random(n)
+    if (param.last_i ~= i) then
+      break
+    end
+  end
+  param.last_i = i
+  return i
+end
+
 function GetTempleLevel()
   return ItemCount('i_temple_lvl')
 end

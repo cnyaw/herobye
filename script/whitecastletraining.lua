@@ -9,18 +9,6 @@ local left_btn_obj_id = 567
 local right_btn_obj_id = 569
 local tree_obj_id = 565
 
-local function GetRandomTarget(param)
-  local i = 0
-  while true do
-    i = math.random(#dummy_obj_id)
-    if (param.last_i ~= i) then
-      break
-    end
-  end
-  param.last_i = i
-  return i
-end
-
 local function GenTree(param)
   local o = Good.GenObj(param.dummy, tree_tex_id, 'AnimTree')
   Good.SetPos(o, Good.GetPos(tree_obj_id))
@@ -28,7 +16,7 @@ local function GenTree(param)
   Good.SetAnchor(o, 0.5, 0.5)
   local p = Good.GetParam(o)
   p.dt = ANIM_TIME
-  local target = dummy_obj_id[GetRandomTarget(param)]
+  local target = dummy_obj_id[GetRandomTarget(param, #dummy_obj_id)]
   p.target_x, p.target_y = Good.GetPos(target)
   p.clear = function() end
 end
@@ -36,7 +24,6 @@ end
 WhiteCastleTraining = {}
 
 WhiteCastleTraining.OnCreate = function(param)
-  param.last_i = 0
   param.dir_right = true
   param.dummy = Good.GenDummy(-1)
 end

@@ -9,25 +9,13 @@ local note_tex_id = 534
 local source_obj_id = 537
 local talk_id = 4101
 
-local function GetRandomTarget(param)
-  local i = 0
-  while true do
-    i = math.random(#btn_obj_id)
-    if (param.last ~= i) then
-      break
-    end
-  end
-  param.last = i
-  return i
-end
-
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
   UpdateCounterUi(param, note_tex_id, CHECK_COUND)
 end
 
 local function GenMusicalNote(param)
-  local btn = btn_obj_id[GetRandomTarget(param)]
+  local btn = btn_obj_id[GetRandomTarget(param, #btn_obj_id)]
   local o = Good.GenObj(param.dummy, note_tex_id, 'AnimMusicalNote')
   Good.SetPos(o, Good.GetPos(source_obj_id))
   local color = Good.GetBgColor(btn)
@@ -62,7 +50,7 @@ local function HitTest(param)
       if (hit) then
         SetCheckCount(param, GetCounterUiCount(param) + 1)
         if (CHECK_COUND <= GetCounterUiCount(param)) then
-          param.step = MusicGameOnStepDone
+          param.step = MusicGameDone
         end
       else
         SetCheckCount(param, 0)
@@ -75,10 +63,9 @@ end
 MusicGame = {}
 
 MusicGame.OnCreate = function(param)
-  param.last = 0
   param.dummy = Good.GenDummy(-1)
   SetCheckCount(param, 0)
-  param.step = MusicGameOnStepPlay
+  param.step = MusicGamePlay
 end
 
 MusicGame.OnStep = function(param)
@@ -89,14 +76,14 @@ MusicGame.OnStep = function(param)
   param.step(param)
 end
 
-function MusicGameOnStepDone(param)
+function MusicGameDone(param)
   if (not WaitTimer(param, WAIT_TIME_DONE)) then
     return
   end
   StartTalk(talk_id)
 end
 
-function MusicGameOnStepPlay(param)
+function MusicGamePlay(param)
   HitTest(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
