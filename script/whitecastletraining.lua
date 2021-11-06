@@ -18,27 +18,36 @@ local function GenTree(param)
   p.dt = ANIM_TIME
   local target = dummy_obj_id[GetRandomTarget(param, #dummy_obj_id)]
   p.target_x, p.target_y = Good.GetPos(target)
-  p.clear = function() end
+  local tw, th = Resource.GetTexSize(tree_tex_id)
+  p.target_x = p.target_x - tw/2
 end
 
-local function MoveHorse()
-  if (Input.IsKeyDown(Input.LBUTTON)) then
+local function MoveHorse(param)
+  if (Input.IsKeyPushed(Input.LBUTTON)) then
     local x, y = Input.GetMousePos()
     if (PtInObj(x, y, left_btn_obj_id)) then
+      if (1 < param.dummy_i) then
+        param.dummy_i = param.dummy_i - 1
+      end
       if (param.dir_right) then
         param.dir_right = false
         Good.SetScale(horse_obj_id, -1, 1)
       end
-      local hx, hy = Good.GetPos(horse_obj_id)
-      Good.SetPos(horse_obj_id, hx - 1, hy)
     elseif (PtInObj(x, y, right_btn_obj_id)) then
+      if (3 > param.dummy_i) then
+        param.dummy_i = param.dummy_i + 1
+      end
       if (not param.dir_right) then
         param.dir_right = true
         Good.SetScale(horse_obj_id, 1, 1)
       end
-      local hx, hy = Good.GetPos(horse_obj_id)
-      Good.SetPos(horse_obj_id, hx + 1, hy)
+    else
+      return
     end
+    local hx, hy = Good.GetPos(horse_obj_id)
+    local hw, hh = Resource.GetTexSize(Good.GetTexId(horse_obj_id))
+    local dx, dy = Good.GetPos(dummy_obj_id[param.dummy_i])
+    Good.SetPos(horse_obj_id, dx - hw/2, hy)
   end
 end
 
@@ -46,6 +55,7 @@ WhiteCastleTraining = {}
 
 WhiteCastleTraining.OnCreate = function(param)
   param.dir_right = true
+  param.dummy_i = 2
   param.dummy = Good.GenDummy(-1)
 end
 
@@ -54,7 +64,7 @@ WhiteCastleTraining.OnStep = function(param)
     Good.GenObj(-1, NORTH_NATION_LVL_ID)
     return
   end
-  MoveHorse()
+  MoveHorse(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end

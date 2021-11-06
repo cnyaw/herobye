@@ -3275,7 +3275,6 @@ objects=565 566 567 569 574 575 576
 
 [object565]
 texture=563
-repX=1
 xscale=0.3
 yscale=0.3
 xpivot=0.5
@@ -3344,6 +3343,6 @@ y=336
 sprite=255
 texture=255
 map=255
-x=464
+x=480
 y=336
 
