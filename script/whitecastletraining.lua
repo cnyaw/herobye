@@ -1,5 +1,5 @@
 local ANIM_TIME = 4
-local CHECK_COUND = 12
+local CHECK_COUND = 10
 local WAIT_TIME = 60
 
 local tree_tex_id = 563
@@ -8,6 +8,7 @@ local dummy_obj_id = {575, 574, 576}
 local horse_obj_id = 566
 local left_btn_obj_id = 567
 local right_btn_obj_id = 569
+local talk_id = 3796
 local tree_obj_id = 565
 
 local function SetCheckCount(param, c)
@@ -82,11 +83,27 @@ WhiteCastleTraining.OnCreate = function(param)
   param.dummy_i = 2
   param.dummy = Good.GenDummy(-1)
   SetCheckCount(param, 0)
+  param.step = WhiteCastleTrainingPlay
 end
 
 WhiteCastleTraining.OnStep = function(param)
   if (Input.IsKeyPressed(Input.ESCAPE)) then
     Good.GenObj(-1, NORTH_NATION_LVL_ID)
+    return
+  end
+  param.step(param)
+end
+
+function WhiteCastleTrainingDone(param)
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  StartTalk(talk_id)
+end
+
+function WhiteCastleTrainingPlay(param)
+  if (CHECK_COUND <= GetCounterUiCount(param)) then
+    param.step = WhiteCastleTrainingDone
     return
   end
   MoveHorse(param)

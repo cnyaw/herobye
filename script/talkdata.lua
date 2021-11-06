@@ -2048,7 +2048,8 @@ TalkData = {
     {LevelId = red_training_lvl_id},
   },
   [3791] = {
-    {Text = '幹的好繼續加油！'},
+    {Text = '你真是一個神射手'},
+    {Text = '請繼續加油！'},
     {LevelId = NORTH_NATION_LVL_ID},
   },
   -- Dq, white castle training.
@@ -2056,6 +2057,11 @@ TalkData = {
     {Image = pinnote_tex_id},
     {Text = '白之國訓練場'},
     {LevelId = white_training_lvl_id},
+  },
+  [3796] = {
+    {Text = '你真是一個勇敢的騎士'},
+    {Text = '請繼續加油！'},
+    {LevelId = NORTH_NATION_LVL_ID},
   },
   -- Island field, island.
   [3800] = {
