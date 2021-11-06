@@ -1,4 +1,5 @@
 local ANIM_TIME = 4
+local CHECK_COUND = 12
 local WAIT_TIME = 60
 
 local tree_tex_id = 563
@@ -8,6 +9,11 @@ local horse_obj_id = 566
 local left_btn_obj_id = 567
 local right_btn_obj_id = 569
 local tree_obj_id = 565
+
+local function SetCheckCount(param, c)
+  SetCounterUiCount(param, c)
+  UpdateCounterUi(param, tree_tex_id, CHECK_COUND)
+end
 
 local function GenTree(param)
   local o = Good.GenObj(param.dummy, tree_tex_id, 'AnimTree')
@@ -20,6 +26,7 @@ local function GenTree(param)
   p.target_x, p.target_y = Good.GetPos(target)
   local tw, th = Resource.GetTexSize(tree_tex_id)
   p.target_x = p.target_x - tw/2
+  p.clear = function() SetCheckCount(param, GetCounterUiCount(param) + 1) end
 end
 
 local function MoveHorse(param)
@@ -51,12 +58,30 @@ local function MoveHorse(param)
   end
 end
 
+local function HitTest(param)
+  local hx, hy = Good.GetPos(horse_obj_id)
+  local hw, hh = Resource.GetTexSize(Good.GetTexId(horse_obj_id))
+  hx = hx + hw/2
+  local c = Good.GetChildCount(param.dummy)
+  for i = 0, c - 1 do
+    local o = Good.GetChild(param.dummy, i)
+    --local x, y = Good.GetPos(o)
+    --if (PtInRect(x, y, hx - 20, hy - 20, hx + 20, hy + 20)) then
+    if (PtInObj(hx, hy, o)) then
+      SetCheckCount(param, 0)
+      Good.KillObj(o)
+      break
+    end
+  end
+end
+
 WhiteCastleTraining = {}
 
 WhiteCastleTraining.OnCreate = function(param)
   param.dir_right = true
   param.dummy_i = 2
   param.dummy = Good.GenDummy(-1)
+  SetCheckCount(param, 0)
 end
 
 WhiteCastleTraining.OnStep = function(param)
@@ -65,6 +90,7 @@ WhiteCastleTraining.OnStep = function(param)
     return
   end
   MoveHorse(param)
+  HitTest(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end

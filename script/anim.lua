@@ -23,6 +23,11 @@ function AcKillAnimScript(param)
   Good.SetScript(param._id, '')
 end
 
+function AcKillMusicalNoteObj(param)
+  param.clear()
+  AcKillAnimObj(param)
+end
+
 function AcMoleBeginHit(param)
   param.hit = false
 end
@@ -35,11 +40,6 @@ function AcMoleHide(param)
   param.k = nil
   Good.SetScript(param._id, 'AnimMole')
   Good.SetBgColor(param._id, COLOR_WHITE)
-end
-
-function AcKillMusicalNoteObj(param)
-  param.clear()
-  AcKillAnimObj(param)
 end
 
 function AcResetAstroid(param)
@@ -242,7 +242,7 @@ AnimTree.OnStep = function(param)
   if (nil == param.k) then
     local loop1 = ArAddLoop(nil, 1)
     ArAddMoveTo(loop1, 'Pos', param.dt, param.target_x, param.target_y)
-    ArAddCall(loop1, 'AcKillAnimObj', 0)
+    ArAddCall(loop1, 'AcKillMusicalNoteObj', 0)
     local loop2 = ArAddLoop(nil, 1)
     ArAddMoveTo(loop2, 'Scale', param.dt, 1, 1)
     param.k = ArAddAnimator({loop1, loop2})

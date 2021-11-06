@@ -3280,7 +3280,6 @@ yscale=0.3
 xpivot=0.5
 ypivot=0.5
 x=272
-y=-16
 dim=0 0 96 96
 
 [object566]
