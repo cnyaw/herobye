@@ -21,18 +21,7 @@ local function GenTree(param)
   p.clear = function() end
 end
 
-WhiteCastleTraining = {}
-
-WhiteCastleTraining.OnCreate = function(param)
-  param.dir_right = true
-  param.dummy = Good.GenDummy(-1)
-end
-
-WhiteCastleTraining.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, NORTH_NATION_LVL_ID)
-    return
-  end
+local function MoveHorse()
   if (Input.IsKeyDown(Input.LBUTTON)) then
     local x, y = Input.GetMousePos()
     if (PtInObj(x, y, left_btn_obj_id)) then
@@ -51,6 +40,21 @@ WhiteCastleTraining.OnStep = function(param)
       Good.SetPos(horse_obj_id, hx + 1, hy)
     end
   end
+end
+
+WhiteCastleTraining = {}
+
+WhiteCastleTraining.OnCreate = function(param)
+  param.dir_right = true
+  param.dummy = Good.GenDummy(-1)
+end
+
+WhiteCastleTraining.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, NORTH_NATION_LVL_ID)
+    return
+  end
+  MoveHorse()
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
