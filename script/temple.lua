@@ -180,9 +180,12 @@ function TempleMoveUser(param)
   local c = factor * GetBetCount()
   if (0 < c) then
     AddCoin(c)
-    AddTempleScore(c)
+    local lvlUp = AddTempleScore(c)
     for i = 1, factor do
       Good.GenObj(user_obj_id, COIN_TEX_ID, 'AnimTempleGainCoin')
+    end
+    if (lvlUp) then
+      SetBetCoinSelection()
     end
   else
     ConsumeCoin(-c)

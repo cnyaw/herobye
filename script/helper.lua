@@ -137,6 +137,9 @@ function AddTempleScore(amount)
   if (GetTempleMaxScore() < GetTempleScore() and 10 > GetTempleLevel()) then
     AddItem('i_temple_lvl', 1)
     SetItem('i_temple_score', 0)
+    return true
+  else
+    return false
   end
 end
 
