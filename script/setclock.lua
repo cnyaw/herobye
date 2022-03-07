@@ -75,7 +75,7 @@ local function IncClock(clk, update_min)
   end
 end
 
-local function Set7SegLen(id, n)
+local function Set7SegLed(id, n)
   local digit10 = {
     {1, 1, 1, 1, 1, 1, 0},              -- 0
     {0, 1, 1, 0, 0, 0, 0},              -- 1
@@ -134,7 +134,7 @@ local function SetDigitClock()
   for i = 1, #s do
     local c = string.sub(s, i, i)
     local n = string.find(digits, c)
-    Set7SegLen(led_obj_id[i], n)
+    Set7SegLed(led_obj_id[i], n)
   end
 end
 

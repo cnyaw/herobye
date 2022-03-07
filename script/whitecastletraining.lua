@@ -66,8 +66,6 @@ local function HitTest(param)
   local c = Good.GetChildCount(param.dummy)
   for i = 0, c - 1 do
     local o = Good.GetChild(param.dummy, i)
-    --local x, y = Good.GetPos(o)
-    --if (PtInRect(x, y, hx - 20, hy - 20, hx + 20, hy + 20)) then
     if (PtInObj(hx, hy, o)) then
       SetCheckCount(param, 0)
       Good.KillObj(o)
