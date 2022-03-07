@@ -29,14 +29,13 @@ local user_pos, new_user_pos
 local user_move_time
 
 local bet_lebel_dummy = nil
-local bet_sel = 1
 
 local function CalCTilePos(p)
   return ((p - 1) % NUM_TILE_POS) + 1
 end
 
 local function GetBetCount()
-  return BET_COIN[bet_sel] * GetTempleLevel()
+  return BET_COIN[GetTempleBetSel()] * GetTempleLevel()
 end
 
 local function GetBetLebelPos(i)
@@ -82,7 +81,7 @@ local function SetBetCoinSelection()
     local w = GetTextObjWidth(s)
     local x = GetBetLebelPos(i) + (BET_OW - w)/2
     Good.SetPos(s, x, BET_OY)
-    if (bet_sel == i) then
+    if (GetTempleBetSel() == i) then
       SetTextObjColor(s, COLOR_RED)
     end
   end
@@ -93,7 +92,7 @@ local function HittestBetCoin()
   for i = 1, #BET_COIN do
     local x = GetBetLebelPos(i)
     if (PtInRect(mx, my, x, BET_OY, x + BET_OW, BET_OY + TEXT_SZ)) then
-      bet_sel = i
+      SetTempleBetSel(i)
       SetBetCoinSelection()
       return true
     end
@@ -137,7 +136,9 @@ Temple = {}
 
 Temple.OnCreate = function(param)
   bet_lebel_dummy = nil
-  bet_sel = 1
+  if (0 == GetTempleBetSel()) then
+    SetTempleBetSel(1)
+  end
   SetBetCoinSelection()
   UpdateCoinInfo(param)
   RollDice()

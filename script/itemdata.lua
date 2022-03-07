@@ -61,6 +61,7 @@ i_fish = 63
 f_ship = 64
 i_jewel = 65
 f_king_permission = 66
+i_temp_bet_sel = 67
 --]]
 
 local bou_desc_id = 600

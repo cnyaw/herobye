@@ -296,6 +296,10 @@ function GetRandomTarget(param, n)
   return i
 end
 
+function GetTempleBetSel()
+  return ItemCount('i_temp_bet_sel')
+end
+
 function GetTempleLevel()
   return ItemCount('i_temple_lvl')
 end
@@ -1064,6 +1068,10 @@ function SetItem(id, count)
   else
     bag[id] = nil
   end
+end
+
+function SetTempleBetSel(sel)
+  return SetItem('i_temp_bet_sel', sel)
 end
 
 function StartTalk(id)
