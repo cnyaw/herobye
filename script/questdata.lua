@@ -230,7 +230,8 @@ QuestData = {
   [25101] = {TalkId = 3301},
   -- Janken lib, computer.
   [25200] = {TalkId = 3350, NextCond = HasJewel, NextId = 25201},
-  [25201] = {TalkId = 3351},
+  [25201] = {TalkId = 3351, NextId = 25202},
+  [25202] = {TalkId = 3352},
   -- Janken observatory.
   [25300] = {TalkId = 3380},
   -- Dock, dock.

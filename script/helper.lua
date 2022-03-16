@@ -1021,6 +1021,10 @@ function ScriptSetNeedRopeFlag()
   SetItem('f_need_rope', 1)
 end
 
+function ScriptTakeJewel()
+  SetItem('i_jewel', 0)
+end
+
 function ScriptTempleCreated()
   SetItem('i_temple_lvl', 1)
 end
