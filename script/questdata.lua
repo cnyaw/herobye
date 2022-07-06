@@ -1,6 +1,7 @@
 
 local beg_money_lvl_id = 293
 local curcus_tex_id = 73
+local island_field_lvl_id = 455
 local janken_lib_lvl_id = 217
 local temple_tex_id = 50
 
@@ -245,7 +246,7 @@ QuestData = {
   -- Fish field, fish.
   [27000] = {TalkId = 3600},
   -- Fish field, to island field.
-  [27100] = {LevelId = ISLAND_FIELD_LVL_ID},
+  [27100] = {LevelId = island_field_lvl_id},
   -- Dq, main map.
   [28000] = {LevelId = COMPUTER_LVL_ID},
   [28100] = {TalkId = 3705, NextCond = HasKingPermission, NextId = 28101},
@@ -271,6 +272,10 @@ QuestData = {
   [32200] = {TalkId = 4100},
   -- Island, my ming.
   [32300] = {TalkId = 4200},
-  -- Zoo island, to zoo island.
-  [33000] = {TalkId = 4300},
+  -- Zoo, to zoo.
+  [33000] = {LevelId = ZOO_LVL_ID},
+  -- Zoo field, to zoo field.
+  [33100] = {TalkId = 4300},
+  -- Zoo field, worm cave.
+  [33200] = {TalkId = 4400},
 }

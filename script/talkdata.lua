@@ -26,7 +26,6 @@ local snake_cave_lvl_id = 392
 local shadow_lvl_id = 22
 local slap_mouse_lvl_id = 54
 local white_training_lvl_id = 564
-local zoo_lvl_id = 421
 
 local bebe_tex_id = 215
 local brother1_tex_id = 280
@@ -1068,7 +1067,7 @@ TalkData = {
     {Text = '呵呵呵小白好久不見'},
     {Text = '我在動物園打工'},
     {Text = '賺點零用錢給豬小妹買零食'},
-    {LevelId = zoo_lvl_id},
+    {LevelId = ZOO_LVL_ID},
   },
   -- Hero village, hero home.
   [1800] = {
@@ -2136,10 +2135,16 @@ TalkData = {
     {Text = '要繼續練習哦'},
     {LevelId = ISLAND_LVL_ID},
   },
-  -- Zoo islang, to zoo island.
+  -- Zoo island, to zoo island.
   [4300] = {
     {Image = pinnote_tex_id},
     {Text = '歡迎光臨動物園之島'},
-    {LevelId = zoo_lvl_id},
+    {LevelId = ZOO_FIELD_LVL_ID},
+  },
+  -- Zoo field, worm cave.
+  [4400] = {
+    {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {Text = '蚯蚓洞'},
+    {LevelId = ZOO_FIELD_LVL_ID},
   },
 }
