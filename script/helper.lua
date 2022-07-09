@@ -248,6 +248,12 @@ function GenFlyUpObj(parent, tex_id)
   Good.SetPos(o, x + (w - w2)/2, y)
 end
 
+function GenHitObj(x, y, tex_id)
+  local tx, ty = Resource.GetTexSize(tex_id)
+  local hit = Good.GenObj(-1, tex_id, 'AnimMoleHit')
+  Good.SetPos(hit, x - tx/2, y - ty/2)
+end
+
 function GetCoin()
   return ItemCount(GetCoinId())
 end

@@ -4,6 +4,7 @@ local astroid_lvl_id = 197
 local bat_cave_lvl_id = 263
 local cave_maze_lvl_id = 88
 local clothes_drying_lvl_id = 340
+local earthworm_lvl_id = 580
 local find_slippers_lvl_id = 476
 local fishing_lvl_id = 389
 local fishman_tex_id = 529
@@ -2145,6 +2146,6 @@ TalkData = {
   [4400] = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
     {Text = '蚯蚓洞'},
-    {LevelId = ZOO_FIELD_LVL_ID},
+    {LevelId = earthworm_lvl_id},
   },
 }
