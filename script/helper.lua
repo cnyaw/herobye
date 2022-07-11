@@ -377,6 +377,10 @@ function HasDrumStick()
   return HasItem('i_drum_stick')
 end
 
+function HasEarthWorm()
+  return HasItem('i_earthworm')
+end
+
 function HasFeatherToSell()
   return HasItem('i_po_feather') or HasItem('i_laalaa_feather') or HasItem('i_tinky_winky_feather') or HasItem('i_dipsy_feather')
 end
@@ -979,6 +983,11 @@ end
 
 function ScriptPowerupScissorLoop()
   SetItem('f_powerup_scissor', 1)
+end
+
+function ScriptSellEarthWorm()
+  SetItem('i_earthworm', 0)
+  AddCoin(2 * SELL_ITEM_COST)
 end
 
 function ScriptSellFeather()
