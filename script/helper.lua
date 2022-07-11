@@ -753,6 +753,10 @@ function ScriptAddDrumStick()
   SetItem('i_drum_stick', 1)
 end
 
+function ScriptAddEarthWorm()
+  SetItem('i_earthworm', 1)
+end
+
 function ScriptAddFish()
   SetItem('i_fish', 1)
 end

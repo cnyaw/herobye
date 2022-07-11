@@ -381,6 +381,11 @@ TalkData = {
     {Text = '亮晶晶的寶石'},
     {LevelId = BAG_LVL_ID},
   },
+  [631] = {
+    {Image = EARTHWORM_TEX_ID},
+    {Text = '很有活力的蚯蚓'},
+    {LevelId = BAG_LVL_ID},
+  },
   -- Church.
   [1000] = {
     {Image = pinnote_tex_id},
@@ -2158,6 +2163,7 @@ TalkData = {
     {BgColor = COLOR_BLACK},
     {Image = EARTHWORM_TEX_ID},
     {Text = '太好了挖到蚯蚓了'},
+    {Script = ScriptAddEarthWorm},
     {LevelId = ZOO_FIELD_LVL_ID},
   },
 }
