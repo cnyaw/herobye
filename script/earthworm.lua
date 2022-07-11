@@ -1,6 +1,7 @@
 local CHECK_COUNT = 5
 local COLS, ROWS = 4, 3
 local MARGIN_X, MARGIN_Y = 10, 16
+local WAIT_TIME = 60
 
 local crack_tex_id = 586
 local fail_talk_id = 4401
@@ -29,6 +30,7 @@ EarthWorm.OnCreate = function(param)
   end
   SetCheckCount(param, 0)
   param.digcount = 0
+  param.step = EarthWormPlay
 end
 
 EarthWorm.OnStep = function(param)
@@ -36,6 +38,21 @@ EarthWorm.OnStep = function(param)
     Good.GenObj(-1, ZOO_FIELD_LVL_ID)
     return
   end
+  param.step(param)
+end
+
+function EarthWormDone(param)
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  if (CHECK_COUNT <= GetCounterUiCount(param)) then
+    StartTalk(pass_talk_id)
+  elseif (COLS * ROWS == param.digcount) then
+    StartTalk(fail_talk_id)
+  end
+end
+
+function EarthWormPlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -51,7 +68,7 @@ EarthWorm.OnStep = function(param)
         Good.SetTexId(o, EARTHWORM_TEX_ID)
         Good.SetBgColor(o, COLOR_WHITE)
         if (CHECK_COUNT <= GetCounterUiCount(param)) then
-          StartTalk(pass_talk_id)
+          param.step = EarthWormDone
           return
         end
       else
@@ -59,7 +76,7 @@ EarthWorm.OnStep = function(param)
       end
       param.obj[i] = -1
       if (COLS * ROWS == param.digcount) then
-        StartTalk(fail_talk_id)
+        param.step = EarthWormDone
       end
     end
   end
