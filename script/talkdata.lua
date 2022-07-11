@@ -2148,4 +2148,16 @@ TalkData = {
     {Text = '蚯蚓洞'},
     {LevelId = earthworm_lvl_id},
   },
+  [4401] = {
+    {BgColor = COLOR_BLACK},
+    {Text = '運氣不好沒有挖到蚯蚓'},
+    {Text = '下次再接再厲'},
+    {LevelId = ZOO_FIELD_LVL_ID},
+  },
+  [4402] = {
+    {BgColor = COLOR_BLACK},
+    {Image = EARTHWORM_TEX_ID},
+    {Text = '太好了挖到蚯蚓了'},
+    {LevelId = ZOO_FIELD_LVL_ID},
+  },
 }

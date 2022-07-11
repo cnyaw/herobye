@@ -3,12 +3,13 @@ local COLS, ROWS = 4, 3
 local MARGIN_X, MARGIN_Y = 10, 16
 
 local crack_tex_id = 586
-local earthworm_tex_id = 578
+local fail_talk_id = 4401
+local pass_talk_id = 4402
 local shovel_tex_id = 579
 
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, earthworm_tex_id, CHECK_COUNT)
+  UpdateCounterUi(param, EARTHWORM_TEX_ID, CHECK_COUNT)
 end
 
 EarthWorm = {}
@@ -27,6 +28,7 @@ EarthWorm.OnCreate = function(param)
     end
   end
   SetCheckCount(param, 0)
+  param.digcount = 0
 end
 
 EarthWorm.OnStep = function(param)
@@ -41,14 +43,23 @@ EarthWorm.OnStep = function(param)
   GenHitObj(x, y, shovel_tex_id)
   for i = 1, #param.obj do
     local o = param.obj[i]
-    if (PtInObj(x, y, o)) then
+    if (-1 ~= o and PtInObj(x, y, o)) then
+      param.digcount = param.digcount + 1
       local gotit = 1 == math.random(2)
       if (gotit and CHECK_COUNT > GetCounterUiCount(param)) then
         SetCheckCount(param, GetCounterUiCount(param) + 1)
-        Good.SetTexId(o, earthworm_tex_id)
+        Good.SetTexId(o, EARTHWORM_TEX_ID)
         Good.SetBgColor(o, COLOR_WHITE)
+        if (CHECK_COUNT <= GetCounterUiCount(param)) then
+          StartTalk(pass_talk_id)
+          return
+        end
       else
         Good.SetTexId(o, HOLE_TEX_ID)
+      end
+      param.obj[i] = -1
+      if (COLS * ROWS == param.digcount) then
+        StartTalk(fail_talk_id)
       end
     end
   end
