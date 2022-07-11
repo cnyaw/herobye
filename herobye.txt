@@ -3366,7 +3366,7 @@ y=336
 name=zoo field
 bgColor=128 128 0
 script=MainMap
-objects=582 584 585
+objects=582 584 585 588
 
 [object582]
 name=o_toZoo
@@ -3411,6 +3411,12 @@ ypivot=0.5
 x=304
 y=352
 dim=0 0 32 32
+
+[object588]
+name=ui
+sprite=132
+texture=254
+map=254
 
 [level580]
 name=earth worm
