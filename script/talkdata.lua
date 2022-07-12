@@ -2,6 +2,7 @@
 local alien_boss_lvl_id = 75
 local astroid_lvl_id = 197
 local bat_cave_lvl_id = 263
+local bird_tex_id = 419
 local cave_maze_lvl_id = 88
 local clothes_drying_lvl_id = 340
 local earthworm_lvl_id = 580
@@ -1989,7 +1990,7 @@ TalkData = {
   },
   [3554] = {
     {Image = fishman_tex_id},
-    {Text = '有沒有新鮮的蚯蚓賣給我啊'},
+    {Text = '有沒有鮮活的蚯蚓賣給我啊'},
     {LevelId = DOCK_LVL_ID},
   },
   [3555] = {
@@ -2163,6 +2164,21 @@ TalkData = {
     {Image = pinnote_tex_id},
     {Text = '歡迎光臨動物園之島'},
     {LevelId = ZOO_FIELD_LVL_ID},
+  },
+  [4301] = {
+    {NextCond = HasEarthWorm, NextId = 4302},
+    {Image = bird_tex_id},
+    {Text = '唧唧啾啾'},
+    {LevelId = ZOO_LVL_ID},
+  },
+  [4302] = {
+    {Image = bird_tex_id},
+    {Text = '唧唧啾啾'},
+    {Text = '「這隻蚯蚓餵你吃吧」'},
+    {Image = EARTHWORM_TEX_ID},
+    {Text = '唧唧唧唧啾啾啾啾'},
+    {Script = ScriptFeedEarthWormToBird},
+    {LevelId = ZOO_LVL_ID},
   },
   -- Zoo field, worm cave.
   [4400] = {

@@ -902,6 +902,10 @@ function ScriptExchangeCandyScissor()
   SetItem('i_scissor', 1)
 end
 
+function ScriptFeedEarthWormToBird()
+  SetItem('i_earthworm', 0)
+end
+
 function ScriptFindTeletubbies()
   SetItem('f_find_teletubbies', 1)
 end

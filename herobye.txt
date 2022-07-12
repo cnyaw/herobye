@@ -2702,6 +2702,7 @@ y=128
 dim=0 0 96 96
 
 [object434]
+name=bird
 texture=419
 x=480
 y=128
