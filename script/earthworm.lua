@@ -8,6 +8,14 @@ local fail_talk_id = 4401
 local pass_talk_id = 4402
 local shovel_tex_id = 579
 
+local function IsFail(param)
+  return COLS * ROWS == param.digcount
+end
+
+local function IsPass(param)
+  return CHECK_COUNT <= GetCounterUiCount(param)
+end
+
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
   UpdateCounterUi(param, EARTHWORM_TEX_ID, CHECK_COUNT)
@@ -45,9 +53,9 @@ function EarthWormDone(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  if (CHECK_COUNT <= GetCounterUiCount(param)) then
+  if (IsPass(param)) then
     StartTalk(pass_talk_id)
-  elseif (COLS * ROWS == param.digcount) then
+  elseif (IsFail(param)) then
     StartTalk(fail_talk_id)
   end
 end
@@ -67,7 +75,7 @@ function EarthWormPlay(param)
         SetCheckCount(param, GetCounterUiCount(param) + 1)
         Good.SetTexId(o, EARTHWORM_TEX_ID)
         Good.SetBgColor(o, COLOR_WHITE)
-        if (CHECK_COUNT <= GetCounterUiCount(param)) then
+        if (IsPass(param)) then
           param.step = EarthWormDone
           return
         end
@@ -75,7 +83,7 @@ function EarthWormPlay(param)
         Good.SetTexId(o, HOLE_TEX_ID)
       end
       param.obj[i] = -1
-      if (COLS * ROWS == param.digcount) then
+      if (IsFail(param)) then
         param.step = EarthWormDone
       end
     end
