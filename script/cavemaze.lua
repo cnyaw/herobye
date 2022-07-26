@@ -72,7 +72,11 @@ function CheckMovePath_i(dir, o, x, y)
 end
 
 function CheckMovePath(param, dir)
-  curr_path = curr_path .. tostring(dir)
+  if (4 == dir) then                    -- Move down to exit maze.
+    curr_path = path_data[3][2];
+  else
+    curr_path = curr_path .. tostring(dir)
+  end
   for i = 1, #path_data do
     local p = path_data[i]
     if (p[2] == curr_path) then
@@ -85,10 +89,6 @@ end
 function CenterMaze(param)
   if (IsWrongMazePath()) then
     curr_path = string.sub(curr_path, string.len(curr_path) - 1)
-    for i = 1, #path_data do
-      local p = path_data[i]
-      Good.SetVisible(p[1], Good.INVISIBLE)
-    end
   else
     for i = 1, #path_data do
       local p = path_data[i]
@@ -118,6 +118,8 @@ function IsWrongMazePath()
     local p = path_data[i]
     if (not IsWrongMazePath_i(p[2])) then
       return false
+    else
+      Good.SetVisible(p[1], Good.INVISIBLE)
     end
   end
   return true
