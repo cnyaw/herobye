@@ -74,7 +74,7 @@ local function InitRainbow()
     local id = rainbow_objs[i]
     local clr = Good.GetBgColor(id)
     rainbow_objs_org_clr[i] = clr
-    Good.SetBgColor(id, 0xff000000 + (#rainbow_objs - i + 1) * 0x222222)
+    Good.SetBgColor(id, COLOR_BLACK + (#rainbow_objs - i + 1) * 0x222222)
   end
 end
 
