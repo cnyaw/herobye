@@ -2127,6 +2127,14 @@ texture=202
 x=80
 y=48
 dim=0 0 96 96
+objects=589
+
+[object589]
+bgColor=0 255 0
+texture=224
+xscale=0.5
+yscale=0.5
+dim=0 0 150 65
 
 [object205]
 name=o_po
@@ -2134,6 +2142,14 @@ texture=202
 x=80
 y=240
 dim=0 0 96 96
+objects=592
+
+[object592]
+bgColor=255 0 0
+texture=224
+xscale=0.5
+yscale=0.5
+dim=0 0 150 65
 
 [object206]
 name=o_laalaa
@@ -2141,6 +2157,14 @@ texture=202
 x=448
 y=48
 dim=0 0 96 96
+objects=590
+
+[object590]
+bgColor=255 255 0
+texture=224
+xscale=0.5
+yscale=0.5
+dim=0 0 150 65
 
 [object207]
 name=o_tinkywinky
@@ -2148,6 +2172,14 @@ texture=202
 x=448
 y=240
 dim=0 0 96 96
+objects=593
+
+[object593]
+bgColor=128 0 128
+texture=224
+xscale=0.5
+yscale=0.5
+dim=0 0 150 65
 
 [object208]
 name=o_jankenUfo
