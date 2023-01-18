@@ -145,13 +145,13 @@ function PuzzleGamePlay(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     local mx,my = Input.GetMousePos()
     local xx, yy = x + (1 + w) * (blank % MAX_COL), y + (1 + h) * math.floor(blank / MAX_COL)
-    if (mx >= xx - w and mx < xx and my >= yy and my < yy + h) then
+    if (PtInRect(mx, my, xx - w, yy, xx, yy + h)) then
       MoveRight()
-    elseif (mx >= xx and mx < xx + w and my >= yy - h and my < yy) then
+    elseif (PtInRect(mx, my, xx, yy - h, xx + w, yy)) then
       MoveDown()
-    elseif (mx >= xx + w and mx < xx + 2 * w and my >= yy and my < yy + h) then
+    elseif (PtInRect(mx, my, xx + w, yy, xx + 2 * w, yy + h)) then
       MoveLeft()
-    elseif (mx >= xx and mx < xx + w and my >= yy + h and my < yy + 2 * h) then
+    elseif (PtInRect(mx, my, xx, yy + h, xx + w, yy + 2 * h)) then
       MoveUp()
     end
     if (IsPuzzleComplete()) then
