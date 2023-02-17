@@ -126,4 +126,3 @@ RainbowGamePlay = function(param)
     end
   end
 end
-

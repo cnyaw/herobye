@@ -54,7 +54,7 @@ levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3
 479=./script/setclock.lua
 521=./script/mousecave.lua
 418=./script/music.lua
-561=./script/redtraining.lua
+561=./script/redcastletraining.lua
 573=./script/whitecastletraining.lua
 591=./script/earthworm.lua
 
