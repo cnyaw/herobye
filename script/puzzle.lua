@@ -135,10 +135,9 @@ PuzzleGame.OnStep = function(param)
 end
 
 function PuzzleGameEnd(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(found_dipsy_talk_id)
   end
-  StartTalk(found_dipsy_talk_id)
 end
 
 function PuzzleGamePlay(param)

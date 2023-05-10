@@ -116,10 +116,9 @@ function IntersectObj(x, y, w, h, o)
 end
 
 function PickTrashDone(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(clean_done_talk_id)
   end
-  StartTalk(clean_done_talk_id)
 end
 
 function PickTrashPlay(param)

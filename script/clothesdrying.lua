@@ -25,10 +25,9 @@ ClothesDrying.OnStep = function(param)
 end
 
 ClothesDryingEnd = function(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(clothes_drying_done_talk_id)
   end
-  StartTalk(clothes_drying_done_talk_id)
 end
 
 ClothesDryingPlay = function(param)

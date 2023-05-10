@@ -66,10 +66,9 @@ RedCastleTraining.OnStep = function(param)
 end
 
 function RedCastleTrainingDone(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(talk_id)
   end
-  StartTalk(talk_id)
 end
 
 function RedCastleTrainingStep(param)
@@ -79,9 +78,7 @@ function RedCastleTrainingStep(param)
       SetCheckCount(param, 0)
       Good.KillAllChild(target_obj_id)
       Reset(param)
-      return
-    end
-    if (ArrowHitTarget()) then
+    elseif (ArrowHitTarget()) then
       DupArrowOnTarget()
       SetCheckCount(param, GetCounterUiCount(param) + 1)
       Reset(param)

@@ -34,8 +34,7 @@ function InterviewHeroVillageBlink(param)
 end
 
 function InterviewHeroVillageInit(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    param.step = InterviewHeroVillageBlink
   end
-  param.step = InterviewHeroVillageBlink
 end

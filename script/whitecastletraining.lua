@@ -93,10 +93,9 @@ WhiteCastleTraining.OnStep = function(param)
 end
 
 function WhiteCastleTrainingDone(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(talk_id)
   end
-  StartTalk(talk_id)
 end
 
 function WhiteCastleTrainingPlay(param)
@@ -106,8 +105,7 @@ function WhiteCastleTrainingPlay(param)
   end
   MoveHorse(param)
   HitTest(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    GenTree(param)
   end
-  GenTree(param)
 end

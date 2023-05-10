@@ -61,10 +61,9 @@ function AlienBossInput(param)
 end
 
 function AlienBossWin(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(win_talk_id)
   end
-  StartTalk(win_talk_id)
 end
 
 function RandUfoWeapon()

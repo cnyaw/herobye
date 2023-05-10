@@ -173,10 +173,9 @@ local function UpdateClock(inc_ana, dec_ana, inc_dig, dec_dig, update_min)
 end
 
 local function OnStepDone(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(end_set_clock_talk_id)
   end
-  StartTalk(end_set_clock_talk_id)
 end
 
 local function NewTest(param)

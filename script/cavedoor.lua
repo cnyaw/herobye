@@ -66,11 +66,10 @@ function CaveDoorInputRight(param)
 end
 
 function CaveDoorInputWrong(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    ClearInputCode(param)
+    param.step = CaveDoorInput
   end
-  ClearInputCode(param)
-  param.step = CaveDoorInput
 end
 
 function ClearInputCode(param)

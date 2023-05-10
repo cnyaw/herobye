@@ -121,9 +121,8 @@ LotterDraw = function(param)
 end
 
 LotteryEnd = function(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    AddCoin(lottery_price)
+    StartTalk(end_lottery_talk_id)
   end
-  AddCoin(lottery_price)
-  StartTalk(end_lottery_talk_id)
 end

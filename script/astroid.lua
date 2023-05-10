@@ -82,8 +82,7 @@ function OnDestroyAstroidStep(param)
 end
 
 function OnPassAstroidStep(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
   end
-  Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
 end

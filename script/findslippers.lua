@@ -5,10 +5,9 @@ local slippers_tex_id = 465
 local found_slippers_talk_id = 4001
 
 local function OnStepFoundSlippers(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(found_slippers_talk_id)
   end
-  StartTalk(found_slippers_talk_id)
 end
 
 local function BeginDragSlippers(param)

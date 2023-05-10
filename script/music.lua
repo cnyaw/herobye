@@ -77,16 +77,14 @@ MusicGame.OnStep = function(param)
 end
 
 function MusicGameDone(param)
-  if (not WaitTimer(param, WAIT_TIME_DONE)) then
-    return
+  if (WaitTimer(param, WAIT_TIME_DONE)) then
+    StartTalk(talk_id)
   end
-  StartTalk(talk_id)
 end
 
 function MusicGamePlay(param)
   HitTest(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    GenMusicalNote(param)
   end
-  GenMusicalNote(param)
 end

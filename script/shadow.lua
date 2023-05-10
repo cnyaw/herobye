@@ -45,10 +45,9 @@ ShadowGame.OnStep = function(param)
 end
 
 ShadowGameDone = function(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(found_laalaa_talk_id)
   end
-  StartTalk(found_laalaa_talk_id)
 end
 
 ShadowGamePlay = function(param)

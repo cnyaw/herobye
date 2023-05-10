@@ -179,11 +179,10 @@ function SetNextTrainingLevel(id)
 end
 
 function TrainingClickEnd(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    AdvanceTrainingLevel(click_training)
+    SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
   end
-  AdvanceTrainingLevel(click_training)
-  SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
 end
 
 function TrainingClickPlay(param)
@@ -236,11 +235,10 @@ function TrainingOnStep(param)
 end
 
 function TrainingStickEnd(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    AdvanceTrainingLevel(stick_training)
+    SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
   end
-  AdvanceTrainingLevel(stick_training)
-  SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
 end
 
 function TrainingStickPlay(param)

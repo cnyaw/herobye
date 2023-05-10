@@ -106,10 +106,9 @@ RainbowGame.OnStep = function(param)
 end
 
 RainbowGameDone = function(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(beautiful_rainbow_talk_id)
   end
-  StartTalk(beautiful_rainbow_talk_id)
 end
 
 RainbowGamePlay = function(param)

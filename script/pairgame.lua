@@ -56,10 +56,9 @@ PairGame.OnStep = function(param)
 end
 
 PairGameEnd = function(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(pass_talk_id)
   end
-  StartTalk(pass_talk_id)
 end
 
 PairGamePlay = function(param)
