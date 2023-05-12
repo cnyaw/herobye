@@ -7,15 +7,14 @@ local pal_objs = {247,248,249,250,251,252,253}
 
 local rainbow_objs_org_clr = nil
 local sel_pal_obj_idx = nil
-local pal_objs_org_pos = nil
 
 local function SelPalette(idx)
   if (nil ~= sel_pal_obj_idx) then
     local id = pal_objs[sel_pal_obj_idx]
     Good.SetScript(id, '')
-    local org_pos = pal_objs_org_pos[sel_pal_obj_idx]
-    local org_x, org_y = org_pos[1], org_pos[2]
-    Good.SetPos(id, org_x, org_y)
+    local param = Good.GetParam(id)
+    Good.SetPos(id, param.org_x, param.org_y)
+    param.k = nil
   end
   sel_pal_obj_idx = idx
   Good.SetScript(pal_objs[idx], 'AnimTalkArrow')
@@ -54,10 +53,9 @@ local function InitPalette()
   for i = 1, #pal_objs do
     Good.SetBgColor(pal_objs[i], Good.GetBgColor(rainbow_objs[i]))
   end
-  pal_objs_org_pos = {}
   for i = 1, #pal_objs do
-    local x, y = Good.GetPos(pal_objs[i])
-    pal_objs_org_pos[i] = {x,y}
+    local param = Good.GetParam(pal_objs[i])
+    param.org_x, param.org_y = Good.GetPos(pal_objs[i])
   end
 end
 
