@@ -42,7 +42,11 @@ local function GenLottery()
   else
     ResetLotteryTex()
   end
-  lottery_price = math.random(1, 10)
+  if (1 == math.random(1, 100)) then
+    lottery_price = 100                 -- 1% to win 100.
+  else
+    lottery_price = math.random(1, 10)
+  end
   local s = string.format('%d', lottery_price)
   lottery_str = Good.GenTextObj(-1, s, TEXT_SIZE)
   SetTextObjColor(lottery_str, COLOR_RED)
