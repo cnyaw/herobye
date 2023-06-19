@@ -16,7 +16,7 @@ local function BeginDragSlippers(param)
   if (-1 == o) then
     return false
   end
-  Good.AddChild(-1, o)                  -- Make top-most.
+  SetTopmost(o)
   if (COLOR_RED == Good.GetBgColor(o)) then
     param.step = OnStepFoundSlippers
     return false

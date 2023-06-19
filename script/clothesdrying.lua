@@ -39,7 +39,7 @@ function BeginDragClothes(param)
   for i = 1, MAX_CLOTHES do
     local o = param.obj[i]
     if (nil ~= o and PtInObj(x, y, o)) then
-      Good.AddChild(-1, o)              -- Change zorder to topmost.
+      SetTopmost(o)
       param.drag_idx = i
       param.orig_x, param.orig_y = Good.GetPos(o)
       param.click_x, param.click_y = x, y

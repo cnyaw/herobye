@@ -1106,6 +1106,10 @@ function SetTempleBetSel(sel)
   return SetItem('i_temp_bet_sel', sel)
 end
 
+function SetTopmost(o)
+  Good.AddChild(-1, o)                  -- Change zorder to topmost.
+end
+
 function StartTalk(id)
   if (nil ~= id) then
     curr_talk_id = {id}
