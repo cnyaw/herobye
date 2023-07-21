@@ -12,6 +12,7 @@ levels=345 275 271 295 268 287 293 300 318 331 320 330 337 350 356 366 374 340 3
 306=./script/const.lua
 348=./script/itemdata.lua
 272=./script/helper.lua
+594=./script/script.lua
 279=./script/talkdata.lua
 308=./script/questdata.lua
 274=./script/anim.lua
