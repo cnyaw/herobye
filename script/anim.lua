@@ -95,13 +95,13 @@ AnimClickFish = {}
 
 AnimClickFish.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveTo(loop1, 'Scale', 0.5, 2.5, 2.5)
     ArAddCall(loop1, 'AcKillAnimObj', 0)
-    local loop2 = ArAddLoop(nil)
+    local loop2 = ArAddLoop()
     ArAddDelay(loop2, 0.1)
     ArAddMoveTo(loop2, 'Alpha', 0.4, 0)
-    local loop3 = ArAddLoop(nil)
+    local loop3 = ArAddLoop()
     ArAddMoveBy(loop3, 'Rot', 0.2, 90)
     param.k = ArAddAnimator({loop1, loop2, loop3})
   else
@@ -113,7 +113,7 @@ AnimCursor = {}
 
 AnimCursor.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveBy(loop1, 'Rot', 1, 90).ease = ArEaseOut
     param.k = ArAddAnimator({loop1})
   else
@@ -125,10 +125,10 @@ AnimFlyUpObj = {}
 
 AnimFlyUpObj.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveBy(loop1, 'Pos', 0.25, 0, -20)
     ArAddCall(loop1, 'AcKillAnimObj', 0)
-    local loop2 = ArAddLoop(nil)
+    local loop2 = ArAddLoop()
     ArAddDelay(loop2, 0.1)
     ArAddMoveTo(loop2, 'Alpha', 0.15, 0)
     param.k = ArAddAnimator({loop1, loop2})
@@ -212,7 +212,7 @@ AnimShowFrog = {}
 
 AnimShowFrog.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveBy(loop1, 'Pos', 0.25, 12, -55)
     ArAddDelay(loop1, 0.5)
     ArAddMoveBy(loop1, 'Pos', 0.25, 0, 40)
@@ -227,7 +227,7 @@ AnimTalkArrow = {}
 
 AnimTalkArrow.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveBy(loop1, 'Pos', 0.25, 0, -10)
     ArAddMoveBy(loop1, 'Pos', 0.25, 0, 10)
     param.k = ArAddAnimator({loop1})
@@ -256,7 +256,7 @@ AnimUfo = {}
 AnimUfo.OnStep = function(param)
   if (nil == param.k) then
     Good.SetAnchor(param._id, 0.5, 0.5)
-    local loopn = ArAddLoop(nil)
+    local loopn = ArAddLoop()
     local loop2 = ArAddLoop(loopn, 2)
     ArAddMoveTo(loop2, 'Pos', 1, 450, 250)
     ArAddMoveTo(loop2, 'Pos', 2, 10, 200)
@@ -264,10 +264,10 @@ AnimUfo.OnStep = function(param)
     ArAddMoveTo(loopn, 'Pos', 1, 10, 250)
     ArAddMoveBy(loopn, 'Pos', 1, 40, 20)
 
-    local loopn2 = ArAddLoop(nil)
+    local loopn2 = ArAddLoop()
     ArAddMoveBy(loopn2, 'Rot', 1, 150)
 
-    local loopn3 = ArAddLoop(nil)
+    local loopn3 = ArAddLoop()
     ArAddMoveBy(loopn3, 'Scale', 2, 1.5, 0)
     ArAddMoveBy(loopn3, 'Scale', 2, 0, 1.5)
     ArAddDelay(loopn3, 5)
@@ -285,7 +285,7 @@ AnimCaveMazeScroll = {}
 
 AnimCaveMazeScroll.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveTo(loop1, 'Pos', 0.65, param.tx, param.ty).ease = ArEaseOut
     ArAddCall(loop1, 'AcCaveMazeScrollDone', 0)
     param.k = ArAddAnimator({loop1})
@@ -298,7 +298,7 @@ AnimTempleBkgnd = {}
 
 AnimTempleBkgnd.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveTo(loop1, 'MapId', 0, bkgnd2_map_id)
     ArAddDelay(loop1, 0.5)
     ArAddMoveTo(loop1, 'MapId', 0, bkgnd1_map_id)
@@ -317,7 +317,7 @@ AnimTempleGainCoin.OnStep = function(param)
     if (math.random(2) == 1) then
       dx = -1 * dx
     end
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     local delay = math.random() * 0.5
     ArAddMoveTo(loop1, 'Visible', 0, 0)
     ArAddDelay(loop1, delay)
@@ -325,7 +325,7 @@ AnimTempleGainCoin.OnStep = function(param)
     ArAddMoveBy(loop1, 'Pos', 0.2, dx, -64/2).ease = ArEaseOut
     ArAddMoveBy(loop1, 'Pos', 0.35, 0, 64).ease = ArEaseOutBounce
     ArAddCall(loop1, 'AcKillAnimObj', 0.3)
-    local loop2 = ArAddLoop(nil)
+    local loop2 = ArAddLoop()
     ArAddDelay(loop2, 0.75 + delay)
     ArAddMoveTo(loop2, 'Alpha', 0.1, 0)
     param.k = ArAddAnimator({loop1, loop2})
@@ -340,10 +340,10 @@ AnimAstroid.OnStep = function(param)
   if (nil == param.k) then
     local t = math.random(4, 12)
     local x, y = Good.GetPos(param._id)
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveTo(loop1, 'Pos', t, x, SCR_H)
     ArAddCall(loop1, 'AcResetAstroid', 0)
-    local loop2 = ArAddLoop(nil)
+    local loop2 = ArAddLoop()
     ArAddMoveTo(loop2, 'Rot', t, 360)
     param.k = ArAddAnimator({loop1, loop2})
   else
@@ -355,7 +355,7 @@ AnimDestroyAstroid = {}
 
 AnimDestroyAstroid.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveTo(loop1, 'Alpha', 0.1, 0)
     ArAddCall(loop1, 'AcKillAstroid', 0)
     param.k = ArAddAnimator({loop1})
@@ -368,7 +368,7 @@ AnimAstroidPiece = {}
 
 AnimAstroidPiece.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveBy(loop1, 'Rot', 1, 90)
     param.k = ArAddAnimator({loop1})
   else
@@ -425,7 +425,7 @@ AnimShadow = {}
 
 AnimShadow.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveTo(loop1, 'Scale', 3 + 2 * math.random(), .8, .8).ease = ArEaseOutBounce
     ArAddCall(loop1, 'AcKillAnimScript', 0)
     param.k = ArAddAnimator({loop1})
@@ -452,7 +452,7 @@ AnimConsoleCursor = {}
 
 AnimConsoleCursor.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     ArAddMoveTo(loop1, 'BgColor', 0.25, COLOR_BLACK).lerp = LerpARgb
     ArAddMoveTo(loop1, 'BgColor', 0.25, COLOR_WHITE).lerp = LerpARgb
     param.k = ArAddAnimator({loop1})

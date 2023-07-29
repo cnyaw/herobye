@@ -118,7 +118,7 @@ AnimTempleMoveUser = {}
 
 AnimTempleMoveUser.OnStep = function(param)
   if (nil == param.k) then
-    local loop1 = ArAddLoop(nil)
+    local loop1 = ArAddLoop()
     local p = CalCTilePos(user_pos)
     while p ~= new_user_pos do
       p = CalCTilePos(p + 1)
