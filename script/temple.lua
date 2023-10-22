@@ -48,9 +48,8 @@ local function GetTilePos(p)
 end
 
 local function GetCurrTileFactor()
-  local x, y = GetTilePos(user_pos)
   local map = Good.GetMapId(map_obj_id)
-  local tile = Resource.GetTileByPos(map, x, y)
+  local tile = Resource.GetTileByPos(map, GetTilePos(user_pos))
   local factor = TILE_FACTOR[tile]
   return factor
 end

@@ -75,8 +75,7 @@ function OnDestroyAstroidStep(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
-  local x, y = Input.GetMousePos()
-  if (HittestAstroid(param, x, y)) then
+  if (HittestAstroid(param, Input.GetMousePos())) then
     param.step = OnPassAstroidStep
   end
 end

@@ -12,7 +12,6 @@ MainMap.OnStep = function(param)
     return
   end
   if (Input.IsKeyPushed(Input.LBUTTON)) then
-    local x, y = Input.GetMousePos()
-    QuestOnStep(x, y)
+    QuestOnStep(Input.GetMousePos())
   end
 end

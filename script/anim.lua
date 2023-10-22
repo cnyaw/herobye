@@ -13,8 +13,7 @@ end
 
 function AcKillAstroid(param)
   local id = param._id
-  local x, y = Good.GetPos(id)
-  Stge.RunScript('fx_destroy', x, y)
+  Stge.RunScript('fx_destroy', Good.GetPos(id))
   Good.KillObj(id)
 end
 
