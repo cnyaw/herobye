@@ -113,6 +113,59 @@ local function SetUserPos()
   Good.SetPos(user_obj_id, x + (TILE_SZ-user_sw)/2, y + (TILE_SZ-user_sh)/2)
 end
 
+local TempleRollDice                    -- Forward decl.
+
+local function TempleOnStep(param)
+  if (Input.IsKeyPushed(Input.LBUTTON)) then
+    if (HittestBetCoin()) then
+      return
+    end
+    if (HittestLevelInfo()) then
+      Good.GenObj(-1, temple_lvl_lvl_id)
+      return
+    end
+    if (GetCoin() >= GetBetCount()) then
+      param.step = TempleRollDice
+    end
+  end
+end
+
+local function TempleMoveUser(param)
+  if (not WaitTimer(param, user_move_time)) then
+    return
+  end
+  user_pos = new_user_pos
+  local factor = GetCurrTileFactor()
+  local c = factor * GetBetCount()
+  if (0 < c) then
+    AddCoin(c)
+    local lvlUp = AddTempleScore(c)
+    for i = 1, factor do
+      Good.GenObj(user_obj_id, COIN_TEX_ID, 'AnimTempleGainCoin')
+    end
+    if (lvlUp) then
+      SetBetCoinSelection()
+    end
+  else
+    ConsumeCoin(-c)
+  end
+  UpdateCoinInfo(param)
+  param.step = TempleOnStep
+end
+
+function TempleRollDice(param)
+  local n = RollDice()
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  ConsumeCoin(GetBetCount())
+  UpdateCoinInfo(param)
+  user_move_time = n * USER_MOVE_SPEED
+  new_user_pos = CalCTilePos(user_pos + n)
+  SetUserMoveToPath()
+  param.step = TempleMoveUser
+end
+
 AnimTempleMoveUser = {}
 
 AnimTempleMoveUser.OnStep = function(param)
@@ -153,55 +206,4 @@ Temple.OnStep = function(param)
     return
   end
   param.step(param)
-end
-
-function TempleOnStep(param)
-  if (Input.IsKeyPushed(Input.LBUTTON)) then
-    if (HittestBetCoin()) then
-      return
-    end
-    if (HittestLevelInfo()) then
-      Good.GenObj(-1, temple_lvl_lvl_id)
-      return
-    end
-    if (GetCoin() >= GetBetCount()) then
-      param.step = TempleRollDice
-    end
-  end
-end
-
-function TempleMoveUser(param)
-  if (not WaitTimer(param, user_move_time)) then
-    return
-  end
-  user_pos = new_user_pos
-  local factor = GetCurrTileFactor()
-  local c = factor * GetBetCount()
-  if (0 < c) then
-    AddCoin(c)
-    local lvlUp = AddTempleScore(c)
-    for i = 1, factor do
-      Good.GenObj(user_obj_id, COIN_TEX_ID, 'AnimTempleGainCoin')
-    end
-    if (lvlUp) then
-      SetBetCoinSelection()
-    end
-  else
-    ConsumeCoin(-c)
-  end
-  UpdateCoinInfo(param)
-  param.step = TempleOnStep
-end
-
-function TempleRollDice(param)
-  local n = RollDice()
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
-  end
-  ConsumeCoin(GetBetCount())
-  UpdateCoinInfo(param)
-  user_move_time = n * USER_MOVE_SPEED
-  new_user_pos = CalCTilePos(user_pos + n)
-  SetUserMoveToPath()
-  param.step = TempleMoveUser
 end

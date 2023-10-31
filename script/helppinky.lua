@@ -4,6 +4,32 @@ local WAIT_TIME = 40
 local help_pinky_done_talk_id = 1707
 local help_pinky_done_dream_talk_id = 1151
 
+local function HelpPinkyEnd(param)
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  if (HasPowerScissor()) then
+    StartTalk(help_pinky_done_talk_id)
+  else
+    StartTalk(help_pinky_done_dream_talk_id)
+  end
+end
+
+local function OnHitJohn(param, o)
+  GenFlyUpObj(o, JOHN_TEX_ID)
+  if (MAX_JOHN == param.hit) then
+    param.step = HelpPinkyEnd
+  end
+end
+
+local function HelpPinkyPlay(param)
+  if (not Input.IsKeyPushed(Input.LBUTTON)) then
+    return
+  end
+  local x, y = Input.GetMousePos()
+  BounceGameHittest(param, x, y, OnHitJohn)
+end
+
 HelpPinky = {}
 
 HelpPinky.OnCreate = function(param)
@@ -18,28 +44,3 @@ HelpPinky.OnStep = function(param)
   param.step(param)
 end
 
-function HelpPinkyEnd(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
-  end
-  if (HasPowerScissor()) then
-    StartTalk(help_pinky_done_talk_id)
-  else
-    StartTalk(help_pinky_done_dream_talk_id)
-  end
-end
-
-function HelpPinkyPlay(param)
-  if (not Input.IsKeyPushed(Input.LBUTTON)) then
-    return
-  end
-  local x, y = Input.GetMousePos()
-  BounceGameHittest(param, x, y, OnHitJohn)
-end
-
-function OnHitJohn(param, o)
-  GenFlyUpObj(o, JOHN_TEX_ID)
-  if (MAX_JOHN == param.hit) then
-    param.step = HelpPinkyEnd
-  end
-end

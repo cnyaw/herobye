@@ -4,6 +4,29 @@ local TEXT_SZ = 32
 
 local cursor_obj_id = 353
 
+local function SelContinue(param)
+  if (0 == param.cursor) then
+    LoadGame()
+    if (IsFinishTraining()) then
+      Good.GenObj(-1, GetLastLvlId())
+    else
+      StartTalk()
+    end
+  else
+    param.cursor = 0
+    Good.SetPos(cursor_obj_id, param.cx, param.cy)
+  end
+end
+
+local function SelNewGame(param)
+  if (1 == param.cursor) then
+    StartTalk()
+  else
+    param.cursor = 1
+    Good.SetPos(cursor_obj_id, param.cx, param.cy + OFFSET)
+  end
+end
+
 Title = {}
 
 Title.OnCreate = function(param)
@@ -29,28 +52,5 @@ Title.OnStep = function(param)
     SelContinue(param)
   elseif (PtInRect(x, y, cx + OFFSET, cy + OFFSET, cx + OFFSET + param.cw, cy + 2 * OFFSET)) then
     SelNewGame(param)
-  end
-end
-
-function SelContinue(param)
-  if (0 == param.cursor) then
-    LoadGame()
-    if (IsFinishTraining()) then
-      Good.GenObj(-1, GetLastLvlId())
-    else
-      StartTalk()
-    end
-  else
-    param.cursor = 0
-    Good.SetPos(cursor_obj_id, param.cx, param.cy)
-  end
-end
-
-function SelNewGame(param)
-  if (1 == param.cursor) then
-    StartTalk()
-  else
-    param.cursor = 1
-    Good.SetPos(cursor_obj_id, param.cx, param.cy + OFFSET)
   end
 end

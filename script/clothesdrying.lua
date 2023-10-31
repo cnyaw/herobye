@@ -9,32 +9,13 @@ local clothes_tex_id = {tshirt_txt_id, pants_txt_id}
 
 local clothes_drying_done_talk_id = 1503
 
-ClothesDrying = {}
-
-ClothesDrying.OnCreate = function(param)
-  GenClothes(param)
-  param.step = ClothesDryingPlay
-end
-
-ClothesDrying.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, HERO_VILLAGE_LVL_ID)
-  else
-    param.step(param)
-  end
-end
-
-ClothesDryingEnd = function(param)
+local function ClothesDryingEnd(param)
   if (WaitTimer(param, WAIT_TIME)) then
     StartTalk(clothes_drying_done_talk_id)
   end
 end
 
-ClothesDryingPlay = function(param)
-  DragHandler(param, BeginDragClothes, DraggingClothes, DragClothesDone)
-end
-
-function BeginDragClothes(param)
+local function BeginDragClothes(param)
   local x, y = Input.GetMousePos()
   for i = 1, MAX_CLOTHES do
     local o = param.obj[i]
@@ -49,7 +30,7 @@ function BeginDragClothes(param)
   return false
 end
 
-function DraggingClothes(param)
+local function DraggingClothes(param)
   local x, y = Input.GetMousePos()
   local new_x = param.orig_x + (x - param.click_x)
   local new_y = param.orig_y + (y - param.click_y)
@@ -57,14 +38,23 @@ function DraggingClothes(param)
   Good.SetPos(o, new_x, new_y)
 end
 
-function DragClothesDone(param)
-  if (not DropClothesMatchSlot(param)) then
-    local o = param.obj[param.drag_idx]
-    Good.SetPos(o, param.orig_x, param.orig_y)
+local function IncMatchClothes(param, slot_idx)
+  local i = param.drag_idx
+  Good.SetPos(param.obj[i], Good.GetPos(param.slot[slot_idx]))
+  param.obj[i] = nil
+  param.slot[slot_idx] = nil
+  param.match = param.match + 1
+  if (MAX_CLOTHES == param.match) then
+    param.step = ClothesDryingEnd
   end
 end
 
-function DropClothesMatchSlot(param)
+local function SameClothesType(a, b)
+  local ntype = #clothes_tex_id
+  return a % ntype == b % ntype
+end
+
+local function DropClothesMatchSlot(param)
   local x, y = Input.GetMousePos()
   if (CY_SLOT < y) then
     return false
@@ -80,7 +70,26 @@ function DropClothesMatchSlot(param)
   return false
 end
 
-function GenClothes(param)
+local function DragClothesDone(param)
+  if (not DropClothesMatchSlot(param)) then
+    local o = param.obj[param.drag_idx]
+    Good.SetPos(o, param.orig_x, param.orig_y)
+  end
+end
+
+local function ClothesDryingPlay(param)
+  DragHandler(param, BeginDragClothes, DraggingClothes, DragClothesDone)
+end
+
+local function GenClothesShade(x, y, tex)
+  local o = Good.GenObj(-1, tex)
+  local w, h = Resource.GetTexSize(tex)
+  Good.SetPos(o, x + (CX_SLOT - w)/2, (CY_SLOT - h)/2)
+  Good.SetBgColor(o, COLOR_BLACK)
+  return o
+end
+
+local function GenClothes(param)
   param.match = 0
   param.obj = {}
   param.slot = {}
@@ -97,26 +106,17 @@ function GenClothes(param)
   end
 end
 
-function GenClothesShade(x, y, tex)
-  local o = Good.GenObj(-1, tex)
-  local w, h = Resource.GetTexSize(tex)
-  Good.SetPos(o, x + (CX_SLOT - w)/2, (CY_SLOT - h)/2)
-  Good.SetBgColor(o, COLOR_BLACK)
-  return o
+ClothesDrying = {}
+
+ClothesDrying.OnCreate = function(param)
+  GenClothes(param)
+  param.step = ClothesDryingPlay
 end
 
-function IncMatchClothes(param, slot_idx)
-  local i = param.drag_idx
-  Good.SetPos(param.obj[i], Good.GetPos(param.slot[slot_idx]))
-  param.obj[i] = nil
-  param.slot[slot_idx] = nil
-  param.match = param.match + 1
-  if (MAX_CLOTHES == param.match) then
-    param.step = ClothesDryingEnd
+ClothesDrying.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, HERO_VILLAGE_LVL_ID)
+  else
+    param.step(param)
   end
-end
-
-function SameClothesType(a, b)
-  local ntype = #clothes_tex_id
-  return a % ntype == b % ntype
 end

@@ -19,26 +19,7 @@ local function SetCheckCount(param, c)
   UpdateCounterUi(param, mouse_tex_id, CHECK_COUND)
 end
 
-SlapMouse = {}
-
-SlapMouse.OnCreate = function(param)
-  param.orig_mouse_x, param.orig_mouse_y = Good.GetPos(mouse_obj_id)
-  param.btn = {btn1_obj_id, btn2_obj_id, btn3_obj_id}
-  param.obj = {racket_obj_id, ball_obj_id, cheese_obj_id}
-  RandButtonColor(param)
-  param.step = SlapMouseInput
-  SetCheckCount(param, 0)
-end
-
-SlapMouse.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, COUNTRY_LVL_ID)
-    return
-  end
-  param.step(param)
-end
-
-function RandButtonColor(param)
+local function RandButtonColor(param)
   local color = {COLOR_RED, COLOR_GREEN, COLOR_YELLOW}
   local ri = math.random(3) % 3
   for i = 0, 2 do
@@ -50,7 +31,9 @@ function RandButtonColor(param)
   param.obj_i = 1
 end
 
-function SlapMouseHittest(param)
+local ValidateMachineButton             -- Forward decl.
+
+local function SlapMouseHittest(param)
   if (4 == param.obj_i) then
     RandButtonColor(param)
     return
@@ -64,7 +47,7 @@ function SlapMouseHittest(param)
   end
 end
 
-function SlapMouseDone(param)
+local function SlapMouseDone(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -77,13 +60,13 @@ function SlapMouseDone(param)
   end
 end
 
-function SlapMouseInput(param)
+local function SlapMouseInput(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     SlapMouseHittest(param)
   end
 end
 
-function SlapMouseMoving(param)
+local function SlapMouseMoving(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -119,4 +102,23 @@ function ValidateMachineButton(param, i)
     RandButtonColor(param)
     SetCheckCount(param, 0)
   end
+end
+
+SlapMouse = {}
+
+SlapMouse.OnCreate = function(param)
+  param.orig_mouse_x, param.orig_mouse_y = Good.GetPos(mouse_obj_id)
+  param.btn = {btn1_obj_id, btn2_obj_id, btn3_obj_id}
+  param.obj = {racket_obj_id, ball_obj_id, cheese_obj_id}
+  RandButtonColor(param)
+  param.step = SlapMouseInput
+  SetCheckCount(param, 0)
+end
+
+SlapMouse.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, COUNTRY_LVL_ID)
+    return
+  end
+  param.step(param)
 end
