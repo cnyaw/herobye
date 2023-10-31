@@ -1,12 +1,12 @@
 local WAIT_TIME = 80
-local CHECK_COUND = 10
+local CHECK_COUNT = 10
 local NUM_ASTROID = 5
 
 local astroid_tex_id = 196
 
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, astroid_tex_id, CHECK_COUND)
+  UpdateCounterUi(param, astroid_tex_id, CHECK_COUNT)
 end
 
 Astroid = {}
@@ -61,7 +61,7 @@ function HittestAstroid(param, x, y)
       Good.GetParam(o).k = nil
       param.o[i] = GenNewAstroid(i, param)
       IncDestroyAstroidCount(param)
-      return CHECK_COUND <= GetCounterUiCount(param)
+      return CHECK_COUNT <= GetCounterUiCount(param)
     end
   end
   return false

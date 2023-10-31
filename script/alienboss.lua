@@ -1,6 +1,6 @@
 local WAIT_TIME = 100
 local RPS_SIZE = 48
-local CHECK_COUND = 10
+local CHECK_COUNT = 10
 
 local ufo_obj_id = 76
 local win_talk_id = 2201
@@ -13,7 +13,7 @@ local btn_obj = {80, 81, 82}
 
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, UFO_TEX_ID, CHECK_COUND)
+  UpdateCounterUi(param, UFO_TEX_ID, CHECK_COUNT)
 end
 
 AlienBoss = {}
@@ -55,7 +55,7 @@ function AlienBossInput(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     AlienBossHittest(param)
   end
-  if (CHECK_COUND <= GetCounterUiCount(param)) then
+  if (CHECK_COUNT <= GetCounterUiCount(param)) then
     param.step = AlienBossWin
   end
 end

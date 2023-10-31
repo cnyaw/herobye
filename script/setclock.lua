@@ -1,4 +1,4 @@
-local CHECK_COUND = 10
+local CHECK_COUNT = 10
 local WAIT_TIME = 50
 
 local ana_clock_btns = 515
@@ -124,7 +124,7 @@ end
 
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, clock_tex_id, CHECK_COUND)
+  UpdateCounterUi(param, clock_tex_id, CHECK_COUNT)
 end
 
 local function SetDigitClock()
@@ -179,7 +179,7 @@ local function OnStepDone(param)
 end
 
 local function NewTest(param)
-  if (GetCounterUiCount(param) == CHECK_COUND) then
+  if (GetCounterUiCount(param) == CHECK_COUNT) then
     param.step = OnStepDone
     return
   end

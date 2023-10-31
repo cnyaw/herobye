@@ -1,4 +1,4 @@
-local CHECK_COUND = 12
+local CHECK_COUNT = 12
 local NOTE_ANIM_TIME = 4
 local WAIT_TIME = 60
 local WAIT_TIME_DONE = 180
@@ -11,7 +11,7 @@ local talk_id = 4101
 
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, note_tex_id, CHECK_COUND)
+  UpdateCounterUi(param, note_tex_id, CHECK_COUNT)
 end
 
 local function GenMusicalNote(param)
@@ -49,7 +49,7 @@ local function HitTest(param)
       end
       if (hit) then
         SetCheckCount(param, GetCounterUiCount(param) + 1)
-        if (CHECK_COUND <= GetCounterUiCount(param)) then
+        if (CHECK_COUNT <= GetCounterUiCount(param)) then
           param.step = MusicGameDone
         end
       else

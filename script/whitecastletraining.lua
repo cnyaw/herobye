@@ -1,5 +1,5 @@
 local ANIM_TIME = 4
-local CHECK_COUND = 10
+local CHECK_COUNT = 10
 local WAIT_TIME = 60
 
 local tree_tex_id = 563
@@ -13,7 +13,7 @@ local tree_obj_id = 565
 
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, tree_tex_id, CHECK_COUND)
+  UpdateCounterUi(param, tree_tex_id, CHECK_COUNT)
 end
 
 local function GenTree(param)
@@ -99,7 +99,7 @@ function WhiteCastleTrainingDone(param)
 end
 
 function WhiteCastleTrainingPlay(param)
-  if (CHECK_COUND <= GetCounterUiCount(param)) then
+  if (CHECK_COUNT <= GetCounterUiCount(param)) then
     param.step = WhiteCastleTrainingDone
     return
   end

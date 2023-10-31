@@ -1,4 +1,4 @@
-local CHECK_COUND = 10
+local CHECK_COUNT = 10
 local FLY_SPEED = 2.4
 local HIT_OFFSET = 15
 local WAIT_TIME = 180
@@ -43,7 +43,7 @@ end
 
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, arrow_tex_id, CHECK_COUND)
+  UpdateCounterUi(param, arrow_tex_id, CHECK_COUNT)
 end
 
 RedCastleTraining = {}
@@ -82,7 +82,7 @@ function RedCastleTrainingStep(param)
       DupArrowOnTarget()
       SetCheckCount(param, GetCounterUiCount(param) + 1)
       Reset(param)
-      if (CHECK_COUND <= GetCounterUiCount(param)) then
+      if (CHECK_COUNT <= GetCounterUiCount(param)) then
         param.step = RedCastleTrainingDone
         Good.KillObj(arrow_obj_id)
       end

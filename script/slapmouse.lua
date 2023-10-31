@@ -1,5 +1,5 @@
 local WAIT_TIME = 40
-local CHECK_COUND = 5
+local CHECK_COUNT = 5
 
 local btn1_obj_id = 58
 local btn2_obj_id = 59
@@ -16,7 +16,7 @@ local kai_thanks_mouse_tail_talk_id = 1906
 
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, mouse_tex_id, CHECK_COUND)
+  UpdateCounterUi(param, mouse_tex_id, CHECK_COUNT)
 end
 
 local function RandButtonColor(param)
@@ -75,7 +75,7 @@ local function SlapMouseMoving(param)
     SetCheckCount(param, GetCounterUiCount(param) + 1)
     RandButtonColor(param)
     Good.SetPos(mouse_obj_id, param.orig_mouse_x, param.orig_mouse_y)
-    if (CHECK_COUND <= GetCounterUiCount(param)) then
+    if (CHECK_COUNT <= GetCounterUiCount(param)) then
       param.step = SlapMouseDone
     else
       param.step = SlapMouseInput

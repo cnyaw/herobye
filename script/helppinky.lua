@@ -43,4 +43,3 @@ HelpPinky.OnStep = function(param)
   end
   param.step(param)
 end
-

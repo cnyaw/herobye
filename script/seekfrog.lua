@@ -1,12 +1,12 @@
 local WAIT_TIME = 80
-local CHECK_COUND = 8
+local CHECK_COUNT = 8
 
 local frog_obj_id = 37
 local frog_cry_talk_id = 2002
 
 local function SetCheckCount(param, c)
   SetCounterUiCount(param, c)
-  UpdateCounterUi(param, FROG_TEAR_TEX_ID, CHECK_COUND)
+  UpdateCounterUi(param, FROG_TEAR_TEX_ID, CHECK_COUNT)
 end
 
 local function CenterFrog(o)
@@ -87,7 +87,7 @@ function OnSeekFrogDelay(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  if (CHECK_COUND <= GetCounterUiCount(param)) then
+  if (CHECK_COUNT <= GetCounterUiCount(param)) then
     StartTalk(frog_cry_talk_id)
     return
   end
