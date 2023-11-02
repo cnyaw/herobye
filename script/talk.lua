@@ -12,6 +12,175 @@ local curr_lvl_id = nil
 local talk_menu_obj = nil
 local menu_sel = nil
 
+local function AddTalkMessCuror(msg)
+  local tw, th = Resource.GetTexSize(arrow_tex_id)
+  local o = Good.GenObj(msg, arrow_tex_id, 'AnimTalkArrow')
+  local w = GetTextObjWidth(msg)
+  Good.SetPos(o, w - tw, -SZ_TALK_TEXT)
+  Good.SetBgColor(o, COLOR_GREEN)
+  Good.SetRot(o, 90)
+end
+
+local function AddTalkMenuSelMessCursor(sel)
+  local msg = Good.GetChild(talk_menu_obj, sel - 1)
+  AddTalkMessCuror(msg)
+end
+
+local function FadeBgColorTo()
+  if (nil == fade_to) then
+    return false
+  end
+  fade_to[3] = fade_to[3] + 1
+  local t = fade_to[3] / fade_to[1]
+  Good.SetBgColor(curr_lvl_id, LerpARgb(fade_to[4], fade_to[2], t))
+  if (fade_to[3] >= fade_to[1]) then
+    fade_to = nil
+    StepOneTalk()
+    return false
+  else
+    return true
+  end
+end
+
+local function HandleTalkFadeTo(talk)
+  fade_to = {unpack(talk.FadeTo)}
+  fade_to[3] = 0                        -- Init timer.
+  fade_to[4] = Good.GetBgColor(curr_lvl_id) -- Save curr bgcolor.
+end
+
+local function HandleTalkImage(talk)
+  Good.KillAllChild(image_pos_dummy_id)
+  if (-1 ~= talk.Image) then
+    local o = Good.GenObj(image_pos_dummy_id, talk.Image)
+    local l,t,w,h = Good.GetDim(o)
+    Good.SetPos(o, (SCR_W - w)/2, 0)
+  end
+  StepOneTalk()
+end
+
+local SetTalkMenuSel                    -- Forward decl.
+
+local function SelectMenuItem(sel)
+  if (menu_sel == sel) then
+    local talk_tbl = GetCurrTalk()
+    local talk = talk_tbl[talk_index - 1]
+    StartTalk(talk.MenuNextId[sel])
+  else
+    SetTalkMenuSel(sel)
+  end
+end
+
+local function HandleTalkMenu()
+  if (nil == talk_menu_obj) then
+    return false
+  end
+  local mx, my = Input.GetMousePos()
+  local cc = Good.GetChildCount(talk_menu_obj)
+  for i = 0, cc - 1 do
+    local o = Good.GetChild(talk_menu_obj, i)
+    local x, y = Good.GetPos(o)
+    local tw = GetTextObjWidth(o)
+    if (PtInRect(mx, my, x, y, x + tw, y + SZ_TALK_TEXT)) then
+      SelectMenuItem(1 + i)
+      return true
+    end
+  end
+  return true
+end
+
+local function KillTalkMessCursor(msg)
+  local cc = Good.GetChildCount(msg)
+  local cursor = Good.GetChild(msg, cc - 1)
+  Good.KillObj(cursor)
+end
+
+local function HandleTalkMenuText(talk)
+  if (nil ~= talk_mess_obj) then
+    Good.KillAllChild(talk_mess_obj)
+  end
+  talk_menu_obj = GenColorObj(-1, SCR_W, SCR_H, 0xb0000000)
+  local lw = math.floor(SCR_W / #talk.MenuText)
+  local x = 0
+  for i = 1, #talk.MenuText do
+    local o = Good.GenTextObj(talk_menu_obj, talk.MenuText[i], SZ_TALK_TEXT)
+    local tw = GetTextObjWidth(o)
+    local lx = x + (lw - tw) / 2
+    Good.SetPos(o, lx, (SCR_H - SZ_TALK_TEXT) / 2)
+    x = x + lw
+  end
+  KillTalkMessCursor(talk_mess_obj)
+  SetTalkMenuSel(1)
+end
+
+local function HandlTalkText(talk)
+  if (nil ~= talk_mess_obj) then
+    Good.KillObj(talk_mess_obj)
+    talk_mess_obj = nil
+  end
+  local text = talk.Text
+  if (nil ~= talk.ScriptText) then
+    text = talk.ScriptText(talk.Text)
+  end
+  if (0 >= string.len(text)) then
+    StepOneTalk()
+    return
+  end
+  talk_mess_obj = Good.GenTextObj(-1, text, SZ_TALK_TEXT)
+  local w = GetTextObjWidth(talk_mess_obj)
+  Good.SetPos(talk_mess_obj, (SCR_W - w)/2, 270)
+  AddTalkMessCuror(talk_mess_obj)
+end
+
+local function HandleTalkNextId(talk)
+  if (nil ~= talk.NextCond and not talk.NextCond()) then
+    StepOneTalk()
+    return
+  end
+  if (nil ~= talk.NextId) then
+    StartTalk(talk.NextId)
+  elseif (nil ~= talk.ScriptNextId) then
+    StartTalk(talk.ScriptNextId())
+  end
+end
+
+local function KillTalkMenuSelMessCursor(sel)
+  local msg = Good.GetChild(talk_menu_obj, sel - 1)
+  KillTalkMessCursor(msg)
+end
+
+function SetTalkMenuSel(sel)
+  if (sel == menu_sel) then
+    return
+  end
+  if (nil ~= menu_sel) then
+    KillTalkMenuSelMessCursor(menu_sel)
+  end
+  AddTalkMenuSelMessCursor(sel)
+  menu_sel = sel
+end
+
+local function SkipTalk()
+  if (nil ~= talk_menu_obj) then
+    return
+  end
+  while true do
+    local talk_tbl = GetCurrTalk()
+    local talk = talk_tbl[talk_index]
+    talk_index = talk_index + 1
+    if (nil ~= talk.LevelId or nil ~= talk.ScriptLevelId) then
+      HandleTalkLevelId(talk)
+      return
+    elseif (nil ~= talk.Script) then
+      talk.Script()
+    elseif (nil ~= talk.NextId or nil ~= talk.ScriptNextId) then
+      HandleTalkNextId(talk)
+    elseif (nil ~= talk.MenuText) then
+      HandleTalkMenuText(talk)
+      return
+    end
+  end
+end
+
 Talk = {}
 
 Talk.OnCreate = function(param)
@@ -42,107 +211,6 @@ Talk.OnStep = function()
   end
 end
 
-function AddTalkMenuSelMessCursor(sel)
-  local msg = Good.GetChild(talk_menu_obj, sel - 1)
-  AddTalkMessCuror(msg)
-end
-
-function AddTalkMessCuror(msg)
-  local tw, th = Resource.GetTexSize(arrow_tex_id)
-  local o = Good.GenObj(msg, arrow_tex_id, 'AnimTalkArrow')
-  local w = GetTextObjWidth(msg)
-  Good.SetPos(o, w - tw, -SZ_TALK_TEXT)
-  Good.SetBgColor(o, COLOR_GREEN)
-  Good.SetRot(o, 90)
-end
-
-function FadeBgColorTo()
-  if (nil == fade_to) then
-    return false
-  end
-  fade_to[3] = fade_to[3] + 1
-  local t = fade_to[3] / fade_to[1]
-  Good.SetBgColor(curr_lvl_id, LerpARgb(fade_to[4], fade_to[2], t))
-  if (fade_to[3] >= fade_to[1]) then
-    fade_to = nil
-    StepOneTalk()
-    return false
-  else
-    return true
-  end
-end
-
-function HandleTalkFadeTo(talk)
-  fade_to = {unpack(talk.FadeTo)}
-  fade_to[3] = 0                        -- Init timer.
-  fade_to[4] = Good.GetBgColor(curr_lvl_id) -- Save curr bgcolor.
-end
-
-function HandleTalkImage(talk)
-  Good.KillAllChild(image_pos_dummy_id)
-  if (-1 ~= talk.Image) then
-    local o = Good.GenObj(image_pos_dummy_id, talk.Image)
-    local l,t,w,h = Good.GetDim(o)
-    Good.SetPos(o, (SCR_W - w)/2, 0)
-  end
-  StepOneTalk()
-end
-
-function HandleTalkMenu()
-  if (nil == talk_menu_obj) then
-    return false
-  end
-  local mx, my = Input.GetMousePos()
-  local cc = Good.GetChildCount(talk_menu_obj)
-  for i = 0, cc - 1 do
-    local o = Good.GetChild(talk_menu_obj, i)
-    local x, y = Good.GetPos(o)
-    local tw = GetTextObjWidth(o)
-    if (PtInRect(mx, my, x, y, x + tw, y + SZ_TALK_TEXT)) then
-      SelectMenuItem(1 + i)
-      return true
-    end
-  end
-  return true
-end
-
-function HandleTalkMenuText(talk)
-  if (nil ~= talk_mess_obj) then
-    Good.KillAllChild(talk_mess_obj)
-  end
-  talk_menu_obj = GenColorObj(-1, SCR_W, SCR_H, 0xb0000000)
-  local lw = math.floor(SCR_W / #talk.MenuText)
-  local x = 0
-  for i = 1, #talk.MenuText do
-    local o = Good.GenTextObj(talk_menu_obj, talk.MenuText[i], SZ_TALK_TEXT)
-    local tw = GetTextObjWidth(o)
-    local lx = x + (lw - tw) / 2
-    Good.SetPos(o, lx, (SCR_H - SZ_TALK_TEXT) / 2)
-    x = x + lw
-  end
-  KillTalkMessCursor(talk_mess_obj)
-  SetTalkMenuSel(1)
-end
-
-function HandlTalkText(talk)
-  if (nil ~= talk_mess_obj) then
-    Good.KillObj(talk_mess_obj)
-    talk_mess_obj = nil
-  end
-  local text = talk.Text
-  if (nil ~= talk.ScriptText) then
-    text = talk.ScriptText(talk.Text)
-  end
-  if (0 >= string.len(text)) then
-    StepOneTalk()
-    return
-  end
-  talk_mess_obj = Good.GenTextObj(-1, text, SZ_TALK_TEXT)
-  local w = GetTextObjWidth(talk_mess_obj)
-  Good.SetPos(talk_mess_obj, (SCR_W - w)/2, 270)
-  AddTalkMessCuror(talk_mess_obj)
-end
-
 function HandleTalkLevelId(talk)
   if (on_create) then                   -- Skip gen next lvl to avoid app error.
     force_next_lvl = true
@@ -154,72 +222,6 @@ function HandleTalkLevelId(talk)
     lvl_id = talk.ScriptLevelId()
   end
   Good.GenObj(-1, lvl_id)
-end
-
-function HandleTalkNextId(talk)
-  if (nil ~= talk.NextCond and not talk.NextCond()) then
-    StepOneTalk()
-    return
-  end
-  if (nil ~= talk.NextId) then
-    StartTalk(talk.NextId)
-  elseif (nil ~= talk.ScriptNextId) then
-    StartTalk(talk.ScriptNextId())
-  end
-end
-
-function KillTalkMenuSelMessCursor(sel)
-  local msg = Good.GetChild(talk_menu_obj, sel - 1)
-  KillTalkMessCursor(msg)
-end
-
-function KillTalkMessCursor(msg)
-  local cc = Good.GetChildCount(msg)
-  local cursor = Good.GetChild(msg, cc - 1)
-  Good.KillObj(cursor)
-end
-
-function SelectMenuItem(sel)
-  if (menu_sel == sel) then
-    local talk_tbl = GetCurrTalk()
-    local talk = talk_tbl[talk_index - 1]
-    StartTalk(talk.MenuNextId[sel])
-  else
-    SetTalkMenuSel(sel)
-  end
-end
-
-function SetTalkMenuSel(sel)
-  if (sel == menu_sel) then
-    return
-  end
-  if (nil ~= menu_sel) then
-    KillTalkMenuSelMessCursor(menu_sel)
-  end
-  AddTalkMenuSelMessCursor(sel)
-  menu_sel = sel
-end
-
-function SkipTalk()
-  if (nil ~= talk_menu_obj) then
-    return
-  end
-  while true do
-    local talk_tbl = GetCurrTalk()
-    local talk = talk_tbl[talk_index]
-    talk_index = talk_index + 1
-    if (nil ~= talk.LevelId or nil ~= talk.ScriptLevelId) then
-      HandleTalkLevelId(talk)
-      return
-    elseif (nil ~= talk.Script) then
-      talk.Script()
-    elseif (nil ~= talk.NextId or nil ~= talk.ScriptNextId) then
-      HandleTalkNextId(talk)
-    elseif (nil ~= talk.MenuText) then
-      HandleTalkMenuText(talk)
-      return
-    end
-  end
 end
 
 function StepOneTalk()

@@ -14,28 +14,15 @@ local btn_paper_obj_id = 10
 local input_code_right_talk_id = 2104
 local input_code_right_small_chest_talk_id = 2108
 
-CaveDoor = {}
-
-CaveDoor.OnCreate = function(param)
-  InitCaveDoor(param)
-  param.step = CaveDoorInput
-end
-
-CaveDoor.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, CAVE_FIELD_LVL_ID)
-    return
-  end
-  param.step(param)
-end
-
-function AddInputCode(param, code)
+local function AddInputCode(param, code)
   param.input_code = param.input_code .. code
   local idx = string.len(param.input_code)
   Good.SetBgColor(param.block_obj[idx], COLOR_GRAY)
 end
 
-function CaveDoorInput(param)
+local ValidateInputCode                 -- Forward decl.
+
+local function CaveDoorInput(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -53,7 +40,7 @@ function CaveDoorInput(param)
   end
 end
 
-function CaveDoorInputRight(param)
+local function CaveDoorInputRight(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -65,37 +52,31 @@ function CaveDoorInputRight(param)
   end
 end
 
-function CaveDoorInputWrong(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    ClearInputCode(param)
-    param.step = CaveDoorInput
-  end
-end
-
-function ClearInputCode(param)
+local function ClearInputCode(param)
   for i = 1, #param.block_obj do
     Good.SetBgColor(param.block_obj[i], COLOR_BLACK)
   end
   param.input_code = ''
 end
 
-function CorrectInputCode(s)
+local function CaveDoorInputWrong(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    ClearInputCode(param)
+    param.step = CaveDoorInput
+  end
+end
+
+local function CorrectInputCode(s)
   return GetOpenCaveDoorCode() == s
 end
 
-function GenInputCodeBlock(param, x, y)
+local function GenInputCodeBlock(param, x, y)
   local o = GenColorObj(-1, CX_BLOCK, CX_BLOCK, COLOR_BLACK)
   Good.SetPos(o, x, y)
   return o
 end
 
-function InitCaveDoor(param)
-  InitRpsCode(param)
-  InitRpsObj(param)
-  InitInputCodeBlock(param)
-end
-
-function InitInputCodeBlock(param)
+local function InitInputCodeBlock(param)
   local code = GetOpenCaveDoorCode()
   local OFFSET_X = (SCR_W - string.len(code) * CX_BLOCK_MARGIN) / 2
   param.block_obj = {}
@@ -107,19 +88,25 @@ function InitInputCodeBlock(param)
   param.input_code = ''
 end
 
-function InitRpsCode(param)
+local function InitRpsCode(param)
   param.rps_code = {'1', '2', '3'}
 end
 
-function InitRpsObj(param)
+local function InitRpsObj(param)
   param.rps_obj = {btn_scissor_obj_id, btn_stone_obj_id, btn_paper_obj_id}
 end
 
-function InputCodeFull(code)
+local function InitCaveDoor(param)
+  InitRpsCode(param)
+  InitRpsObj(param)
+  InitInputCodeBlock(param)
+end
+
+local function InputCodeFull(code)
   return string.len(code) == string.len(GetOpenCaveDoorCode())
 end
 
-function SetInputCodeBlockColor(param, color)
+local function SetInputCodeBlockColor(param, color)
   for i = 1, #param.block_obj do
     Good.SetBgColor(param.block_obj[i], color)
   end
@@ -136,4 +123,19 @@ function ValidateInputCode(param)
     SetInputCodeBlockColor(param, COLOR_INPUT_RIGHT)
     param.step = CaveDoorInputRight
   end
+end
+
+CaveDoor = {}
+
+CaveDoor.OnCreate = function(param)
+  InitCaveDoor(param)
+  param.step = CaveDoorInput
+end
+
+CaveDoor.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, CAVE_FIELD_LVL_ID)
+    return
+  end
+  param.step(param)
 end

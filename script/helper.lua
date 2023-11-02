@@ -1,4 +1,3 @@
-
 local GIVE_GODZILLA_COST = 100
 local OPEN_CHURCH_COST = 50
 
@@ -116,7 +115,7 @@ function AddItem(id, count)
   end
 end
 
-function AddMissingTableItem(tbl, init_tbl)
+local function AddMissingTableItem(tbl, init_tbl)
   for k,v in pairs(init_tbl) do
     if (nil == tbl[k]) then
       tbl[k] = v
@@ -124,7 +123,7 @@ function AddMissingTableItem(tbl, init_tbl)
   end
 end
 
-function AddRedPoint(parent)
+local function AddRedPoint(parent)
   local o = Good.GenObj(parent, red_point_tex_id, 'AnimTalkArrow')
   local l,t,w,h = Good.GetDim(o)
   local lp,tp,wp,hp = Good.GetDim(parent)
@@ -222,11 +221,6 @@ end
 
 function EnterCaveCount()
   return ItemCount('i_enter_cave_count')
-end
-
-function EnterPlace(id)
-  SetItem('f_last_lvl_id', id)
-  SaveGame()
 end
 
 function FlashlightOutOfPower()
@@ -486,7 +480,7 @@ function IncClickTrainingCount()
   AddItem('i_click_training_count', 1)
 end
 
-function InitTable(init_tbl)
+local function InitTable(init_tbl)
   local tbl = {}
   for k,v in pairs(init_tbl) do
     tbl[k] = v
@@ -700,15 +694,7 @@ function RemoveItem(id, count)
   end
 end
 
-function ResetGame()
-  obj_state = InitTable(init_obj_state)
-  bag = InitTable(init_bag)
-  curr_talk_id = {teacher_init_talk_id}
-  ResetTraining()
-  ResetOpenCaveDoorCode()
-end
-
-function ResetOpenCaveDoorCode()
+local function ResetOpenCaveDoorCode()
   local len = string.len(open_cave_door_code)
   open_cave_door_code = ''
   local idx = math.random(3)
@@ -717,11 +703,12 @@ function ResetOpenCaveDoorCode()
   end
 end
 
-function SaveGame()
-  local outf = io.open(SAV_FILE_NAME, "w")
-  WriteStrTable(outf, 'obj_state', obj_state)
-  WriteStrTable(outf, 'bag', bag)
-  outf:close()
+function ResetGame()
+  obj_state = InitTable(init_obj_state)
+  bag = InitTable(init_bag)
+  curr_talk_id = {teacher_init_talk_id}
+  ResetTraining()
+  ResetOpenCaveDoorCode()
 end
 
 function SetCounterUiCount(param, c)
@@ -801,15 +788,11 @@ function WaitTimer(param, t)
   end
 end
 
-function WriteStrTable(outf, name, t)
-  WriteTable_i(outf, name, t, '%s=%s')
-end
-
-function WriteTable_i(outf, name, t, fmt)
+local function WriteStrTable(outf, name, t)
   outf:write(string.format('%s={', name))
   local tmp = {}
   for k,v in pairs(t) do
-    table.insert(tmp, string.format(fmt, tostring(k), tostring(v)))
+    table.insert(tmp, string.format('%s=%s', tostring(k), tostring(v)))
   end
   table.sort(tmp)
   for i = 1, #tmp do
@@ -820,4 +803,16 @@ function WriteTable_i(outf, name, t, fmt)
     end
   end
   outf:write(string.format('}\n'))
+end
+
+local function SaveGame()
+  local outf = io.open(SAV_FILE_NAME, "w")
+  WriteStrTable(outf, 'obj_state', obj_state)
+  WriteStrTable(outf, 'bag', bag)
+  outf:close()
+end
+
+function EnterPlace(id)
+  SetItem('f_last_lvl_id', id)
+  SaveGame()
 end

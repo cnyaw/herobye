@@ -14,23 +14,9 @@ local bet_coin = {}
 local bet_dummy = nil
 local bet_coin_obj = {}
 
-RacingGame = {}
+local OnRacingGameInitStep              -- Forward decl.
 
-RacingGame.OnCreate = function(param)
-  bet_dummy = nil
-  UpdateCoinInfo(param)
-  param.stage = OnRacingGameInitStep
-end
-
-RacingGame.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE) or HittestBackButton(back_btn_obj_id)) then
-    Good.GenObj(-1, MAIN_MAP_LVL_ID)
-    return
-  end
-  param.stage(param)
-end
-
-OnRacingGameEndStep = function(param)
+local function OnRacingGameEndStep(param)
   param.cd = param.cd - 1
   if (0 >= param.cd) then
     param.stage = OnRacingGameInitStep
@@ -38,90 +24,7 @@ OnRacingGameEndStep = function(param)
   end
 end
 
-function GenPrepareSanGlass(param)
-  local dummy = Good.GenDummy(-1)
-  Good.SetPos(dummy, SCR_W/2, 0)
-  local o = GenSandGlassObj(PREPARE_TIME)
-  Good.AddChild(dummy, o)
-  param.glassdummy = dummy
-  param.count_down = nil
-end
-
-function GenSaiHoon(param)
-  if (nil ~= param.h) then
-    for i = 1, MAX_SAI_HOON do
-      Good.KillObj(param.h[i])
-    end
-    param.h = nil
-  end
-  local w,h = Resource.GetTileSize(sai_hoon_obj_id)
-  sai_hoon_sz = h * SAI_HOON_SCALE
-  param.h = {}
-  param.n = {}
-  for i = 1, MAX_SAI_HOON do
-    local h = Good.GenObj(-1, sai_hoon_obj_id)
-    Good.SetBgColor(h, COLOR[i])
-    Good.SetScale(h, SAI_HOON_SCALE, SAI_HOON_SCALE)
-    Good.SetPos(h, 0, (sai_hoon_sz + 5) * i)
-    param.h[i] = h
-    param.n[i] = 1
-  end
-end
-
-function GenBetingBtns(param)
-  local offsety = (sai_hoon_sz - 32)/2
-  param.b1 = {}
-  param.b2 = {}
-  param.b3 = {}
-  local dummy = Good.GenDummy(-1)
-  for i = 1, MAX_SAI_HOON do
-    local o = Good.GenObj(dummy, tex_plus_id)
-    Good.SetPos(o, 80, (sai_hoon_sz + 5) * i + offsety)
-    param.b1[i] = o
-    local o2 = Good.GenObj(dummy, tex_plus_id)
-    Good.SetPos(o2, 140, (sai_hoon_sz + 5) * i + offsety)
-    param.b2[i] = o2
-    local o3 = Good.GenObj(dummy, tex_plus_id)
-    Good.SetPos(o3, 200, (sai_hoon_sz + 5) * i + offsety)
-    param.b3[i] = o3
-  end
-  param.plusdummy = dummy
-  if (nil ~= bet_dummy) then
-    Good.KillObj(bet_dummy)
-  end
-  bet_dummy = Good.GenDummy(-1)
-  bet_coin = {}
-  bet_coin_obj = {}
-end
-
-OnRacingGameInitStep = function(param)
-  param.cd = PREPARE_TIME * ONE_SECOND_TICK
-  GenPrepareSanGlass(param)
-  GenSaiHoon(param)
-  GenBetingBtns(param)
-  param.stage = OnRacingGamePrepareStep
-end
-
-OnRacingGamePrepareStep = function(param)
-  param.cd = param.cd - 1
-  if (0 >= param.cd) then
-    if (nil ~= param.glassdummy) then
-      Good.KillObj(param.glassdummy)
-      param.glassdummy = nil
-    end
-    if (nil ~= param.plusdummy) then
-      Good.KillObj(param.plusdummy)
-      param.plusdummy = nil
-    end
-    param.stage = OnRacingGameRunStep
-    return
-  end
-
-  CountDownPrepareTime(param)
-  HandleBetting(param)
-end
-
-OnRacingGameRunStep = function(param)
+local function OnRacingGameRunStep(param)
   local mx, my = Input.GetMousePos()
   local down = Input.IsKeyPushed(Input.LBUTTON)
   local touch_end = false
@@ -152,7 +55,7 @@ OnRacingGameRunStep = function(param)
   end
 end
 
-function CountDownPrepareTime(param)
+local function CountDownPrepareTime(param)
   -- Hour glass count down.
   local n = math.floor(param.cd / ONE_SECOND_TICK) + 1
   if (nil == param.count_down or param.count_down_n ~= n) then
@@ -168,7 +71,7 @@ function CountDownPrepareTime(param)
   end
 end
 
-function BetCoin(param, i, coin)
+local function BetCoin(param, i, coin)
   if (nil == bet_coin[i]) then
     bet_coin[i] = coin
   else
@@ -186,7 +89,7 @@ function BetCoin(param, i, coin)
   UpdateCoinInfo(param)
 end
 
-function HandleBetting(param)
+local function HandleBetting(param)
   if (0 >= GetCoin()) then              -- No coin.
     return
   end
@@ -211,4 +114,103 @@ function HandleBetting(param)
       break
     end
   end
+end
+
+local function OnRacingGamePrepareStep(param)
+  param.cd = param.cd - 1
+  if (0 >= param.cd) then
+    if (nil ~= param.glassdummy) then
+      Good.KillObj(param.glassdummy)
+      param.glassdummy = nil
+    end
+    if (nil ~= param.plusdummy) then
+      Good.KillObj(param.plusdummy)
+      param.plusdummy = nil
+    end
+    param.stage = OnRacingGameRunStep
+    return
+  end
+
+  CountDownPrepareTime(param)
+  HandleBetting(param)
+end
+
+local function GenPrepareSanGlass(param)
+  local dummy = Good.GenDummy(-1)
+  Good.SetPos(dummy, SCR_W/2, 0)
+  local o = GenSandGlassObj(PREPARE_TIME)
+  Good.AddChild(dummy, o)
+  param.glassdummy = dummy
+  param.count_down = nil
+end
+
+local function GenSaiHoon(param)
+  if (nil ~= param.h) then
+    for i = 1, MAX_SAI_HOON do
+      Good.KillObj(param.h[i])
+    end
+    param.h = nil
+  end
+  local w,h = Resource.GetTileSize(sai_hoon_obj_id)
+  sai_hoon_sz = h * SAI_HOON_SCALE
+  param.h = {}
+  param.n = {}
+  for i = 1, MAX_SAI_HOON do
+    local h = Good.GenObj(-1, sai_hoon_obj_id)
+    Good.SetBgColor(h, COLOR[i])
+    Good.SetScale(h, SAI_HOON_SCALE, SAI_HOON_SCALE)
+    Good.SetPos(h, 0, (sai_hoon_sz + 5) * i)
+    param.h[i] = h
+    param.n[i] = 1
+  end
+end
+
+local function GenBetingBtns(param)
+  local offsety = (sai_hoon_sz - 32)/2
+  param.b1 = {}
+  param.b2 = {}
+  param.b3 = {}
+  local dummy = Good.GenDummy(-1)
+  for i = 1, MAX_SAI_HOON do
+    local o = Good.GenObj(dummy, tex_plus_id)
+    Good.SetPos(o, 80, (sai_hoon_sz + 5) * i + offsety)
+    param.b1[i] = o
+    local o2 = Good.GenObj(dummy, tex_plus_id)
+    Good.SetPos(o2, 140, (sai_hoon_sz + 5) * i + offsety)
+    param.b2[i] = o2
+    local o3 = Good.GenObj(dummy, tex_plus_id)
+    Good.SetPos(o3, 200, (sai_hoon_sz + 5) * i + offsety)
+    param.b3[i] = o3
+  end
+  param.plusdummy = dummy
+  if (nil ~= bet_dummy) then
+    Good.KillObj(bet_dummy)
+  end
+  bet_dummy = Good.GenDummy(-1)
+  bet_coin = {}
+  bet_coin_obj = {}
+end
+
+function OnRacingGameInitStep(param)
+  param.cd = PREPARE_TIME * ONE_SECOND_TICK
+  GenPrepareSanGlass(param)
+  GenSaiHoon(param)
+  GenBetingBtns(param)
+  param.stage = OnRacingGamePrepareStep
+end
+
+RacingGame = {}
+
+RacingGame.OnCreate = function(param)
+  bet_dummy = nil
+  UpdateCoinInfo(param)
+  param.stage = OnRacingGameInitStep
+end
+
+RacingGame.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE) or HittestBackButton(back_btn_obj_id)) then
+    Good.GenObj(-1, MAIN_MAP_LVL_ID)
+    return
+  end
+  param.stage(param)
 end
