@@ -82,35 +82,25 @@ local function LotteryDraw(param)
   param.mousedown = true
 end
 
+local function OnLotteryEnd(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    AddCoin(lottery_price)
+    StartTalk(end_lottery_talk_id)
+  end
+end
+
 local function LotteryNoDraw(param)
   param.lastx = 0
   param.lasty = 0
   if (param.mousedown) then
     param.mousedown = false
     if (IsLotteryEnd()) then
-      param.step = LotteryEnd
+      param.step = OnLotteryEnd
     end
   end
 end
 
-Lottery = {}
-
-Lottery.OnCreate = function(param)
-  UpdateCoinInfo(param)
-  GenLottery()
-  param.step = LotterDraw
-  param.start_draw = false
-end
-
-Lottery.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, TRASH_FIELD_LVL_ID)
-    return
-  end
-  param.step(param)
-end
-
-LotterDraw = function(param)
+local function OnLotteryDraw(param)
   if (Input.IsKeyDown(Input.LBUTTON)) then
     if (param.start_draw) then
       LotteryDraw(param)
@@ -124,9 +114,19 @@ LotterDraw = function(param)
   end
 end
 
-LotteryEnd = function(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    AddCoin(lottery_price)
-    StartTalk(end_lottery_talk_id)
+Lottery = {}
+
+Lottery.OnCreate = function(param)
+  UpdateCoinInfo(param)
+  GenLottery()
+  param.step = OnLotteryDraw
+  param.start_draw = false
+end
+
+Lottery.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, TRASH_FIELD_LVL_ID)
+    return
   end
+  param.step(param)
 end

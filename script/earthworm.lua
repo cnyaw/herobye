@@ -21,35 +21,7 @@ local function SetCheckCount(param, c)
   UpdateCounterUi(param, EARTHWORM_TEX_ID, CHECK_COUNT)
 end
 
-EarthWorm = {}
-
-EarthWorm.OnCreate = function(param)
-  local cx = (SCR_W - 2 * MARGIN_X) / COLS
-  local cy = (SCR_H - 2 * MARGIN_Y) / ROWS
-  local cw, ch = Resource.GetTexSize(crack_tex_id)
-  param.obj = {}
-  for i = 1, COLS do
-    for j = 1, ROWS do
-      local o = Good.GenObj(-1, crack_tex_id)
-      Good.SetPos(o, MARGIN_X + (i - 1) * cx + (cx - cw)/2, MARGIN_Y + (j - 1) * cy + (cy - ch)/2)
-      Good.SetBgColor(o, COLOR_BLACK)
-      param.obj[1 + #param.obj] = o
-    end
-  end
-  SetCheckCount(param, 0)
-  param.digcount = 0
-  param.step = EarthWormPlay
-end
-
-EarthWorm.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, ZOO_FIELD_LVL_ID)
-    return
-  end
-  param.step(param)
-end
-
-function EarthWormDone(param)
+local function EarthWormDone(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
@@ -60,7 +32,7 @@ function EarthWormDone(param)
   end
 end
 
-function EarthWormPlay(param)
+local function EarthWormPlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -88,4 +60,32 @@ function EarthWormPlay(param)
       end
     end
   end
+end
+
+EarthWorm = {}
+
+EarthWorm.OnCreate = function(param)
+  local cx = (SCR_W - 2 * MARGIN_X) / COLS
+  local cy = (SCR_H - 2 * MARGIN_Y) / ROWS
+  local cw, ch = Resource.GetTexSize(crack_tex_id)
+  param.obj = {}
+  for i = 1, COLS do
+    for j = 1, ROWS do
+      local o = Good.GenObj(-1, crack_tex_id)
+      Good.SetPos(o, MARGIN_X + (i - 1) * cx + (cx - cw)/2, MARGIN_Y + (j - 1) * cy + (cy - ch)/2)
+      Good.SetBgColor(o, COLOR_BLACK)
+      param.obj[1 + #param.obj] = o
+    end
+  end
+  SetCheckCount(param, 0)
+  param.digcount = 0
+  param.step = EarthWormPlay
+end
+
+EarthWorm.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, ZOO_FIELD_LVL_ID)
+    return
+  end
+  param.step(param)
 end

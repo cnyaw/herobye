@@ -18,6 +18,46 @@ local function ClearPair(param, i, j)
   return 0 == param.count
 end
 
+local function PairGameEnd(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(pass_talk_id)
+  end
+end
+
+local function PairGamePlay(param)
+  if (not Input.IsKeyPushed(Input.LBUTTON)) then
+    return
+  end
+  local x, y = Input.GetMousePos()
+  local obj_index = param.color_offset
+  for i = 0, ROW_COUNT - 1 do
+    for j = 0, COL_COUNT - 1 do
+      local x0, y0 = OFFSET_X + j * WW, OFFSET_Y + i * HH
+      if (PtInRect(x, y, x0, y0, x0 + WW, y0 + HH)) then
+        local color1 = param.colors[obj_index]
+        if (-1 == color1) then
+          return
+        end
+        local o = param.objs[obj_index]
+        if (nil ~= param.sel_obj and param.sel_obj ~= o) then
+          Good.SetScript(param.sel_obj, '')
+          if (color1 == param.colors[param.sel_index]) then
+            if (ClearPair(param, obj_index, param.sel_index)) then
+              param.step = PairGameEnd
+            end
+            return
+          end
+        end
+        param.sel_obj = o
+        param.sel_index = obj_index
+        Good.SetScript(o, 'AnimTalkArrow')
+        return
+      end
+      obj_index = obj_index + 1
+    end
+  end
+end
+
 PairGame = {}
 
 PairGame.OnCreate = function(param)
@@ -53,44 +93,4 @@ PairGame.OnStep = function(param)
     return
   end
   param.step(param)
-end
-
-PairGameEnd = function(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    StartTalk(pass_talk_id)
-  end
-end
-
-PairGamePlay = function(param)
-  if (not Input.IsKeyPushed(Input.LBUTTON)) then
-    return
-  end
-  local x, y = Input.GetMousePos()
-  local obj_index = param.color_offset
-  for i = 0, ROW_COUNT - 1 do
-    for j = 0, COL_COUNT - 1 do
-      local x0, y0 = OFFSET_X + j * WW, OFFSET_Y + i * HH
-      if (PtInRect(x, y, x0, y0, x0 + WW, y0 + HH)) then
-        local color1 = param.colors[obj_index]
-        if (-1 == color1) then
-          return
-        end
-        local o = param.objs[obj_index]
-        if (nil ~= param.sel_obj and param.sel_obj ~= o) then
-          Good.SetScript(param.sel_obj, '')
-          if (color1 == param.colors[param.sel_index]) then
-            if (ClearPair(param, obj_index, param.sel_index)) then
-              param.step = PairGameEnd
-            end
-            return
-          end
-        end
-        param.sel_obj = o
-        param.sel_index = obj_index
-        Good.SetScript(o, 'AnimTalkArrow')
-        return
-      end
-      obj_index = obj_index + 1
-    end
-  end
 end

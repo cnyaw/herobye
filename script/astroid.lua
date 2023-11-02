@@ -9,6 +9,48 @@ local function SetCheckCount(param, c)
   UpdateCounterUi(param, astroid_tex_id, CHECK_COUNT)
 end
 
+local function GenNewAstroid(i, param)
+  local w,h = Resource.GetTexSize(astroid_tex_id)
+  local o = Good.GenObj(-1, astroid_tex_id, 'AnimAstroid')
+  Good.SetPos(o, (i-1) * (SCR_W/NUM_ASTROID), -math.random(h, 4*h))
+  Good.SetAnchor(o, .5, .5)
+  Good.GetParam(o).clear = function() SetCheckCount(param, 0) end
+  return o
+end
+
+local function IncDestroyAstroidCount(param)
+  SetCheckCount(param, GetCounterUiCount(param) + 1)
+end
+
+local function HittestAstroid(param, x, y)
+  for i = 1, NUM_ASTROID do
+    local o = param.o[i]
+    if (PtInObj(x, y, o)) then
+      Good.SetScript(o, 'AnimDestroyAstroid')
+      Good.GetParam(o).k = nil
+      param.o[i] = GenNewAstroid(i, param)
+      IncDestroyAstroidCount(param)
+      return CHECK_COUNT <= GetCounterUiCount(param)
+    end
+  end
+  return false
+end
+
+local function OnPassAstroidStep(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
+  end
+end
+
+local function OnDestroyAstroidStep(param)
+  if (not Input.IsKeyPushed(Input.LBUTTON)) then
+    return
+  end
+  if (HittestAstroid(param, Input.GetMousePos())) then
+    param.step = OnPassAstroidStep
+  end
+end
+
 Astroid = {}
 
 Astroid.OnCreate = function(param)
@@ -42,46 +84,4 @@ Astroid.OnStep = function(param)
     return
   end
   param.step(param)
-end
-
-function GenNewAstroid(i, param)
-  local w,h = Resource.GetTexSize(astroid_tex_id)
-  local o = Good.GenObj(-1, astroid_tex_id, 'AnimAstroid')
-  Good.SetPos(o, (i-1) * (SCR_W/NUM_ASTROID), -math.random(h, 4*h))
-  Good.SetAnchor(o, .5, .5)
-  Good.GetParam(o).clear = function() SetCheckCount(param, 0) end
-  return o
-end
-
-function HittestAstroid(param, x, y)
-  for i = 1, NUM_ASTROID do
-    local o = param.o[i]
-    if (PtInObj(x, y, o)) then
-      Good.SetScript(o, 'AnimDestroyAstroid')
-      Good.GetParam(o).k = nil
-      param.o[i] = GenNewAstroid(i, param)
-      IncDestroyAstroidCount(param)
-      return CHECK_COUNT <= GetCounterUiCount(param)
-    end
-  end
-  return false
-end
-
-function IncDestroyAstroidCount(param)
-  SetCheckCount(param, GetCounterUiCount(param) + 1)
-end
-
-function OnDestroyAstroidStep(param)
-  if (not Input.IsKeyPushed(Input.LBUTTON)) then
-    return
-  end
-  if (HittestAstroid(param, Input.GetMousePos())) then
-    param.step = OnPassAstroidStep
-  end
-end
-
-function OnPassAstroidStep(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
-  end
 end

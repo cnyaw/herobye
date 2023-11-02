@@ -86,6 +86,27 @@ local function IsBeautifulRainbow()
   return true
 end
 
+local function RainbowGameDone(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(beautiful_rainbow_talk_id)
+  end
+end
+
+local function RainbowGamePlay(param)
+  if (Input.IsKeyPushed(Input.LBUTTON)) then
+    local x, y = Input.GetMousePos()
+    if (HittestPalette(x, y)) then
+      return
+    end
+    if (HittestRainbow(x, y)) then
+      if (IsBeautifulRainbow()) then
+        param.step = RainbowGameDone
+      end
+      return
+    end
+  end
+end
+
 RainbowGame = {}
 
 RainbowGame.OnCreate = function(param)
@@ -101,25 +122,4 @@ RainbowGame.OnStep = function(param)
     return
   end
   param.step(param)
-end
-
-RainbowGameDone = function(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    StartTalk(beautiful_rainbow_talk_id)
-  end
-end
-
-RainbowGamePlay = function(param)
-  if (Input.IsKeyPushed(Input.LBUTTON)) then
-    local x, y = Input.GetMousePos()
-    if (HittestPalette(x, y)) then
-      return
-    end
-    if (HittestRainbow(x, y)) then
-      if (IsBeautifulRainbow()) then
-        param.step = RainbowGameDone
-      end
-      return
-    end
-  end
 end

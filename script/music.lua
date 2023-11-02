@@ -29,6 +29,12 @@ local function GenMusicalNote(param)
   p.clear = function() SetCheckCount(param, 0) end
 end
 
+local function MusicGameDone(param)
+  if (WaitTimer(param, WAIT_TIME_DONE)) then
+    StartTalk(talk_id)
+  end
+end
+
 local function HitTest(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
@@ -60,6 +66,13 @@ local function HitTest(param)
   end
 end
 
+local function MusicGamePlay(param)
+  HitTest(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    GenMusicalNote(param)
+  end
+end
+
 MusicGame = {}
 
 MusicGame.OnCreate = function(param)
@@ -74,17 +87,4 @@ MusicGame.OnStep = function(param)
     return
   end
   param.step(param)
-end
-
-function MusicGameDone(param)
-  if (WaitTimer(param, WAIT_TIME_DONE)) then
-    StartTalk(talk_id)
-  end
-end
-
-function MusicGamePlay(param)
-  HitTest(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    GenMusicalNote(param)
-  end
 end

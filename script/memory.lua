@@ -21,39 +21,9 @@ local function IsMemoryCorrect(param)
   return true
 end
 
-MemoryGame = {}
+local MemoryGameInitQuiz                -- Forward decl.
 
-MemoryGame.OnCreate = function(param)
-  param.step = MemoryGameNewQuiz
-end
-
-MemoryGame.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
-    return
-  end
-  param.step(param)
-end
-
-function MemoryGameInitQuiz(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
-    return
-  end
-  local n = math.random(#colors)
-  local col_obj = colors[n]
-  Good.SetScript(col_obj, 'AnimJump')
-  table.insert(param.quiz, n)
-  local o = GenColorObj(dummy_obj_id, SZ_INPUT_COLOR_OBJ, SZ_INPUT_COLOR_OBJ, Good.GetBgColor(col_obj), 'AnimFadeToBlack')
-  Good.SetAnchor(o, .5, .5)
-  Good.SetPos(o, 2 * SZ_INPUT_COLOR_OBJ * #param.quiz, 0)
-  table.insert(param.quiz_obj, o)
-  if (LEN_QUIZ == #param.quiz) then
-    param.step = MemoryGamePlay
-    Good.SetScript(param.quiz_obj[1], 'AnimCursor')
-  end
-end
-
-function MemoryGameNewQuiz(param)
+local function MemoryGameNewQuiz(param)
   param.quiz = {}
   if (nil ~= param.quiz_obj) then
     for i = 1, #param.quiz_obj do
@@ -65,7 +35,7 @@ function MemoryGameNewQuiz(param)
   param.step = MemoryGameInitQuiz
 end
 
-function MemoryGamePlay(param)
+local function MemoryGamePlay(param)
   if (not Input.IsKeyPushed(Input.LBUTTON)) then
     return
   end
@@ -89,4 +59,36 @@ function MemoryGamePlay(param)
       return
     end
   end
+end
+
+function MemoryGameInitQuiz(param)
+  if (not WaitTimer(param, WAIT_TIME)) then
+    return
+  end
+  local n = math.random(#colors)
+  local col_obj = colors[n]
+  Good.SetScript(col_obj, 'AnimJump')
+  table.insert(param.quiz, n)
+  local o = GenColorObj(dummy_obj_id, SZ_INPUT_COLOR_OBJ, SZ_INPUT_COLOR_OBJ, Good.GetBgColor(col_obj), 'AnimFadeToBlack')
+  Good.SetAnchor(o, .5, .5)
+  Good.SetPos(o, 2 * SZ_INPUT_COLOR_OBJ * #param.quiz, 0)
+  table.insert(param.quiz_obj, o)
+  if (LEN_QUIZ == #param.quiz) then
+    param.step = MemoryGamePlay
+    Good.SetScript(param.quiz_obj[1], 'AnimCursor')
+  end
+end
+
+MemoryGame = {}
+
+MemoryGame.OnCreate = function(param)
+  param.step = MemoryGameNewQuiz
+end
+
+MemoryGame.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
+    return
+  end
+  param.step(param)
 end

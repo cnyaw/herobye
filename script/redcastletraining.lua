@@ -46,32 +46,13 @@ local function SetCheckCount(param, c)
   UpdateCounterUi(param, arrow_tex_id, CHECK_COUNT)
 end
 
-RedCastleTraining = {}
-
-RedCastleTraining.OnCreate = function(param)
-  param.arrow_fly = false
-  param.arrow_orgx, param.arrow_orgy = Good.GetPos(arrow_obj_id)
-  arrow_w, arrow_h = Resource.GetTexSize(Good.GetTexId(arrow_obj_id))
-  target_w, target_h = Resource.GetTexSize(Good.GetTexId(target_obj_id))
-  SetCheckCount(param, 0)
-  param.step = RedCastleTrainingStep
-end
-
-RedCastleTraining.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, NORTH_NATION_LVL_ID)
-    return
-  end
-  param.step(param)
-end
-
-function RedCastleTrainingDone(param)
+local function RedCastleTrainingDone(param)
   if (WaitTimer(param, WAIT_TIME)) then
     StartTalk(talk_id)
   end
 end
 
-function RedCastleTrainingStep(param)
+local function RedCastleTrainingStep(param)
   if (param.arrow_fly) then
     FlyArrow()
     if (ArrowOut()) then
@@ -93,4 +74,23 @@ function RedCastleTrainingStep(param)
       param.arrow_fly = true
     end
   end
+end
+
+RedCastleTraining = {}
+
+RedCastleTraining.OnCreate = function(param)
+  param.arrow_fly = false
+  param.arrow_orgx, param.arrow_orgy = Good.GetPos(arrow_obj_id)
+  arrow_w, arrow_h = Resource.GetTexSize(Good.GetTexId(arrow_obj_id))
+  target_w, target_h = Resource.GetTexSize(Good.GetTexId(target_obj_id))
+  SetCheckCount(param, 0)
+  param.step = RedCastleTrainingStep
+end
+
+RedCastleTraining.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, NORTH_NATION_LVL_ID)
+    return
+  end
+  param.step(param)
 end

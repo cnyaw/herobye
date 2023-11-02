@@ -29,6 +29,27 @@ local function ShadowAnimDone()
   return true
 end
 
+local function ShadowGameDone(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(found_laalaa_talk_id)
+  end
+end
+
+local function ShadowGamePlay(param)
+  if (Input.IsKeyPushed(Input.LBUTTON)) then
+    if (not ShadowAnimDone()) then
+      return
+    end
+    local x, y = Input.GetMousePos()
+    if (PtInObj(x, y, laalaa_obj_id)) then
+      Good.SetScript(laalaa_obj_id, 'AnimFadeToWhite')
+      param.step = ShadowGameDone
+    else
+      ResetShadowGame()
+    end
+  end
+end
+
 ShadowGame = {}
 
 ShadowGame.OnCreate = function(param)
@@ -42,25 +63,4 @@ ShadowGame.OnStep = function(param)
     return
   end
   param.step(param)
-end
-
-ShadowGameDone = function(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    StartTalk(found_laalaa_talk_id)
-  end
-end
-
-ShadowGamePlay = function(param)
-  if (Input.IsKeyPushed(Input.LBUTTON)) then
-    if (not ShadowAnimDone()) then
-      return
-    end
-    local x, y = Input.GetMousePos()
-    if (PtInObj(x, y, laalaa_obj_id)) then
-      Good.SetScript(laalaa_obj_id, 'AnimFadeToWhite')
-      param.step = ShadowGameDone
-    else
-      ResetShadowGame()
-    end
-  end
 end

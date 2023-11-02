@@ -3,6 +3,46 @@ local IMAGE_MARGIN = 20
 
 local back_btn_obj_id = 410
 
+local function GenBagItemObj(x, y, img, item_id)
+  local o = Good.GenObj(-1, img)
+  Good.SetPos(o, x, y)
+  ScaleToSize(o, IMAGE_WIDTH, IMAGE_WIDTH)
+  Good.GetParam(o).item_id = item_id
+  x = x + IMAGE_WIDTH + IMAGE_MARGIN
+  if (SCR_W <= (x + IMAGE_WIDTH)) then
+    x = IMAGE_MARGIN
+    y = y + IMAGE_WIDTH + IMAGE_MARGIN
+  end
+  return x, y
+end
+
+local function GetBagItemTalkId(o)
+  local item_id = Good.GetParam(o).item_id
+  local item = ItemData[item_id]
+  if (nil ~= item) then
+    local talk_id = item.TalkId
+    if (nil ~= talk_id) then
+      return talk_id
+    end
+  end
+  return -1
+end
+
+local function PtInBagItem(id, x, y)
+  local c = Good.GetChildCount(id)
+  for i = 0, c - 1 do
+    local o = Good.GetChild(id, i)
+    if (PtInObj(x, y, o)) then
+      local talk_id = GetBagItemTalkId(o)
+      if (-1 ~= talk_id) then
+        StartTalk(talk_id)
+      end
+      return true
+    end
+  end
+  return false
+end
+
 BagScene = {}
 
 BagScene.OnCreate = function(param)
@@ -33,44 +73,4 @@ BagScene.OnStep = function(param)
       return
     end
   end
-end
-
-function GenBagItemObj(x, y, img, item_id)
-  local o = Good.GenObj(-1, img)
-  Good.SetPos(o, x, y)
-  ScaleToSize(o, IMAGE_WIDTH, IMAGE_WIDTH)
-  Good.GetParam(o).item_id = item_id
-  x = x + IMAGE_WIDTH + IMAGE_MARGIN
-  if (SCR_W <= (x + IMAGE_WIDTH)) then
-    x = IMAGE_MARGIN
-    y = y + IMAGE_WIDTH + IMAGE_MARGIN
-  end
-  return x, y
-end
-
-function GetBagItemTalkId(o)
-  local item_id = Good.GetParam(o).item_id
-  local item = ItemData[item_id]
-  if (nil ~= item) then
-    local talk_id = item.TalkId
-    if (nil ~= talk_id) then
-      return talk_id
-    end
-  end
-  return -1
-end
-
-function PtInBagItem(id, x, y)
-  local c = Good.GetChildCount(id)
-  for i = 0, c - 1 do
-    local o = Good.GetChild(id, i)
-    if (PtInObj(x, y, o)) then
-      local talk_id = GetBagItemTalkId(o)
-      if (-1 ~= talk_id) then
-        StartTalk(talk_id)
-      end
-      return true
-    end
-  end
-  return false
 end

@@ -118,29 +118,13 @@ local function MoveUp()
   GenPuzzleObj()
 end
 
-PuzzleGame = {}
-
-PuzzleGame.OnCreate = function(param)
-  GenPuzzleTex()
-  GenPuzzle()
-  param.step = PuzzleGamePlay
-end
-
-PuzzleGame.OnStep = function(param)
-  if (Input.IsKeyPressed(Input.ESCAPE)) then
-    Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
-    return
-  end
-  param.step(param)
-end
-
-function PuzzleGameEnd(param)
+local function PuzzleGameEnd(param)
   if (WaitTimer(param, WAIT_TIME)) then
     StartTalk(found_dipsy_talk_id)
   end
 end
 
-function PuzzleGamePlay(param)
+local function PuzzleGamePlay(param)
   if (Input.IsKeyPushed(Input.LBUTTON)) then
     local mx,my = Input.GetMousePos()
     local xx, yy = x + (1 + w) * (blank % MAX_COL), y + (1 + h) * math.floor(blank / MAX_COL)
@@ -157,4 +141,20 @@ function PuzzleGamePlay(param)
       param.step = PuzzleGameEnd
     end
   end
+end
+
+PuzzleGame = {}
+
+PuzzleGame.OnCreate = function(param)
+  GenPuzzleTex()
+  GenPuzzle()
+  param.step = PuzzleGamePlay
+end
+
+PuzzleGame.OnStep = function(param)
+  if (Input.IsKeyPressed(Input.ESCAPE)) then
+    Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
+    return
+  end
+  param.step(param)
 end

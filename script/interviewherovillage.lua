@@ -4,17 +4,7 @@ local BLINK_TIME = 120
 
 local ufo_coming_talk_id = 1400
 
-InterviewHeroVillage = {}
-
-InterviewHeroVillage.OnCreate = function(param)
-  param.step = InterviewHeroVillageInit
-end
-
-InterviewHeroVillage.OnStep = function(param)
-  param.step(param)
-end
-
-function InterviewHeroVillageBlink(param)
+local function InterviewHeroVillageBlink(param)
   if (nil == param.counter) then
     param.counter = 0
     param.flag = true
@@ -33,8 +23,18 @@ function InterviewHeroVillageBlink(param)
   end
 end
 
-function InterviewHeroVillageInit(param)
+local function InterviewHeroVillageInit(param)
   if (WaitTimer(param, WAIT_TIME)) then
     param.step = InterviewHeroVillageBlink
   end
+end
+
+InterviewHeroVillage = {}
+
+InterviewHeroVillage.OnCreate = function(param)
+  param.step = InterviewHeroVillageInit
+end
+
+InterviewHeroVillage.OnStep = function(param)
+  param.step(param)
 end

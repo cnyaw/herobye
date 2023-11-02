@@ -16,6 +16,49 @@ local function SetCheckCount(param, c)
   UpdateCounterUi(param, UFO_TEX_ID, CHECK_COUNT)
 end
 
+local function RandUfoWeapon()
+  local index = curr_weapon_index
+  while (index == curr_weapon_index) do
+    curr_weapon_index = math.random(#weapon_tex_id)
+  end
+  Good.SetTexId(weapon_obj, weapon_tex_id[curr_weapon_index])
+end
+
+local function ValidateAlienBossHittest(param, btn_index)
+  if (btn_index == curr_weapon_index) then
+    SetCheckCount(param, GetCounterUiCount(param) + 1)
+  else
+    SetCheckCount(param, 0)
+  end
+end
+
+local function AlienBossHittest(param)
+  local x, y = Input.GetMousePos()
+  for i = 1, #btn_obj do
+    if (PtInObj(x, y, btn_obj[i])) then
+      ValidateAlienBossHittest(param, i)
+      RandUfoWeapon()
+      param.wait_time = nil
+      return
+    end
+  end
+end
+
+local function AlienBossWin(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(win_talk_id)
+  end
+end
+
+local function AlienBossInput(param)
+  if (Input.IsKeyPushed(Input.LBUTTON)) then
+    AlienBossHittest(param)
+  end
+  if (CHECK_COUNT <= GetCounterUiCount(param)) then
+    param.step = AlienBossWin
+  end
+end
+
 AlienBoss = {}
 
 AlienBoss.OnCreate = function(param)
@@ -37,47 +80,4 @@ AlienBoss.OnStep = function(param)
     RandUfoWeapon()
   end
   param.step(param)
-end
-
-function AlienBossHittest(param)
-  local x, y = Input.GetMousePos()
-  for i = 1, #btn_obj do
-    if (PtInObj(x, y, btn_obj[i])) then
-      ValidateAlienBossHittest(param, i)
-      RandUfoWeapon()
-      param.wait_time = nil
-      return
-    end
-  end
-end
-
-function AlienBossInput(param)
-  if (Input.IsKeyPushed(Input.LBUTTON)) then
-    AlienBossHittest(param)
-  end
-  if (CHECK_COUNT <= GetCounterUiCount(param)) then
-    param.step = AlienBossWin
-  end
-end
-
-function AlienBossWin(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    StartTalk(win_talk_id)
-  end
-end
-
-function RandUfoWeapon()
-  local index = curr_weapon_index
-  while (index == curr_weapon_index) do
-    curr_weapon_index = math.random(#weapon_tex_id)
-  end
-  Good.SetTexId(weapon_obj, weapon_tex_id[curr_weapon_index])
-end
-
-function ValidateAlienBossHittest(param, btn_index)
-  if (btn_index == curr_weapon_index) then
-    SetCheckCount(param, GetCounterUiCount(param) + 1)
-  else
-    SetCheckCount(param, 0)
-  end
 end

@@ -6,6 +6,128 @@ local mx, my = (SCR_W - MAP_W*TILE_W)/2, (SCR_H - MAP_H*TILE_H)/2
 
 local pass_talk_id = 3406
 
+local function isFlowVert(param, c, r1, r2)
+  if (r1 == r2) then
+    return true
+  end
+  if (r1 > r2) then
+    local tmp = r1
+    r1 = r2
+    r2 = tmp
+  end
+  local r
+  for r = r1, r2 do
+    local idx = c + r * MAP_W
+    if (-1 ~= param.p[idx] and idx ~= param.p1 and idx ~= param.p2) then
+      return false
+    end
+  end
+  return true
+end
+
+local function isFlowHorz(param, r, c1, c2)
+  if (c1 == c2) then
+    return true
+  end
+  if (c1 > c2) then
+    local tmp = c1
+    c1 = c2
+    c2 = tmp
+  end
+  local c
+  for c = c1, c2 do
+    local idx = c + r * MAP_W
+    if (-1 ~= param.p[idx] and idx ~= param.p1 and idx ~= param.p2) then
+      return false
+    end
+  end
+  return true
+end
+
+local function CheckLink(param)
+  if (-1 == param.p2) then
+    return false
+  end
+  local c1 = param.p1 % MAP_W
+  local r1 = math.floor(param.p1 / MAP_W)
+  local c2 = param.p2 % MAP_W
+  local r2 = math.floor(param.p2 / MAP_W)
+  -- Parallel row condition.
+  local path = nil                      -- Shortest path.
+  local r
+  for r = 0, MAP_H - 1 do
+    if (isFlowVert(param, c1, r1, r) and
+        isFlowVert(param, c2, r, r2) and
+        isFlowHorz(param, r, c1, c2)) then
+      local p = math.abs(c1 - c2) + math.abs(r1 - r) + math.abs(r - r2)
+      if (nil == path or p < path) then
+        param.link[0] = param.p1
+        param.link[1] = c1 + MAP_W * r
+        param.link[2] = c2 + MAP_W * r
+        param.link[3] = param.p2
+        path = p
+      end
+    end
+  end
+  -- Parallel column condition.
+  local c
+  for c = 0, MAP_W - 1 do
+    if (isFlowHorz(param, r1, c1, c) and
+        isFlowHorz(param, r2, c, c2) and
+        isFlowVert(param, c, r1, r2)) then
+      local p = math.abs(r1 - r2) + math.abs(c1 - c) + math.abs(c - c2)
+      if (nil == path or p < path) then
+        param.link[0] = param.p1
+        param.link[1] = c + MAP_W * r1
+        param.link[2] = c + MAP_W * r2
+        param.link[3] = param.p2
+        path = p
+      end
+    end
+  end
+  if (nil ~= path) then
+    return true
+  end
+  return false
+end
+
+local function GenLinkObj(p1, p2)
+  if (p1 == p2) then
+    return -1
+  end
+  local c1 = p1 % MAP_W
+  local r1 = math.floor(p1 / MAP_W)
+  local c2 = p2 % MAP_W
+  local r2 = math.floor(p2 / MAP_W)
+  local c, r = c1, r1
+  local o
+  if (c1 == c2) then
+    o = GenColorObj(-1, 2, TILE_H * math.abs(r1 - r2), COLOR_RED)
+    if (r1 > r2) then
+      r = r2
+    end
+  else
+    o = GenColorObj(-1, TILE_W * math.abs(c1 - c2), 2, COLOR_RED)
+    if (c1 > c2) then
+      c = c2
+    end
+  end
+  Good.SetPos(o, mx + TILE_W * c + TILE_W/2, my + TILE_H * r + TILE_H/2)
+  return o
+end
+
+local function HandleKey(param, dx, dy)
+  if (nil == param.cur) then
+    local o = GenTexObj(param._id, 1, TILE_W, TILE_H, 192, 136)
+    Good.SetPos(o, mx, my)
+    param.cur = o
+  end
+  local x, y = Good.GetPos(param.cur)
+  x = x + dx
+  y = y + dy
+  Good.SetPos(param.cur, x, y)
+end
+
 JewelCave = {}
 
 JewelCave.OnCreate = function(param)
@@ -62,128 +184,6 @@ JewelCave.OnCreate = function(param)
   Good.SetPos(o, mx, my)
   Good.SetVisible(o, Good.INVISIBLE)
   param.s = o
-end
-
-function isFlowVert(param, c, r1, r2)
-  if (r1 == r2) then
-    return true
-  end
-  if (r1 > r2) then
-    local tmp = r1
-    r1 = r2
-    r2 = tmp
-  end
-  local r
-  for r = r1, r2 do
-    local idx = c + r * MAP_W
-    if (-1 ~= param.p[idx] and idx ~= param.p1 and idx ~= param.p2) then
-      return false
-    end
-  end
-  return true
-end
-
-function isFlowHorz(param, r, c1, c2)
-  if (c1 == c2) then
-    return true
-  end
-  if (c1 > c2) then
-    local tmp = c1
-    c1 = c2
-    c2 = tmp
-  end
-  local c
-  for c = c1, c2 do
-    local idx = c + r * MAP_W
-    if (-1 ~= param.p[idx] and idx ~= param.p1 and idx ~= param.p2) then
-      return false
-    end
-  end
-  return true
-end
-
-function CheckLink(param)
-  if (-1 == param.p2) then
-    return false
-  end
-  local c1 = param.p1 % MAP_W
-  local r1 = math.floor(param.p1 / MAP_W)
-  local c2 = param.p2 % MAP_W
-  local r2 = math.floor(param.p2 / MAP_W)
-  -- Parallel row condition.
-  local path = nil                      -- Shortest path.
-  local r
-  for r = 0, MAP_H - 1 do
-    if (isFlowVert(param, c1, r1, r) and
-        isFlowVert(param, c2, r, r2) and
-        isFlowHorz(param, r, c1, c2)) then
-      local p = math.abs(c1 - c2) + math.abs(r1 - r) + math.abs(r - r2)
-      if (nil == path or p < path) then
-        param.link[0] = param.p1
-        param.link[1] = c1 + MAP_W * r
-        param.link[2] = c2 + MAP_W * r
-        param.link[3] = param.p2
-        path = p
-      end
-    end
-  end
-  -- Parallel column condition.
-  local c
-  for c = 0, MAP_W - 1 do
-    if (isFlowHorz(param, r1, c1, c) and
-        isFlowHorz(param, r2, c, c2) and
-        isFlowVert(param, c, r1, r2)) then
-      local p = math.abs(r1 - r2) + math.abs(c1 - c) + math.abs(c - c2)
-      if (nil == path or p < path) then
-        param.link[0] = param.p1
-        param.link[1] = c + MAP_W * r1
-        param.link[2] = c + MAP_W * r2
-        param.link[3] = param.p2
-        path = p
-      end
-    end
-  end
-  if (nil ~= path) then
-    return true
-  end
-  return false
-end
-
-function GenLinkObj(p1, p2)
-  if (p1 == p2) then
-    return -1
-  end
-  local c1 = p1 % MAP_W
-  local r1 = math.floor(p1 / MAP_W)
-  local c2 = p2 % MAP_W
-  local r2 = math.floor(p2 / MAP_W)
-  local c, r = c1, r1
-  local o
-  if (c1 == c2) then
-    o = GenColorObj(-1, 2, TILE_H * math.abs(r1 - r2), COLOR_RED)
-    if (r1 > r2) then
-      r = r2
-    end
-  else
-    o = GenColorObj(-1, TILE_W * math.abs(c1 - c2), 2, COLOR_RED)
-    if (c1 > c2) then
-      c = c2
-    end
-  end
-  Good.SetPos(o, mx + TILE_W * c + TILE_W/2, my + TILE_H * r + TILE_H/2)
-  return o
-end
-
-function HandleKey(param, dx, dy)
-  if (nil == param.cur) then
-    local o = GenTexObj(param._id, 1, TILE_W, TILE_H, 192, 136)
-    Good.SetPos(o, mx, my)
-    param.cur = o
-  end
-  local x, y = Good.GetPos(param.cur)
-  x = x + dx
-  y = y + dy
-  Good.SetPos(param.cur, x, y)
 end
 
 JewelCave.OnStep = function(param)

@@ -18,6 +18,72 @@ local path_data = {                     -- See i_cave_maze_book for the path.(1l
 
 local curr_path = ''
 
+local function GetMazeDirOffset(dir)
+  local x = arrow_dir[2 * (dir - 1) + 1]
+  local y = arrow_dir[2 * (dir - 1) + 2]
+  return x, y
+end
+
+local function CaveMazeScrollTo(param, dir)
+  param.tx, param.ty = GetMazeDirOffset(dir)
+  Good.SetScript(param._id, 'AnimCaveMazeScroll')
+end
+
+local function CheckMovePath_i(dir, o, x, y)
+  Good.SetVisible(o, Good.VISIBLE)
+  local ox, oy = GetMazeDirOffset(dir)
+  Good.SetPos(o, x + ox, y + oy)
+end
+
+local function CheckMovePath(param, dir)
+  if (4 == dir) then                    -- Move down to exit maze.
+    curr_path = path_data[3][2];
+  else
+    curr_path = curr_path .. tostring(dir)
+  end
+  for i = 1, #path_data do
+    local p = path_data[i]
+    if (p[2] == curr_path) then
+      CheckMovePath_i(dir, p[1], param.x[i], param.y[i])
+      return
+    end
+  end
+end
+
+local function CaveMazeHittest(param)
+  local x,y = Input.GetMousePos()
+  for i = 1, #arrow_obj do
+    if (PtInObj(x, y, arrow_obj[i])) then
+      CheckMovePath(param, i)
+      CaveMazeScrollTo(param, i)
+      return
+    end
+  end
+  local lx,ly = Good.GetPos(param._id)
+  if (PtInObj(lx + x, ly + y, ladder_obj_id)) then
+    Good.GenObj(-1, CAVE_FIELD_LVL_ID)
+    return
+  end
+  QuestOnStep(lx + x, ly + y)
+end
+
+local function IsWrongMazePath_i(s)
+  return string.len(curr_path) > string.len(s) or
+         curr_path ~= string.sub(s, 1, string.len(curr_path))
+end
+
+local function IsWrongMazePath()
+  for i = 1, #path_data do
+    local p = path_data[i]
+    if (not IsWrongMazePath_i(p[2])) then
+      return false
+    else
+      Good.SetVisible(p[1], Good.INVISIBLE)
+    end
+  end
+  return true
+end
+
 CaveMaze = {}
 
 CaveMaze.OnCreate = function(param)
@@ -43,49 +109,6 @@ CaveMaze.OnStep = function(param)
   end
 end
 
-function CaveMazeHittest(param)
-  local x,y = Input.GetMousePos()
-  for i = 1, #arrow_obj do
-    if (PtInObj(x, y, arrow_obj[i])) then
-      CheckMovePath(param, i)
-      CaveMazeScrollTo(param, i)
-      return
-    end
-  end
-  local lx,ly = Good.GetPos(param._id)
-  if (PtInObj(lx + x, ly + y, ladder_obj_id)) then
-    Good.GenObj(-1, CAVE_FIELD_LVL_ID)
-    return
-  end
-  QuestOnStep(lx + x, ly + y)
-end
-
-function CaveMazeScrollTo(param, dir)
-  param.tx, param.ty = GetMazeDirOffset(dir)
-  Good.SetScript(param._id, 'AnimCaveMazeScroll')
-end
-
-function CheckMovePath_i(dir, o, x, y)
-  Good.SetVisible(o, Good.VISIBLE)
-  local ox, oy = GetMazeDirOffset(dir)
-  Good.SetPos(o, x + ox, y + oy)
-end
-
-function CheckMovePath(param, dir)
-  if (4 == dir) then                    -- Move down to exit maze.
-    curr_path = path_data[3][2];
-  else
-    curr_path = curr_path .. tostring(dir)
-  end
-  for i = 1, #path_data do
-    local p = path_data[i]
-    if (p[2] == curr_path) then
-      CheckMovePath_i(dir, p[1], param.x[i], param.y[i])
-      return
-    end
-  end
-end
-
 function CenterMaze(param)
   if (IsWrongMazePath()) then
     curr_path = string.sub(curr_path, string.len(curr_path) - 1)
@@ -100,27 +123,4 @@ function CenterMaze(param)
   end
   Good.SetPos(param._id, SCR_W, SCR_H)
   Good.SetPos(dummy_obj_id, SCR_W, SCR_H)
-end
-
-function GetMazeDirOffset(dir)
-  local x = arrow_dir[2 * (dir - 1) + 1]
-  local y = arrow_dir[2 * (dir - 1) + 2]
-  return x, y
-end
-
-function IsWrongMazePath_i(s)
-  return string.len(curr_path) > string.len(s) or
-         curr_path ~= string.sub(s, 1, string.len(curr_path))
-end
-
-function IsWrongMazePath()
-  for i = 1, #path_data do
-    local p = path_data[i]
-    if (not IsWrongMazePath_i(p[2])) then
-      return false
-    else
-      Good.SetVisible(p[1], Good.INVISIBLE)
-    end
-  end
-  return true
 end

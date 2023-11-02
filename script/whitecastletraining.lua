@@ -74,6 +74,25 @@ local function HitTest(param)
   end
 end
 
+local function WhiteCastleTrainingDone(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    StartTalk(talk_id)
+  end
+  MoveHorse(param)
+end
+
+local function WhiteCastleTrainingPlay(param)
+  if (CHECK_COUNT <= GetCounterUiCount(param)) then
+    param.step = WhiteCastleTrainingDone
+    return
+  end
+  MoveHorse(param)
+  HitTest(param)
+  if (WaitTimer(param, WAIT_TIME)) then
+    GenTree(param)
+  end
+end
+
 WhiteCastleTraining = {}
 
 WhiteCastleTraining.OnCreate = function(param)
@@ -90,22 +109,4 @@ WhiteCastleTraining.OnStep = function(param)
     return
   end
   param.step(param)
-end
-
-function WhiteCastleTrainingDone(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    StartTalk(talk_id)
-  end
-end
-
-function WhiteCastleTrainingPlay(param)
-  if (CHECK_COUNT <= GetCounterUiCount(param)) then
-    param.step = WhiteCastleTrainingDone
-    return
-  end
-  MoveHorse(param)
-  HitTest(param)
-  if (WaitTimer(param, WAIT_TIME)) then
-    GenTree(param)
-  end
 end
