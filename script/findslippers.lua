@@ -1,3 +1,4 @@
+local MAX_SLIPPERS = 64
 local WAIT_TIME = 40
 
 local slippers_tex_id = 465
@@ -50,7 +51,7 @@ local function GenSlippers()
   local w,h = Resource.GetTexSize(slippers_tex_id)
   local o = GenSlipper(w, h, COLOR_RED)
   local o2
-  for i = 1, 64 do
+  for i = 1, MAX_SLIPPERS do
     o2 = GenSlipper(w, h, colors[1 + (i % #colors)])
   end
   Good.SetPos(o, Good.GetPos(o2))
