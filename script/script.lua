@@ -156,7 +156,7 @@ function Script.BuyShip()
 end
 
 function Script.ChargeFlashlight()
-  ScriptBuyFlashlight()
+  Script.BuyFlashlight()
 end
 
 function Script.CleanYellowSuit()
@@ -272,7 +272,7 @@ end
 
 function Script.SellFeather()
   local item = {'i_po_feather', 'i_laalaa_feather', 'i_tinky_winky_feather', 'i_dipsy_feather'}
-  ScriptSellItems_i(item, 2 * SELL_ITEM_COST)
+  Script.SellItems_i(item, 2 * SELL_ITEM_COST)
 end
 
 function Script.SellFish()
@@ -306,7 +306,7 @@ end
 
 function Script.SellMouseTail()
   local item = {'i_green_mouse_tail', 'i_red_mouse_tail', 'i_yellow_mouse_tail'}
-  ScriptSellItems_i(item, SELL_ITEM_COST)
+  Script.SellItems_i(item, SELL_ITEM_COST)
 end
 
 function Script.SellSuperNanoTowel()
