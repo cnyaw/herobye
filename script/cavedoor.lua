@@ -44,7 +44,7 @@ local function CaveDoorInputRight(param)
   if (not WaitTimer(param, WAIT_TIME)) then
     return
   end
-  ScriptOpenCaveDoor()
+  Script.OpenCaveDoor()
   if (HasPowerScissor() and HasMallet()) then
     StartTalk(input_code_right_small_chest_talk_id)
   else
