@@ -63,6 +63,7 @@ i_jewel = 65
 f_king_permission = 66
 i_temp_bet_sel = 67
 i_earthworm = 68
+f_had_super_nano_towel = 69
 --]]
 
 local bou_desc_id = 600

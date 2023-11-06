@@ -235,6 +235,7 @@ function Script.MakeSuperNanoTowel()
   SetItem('i_tinky_winky_feather', 0)
   SetItem('f_find_teletubbies', 0)
   SetItem('i_super_nano_towel', 1)
+  SetItem('f_had_super_nano_towel', 1)
 end
 
 function Script.OpenBatCave()

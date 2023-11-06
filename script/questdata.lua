@@ -80,7 +80,7 @@ QuestData = {
   [9114] = {TalkId = 1307, NextCond = IsHelpElderGlass, NextId = 9115},
   [9115] = {TalkId = 1310, NextCond = IsFindUfoPower, NextId = 9116},
   [9116] = {TalkId = 1311, NextId = 9117},
-  [9117] = {TalkId = 1310, NextCond = HasSuperNanoTowel, NextId = 9118},
+  [9117] = {TalkId = 1310, NextCond = HasSuperNanoTowelFlag, NextId = 9118},
   [9118] = {TalkId = 1312, NextCond = HasShip, NextId = 9119},
   [9119] = {TalkId = 1313},
   -- Hero village church, shelf.
@@ -195,13 +195,13 @@ QuestData = {
   -- Under world main map, to bat cave field,
   [21800] = {LevelId = BAT_CAVE_FIELD_LVL_ID},
   -- Trash field, old lady.
-  [22000] = {TalkId = 2700, NextCond = HasSuperNanoTowel, NextId = 22001},
+  [22000] = {TalkId = 2700, NextCond = HasSuperNanoTowelFlag, NextId = 22001},
   [22001] = {TalkId = 2702, NextId = 22002},
   [22002] = {TalkId = 2703},
   -- Trash field, magic mama.
   [23000] = {TalkId = 2800},
   -- Bat cave field, bat cave.
-  [23100] = {TalkId = 3400, NextCond = HasSuperNanoTowel, NextId = 23101},
+  [23100] = {TalkId = 3400, NextCond = HasSuperNanoTowelFlag, NextId = 23101},
   [23101] = {TalkId = 3401, NextCond = IsBatCaveOpened, NextId = 23102},
   [23102] = {TalkId = 3402},
   -- Janken planet, UFO.
@@ -239,7 +239,7 @@ QuestData = {
   [26000] = {TalkId = 3500, NextCond = HasShip, NextId = 26001},
   [26001] = {LevelId = FISH_FIELD_LVL_ID, TexId = SHIP_TEX_ID},
   -- Dock, fishman.
-  [26100] = {TalkId = 3550, NextCond = HasSuperNanoTowel, NextId = 26101},
+  [26100] = {TalkId = 3550, NextCond = HasSuperNanoTowelFlag, NextId = 26101},
   [26101] = {TalkId = 3551, NextCond = CanBuyShip, NextId = 26102},
   [26102] = {TalkId = 3552, NextId = 26103},
   [26103] = {TalkId = 3553},

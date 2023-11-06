@@ -456,6 +456,10 @@ function HasSuperNanoTowel()
   return HasItem('i_super_nano_towel')
 end
 
+function HasSuperNanoTowelFlag()
+  return HasItem('f_had_super_nano_towel')
+end
+
 function HasSuperSoap()
   return HasItem('i_super_soap')
 end
