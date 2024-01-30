@@ -62,20 +62,20 @@ Astroid.OnCreate = function(param)
   param.step = OnDestroyAstroidStep
 end
 
-Astroid.OnNewParticle = function(param, particle, iMgr)
-  local i = Stge.GetUserData(particle, 0, iMgr)
-  local cx = Stge.GetUserData(particle, 1, iMgr)
-  local cy = Stge.GetUserData(particle, 2, iMgr)
+Astroid.OnNewParticle = function(param, particle)
+  local i = Stge.GetUserData(particle, 0)
+  local cx = Stge.GetUserData(particle, 1)
+  local cy = Stge.GetUserData(particle, 2)
   local w,h = Resource.GetTexSize(astroid_tex_id)
   local o = Good.GenObj(-1, astroid_tex_id, 'AnimAstroidPiece')
   Good.SetAnchor(o, .5, .5)
   local px,py = w/cx, h/cy
   Good.SetDim(o, (i % cx) * px, math.floor(i / cy) * py, px, py)
-  Stge.BindParticle(particle, o, iMgr)
+  Stge.BindParticle(particle, o)
 end
 
-Astroid.OnKillParticle = function(param, particle, iMgr)
-  Good.KillObj(Stge.GetParticleBind(particle, iMgr))
+Astroid.OnKillParticle = function(param, particle)
+  Good.KillObj(Stge.GetParticleBind(particle))
 end
 
 Astroid.OnStep = function(param)
