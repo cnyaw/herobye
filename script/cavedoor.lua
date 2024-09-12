@@ -14,6 +14,9 @@ local btn_paper_obj_id = 10
 local input_code_right_talk_id = 2104
 local input_code_right_small_chest_talk_id = 2108
 
+local rps_code = {'1', '2', '3'}
+local rps_obj = {btn_scissor_obj_id, btn_stone_obj_id, btn_paper_obj_id}
+
 local function AddInputCode(param, code)
   param.input_code = param.input_code .. code
   local idx = string.len(param.input_code)
@@ -31,9 +34,9 @@ local function CaveDoorInput(param)
     Good.GenObj(-1, CAVE_FIELD_LVL_ID)
     return
   end
-  for i = 1, #param.rps_obj do
-    if (PtInObj(x, y, param.rps_obj[i])) then
-      AddInputCode(param, param.rps_code[i])
+  for i = 1, #rps_obj do
+    if (PtInObj(x, y, rps_obj[i])) then
+      AddInputCode(param, rps_code[i])
       ValidateInputCode(param)
       return
     end
@@ -76,7 +79,7 @@ local function GenInputCodeBlock(param, x, y)
   return o
 end
 
-local function InitInputCodeBlock(param)
+local function InitCaveDoor(param)
   local code = GetOpenCaveDoorCode()
   local OFFSET_X = (SCR_W - string.len(code) * CX_BLOCK_MARGIN) / 2
   param.block_obj = {}
@@ -86,20 +89,6 @@ local function InitInputCodeBlock(param)
     x = x + CX_BLOCK_MARGIN
   end
   param.input_code = ''
-end
-
-local function InitRpsCode(param)
-  param.rps_code = {'1', '2', '3'}
-end
-
-local function InitRpsObj(param)
-  param.rps_obj = {btn_scissor_obj_id, btn_stone_obj_id, btn_paper_obj_id}
-end
-
-local function InitCaveDoor(param)
-  InitRpsCode(param)
-  InitRpsObj(param)
-  InitInputCodeBlock(param)
 end
 
 local function InputCodeFull(code)
