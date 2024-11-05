@@ -1897,11 +1897,13 @@ TalkData = {
   -- Bat cave field, bat cave.
   [3400] = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {Image = STONE_TEX_ID},
     {Text = '洞口被大石塊封住了'},
     {LevelId = BAT_CAVE_FIELD_LVL_ID},
   },
   [3401] = {
     {FadeTo = {ONE_SECOND_TICK, COLOR_BLACK}},
+    {Image = STONE_TEX_ID},
     {Text = '洞口被大石塊封住了'},
     {Text = '好像有一個小洞'},
     {Text = '洞裡面黑漆漆的什麼都看不見'},
