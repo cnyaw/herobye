@@ -2765,13 +2765,24 @@ script=JewelCave
 name=computer
 bgColor=128 128 0
 script=Computer
-objects=451
+objects=451 595
 
 [object451]
 bgColor=0 0 0
 x=32
 y=16
 dim=0 0 576 160
+
+[object595]
+name=o_jankenLib
+texture=261
+rot=90
+yscale=2
+xpivot=0.5
+ypivot=0.5
+x=592
+y=352
+dim=0 0 32 32
 
 [level453]
 name=dq main castle

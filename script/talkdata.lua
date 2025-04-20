@@ -2076,13 +2076,15 @@ TalkData = {
   -- Dq, red castle.
   [3750] = {
     {Image = red_castle_obj_id},
-    {Text = '紅之國是最強的'},
+    {Text = '我是紅王子'},
+    {Text = '我的紅之國是最強的'},
     {LevelId = NORTH_NATION_LVL_ID},
   },
   -- Dq, white castle.
   [3780] = {
     {Image = white_castle_obj_id},
-    {Text = '白之國是無敵的'},
+    {Text = '我是白王子'},
+    {Text = '我的白之國是無敵的'},
     {LevelId = NORTH_NATION_LVL_ID},
   },
   -- Dq, red castle training.

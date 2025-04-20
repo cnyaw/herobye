@@ -229,4 +229,5 @@ Computer.OnStep = function(param)
       end
     end
   end
+  QuestOnStep(x, y)                     -- Handle btn o_jankenLib.
 end
