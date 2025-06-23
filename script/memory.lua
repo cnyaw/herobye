@@ -62,7 +62,7 @@ local function MemoryGamePlay(param)
 end
 
 function MemoryGameInitQuiz(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
+  if (not WaitTime(param, WAIT_TIME)) then
     return
   end
   local n = math.random(#colors)

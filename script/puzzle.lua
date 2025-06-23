@@ -119,7 +119,7 @@ local function MoveUp()
 end
 
 local function PuzzleGameEnd(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(found_dipsy_talk_id)
   end
 end

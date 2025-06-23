@@ -48,7 +48,7 @@ local function SlapMouseHittest(param)
 end
 
 local function SlapMouseDone(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
+  if (not WaitTime(param, WAIT_TIME)) then
     return
   end
   if (IsHelpElderYellow()) then
@@ -67,7 +67,7 @@ local function SlapMouseInput(param)
 end
 
 local function SlapMouseMoving(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
+  if (not WaitTime(param, WAIT_TIME)) then
     return
   end
   param.obj_i = param.obj_i - 1

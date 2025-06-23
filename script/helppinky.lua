@@ -5,7 +5,7 @@ local help_pinky_done_talk_id = 1707
 local help_pinky_done_dream_talk_id = 1151
 
 local function HelpPinkyEnd(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
+  if (not WaitTime(param, WAIT_TIME)) then
     return
   end
   if (HasPowerScissor()) then

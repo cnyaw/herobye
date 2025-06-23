@@ -84,7 +84,7 @@ local function OnSeekFrogStep(param)
 end
 
 function OnSeekFrogDelay(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
+  if (not WaitTime(param, WAIT_TIME)) then
     return
   end
   if (CHECK_COUNT <= GetCounterUiCount(param)) then

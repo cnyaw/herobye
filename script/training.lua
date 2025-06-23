@@ -107,7 +107,7 @@ local function SetNextTrainingLevel(id)
 end
 
 local function TrainingClickEnd(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     AdvanceTrainingLevel(click_training)
     SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
   end
@@ -139,7 +139,7 @@ local function TrainingClickPlay(param)
 end
 
 local function TrainingStickEnd(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     AdvanceTrainingLevel(stick_training)
     SetNextTrainingLevel(TRAINING_MAP_LVL_ID)
   end

@@ -96,7 +96,7 @@ local function GenTrashCan()
 end
 
 local function PickTrashDone(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(clean_done_talk_id)
   end
 end

@@ -775,7 +775,7 @@ function UpdateCounterUi(param, tex, count)
   param.counter_dummy = dummy
 end
 
-function WaitTimer(param, t)
+function WaitTime(param, t)
   if (nil == param.wait_time) then
     param.wait_time = t
   end

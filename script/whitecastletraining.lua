@@ -75,7 +75,7 @@ local function HitTest(param)
 end
 
 local function WhiteCastleTrainingDone(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(talk_id)
   end
   MoveHorse(param)
@@ -88,7 +88,7 @@ local function WhiteCastleTrainingPlay(param)
   end
   MoveHorse(param)
   HitTest(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     GenTree(param)
   end
 end

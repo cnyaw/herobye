@@ -24,7 +24,7 @@ local function InterviewHeroVillageBlink(param)
 end
 
 local function InterviewHeroVillageInit(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     param.step = InterviewHeroVillageBlink
   end
 end

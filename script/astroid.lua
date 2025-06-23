@@ -37,7 +37,7 @@ local function HittestAstroid(param, x, y)
 end
 
 local function OnPassAstroidStep(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     Good.GenObj(-1, JANKEN_PLANET_LVL_ID)
   end
 end

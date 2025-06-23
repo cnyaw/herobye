@@ -30,7 +30,7 @@ local function GenMusicalNote(param)
 end
 
 local function MusicGameDone(param)
-  if (WaitTimer(param, WAIT_TIME_DONE)) then
+  if (WaitTime(param, WAIT_TIME_DONE)) then
     StartTalk(talk_id)
   end
 end
@@ -68,7 +68,7 @@ end
 
 local function MusicGamePlay(param)
   HitTest(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     GenMusicalNote(param)
   end
 end

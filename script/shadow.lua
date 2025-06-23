@@ -30,7 +30,7 @@ local function ShadowAnimDone()
 end
 
 local function ShadowGameDone(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(found_laalaa_talk_id)
   end
 end

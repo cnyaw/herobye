@@ -19,7 +19,7 @@ local function ClearPair(param, i, j)
 end
 
 local function PairGameEnd(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(pass_talk_id)
   end
 end

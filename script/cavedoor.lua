@@ -44,7 +44,7 @@ local function CaveDoorInput(param)
 end
 
 local function CaveDoorInputRight(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
+  if (not WaitTime(param, WAIT_TIME)) then
     return
   end
   Script.OpenCaveDoor()
@@ -63,7 +63,7 @@ local function ClearInputCode(param)
 end
 
 local function CaveDoorInputWrong(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     ClearInputCode(param)
     param.step = CaveDoorInput
   end

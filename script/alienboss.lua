@@ -45,7 +45,7 @@ local function AlienBossHittest(param)
 end
 
 local function AlienBossWin(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(win_talk_id)
   end
 end
@@ -76,7 +76,7 @@ AlienBoss.OnStep = function(param)
     Good.GenObj(-1, ALIEN_AREA_LVL_ID)
     return
   end
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     RandUfoWeapon()
   end
   param.step(param)

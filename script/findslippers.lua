@@ -6,7 +6,7 @@ local slippers_tex_id = 465
 local found_slippers_talk_id = 4001
 
 local function OnStepFoundSlippers(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(found_slippers_talk_id)
   end
 end

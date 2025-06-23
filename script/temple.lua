@@ -131,7 +131,7 @@ local function TempleOnStep(param)
 end
 
 local function TempleMoveUser(param)
-  if (not WaitTimer(param, user_move_time)) then
+  if (not WaitTime(param, user_move_time)) then
     return
   end
   user_pos = new_user_pos
@@ -155,7 +155,7 @@ end
 
 function TempleRollDice(param)
   local n = RollDice()
-  if (not WaitTimer(param, WAIT_TIME)) then
+  if (not WaitTime(param, WAIT_TIME)) then
     return
   end
   ConsumeCoin(GetBetCount())

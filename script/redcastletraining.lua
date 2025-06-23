@@ -47,7 +47,7 @@ local function SetCheckCount(param, c)
 end
 
 local function RedCastleTrainingDone(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(talk_id)
   end
 end

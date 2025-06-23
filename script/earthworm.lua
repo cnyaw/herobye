@@ -22,7 +22,7 @@ local function SetCheckCount(param, c)
 end
 
 local function EarthWormDone(param)
-  if (not WaitTimer(param, WAIT_TIME)) then
+  if (not WaitTime(param, WAIT_TIME)) then
     return
   end
   if (IsPass(param)) then

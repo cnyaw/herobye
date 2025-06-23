@@ -87,7 +87,7 @@ local function IsBeautifulRainbow()
 end
 
 local function RainbowGameDone(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(beautiful_rainbow_talk_id)
   end
 end

@@ -10,7 +10,7 @@ local clothes_tex_id = {tshirt_txt_id, pants_txt_id}
 local clothes_drying_done_talk_id = 1503
 
 local function ClothesDryingEnd(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     StartTalk(clothes_drying_done_talk_id)
   end
 end

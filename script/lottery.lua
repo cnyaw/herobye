@@ -83,7 +83,7 @@ local function LotteryDraw(param)
 end
 
 local function OnLotteryEnd(param)
-  if (WaitTimer(param, WAIT_TIME)) then
+  if (WaitTime(param, WAIT_TIME)) then
     AddCoin(lottery_price)
     StartTalk(end_lottery_talk_id)
   end
