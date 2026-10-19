@@ -30,14 +30,6 @@ local function BeginDragFishBone(param)
   return false
 end
 
-local function DraggingFishBone(param)
-  local x, y = Input.GetMousePos()
-  local new_x = param.orig_x + (x - param.click_x)
-  local new_y = param.orig_y + (y - param.click_y)
-  local o = fish_bone[param.drag_idx]
-  Good.SetPos(o, new_x, new_y)
-end
-
 local function IntersectObj(x, y, w, h, o)
   local ox, oy = Good.GetPos(o)
   local ol, ot, ow, oh = Good.GetDim(o)
@@ -51,6 +43,19 @@ local function DropFishBoneToTrash(param)
   return IntersectObj(x, y, w, h, trash_can)
 end
 
+local function DraggingFishBone(param)
+  local x, y = Input.GetMousePos()
+  local new_x = param.orig_x + (x - param.click_x)
+  local new_y = param.orig_y + (y - param.click_y)
+  local o = fish_bone[param.drag_idx]
+  Good.SetPos(o, new_x, new_y)
+  if (DropFishBoneToTrash(param)) then
+    Good.SetBgColor(trash_can, COLOR_RED)
+  else
+    Good.SetBgColor(trash_can, COLOR_WHITE)
+  end
+end
+
 local function DragFishBoneDone(param)
   if (not DropFishBoneToTrash(param)) then
     local o = fish_bone[param.drag_idx]
@@ -60,6 +65,7 @@ local function DragFishBoneDone(param)
     fish_bone[param.drag_idx] = nil
     SetCheckCount(param, GetCounterUiCount(param) + 1)
   end
+  Good.SetBgColor(trash_can, COLOR_WHITE)
 end
 
 local function IntersectFishBones(x, y, w, h)
